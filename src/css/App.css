@@ -1,0 +1,264 @@
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+/* -----------------------------------------------------------------header */
+
+.header-section {
+	background-image: url(../images/image_logo1.png);
+	background-size: cover;
+	background-color: rgba(155, 105, 9, 1);
+}
+
+logo {
+	height: 64px;
+}
+
+header {
+	height: 94px;
+}
+
+.logo__text {
+	font-size: 18px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	text-decoration: none;
+	color: grey;
+}
+
+.nav__item {
+	margin-right: 70px;
+}
+
+/* -------------------------------------------------------------------section-header */
+
+.section-header {
+	margin-top: 253px;
+	height: 506px;
+}
+
+.section-header-text {
+	margin: auto;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+.section-header-form {
+	height: 506px;
+	background-color: rgba(41, 41, 41, 0.8);
+}
+
+.form-group {
+	position: relative;
+}
+
+.form-group .glyphicon {
+	position: absolute;
+	right: 0px;
+	color: lightgrey;
+	font-size: 20px;
+}
+
+.form-left-from-where {
+	margin-top: 79px;
+}
+
+.form-right-where {
+	margin-top: 111px;
+}
+
+.form-right-where-two-form {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.table-borderless {
+	background-color: #FFFFFF;
+	border-radius: 2px;
+}
+
+.header-bottom-line {
+	height: 8px;
+	background: rgba(255, 168, 0, 1);
+}
+
+/* ------------------------------------------------------------------section-about-us */
+
+.about-us {
+	height: 564px;
+}
+
+.about-us p.col-lg-2 {
+	margin-top: 144px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 36px;
+	line-height: normal;
+	text-transform: uppercase;
+}
+
+.about-us-vertical-line {
+	width: 9px;
+	height: 231px;
+	background: #FFA800;
+}
+
+/* -----------------------------------------------------------------section-how-it-works */
+
+.how-it-works {
+	background-image: url(../images/mask_group.png);
+	background-size: cover;
+	height: 575px;
+	color: #FFFFFF;
+}
+
+.how-it-works .col-lg-12 {
+	margin-top: 69px;
+}
+
+.how-it-works .col-lg-9 {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: normal;
+	text-transform: uppercase;
+}
+
+.how-it-works .btn {
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+}
+
+.how-it-works .icon1 {
+	background-image: url(../images/group_icon1.png);
+	height: 162px;
+	width: 162px;
+}
+
+.how-it-works .icon2 {
+	background-image: url(../images/group_icon2.png);
+	height: 162px;
+	width: 162px;
+}
+
+.how-it-works .icon3 {
+	background-image: url(../images/group_icon3.png);
+	height: 162px;
+	width: 162px;
+}
+
+/* --------------------------------------------------------------section-reviews */
+
+.reviews {
+	height: 519px;
+}
+
+.review-head {
+	margin-top: 152px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 36px;
+	line-height: normal;
+	text-transform: uppercase;
+}
+
+.review-icon1 {
+	background-image: url(../images/review_icon1.png);
+	height: 206px;
+	width: 206px;
+}
+
+.review-icon2 {
+	background-image: url(../images/review_icon2.png);
+	height: 200px;
+	width: 200px;
+}
+
+/* ---------------------------------------------------------------footer */
+
+footer {
+	background-color: rgba(45, 43, 47, 1);
+	height: 423px;
+	color: white;
+}
+
+.icon__phone {
+	width: 30px;
+	height: 30px;
+	background-image: url(../images/icon_phone.png);
+}
+
+.icon__message {
+	width: 30px;
+	height: 24.55px;
+	background-image: url(../images/icon_message.png);
+}
+
+.icon__skype {
+	width: 30px;
+	height: 30px;
+	background-image: url(../images/icon_skype.png);
+}
+
+.icon__location {
+	width: 21px;
+	height: 30px;
+	background-image: url(../images/icon_location.png);
+}
+
+.footer-button {
+	color: rgba(229, 229, 229, 1);
+}
+
+.icons-subscription__youtube {
+	width: 37.69px;
+	height: 30px;
+	background-image: url(../images/icon_youtube.png)
+}
+
+.icons-subscription__in {
+	width: 32px;
+	height: 30px;
+	background-image: url(../images/icon_in.png)
+}
+
+.icons-subscription__google-plus {
+	width: 47px;
+	height: 30px;
+	background-image: url(../images/icon_google-plus.png)
+}
+
+.icons-subscription__facebook {
+	width: 14px;
+	height: 30px;
+	background-image: url(../images/icon_facebook.png)
+}
+
+.icons-subscription__twitter {
+	width: 37px;
+	height: 30px;
+	background-image: url(../images/icon_twitter.png)
+}
+
+.footer-bottom {
+	background-color: rgba(45, 43, 47, 1);
+	height: 96px;
+}
+
+.icon-bottom {
+	background-image: url(../images/icon_bottom.png);
+	width: 36px;
+	height: 36px;
+}
