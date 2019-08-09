@@ -11,6 +11,23 @@ body {
 	background-color: rgba(155, 105, 9, 1);
 }
 
+.header-section-two-page {
+	background-color: rgba(155, 105, 9, 1);
+}
+
+.header-section-three-page {
+	background-image: url(../images/image_logo2.png);
+	background-size: cover;
+	background-color: rgba(146, 143, 148, 1);
+	height: 596px;
+}
+
+.section-header-order {
+	margin-top: 100px;
+	background-color: rgba(41, 41, 41, 0.69);
+	height: 215px;
+}
+
 logo {
 	height: 64px;
 }
@@ -39,6 +56,10 @@ a:hover {
 
 /* -------------------------------------------------------------------section-header */
 
+.header-logo {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
 .section-header {
 	margin-top: 253px;
 	height: 506px;
@@ -66,19 +87,6 @@ a:hover {
 	right: 0px;
 	color: lightgrey;
 	font-size: 20px;
-}
-
-.form-left-from-where {
-	margin-top: 79px;
-}
-
-.form-right-where {
-	margin-top: 111px;
-}
-
-.form-right-where-two-form {
-	padding-top: 80px;
-	padding-bottom: 80px;
 }
 
 .table-borderless {
@@ -197,59 +205,94 @@ footer {
 .icon__phone {
 	width: 30px;
 	height: 30px;
-	background-image: url(../images/icon_phone.png);
+	background-image: url(../images/icon_footer_phone.png);
 }
 
 .icon__message {
 	width: 30px;
 	height: 24.55px;
-	background-image: url(../images/icon_message.png);
+	background-image: url(../images/icon_footer_message.png);
 }
 
 .icon__skype {
 	width: 30px;
 	height: 30px;
-	background-image: url(../images/icon_skype.png);
+	background-image: url(../images/icon_footer_skype.png);
 }
 
 .icon__location {
 	width: 21px;
 	height: 30px;
-	background-image: url(../images/icon_location.png);
+	background-image: url(../images/icon_footer_location.png);
 }
 
 .footer-button {
 	color: rgba(229, 229, 229, 1);
 }
 
-.icons-subscription__youtube {
+.icons-subscription-youtube {
 	width: 37.69px;
 	height: 30px;
-	background-image: url(../images/icon_youtube.png)
+	background-image: url(../images/icon_footer_youtube.png);
+	cursor: pointer;
 }
 
-.icons-subscription__in {
+.icons-subscription-youtube:hover {
+	background: url(../images/icon_footer_youtube_checked.png);
+	width: 37.69px;
+	height: 30px;
+}
+
+.icons-subscription-in {
 	width: 32px;
 	height: 30px;
-	background-image: url(../images/icon_in.png)
+	background-image: url(../images/icon_footer_in.png);
+	cursor: pointer;
 }
 
-.icons-subscription__google-plus {
+.icons-subscription-in:hover {
+	width: 32px;
+	height: 30px;
+	background-image: url(../images/icon_footer_in_checked.png);
+}
+
+.icons-subscription-google-plus {
 	width: 47px;
 	height: 30px;
-	background-image: url(../images/icon_google-plus.png)
+	background-image: url(../images/icon_footer_google_plus.png);
+	cursor: pointer;
 }
 
-.icons-subscription__facebook {
+.icons-subscription-google-plus:hover {
+	width: 47px;
+	height: 30px;
+	background-image: url(../images/icon_footer_google_plus_checked.png);
+}
+
+.icons-subscription-facebook {
 	width: 14px;
 	height: 30px;
-	background-image: url(../images/icon_facebook.png)
+	background-image: url(../images/icon_footer_facebook.png);
+	cursor: pointer;
 }
 
-.icons-subscription__twitter {
+.icons-subscription-facebook:hover {
+	width: 14px;
+	height: 30px;
+	background-image: url(../images/icon_footer_facebook_checked.png);
+}
+
+.icons-subscription-twitter {
 	width: 37px;
 	height: 30px;
-	background-image: url(../images/icon_twitter.png)
+	background-image: url(../images/icon_footer_twitter.png);
+	cursor: pointer;
+}
+
+.icons-subscription-twitter:hover {
+	width: 37px;
+	height: 30px;
+	background-image: url(../images/icon_footer_twitter_checked.png);
 }
 
 .footer-bottom {
@@ -258,7 +301,487 @@ footer {
 }
 
 .icon-bottom {
-	background-image: url(../images/icon_bottom.png);
+	background-image: url(../images/icon_footer_bottom.png);
 	width: 36px;
 	height: 36px;
+}
+
+/* -------------------------------------------------------------three-page */
+
+.progress-state-number {
+	border: 2px solid #FFFFFF;
+	border-radius: 15px;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.progress-state-text {
+	margin-left: 2%;
+	margin-top: 35px;
+}
+
+.tickets-search-param {
+	color: white;
+}
+
+.progress-state {
+	color: white;
+}
+
+.progress-state-button {
+	padding: 0px;
+	background: #FFA800;
+}
+
+.tickets-search-window {
+	background-color: rgb(251, 249, 249);
+}
+
+.icon-coupe {
+	width: 17px;
+	height: 17px;
+}
+
+.icon-wifi-rocket-cup {
+	width: 92px;
+	height: 20px;
+}
+
+.tickets-search-result {
+	color: black;
+}
+
+.select-tickets-search-number-train {
+	background-color: #E4E0E9;
+}
+
+.result-search-of-tickets {
+	background: #FFFFFF;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.result-search-of-tickets p {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 5px;
+}
+
+.quantity-places-orange {
+	color: rgba(255, 168, 0, 1);
+	font-size: 18px;
+}
+
+.last-tickets {
+	color: black;
+}
+
+.last-ticket-result {
+	font-size: 12px;
+	background: #FFFFFF;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0px 2px 2px rgba(62, 60, 65, 0.25);
+}
+
+.last-ticket-price {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 12px;
+	color: #FFA800;
+}
+
+.page-search-select-number {
+	width: 55px;
+	height: 55px;
+	background: #FFFFFF;
+	border: 2px solid #C4C4C4;
+	border-radius: 5px;
+}
+
+.page-search-select-number:hover {
+	border: 2px solid #FFA800;
+	border-radius: 5px;
+}
+
+.page-search-select-number:visited {
+	background: #FFA800;
+}
+
+.page-search-select-number:active {
+	background: #FFA800;
+}
+
+/* ------------------------------------------------four page */
+
+.custom-control-label::before {
+	width: 30px;
+}
+
+.choice-of-place-there {
+	background: #FFFFFF;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.choice-ticket-train-there {
+	background: #F7F6F6;
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.quantity-tickets-check-there-left {
+	background: #F7F6F6;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+	color: #000000;
+}
+
+.quantity-tickets-check-there-center {
+	border: 1px solid rgba(255, 168, 0, 0.79);
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+	color: #928F94;
+}
+
+.horizontal-line-gray {
+	width: auto;
+	height: 0px;
+	border: 1px solid #C4C4C4;
+}
+
+.choice-type-vagon-button button {
+	border: 0px;
+}
+
+.choice-type-vagon-button p {
+	font-weight: bold;
+	margin-top: 10px;
+	color: rgba(146, 143, 148, 1);
+}
+
+.choice-type-vagon-button button:hover p {
+	background-color: rgba(255, 255, 255, 1);
+	font-weight: bold;
+	color: rgba(255, 168, 0, 1);
+}
+
+.icon-type-vagon-seat {
+	display: inline-block;
+	background: url(../images/icon_type_vagon_seat.png);
+	width: 31px;
+	height: 50px;
+}
+
+.icon-type-vagon-seat:hover {
+	background: url(../images/icon_type_vagon_seat_checked.png);
+	width: 31px;
+	height: 50px;
+}
+
+.icon-type-vagon-reserved-seat {
+	display: inline-block;
+	background: url(../images/icon_type_vagon_reserved_seat.png);
+	width: 50px;
+	height: 50px;
+}
+
+.icon-type-vagon-reserved-seat:hover {
+	background: url(../images/icon_type_vagon_reserved_seat_checked.png);
+	width: 50px;
+	height: 50px;
+}
+
+.icon-type-vagon-coupe {
+	display: inline-block;
+	background: url(../images/icon_type_vagon_coupe.png);
+	width: 50px;
+	height: 50px;
+}
+
+.icon-type-vagon-coupe:hover {
+	background: url(../images/icon_type_vagon_coupe_checked.png);
+	width: 50px;
+	height: 50px;
+}
+
+.icon-type-vagon-luxury {
+	display: inline-block;
+	background: url(../images/icon_type_vagon_luxury.png);
+	width: 56.45px;
+	height: 50px;
+}
+
+.icon-type-vagon-luxury:hover {
+	background: url(../images/icon_type_vagon_luxury_checked.png);
+	width: 56.45px;
+	height: 50px;
+}
+
+.choice-type-vagon-button button:hover {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.number-of-vagon {
+	font-size: 12px;
+	height: 37px;
+	padding: 10px;
+	background: rgba(255, 168, 0, 0.44);
+}
+
+.number-of-vagon-checked-yellow {
+	padding: 25px 25px 10px 10px;
+	background: rgba(255, 168, 0, 0.44);
+}
+
+.number-of-vagon-checked-yellow-number {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 64px;
+	line-height: 28px;
+	
+}
+
+.number-of-vagon-checked-yellow-text {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 18px;
+	text-align: center;
+}
+
+.number-of-people-online {
+	background-color: rgba(243, 243, 243, 1);
+	padding: 15px;
+	width: 199px;
+	height: 72px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.image-vagon-places {
+	margin-left: 15px;
+	margin-bottom: 50px;
+	width: 740px;
+}
+
+.number-of-vagon-checked label {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	position: relative;
+ }
+
+.icon-vagon-conditioner[type="checkbox"] {
+	position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+	background: url(../images/icon_vagon_conditioner.png) no-repeat;
+	cursor: pointer;
+}
+
+.icon-vagon-conditioner[type="checkbox"]:hover {
+	background: url(../images/icon_vagon_conditioner_hover.png) no-repeat;
+}
+
+.icon-vagon-conditioner[type="checkbox"]:checked {
+	position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+	background: url(../images/icon_vagon_conditioner_checked.png) no-repeat;
+}
+
+.icon-vagon-wifi[type="checkbox"] {
+	position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+	background: url(../images/icon_vagon_wifi.png) no-repeat;
+	cursor: pointer;
+}
+
+.icon-vagon-wifi[type="checkbox"]:hover {
+	background: url(../images/icon_vagon_wifi_hover.png) no-repeat;
+}
+
+.icon-vagon-wifi[type="checkbox"]:checked {
+	position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+	background: url(../images/icon_vagon_wifi_checked.png) no-repeat;
+}
+
+.icon-vagon-linens[type="checkbox"] {
+	position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+	background: url(../images/icon_vagon_linens.png) no-repeat;
+	cursor: pointer;
+}
+
+.icon-vagon-linens[type="checkbox"]:hover {
+	background: url(../images/icon_vagon_linens_hover.png) no-repeat;
+}
+
+.icon-vagon-linens[type="checkbox"]:checked {
+	position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+	background: url(../images/icon_vagon_linens_checked.png) no-repeat;
+}
+
+.icon-vagon-cup[type="checkbox"] {
+	position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+	background: url(../images/icon_vagon_cup.png) no-repeat;
+	cursor: pointer;
+}
+
+.icon-vagon-cup[type="checkbox"]:hover {
+	background: url(../images/icon_vagon_cup_hover.png) no-repeat;
+}
+
+.icon-vagon-cup[type="checkbox"]:checked {
+	position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+	background: url(../images/icon_vagon_cup_checked.png) no-repeat;
+}
+
+.choce-of-place-back {
+	background: #FFFFFF;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.choice-ticket-train-back {
+	background: #F7F6F6;
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.quantity-tickets-check-back-left {
+	width: 317px;
+	height: 192px;
+	background: #F7F6F6;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* ----------------------------------------------------- five page */
+
+.trip-details {
+	color: white;
+	font-size: 12px;
+}
+
+.passengers-form-filling {
+	font-family: Roboto;
+	background: #FFFFFF;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.passengers-form-number {
+	background: #F9F9F9;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 104px;
+	height: 30px;
+}
+
+.slider {
+	border: 1px solid #928F94;
+	border-radius: 5px;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #FFFFFF;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	border-radius: 5px;
+	position: absolute;
+	content: "";
+	height: 28px;
+	width: 50px;
+	background-color: rgba(255, 168, 0, 1);
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(52px);
+	-ms-transform: translateX(52px);
+	transform: translateX(52px);
+}
+
+.form-passport-danger {
+	background-color: rgba(255, 61, 0, 0.38);
+}
+
+.form-passport-ready {
+	background-color: rgba(178, 246, 161, 1);
+}
+
+/* ---------------------------------------------------- eight-page */
+
+.final-order-window-white-block {
+	height: 900px;
+}
+
+.header-section-eight-page {
+	background-image: url(../images/image_logo_final_order.png);
+	background-size: cover;
+	height: 596px;
+}
+
+.header-text-final-order {
+	margin-top: 300px;
+	font-weight: bold;
+	font-size: 60px;
+	line-height: 84px;
+	color: #FFFFFF;
+}
+
+.final-order-window {
+	background: #FFFFFF;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.tickets-icons-window {
+	background: #F4F3F6;
+}
+
+.rate-service-back-main-page {
+	background-color: rgba(255, 168, 0, 0.88);
 }
