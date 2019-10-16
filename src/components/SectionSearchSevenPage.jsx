@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import iconThere from '../images/icon_there.png';
 import iconBack from '../images/icon_back.png';
 import iconMinus from '../images/icon_minus.png';
@@ -305,7 +305,7 @@ const SectionSearchSevenPage = () => {
 						</div>
 					</div>
 					<div className="d-flex justify-content-end mt-5">
-						<Link className="btn btn-warning text-white text-uppercase pl-5 pr-5 mt-5 mb-3" to="/eight_page" type="button">подтвердить</Link>
+						<NavLink className="btn btn-warning text-white text-uppercase pl-5 pr-5 mt-5 mb-3" to="/eight_page" type="button">подтвердить</NavLink>
 					</div>
 				</div>
 

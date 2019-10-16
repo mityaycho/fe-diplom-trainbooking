@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom';
 import '../css/App.css';
 import '../css/animate.css';
 
@@ -16,20 +16,16 @@ import EightPage from '../components/EightPage';
 export class App extends Component {
   render() {
     return (
-			<BrowserRouter>
-				<div className="App">
-					<Switch>
-						<Route exact path="/" component={FirstPage} />
-						<Route path="/two_page" component={TwoPage} />
-						<Route path="/three_page" component={ThreePage} />
-						<Route path="/four_page" component={FourPage} />
-						<Route path="/five_page" component={FivePage} />
-						<Route path="/six_page" component={SixPage} />
-						<Route path="/seven_page" component={SevenPage} />
-						<Route path="/eight_page" component={EightPage} />
-					</Switch>
-				</div>
-			</BrowserRouter>
+      <div className="App">
+          <Route exact path="/" render={() => <FirstPage/>}/>
+          <Route path="/two_page" render={() => <TwoPage/>}/>
+          <Route path="/three_page" render={() => <ThreePage/>}/>
+          <Route path="/four_page" render={() => <FourPage/>}/>
+          <Route path="/five_page" render={() => <FivePage/>}/>
+          <Route path="/six_page" render={() => <SixPage/>}/>
+          <Route path="/seven_page" render={() => <SevenPage/>}/>
+          <Route path="/eight_page" render={() => <EightPage/>}/>
+      </div>
     );
   }
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import iconCachedWhite from '../images/icon_cached_white.png';
 
 const SectionHeaderTwoPage = () => {
@@ -29,7 +29,7 @@ const SectionHeaderTwoPage = () => {
 						</form>
 					</div>
 					<div className="text-right ml-4">
-						<Link className="btn btn-warning mt-5 col-lg-6" to="/three_page" type="button">найти билеты</Link>
+						<NavLink className="btn btn-warning mt-5 col-lg-6" to="/three_page" type="button">найти билеты</NavLink>
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const SectionHeaderThreePage = () => {
 	return (
@@ -26,7 +26,7 @@ const SectionHeaderThreePage = () => {
 							</form>
 						</div>
 						<div className="text-right">
-							<Link className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">найти билеты</Link>
+							<NavLink className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">найти билеты</NavLink>
 						</div>
 					</div>
 				</div>
