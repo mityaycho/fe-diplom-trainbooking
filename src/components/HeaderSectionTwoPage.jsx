@@ -5,8 +5,8 @@ import SectionHeaderTwoPage from '../components/SectionHeaderTwoPage';
 const HeaderSectionTwoPage = () => {
 	return (
 		<div className="header-section-two-page">
-			{Header()}
-			{SectionHeaderTwoPage()}
+			<Header />
+			<SectionHeaderTwoPage />
 			<div className="header-bottom-line"></div>
 		</div>
 	);

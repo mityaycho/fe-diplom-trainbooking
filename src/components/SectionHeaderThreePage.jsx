@@ -19,9 +19,9 @@ const SectionHeaderThreePage = () => {
 							<form className="form mt-3 w-100" action="input">
 								<p className="ml-3">Дата</p>
 								<div className="d-flex form-group m-3">
-									<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
+									<input className="col-sm form-control" type="date" />
 									<i className="glyphicon glyphicon-user"></i>
-									<input className="col-sm form-control ml-3" type="text" placeholder="дд/мм/гг" />
+									<input className="col-sm form-control ml-3" type="date"  />
 								</div>
 							</form>
 						</div>

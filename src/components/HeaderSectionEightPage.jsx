@@ -5,8 +5,8 @@ import SectionSearchEightPage from './SectionEightPage';
 const HeaderSectionEightPage = () => {
 	return (
 		<div className="header-section-eight-page">
-			{Header()}
-			{SectionSearchEightPage()}
+			<Header />
+			<SectionSearchEightPage />
 		</div>
 	);
 };

@@ -5,8 +5,8 @@ import SectionHeaderThreePage from '../components/SectionHeaderThreePage';
 const HeaderSectionThreePage = () => {
 	return (
 		<div className="header-section-three-page">
-			{Header()}
-			{SectionHeaderThreePage()}
+			<Header />
+			<SectionHeaderThreePage />
 		</div>
 	);
 };

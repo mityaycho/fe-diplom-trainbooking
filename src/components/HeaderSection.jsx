@@ -5,8 +5,8 @@ import SectionHeader from '../components/SectionHeader';
 const HeaderSection = () => {
 	return (
 		<div className="header-section">
-			{Header()}
-			{SectionHeader()}
+			<Header />
+			<SectionHeader />
 			<div className="header-bottom-line"></div>
 		</div>
 	);
