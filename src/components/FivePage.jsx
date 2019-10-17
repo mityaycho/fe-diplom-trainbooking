@@ -8,9 +8,9 @@ class FivePage extends Component {
 	render() {
 		return (
 			<div>
-				{HeaderSectionThreePage()}
-				{SectionSearchFivePage()}
-				{Footer()}
+				<HeaderSectionThreePage />
+				<SectionSearchFivePage />
+				<Footer />
 			</div>
 		);
 	}

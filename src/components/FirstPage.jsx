@@ -10,11 +10,11 @@ class FirstPage extends Component {
 	render() {
 		return (
 			<div>
-				{HeaderSection()}
-				{AboutUs()}
-				{HowItWorks()}
-				{Reviews()}
-				{Footer()}
+				<HeaderSection />
+				<AboutUs />
+				<HowItWorks />
+				<Reviews />
+				<Footer />
 			</div>
 		);
 	}

@@ -8,9 +8,9 @@ class ThreePage extends Component {
 	render() {
 		return (
 			<div>
-				{HeaderSectionThreePage()}
-				{SectionSearchThreePage()}
-				{Footer()}
+				<HeaderSectionThreePage />
+				<SectionSearchThreePage />
+				<Footer />
 			</div>
 		);
 	}

@@ -7,9 +7,9 @@ class EightPage extends Component {
 	render() {
 		return (
 			<div>
-				{HeaderSectionEightPage()}
+				<HeaderSectionEightPage />
 				<div className="final-order-window-white-block"></div>
-				{Footer()}
+				<Footer />
 			</div>
 		);
 	}

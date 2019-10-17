@@ -8,9 +8,9 @@ class FourPage extends Component {
 	render() {
 		return (
 			<div>
-				{HeaderSectionThreePage()}
-				{SectionSearchFourPage()}
-				{Footer()}
+				<HeaderSectionThreePage />
+				<SectionSearchFourPage />
+				<Footer />
 			</div>
 		);
 	}

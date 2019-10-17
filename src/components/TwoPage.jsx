@@ -10,11 +10,11 @@ class TwoPage extends Component {
 	render() {
 		return (
 			<div>
-				{HeaderSectionTwoPage()}
-				{AboutUs()}
-				{HowItWorks()}
-				{Reviews()}
-				{Footer()}
+				<HeaderSectionTwoPage />
+				<AboutUs />
+				<HowItWorks />
+				<Reviews />
+				<Footer />
 			</div>
 		);
 	}

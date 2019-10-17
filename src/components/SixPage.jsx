@@ -8,9 +8,9 @@ class SixPage extends Component {
 	render() {
 		return (
 			<div>
-				{HeaderSectionThreePage()}
-				{SectionSearchSixPage()}
-				{Footer()}
+				<HeaderSectionThreePage />
+				<SectionSearchSixPage />
+				<Footer />
 			</div>
 		);
 	}
