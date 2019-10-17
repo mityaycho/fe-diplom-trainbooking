@@ -2,9 +2,9 @@ import React from 'react';
 import ContainerFormOneTwoPage from "./ContainerFormOneTwoPage";
 import {NavLink} from "react-router-dom";
 
-const HeaderSectionTwoPage = () => {
+const HeaderSectionFirstPage = () => {
 	return (
-		<div className="header-section-two-page">
+		<div className="header-section">
 			<div className="container section-header text-white animated zoomInDow">
 				<div className="row">
 					<div className="section-header-text col-lg-6 pl-5">
@@ -14,7 +14,7 @@ const HeaderSectionTwoPage = () => {
 					<div className="section-header-form col-lg-6">
 						<ContainerFormOneTwoPage />
 						<div className="text-right ml-4">
-							<NavLink className="btn btn-warning mt-5 col-lg-6" to="/three_page" type="button">найти билеты</NavLink>
+							<NavLink className="btn btn-warning mt-5 col-lg-6" to="/two_page" type="button">найти билеты</NavLink>
 						</div>
 					</div>
 				</div>
@@ -24,4 +24,4 @@ const HeaderSectionTwoPage = () => {
 	);
 };
 
-export default HeaderSectionTwoPage;
+export default HeaderSectionFirstPage;

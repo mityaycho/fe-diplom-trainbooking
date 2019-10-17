@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 
-import HeaderSection from '../components/HeaderSection';
+import HeaderSectionFirstPage from './HeaderSectionFirstPage';
 import AboutUs from '../components/AboutUs';
 import HowItWorks from '../components/HowItWorks';
 import Reviews from '../components/Reviews';
-import Footer from '../components/Footer';
 
 class FirstPage extends Component {
 	render() {
 		return (
 			<div>
-				<HeaderSection />
+				<HeaderSectionFirstPage />
 				<AboutUs />
 				<HowItWorks />
 				<Reviews />
-				<Footer />
 			</div>
 		);
 	}

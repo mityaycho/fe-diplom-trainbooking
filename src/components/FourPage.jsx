@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import HeaderSectionThreePage from '../components/HeaderSectionThreePage';
 import SectionSearchFourPage from '../components/SectionSearchFourPage';
-import Footer from '../components/Footer';
 
 class FourPage extends Component {
 	render() {
@@ -10,7 +9,6 @@ class FourPage extends Component {
 			<div>
 				<HeaderSectionThreePage />
 				<SectionSearchFourPage />
-				<Footer />
 			</div>
 		);
 	}

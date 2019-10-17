@@ -11,12 +11,16 @@ import FivePage from '../components/FivePage';
 import SixPage from '../components/SixPage';
 import SevenPage from '../components/SevenPage';
 import EightPage from '../components/EightPage';
+import Footer from "./Footer";
+import HeaderSectionFirstPage from "./HeaderSectionFirstPage";
+import NavBar from "./NavBar";
 
 
 export class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
           <Route exact path="/" render={() => <FirstPage/>}/>
           <Route path="/two_page" render={() => <TwoPage/>}/>
           <Route path="/three_page" render={() => <ThreePage/>}/>
@@ -25,6 +29,7 @@ export class App extends Component {
           <Route path="/six_page" render={() => <SixPage/>}/>
           <Route path="/seven_page" render={() => <SevenPage/>}/>
           <Route path="/eight_page" render={() => <EightPage/>}/>
+        <Footer />
       </div>
     );
   }

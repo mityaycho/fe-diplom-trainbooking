@@ -4,7 +4,6 @@ import HeaderSectionTwoPage from '../components/HeaderSectionTwoPage';
 import AboutUs from '../components/AboutUs';
 import HowItWorks from '../components/HowItWorks';
 import Reviews from '../components/Reviews';
-import Footer from '../components/Footer';
 
 class TwoPage extends Component {
 	render() {
@@ -14,7 +13,6 @@ class TwoPage extends Component {
 				<AboutUs />
 				<HowItWorks />
 				<Reviews />
-				<Footer />
 			</div>
 		);
 	}

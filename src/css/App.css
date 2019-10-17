@@ -5,6 +5,11 @@ body {
 
 /* -----------------------------------------------------------------header */
 
+.nav-bar {
+	margin-top: 32px;
+	position: absolute;
+}
+
 .header-section {
 	background-image: url(../images/image_logo1.png);
 	background-size: cover;
@@ -16,6 +21,7 @@ body {
 }
 
 .header-section-three-page {
+	padding-top: 250px;
 	background-image: url(../images/image_logo2.png);
 	background-size: cover;
 	background-color: rgba(146, 143, 148, 1);
@@ -23,17 +29,12 @@ body {
 }
 
 .section-header-order {
-	margin-top: 100px;
 	background-color: rgba(41, 41, 41, 0.69);
 	height: 215px;
 }
 
 logo {
 	height: 64px;
-}
-
-header {
-	height: 94px;
 }
 
 .logo__text {
@@ -58,11 +59,12 @@ a:hover {
 
 .header-logo {
 	background-color: rgba(0, 0, 0, 0.6);
+	position: absolute;
 }
 
 .section-header {
-	margin-top: 253px;
-	height: 506px;
+	padding-top: 253px;
+	height: 906px;
 }
 
 .section-header-text {
@@ -765,7 +767,7 @@ input:checked + .slider:before {
 }
 
 .header-text-final-order {
-	margin-top: 300px;
+	padding-top: 300px;
 	font-weight: bold;
 	font-size: 60px;
 	line-height: 84px;
