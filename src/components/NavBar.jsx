@@ -23,12 +23,6 @@ const NavBar = () => {
 						<NavLink className="nav__item" to="/reviews">Отзывы</NavLink>
 						<NavLink className="nav__item" to="/contacts">Контакты</NavLink>
 					</nav>
-					<Switch>
-						<Route path="/about_us" render={() => <AboutUs />} />
-						<Route path="/how_it_works" render={() => <HowItWorks />} />
-						<Route path="/reviews" render={() => <Reviews />} />
-						<Route path="/contacts" render={() => <Footer />} />
-					</Switch>
 				</div>
 			</div>
 		</header>

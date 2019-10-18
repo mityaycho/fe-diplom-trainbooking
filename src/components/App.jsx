@@ -14,6 +14,7 @@ import OrderConfirmed from './OrderConfirmed';
 import Footer from "./Footer";
 import SectionSearchMain from "./SectionSearchMain";
 import NavBar from "./NavBar";
+import NavBarTemporary from "./NavBarTemporary";
 
 
 export class App extends Component {
@@ -21,6 +22,7 @@ export class App extends Component {
     return (
       <div className="App">
         <NavBar />
+        <NavBarTemporary />
           <Route exact path="/" render={() => <Main/>}/>
           <Route path="/two_page" render={() => <TwoPage/>}/>
           <Route path="/search_tickets" render={() => <SearchTickets/>}/>

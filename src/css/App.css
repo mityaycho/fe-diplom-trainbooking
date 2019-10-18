@@ -10,6 +10,19 @@ body {
 	position: absolute;
 }
 
+.nav-bar-temporary {
+	margin-top: 90px;
+	position: fixed;
+}
+
+.itemTemporary {
+	background-color: #928F94;
+	margin-left: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	pacity: 0.9;
+}
+
 .header-section {
 	background-image: url(../images/image_logo1.png);
 	background-size: cover;
