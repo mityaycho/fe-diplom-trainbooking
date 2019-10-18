@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import HeaderSectionFirstPage from './HeaderSectionFirstPage';
+import SectionSearchMain from './SectionSearchMain';
 import AboutUs from '../components/AboutUs';
 import HowItWorks from '../components/HowItWorks';
 import Reviews from '../components/Reviews';
 
-class FirstPage extends Component {
+class Main extends Component {
 	render() {
 		return (
 			<div>
-				<HeaderSectionFirstPage />
+				<SectionSearchMain />
 				<AboutUs />
 				<HowItWorks />
 				<Reviews />
@@ -18,4 +18,4 @@ class FirstPage extends Component {
 	}
 };
 
-export default FirstPage;
+export default Main;

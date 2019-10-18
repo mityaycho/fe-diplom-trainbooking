@@ -7,7 +7,7 @@ import iconOrderTicketPresent from "../images/icon_order_ticket_present.png";
 import iconRateService from "../images/icon_rate_service.png";
 import {NavLink} from "react-router-dom";
 
-class EightPage extends Component {
+class OrderConfirmed extends Component {
 	render() {
 		return (
 			<div>
@@ -70,4 +70,4 @@ class EightPage extends Component {
 	}
 };
 
-export default EightPage;
+export default OrderConfirmed;

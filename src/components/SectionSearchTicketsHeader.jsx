@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-const HeaderSectionThreePage = () => {
+const SectionSearchTicketsHeader = () => {
 	return (
 		<div className="header-section-three-page">
 			<div className="text-white animated zoomInDow">
@@ -27,7 +27,7 @@ const HeaderSectionThreePage = () => {
 								</form>
 							</div>
 							<div className="text-right">
-								<NavLink className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">найти
+								<NavLink className="btn btn-warning btn-sm m-3 col-lg-3" to="/" type="button">найти
 									билеты</NavLink>
 							</div>
 						</div>
@@ -38,4 +38,4 @@ const HeaderSectionThreePage = () => {
 	);
 };
 
-export default HeaderSectionThreePage;
+export default SectionSearchTicketsHeader;

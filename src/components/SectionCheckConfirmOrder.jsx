@@ -15,7 +15,7 @@ import iconSearchBack from '../images/icon_search_back.png';
 import iconWifiRocketCup from '../images/icons_wifiRocketCup.png';
 import iconPassangerSircle from '../images/icon_passanger_sircle.png';
 
-const SectionSearchSevenPage = () => {
+const SectionCheckConfirmOrder = () => {
 	return (
 		<div>
 			<div className="progress-state">
@@ -305,7 +305,7 @@ const SectionSearchSevenPage = () => {
 						</div>
 					</div>
 					<div className="d-flex justify-content-end mt-5">
-						<NavLink className="btn btn-warning text-white text-uppercase pl-5 pr-5 mt-5 mb-3" to="/eight_page" type="button">подтвердить</NavLink>
+						<NavLink className="btn btn-warning text-white text-uppercase pl-5 pr-5 mt-5 mb-3" to="/order_confirmed" type="button">подтвердить</NavLink>
 					</div>
 				</div>
 
@@ -315,4 +315,4 @@ const SectionSearchSevenPage = () => {
 	);
 };
 
-export default SectionSearchSevenPage;
+export default SectionCheckConfirmOrder;

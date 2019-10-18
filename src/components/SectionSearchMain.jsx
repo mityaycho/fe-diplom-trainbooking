@@ -2,7 +2,7 @@ import React from 'react';
 import ContainerFormOneTwoPage from "./ContainerFormOneTwoPage";
 import {NavLink} from "react-router-dom";
 
-const HeaderSectionFirstPage = () => {
+const SectionSearchMain = () => {
 	return (
 		<div className="header-section">
 			<div className="container section-header text-white animated zoomInDow">
@@ -24,4 +24,4 @@ const HeaderSectionFirstPage = () => {
 	);
 };
 
-export default HeaderSectionFirstPage;
+export default SectionSearchMain;

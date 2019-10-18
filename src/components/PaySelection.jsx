@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-import HeaderSectionThreePage from '../components/HeaderSectionThreePage';
+import SectionSearchTicketsHeader from './SectionSearchTicketsHeader';
 import SectionSearchSixPage from '../components/SectionSearchSixPage';
 
-class SixPage extends Component {
+class PaySelection extends Component {
 	render() {
 		return (
 			<div>
-				<HeaderSectionThreePage />
+				<SectionSearchTicketsHeader />
 				<SectionSearchSixPage />
 			</div>
 		);
 	}
 };
 
-export default SixPage;
+export default PaySelection;

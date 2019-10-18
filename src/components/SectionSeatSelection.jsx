@@ -22,7 +22,7 @@ import imageVagonPlaces from '../images/image_vagon_places.png';
 import choiceOtherTrainButtonBack from '../images/choice_other_train_button_back.png';
 import iconSearchBack from '../images/icon_search_back.png';
 
-const SectionSearchFourPage = () => {
+const SectionSeatSelection = () => {
 	return (
 		<div>
 			<div className="progress-state">
@@ -396,7 +396,7 @@ const SectionSearchFourPage = () => {
 						</div>
 					</div>
 					<div className="d-flex justify-content-end">
-						<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/five_page" type="button">Далее</NavLink>
+						<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/passengers" type="button">Далее</NavLink>
 					</div>
 				</div>
 			</div>
@@ -404,4 +404,4 @@ const SectionSearchFourPage = () => {
 	);
 };
 
-export default SectionSearchFourPage;
+export default SectionSeatSelection;

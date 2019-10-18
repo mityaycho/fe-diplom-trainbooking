@@ -217,7 +217,7 @@ const SectionSearchSixPage = () => {
 							</div>
 						</div>
 						<div className="d-flex justify-content-end mt-5">
-							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-3" to="/seven_page" type="button">купить билеты</NavLink>
+							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-3" to="/check_confirm_order" type="button">купить билеты</NavLink>
 						</div>
 					</div>
 				</div>

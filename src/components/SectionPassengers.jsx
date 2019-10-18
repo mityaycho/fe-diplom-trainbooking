@@ -17,7 +17,7 @@ import iconCloseXSircle from '../images/icon_close_x_sircle.png';
 import iconPlusSmallYellow from '../images/icon_plus_small_yellow.png';
 import iconDawSircle from '../images/icon_daw_sircle.png';
 
-const SectionSearchFivePage = () => {
+const SectionPassengers = () => {
 	return (
 		<div>
 			<div className="progress-state">
@@ -488,7 +488,7 @@ const SectionSearchFivePage = () => {
 					</div>
 
 					<div className="d-flex justify-content-end">
-						<NavLink className="btn btn-secondary text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/six_page" type="button">Далее</NavLink>
+						<NavLink className="btn btn-secondary text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/pay_selection" type="button">Далее</NavLink>
 					</div>
 				</div>
 				
@@ -497,4 +497,4 @@ const SectionSearchFivePage = () => {
 	);
 };
 
-export default SectionSearchFivePage;
+export default SectionPassengers;

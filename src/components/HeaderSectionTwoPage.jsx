@@ -14,7 +14,7 @@ const HeaderSectionTwoPage = () => {
 					<div className="section-header-form col-lg-6">
 						<ContainerFormOneTwoPage />
 						<div className="text-right ml-4">
-							<NavLink className="btn btn-warning mt-5 col-lg-6" to="/three_page" type="button">найти билеты</NavLink>
+							<NavLink className="btn btn-warning mt-5 col-lg-6" to="/search_tickets" type="button">найти билеты</NavLink>
 						</div>
 					</div>
 				</div>

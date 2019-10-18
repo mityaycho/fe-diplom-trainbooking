@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import iconCoupe from '../images/icon_coupe.png';
 import iconEconomclass from '../images/icon_economclass.png';
 import iconSedentary from '../images/icon_sedentary.png';
@@ -23,7 +23,7 @@ import iconSearchDots from '../images/icon_page_search_dots.png';
 import progressStateSelect from '../images/progress_state_select.png';
 import progressStateDefault from '../images/progress_state_default.png';
 
-const SectionSearchThreePage = () => {
+const SectionSearchTickets = () => {
 	return (
 		<div className="text-white tickets-search-window animated zoomInDow">
 			<div className="progress-state">
@@ -587,7 +587,7 @@ const SectionSearchThreePage = () => {
 						<button className="page-search-select-number ml-3" to="/" type="button">3</button>
 						<button className="page-search-select-number ml-3" to="/" type="button"><img src={iconSearchDots} alt="иконка влево"/></button>
 						<button className="page-search-select-number ml-3" to="/" type="button">10</button>
-						<Link className="page-search-select-number ml-3" to="/four_page" type="button"><img src={iconSearchRight} alt="иконка влево"/></Link>
+						<NavLink className="page-search-select-number ml-3" to="/seat_selection" type="button"><img src={iconSearchRight} alt="иконка влево"/></NavLink>
 					</div>
 				</div>
 			</div>
@@ -595,4 +595,4 @@ const SectionSearchThreePage = () => {
 	);
 };
 
-export default SectionSearchThreePage;
+export default SectionSearchTickets;
