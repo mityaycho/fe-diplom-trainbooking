@@ -18,10 +18,10 @@ const NavBar = () => {
 			<div className="nav-bar bg-dark w-100">
 				<div className="container">
 					<nav className="nav pt-3 pb-3 d-flex animated fadeInRight">
-						<NavLink className="nav__item" to="/about_us">О нас</NavLink>
-						<NavLink className="nav__item" to="/how_it_works">Как это работает</NavLink>
-						<NavLink className="nav__item" to="/reviews">Отзывы</NavLink>
-						<NavLink className="nav__item" to="/contacts">Контакты</NavLink>
+						<NavLink className="nav__item" to="#about">О нас</NavLink>
+						<NavLink className="nav__item" to="#howitworks">Как это работает</NavLink>
+						<NavLink className="nav__item" to="#reviews">Отзывы</NavLink>
+						<NavLink className="nav__item" to="#contacts">Контакты</NavLink>
 					</nav>
 				</div>
 			</div>
