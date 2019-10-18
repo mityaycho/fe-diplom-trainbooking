@@ -1,9 +1,10 @@
 import React from 'react';
+import iconScrollTop from '../images/icon_footer_bottom.png';
 
 const Footer = () => {
 	return (
 		<footer>
-			<div className="container footer-information h-100">
+			<div className="container footer-information h-100" id="contacts">
 				<div className="row">
 					<div className="col-lg-6">
 						<p className="text pl-4 pt-5">Свяжитесь с нами</p>
@@ -46,7 +47,7 @@ const Footer = () => {
 				<div className="container h-100">
 					<div className="row h-100 justify-content-between align-items-center">
 						<h1 className="logo">Лого</h1>
-						<div className="icon-bottom"></div>
+						<a className="icon-bottom" href="#header_logo"><img src={iconScrollTop} alt=""/></a>
 						<p className="license">2018 WEB</p>
 					</div>
 				</div>

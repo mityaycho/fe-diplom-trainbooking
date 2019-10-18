@@ -2,7 +2,7 @@ import React from 'react';
 
 const Reviews = () => {
 	return (
-		<section className="container reviews">
+		<section className="container reviews" id="reviews">
 			<div className="review-head">отзывы</div>
 			<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
 				<ol className="carousel-indicators">

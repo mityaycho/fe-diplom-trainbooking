@@ -1,27 +1,21 @@
 import React from 'react';
-import {Link, NavLink, Switch} from 'react-router-dom';
-import {Route} from "react-router";
-import TwoPage from "./TwoPage";
-import AboutUs from "./AboutUs";
-import HowItWorks from "./HowItWorks";
-import Reviews from "./Reviews";
-import Footer from "./Footer";
+import {NavLink} from 'react-router-dom';
 
 const NavBar = () => {
 	return (
 		<header>
 			<div className="header-logo pt-2 w-100">
 				<div className="container">
-					<Link className="logo__text font-weight-bold" to="/" href="a#">Лого</Link>
+					<NavLink className="logo__text font-weight-bold" to="/" id="header_logo">Лого</NavLink>
 				</div>
 			</div>
 			<div className="nav-bar bg-dark w-100">
 				<div className="container">
 					<nav className="nav pt-3 pb-3 d-flex animated fadeInRight">
-						<NavLink className="nav__item" to="#about">О нас</NavLink>
-						<NavLink className="nav__item" to="#howitworks">Как это работает</NavLink>
-						<NavLink className="nav__item" to="#reviews">Отзывы</NavLink>
-						<NavLink className="nav__item" to="#contacts">Контакты</NavLink>
+						<a className="nav__item" href="#about">О нас</a>
+						<a className="nav__item" href="#howitworks">Как это работает</a>
+						<a className="nav__item" href="#reviews">Отзывы</a>
+						<a className="nav__item" href="#contacts">Контакты</a>
 					</nav>
 				</div>
 			</div>
