@@ -7,14 +7,13 @@ const NavBarTemporary = () => {
       <div className="nav-bar-temporary">
         <div className="container">
           <nav className="nav d-flex">
-            <NavLink className="itemTemporary" to="/">main</NavLink>
-            <NavLink className="itemTemporary" to="/two_page">two_page</NavLink>
-            <NavLink className="itemTemporary" to="/search_tickets">search_tickets</NavLink>
-            <NavLink className="itemTemporary" to="/seat_selection">seat_selection</NavLink>
-            <NavLink className="itemTemporary" to="/passengers">passengers</NavLink>
-            <NavLink className="itemTemporary" to="/pay_selection">pay_selection</NavLink>
-            <NavLink className="itemTemporary" to="/check_confirm_order">check_confirm_order</NavLink>
-            <NavLink className="itemTemporary" to="/order_confirmed">order_confirmed</NavLink>
+            <NavLink className="itemTemporary" to="/">главная</NavLink>
+            <NavLink className="itemTemporary" to="/search_tickets">поиск билетов</NavLink>
+            <NavLink className="itemTemporary" to="/seat_selection">выбор мест</NavLink>
+            <NavLink className="itemTemporary" to="/passengers">пассажиры</NavLink>
+            <NavLink className="itemTemporary" to="/pay_selection">выбор оплаты</NavLink>
+            <NavLink className="itemTemporary" to="/check_confirm_order">подтверждение заказа</NavLink>
+            <NavLink className="itemTemporary" to="/order_confirmed">подтверждён</NavLink>
           </nav>
         </div>
       </div>

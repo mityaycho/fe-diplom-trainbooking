@@ -4,7 +4,6 @@ import '../css/App.css';
 import '../css/animate.css';
 
 import Main from './Main';
-import TwoPage from '../components/TwoPage';
 import SearchTickets from './SearchTickets';
 import SeatSelection from './SeatSelection';
 import Passengers from './Passengers';
@@ -12,7 +11,6 @@ import PaySelection from './PaySelection';
 import CheckConfirmOrder from './CheckConfirmOrder';
 import OrderConfirmed from './OrderConfirmed';
 import Footer from "./Footer";
-import SectionSearchMain from "./SectionSearchMain";
 import NavBar from "./NavBar";
 import NavBarTemporary from "./NavBarTemporary";
 
@@ -24,7 +22,6 @@ export class App extends Component {
         <NavBar />
         <NavBarTemporary />
           <Route exact path="/" render={() => <Main/>}/>
-          <Route path="/two_page" render={() => <TwoPage/>}/>
           <Route path="/search_tickets" render={() => <SearchTickets/>}/>
           <Route path="/seat_selection" render={() => <SeatSelection/>}/>
           <Route path="/passengers" render={() => <Passengers/>}/>
@@ -34,5 +31,5 @@ export class App extends Component {
         <Footer />
       </div>
     );
-  }
+  };
 };
