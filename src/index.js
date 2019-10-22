@@ -11,3 +11,7 @@ ReactDOM.render(
   </BrowserRouter>, document.getElementById('root'));
 
 serviceWorker.unregister();
+
+fetch( 'https://netology-trainbooking.herokuapp.com/routes/cities' )
+  .then( response => response.json())
+  .then( data => console.log( data ));
