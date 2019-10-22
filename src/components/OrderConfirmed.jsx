@@ -67,7 +67,7 @@ class OrderConfirmed extends Component {
 				<div className="final-order-window-white-block"></div>
 			</div>
 		);
-	}
+	};
 };
 
 export default OrderConfirmed;

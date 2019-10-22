@@ -15,7 +15,7 @@ class Main extends Component {
 				<Reviews />
 			</div>
 		);
-	}
+	};
 };
 
 export default Main;

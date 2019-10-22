@@ -11,7 +11,7 @@ class PaySelection extends Component {
 				<SectionSearchSixPage />
 			</div>
 		);
-	}
+	};
 };
 
 export default PaySelection;

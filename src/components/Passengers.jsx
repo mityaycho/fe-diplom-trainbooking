@@ -11,7 +11,7 @@ class Passengers extends Component {
 				<SectionPassengers />
 			</div>
 		);
-	}
+	};
 };
 
 export default Passengers;

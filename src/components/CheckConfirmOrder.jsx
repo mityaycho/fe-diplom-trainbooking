@@ -11,7 +11,7 @@ class CheckConfirmOrder extends Component {
 				<SectionCheckConfirmOrder />
 			</div>
 		);
-	}
+	};
 };
 
 export default CheckConfirmOrder;

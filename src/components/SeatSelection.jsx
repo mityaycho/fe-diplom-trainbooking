@@ -11,7 +11,7 @@ class SeatSelection extends Component {
 				<SectionSeatSelection />
 			</div>
 		);
-	}
+	};
 };
 
 export default SeatSelection;
