@@ -4,14 +4,17 @@ import './css/index.css';
 import {App} from './components/App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import {store} from "./bll/store";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>, document.getElementById('root'));
+  <Provider store={store}>
+    <BrowserRouter>
+
+      <App/>
+    </BrowserRouter>
+  </Provider>
+
+  , document.getElementById('root'));
 
 serviceWorker.unregister();
-
-fetch( 'https://netology-trainbooking.herokuapp.com/routes/cities' )
-  .then( response => response.json())
-  .then( data => console.log( data ));
