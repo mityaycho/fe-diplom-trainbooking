@@ -1,15 +1,15 @@
 import React from 'react';
 import {setDataCities} from "../bll/reducerSectionSearchMain";
 import {connect} from "react-redux";
-import FormOneTwoPage from "./FormOneTwoPage";
+import FormOneTwoPage from "./FormMainPage";
 
 
 class  ContainerFormOneTwoPage extends React.Component{
   componentDidMount() {
-    fetch( 'https://netology-trainbooking.herokuapp.com/routes/cities?name=мос' )
+    fetch( 'https://netology-trainbooking.herokuapp.com/routes/cities?name=с' )
       .then( response => response.json())
       .then( data => {
-        this.props.setDataCities(data[0].name)
+        this.props.setDataCities(data);
       });
   }
   render() {

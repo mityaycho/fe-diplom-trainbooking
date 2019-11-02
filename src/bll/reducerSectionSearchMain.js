@@ -9,7 +9,7 @@ const reducerSectionSearchMain = (state = initState, action) => {
       case SET_CITIES:
         return {
           ...state,
-          dataCities: [...state.dataCities, action.cities]
+          dataCities: [...state.dataCities, ...action.cities]
     }
       default: return state
     }
