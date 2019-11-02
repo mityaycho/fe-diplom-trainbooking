@@ -2,7 +2,7 @@ import React from 'react';
 import iconCachedWhite from "../images/icon_cached_white.png";
 
 
-const FormOneTwoPage = (props) => {
+const FormMainPage = (props) => {
   const dataCities = props.dataCities.map(el => <option key={el.id}>{el.name}</option>);
   return (
     <div className="row mt-5">
@@ -30,4 +30,4 @@ const FormOneTwoPage = (props) => {
 };
 
 
-export default FormOneTwoPage;
+export default FormMainPage;

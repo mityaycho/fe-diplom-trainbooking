@@ -1,5 +1,5 @@
 import React from 'react';
-import ContainerFormOneTwoPage from "./ContainerFormOneTwoPage";
+import ContainerFormOneTwoPage from "./ContainerFormMainPage";
 import {NavLink} from "react-router-dom";
 
 const SectionSearchMain = () => {

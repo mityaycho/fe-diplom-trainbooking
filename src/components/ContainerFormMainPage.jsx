@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import FormOneTwoPage from "./FormMainPage";
 
 
-class  ContainerFormOneTwoPage extends React.Component{
+class  ContainerFormMainPage extends React.Component{
   componentDidMount() {
     fetch( 'https://netology-trainbooking.herokuapp.com/routes/cities?name=с' )
       .then( response => response.json())
@@ -23,4 +23,4 @@ const mapState =(state) => {
   };
 };
 
-export default connect(mapState, {setDataCities})(ContainerFormOneTwoPage);
+export default connect(mapState, {setDataCities})(ContainerFormMainPage);
