@@ -1,8 +1,8 @@
 import {combineReducers, createStore} from "redux";
-import reducerSectionSearchMain from "./reducerSectionSearchMain";
+import searchMainReducer from "./searchMain-reducer";
 
 const reducers = combineReducers({
-  sectionSearch: reducerSectionSearchMain
+  sectionSearch: searchMainReducer
 });
 
 export const store = createStore(reducers);

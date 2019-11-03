@@ -1,5 +1,5 @@
 import React from 'react';
-import ContainerFormOneTwoPage from "./ContainerFormMainPage";
+import ContainerFormMainPage from "./ContainerFormMainPage";
 import {NavLink} from "react-router-dom";
 
 const SectionSearchMain = () => {
@@ -12,7 +12,7 @@ const SectionSearchMain = () => {
 						<h1 className="display-4 font-weight-bold">путешествие!</h1>
 					</div>
 					<div className="section-header-form col-lg-6">
-						<ContainerFormOneTwoPage />
+						<ContainerFormMainPage />
 						<div className="text-right ml-4">
 							<NavLink className="btn btn-warning mt-5 col-lg-6" to="/two_page" type="button">найти билеты</NavLink>
 						</div>

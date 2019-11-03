@@ -4,6 +4,7 @@ import iconCachedWhite from "../images/icon_cached_white.png";
 
 const FormMainPage = (props) => {
   const dataCities = props.dataCities.map(el => <option key={el.id}>{el.name}</option>);
+  console.log(props.currentValueCities)
   return (
     <div className="row mt-5">
       <form className="form mt-5 w-100" action="input">

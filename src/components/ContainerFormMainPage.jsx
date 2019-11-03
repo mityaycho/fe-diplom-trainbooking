@@ -1,11 +1,11 @@
 import React from 'react';
-import {setDataCities} from "../bll/reducerSectionSearchMain";
+import {setDataCities} from "../bll/searchMain-reducer";
 import {connect} from "react-redux";
-import FormOneTwoPage from "./FormMainPage";
+import FormMainPage from "./FormMainPage";
 
 
 class  ContainerFormMainPage extends React.Component{
-  componentDidMount() {
+  inputCitiesChanged(value) {
     fetch( 'https://netology-trainbooking.herokuapp.com/routes/cities?name=с' )
       .then( response => response.json())
       .then( data => {
@@ -13,13 +13,14 @@ class  ContainerFormMainPage extends React.Component{
       });
   }
   render() {
-    return <FormOneTwoPage {...this.props}/>;
+    return <FormMainPage {...this.props}/>;
   };
 };
 
 const mapState =(state) => {
   return {
-    dataCities: state.sectionSearch.dataCities
+    dataCities: state.sectionSearch.dataCities,
+    currentValueCities: state.sectionSearch.currentValueCities
   };
 };
 
