@@ -1,16 +1,30 @@
 import React from 'react';
-import {setDataCities} from "../bll/searchMain-reducer";
+import {setDataCities, setSearchItem} from "../bll/searchMain-reducer";
 import {connect} from "react-redux";
 import FormMainPage from "./FormMainPage";
 
 
 class  ContainerFormMainPage extends React.Component{
-  inputCitiesChanged(value) {
-    fetch( 'https://netology-trainbooking.herokuapp.com/routes/cities?name=с' )
-      .then( response => response.json())
-      .then( data => {
-        this.props.setDataCities(data);
-      });
+  // componentDidMount() {
+  //   fetch( `https://netology-trainbooking.herokuapp.com/routes/cities?name=c` )
+  //     .then( response => response.json())
+  //     .then( data => {
+  //       this.props.setDataCities(data);
+  //       console.log(data)
+  //     });
+  // }
+
+  componentDidUpdate(prevProps, prevState) {
+    debugger
+    if (this.props.searchItem !== prevProps.searchItem) {
+      fetch( `https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.props.searchItem}` )
+        .then( response => response.json())
+        .then( data => {
+          debugger
+          this.props.setDataCities(data);
+          console.log(data)
+        });
+    }
   }
   render() {
     return <FormMainPage {...this.props}/>;
@@ -20,8 +34,8 @@ class  ContainerFormMainPage extends React.Component{
 const mapState =(state) => {
   return {
     dataCities: state.sectionSearch.dataCities,
-    currentValueCities: state.sectionSearch.currentValueCities
+    searchItem: state.sectionSearch.searchItem
   };
 };
 
-export default connect(mapState, {setDataCities})(ContainerFormMainPage);
+export default connect(mapState, {setDataCities, setSearchItem})(ContainerFormMainPage);

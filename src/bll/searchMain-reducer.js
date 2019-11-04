@@ -1,8 +1,10 @@
 const SET_CITIES = 'SET_CITIES';
+const SET_SEARCH_ITEM = 'SET_SEARCH_ITEM';
+
 
 const initState = {
   dataCities: [],
-  currentValueCities: []
+  searchItem: ''
 }
 
 const searchMainReducer = (state = initState, action) => {
@@ -11,9 +13,13 @@ const searchMainReducer = (state = initState, action) => {
         console.log(state, action)
         return {
           ...state,
-          dataCities: [...state.dataCities, ...action.cities],
-          currentValueCities: [...state.currentValueCities, ...action.cities]
-    }
+          dataCities: [...state.dataCities, ...action.cities]
+        }
+      case SET_SEARCH_ITEM:
+        return {
+          ...state,
+          searchItem: action.searchItem
+        }
       default: return state
     }
 };
@@ -21,5 +27,7 @@ const searchMainReducer = (state = initState, action) => {
 
 
 export const setDataCities = (cities) => ({type: SET_CITIES, cities });
+export const setSearchItem = (searchItem) => ({type: SET_SEARCH_ITEM, searchItem });
+
 
 export default searchMainReducer;
