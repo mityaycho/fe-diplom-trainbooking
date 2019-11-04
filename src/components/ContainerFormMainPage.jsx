@@ -15,17 +15,15 @@ class  ContainerFormMainPage extends React.Component{
   // }
 
   componentDidUpdate(prevProps, prevState) {
-    debugger
     if (this.props.searchItem !== prevProps.searchItem) {
       fetch( `https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.props.searchItem}` )
         .then( response => response.json())
         .then( data => {
-          debugger
           this.props.setDataCities(data);
-          console.log(data)
         });
-    }
-  }
+    };
+  };
+
   render() {
     return <FormMainPage {...this.props}/>;
   };
