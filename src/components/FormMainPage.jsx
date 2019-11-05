@@ -7,9 +7,8 @@ import {Typeahead} from 'react-bootstrap-typeahead';
 const FormMainPage = (props) => {
   const dataCities = props.dataCities.map(el => <option key={el.id}>{el.name}</option>);
   const setSearchItem = (e) => props.setSearchItem(e.currentTarget.value);
-  const options = props.dataCities.map(el => {
-    return el.name
-  });
+  const options = props.dataCities.map(el => el.name);
+
   return (
     <div className="row mt-5">
       <form className="form mt-5 w-100" action="input">
