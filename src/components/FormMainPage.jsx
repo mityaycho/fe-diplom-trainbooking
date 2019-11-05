@@ -28,10 +28,8 @@ const FormMainPage = (props) => {
           {/*</select>*/}
           {/*<img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>*/}
           <CreatableSingle placeholder="куда"
-                     // key={dataCities.id}
-                           filter={dataCities}
-                     value={props.searchItem}
-                     onChange={setSearchItem}
+            // key={dataCities.id}
+                           {...props}
           />
           {/*<input className="col-sm form-control"*/}
           {/*       type="text"*/}

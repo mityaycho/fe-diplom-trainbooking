@@ -18,7 +18,7 @@ const searchMainReducer = (state = initState, action) => {
       case SET_SEARCH_ITEM:
         return {
           ...state,
-          searchItem: action.searchItem
+          searchItem: action.searchItem.value
         }
       default: return state
     }

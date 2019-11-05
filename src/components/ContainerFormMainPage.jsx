@@ -20,6 +20,7 @@ class  ContainerFormMainPage extends React.Component{
         .then( response => response.json())
         .then( data => {
           this.props.setDataCities(data);
+          console.log(data)
         });
     };
   };
