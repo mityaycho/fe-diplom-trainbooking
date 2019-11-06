@@ -5,7 +5,6 @@ import {Typeahead} from 'react-bootstrap-typeahead';
 
 
 const FormMainPage = (props) => {
-  const dataCities = props.dataCities.map(el => <option key={el.id}>{el.name}</option>);
   const setSearchItem = (e) => props.setSearchItem(e);
   const options = props.dataCities.map(el => el.name);
 
