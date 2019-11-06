@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://mityaycho.github.io/fe-diplom-trainbooking/",
   "dependencies": {
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-bootstrap-typeahead": "^3.4.7",
     "react-dom": "^16.8.6",
@@ -11,7 +13,6 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "react-select": "^3.0.8",
     "redux": "^4.0.4"
   },
   "scripts": {

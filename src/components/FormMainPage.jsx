@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import iconCachedWhite from "../images/icon_cached_white.png";
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import {Typeahead} from 'react-bootstrap-typeahead';
-import CreatableSingle from "./CreatebleSingle";
 
 
 const FormMainPage = (props) => {
@@ -14,29 +13,26 @@ const FormMainPage = (props) => {
     <div className="row mt-5">
       <form className="form mt-5 w-100" action="input">
         <p className="ml-3">Направление</p>
-        <div className=" form-group m-3">
-          {/*<Fragment>*/}
-          {/*  <Typeahead key={dataCities.id}*/}
-          {/*             value={props.searchItem}*/}
-          {/*             placeholder="откуда"*/}
-          {/*             options={options}*/}
-          {/*             onChange={setSearchItem}/>*/}
-          {/*</Fragment>*/}
+        <div className="d-flex form-group m-3">
+          <Fragment>
+            <Typeahead key={dataCities.id}
+                       value={props.searchItem}
+                       placeholder="откуда"
+                       options={options}
+                       onChange={setSearchItem}/>
+          </Fragment>
 
-          {/*<select className="col-sm form-control">*/}
-          {/*  {dataCities}*/}
-          {/*</select>*/}
-          {/*<img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>*/}
-          <CreatableSingle placeholder="куда"
-            // key={dataCities.id}
-                           {...props}
-          />
-          {/*<input className="col-sm form-control"*/}
-          {/*       type="text"*/}
-          {/*       placeholder="куда"*/}
-          {/*       key={dataCities.id}*/}
-          {/*       value={props.searchItem}*/}
-          {/*       onChange={setSearchItem}/>*/}
+          <select className="col-sm form-control">
+            {dataCities}
+          </select>
+          <img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>
+
+          <input className="col-sm form-control"
+                 type="text"
+                 placeholder="куда"
+                 key={dataCities.id}
+                 value={props.searchItem}
+                 onChange={setSearchItem}/>
         </div>
       </form>
       <form className="form mt-5 w-100" action="input">
