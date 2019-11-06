@@ -6,36 +6,29 @@ import {Typeahead} from 'react-bootstrap-typeahead';
 
 const FormMainPage = (props) => {
   const dataCities = props.dataCities.map(el => <option key={el.id}>{el.name}</option>);
-  const setSearchItem = (e) => {
-    props.setSearchItem(e.currentTarget.value);
-  }
+  const setSearchItem = (e) => props.setSearchItem(e);
   const options = props.dataCities.map(el => el.name);
 
   return (
     <div className="row mt-5">
       <form className="form mt-5 w-100" action="input">
         <p className="ml-3">Направление</p>
-        <div className="d-flex form-group m-3">
+        <div className="d-flex form-group m-3 justify-content-center">
           <Fragment>
-            <Typeahead key={dataCities.id}
-                       value={props.searchItem}
+            <Typeahead value={props.searchItem}
                        placeholder="откуда"
                        options={options}
-                       onChange={setSearchItem}
+                       onInputChange={setSearchItem}
             />
           </Fragment>
-
-          <select className="col-sm form-control">
-            {dataCities}
-          </select>
           <img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>
 
-          <input className="col-sm form-control"
-                 type="text"
-                 placeholder="куда"
-                 key={dataCities.id}
-                 value={props.searchItem}
-                 onChange={setSearchItem}/>
+          <Typeahead
+                     value={props.searchItem}
+                     placeholder="откуда"
+                     options={options}
+                     onInputChange={setSearchItem}
+          />
         </div>
       </form>
       <form className="form mt-5 w-100" action="input">
