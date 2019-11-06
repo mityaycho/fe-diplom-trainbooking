@@ -10,7 +10,6 @@ const initState = {
 const searchMainReducer = (state = initState, action) => {
     switch(action.type) {
       case SET_CITIES:
-        console.log(state, action)
         return {
           ...state,
           dataCities: [...state.dataCities, ...action.cities]
