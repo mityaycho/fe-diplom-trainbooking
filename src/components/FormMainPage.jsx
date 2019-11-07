@@ -4,41 +4,51 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import {Typeahead} from 'react-bootstrap-typeahead';
 
 
-const FormMainPage = (props) => {
-  const setSearchItem = (e) => props.setSearchItem(e);
-  const options = props.dataCities.map(el => el.name);
+class FormMainPage extends React.Component {
 
-  return (
-    <div className="row mt-5">
-      <form className="form mt-5 w-100" action="input">
-        <p className="ml-3">Направление</p>
-        <div className="d-flex form-group m-3 justify-content-center">
-          <Fragment>
-            <Typeahead value={props.searchItem}
-                       placeholder="откуда"
-                       options={options}
-                       onInputChange={setSearchItem}
+  state = {
+
+  }
+
+  setSearchItem = (e) => {
+    this.props.setSearchItem(e);
+  }
+  options = this.props.dataCities.map(el => el.name);
+
+  render() {
+    return (
+      <div className="row mt-5">
+        <form className="form mt-5 w-100" action="input">
+          <p className="ml-3">Направление</p>
+          <div className="d-flex form-group m-3 justify-content-center">
+            <Fragment>
+              <Typeahead id={1} value={this.props.searchItem}
+                         placeholder={this.props.error ? this.props.error : "откуда"}
+                         options={this.options}
+                         onInputChange={this.setSearchItem}
+                         onChange={(selected) => console.log(selected[0])}
+              />
+            </Fragment>
+            <img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>
+
+            <Typeahead
+              value={this.props.searchItem}
+              placeholder={this.props.error ? this.props.error : "куда"}
+              options={this.options}
+              onInputChange={this.setSearchItem}
             />
-          </Fragment>
-          <img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>
-
-          <Typeahead
-                     value={props.searchItem}
-                     placeholder="откуда"
-                     options={options}
-                     onInputChange={setSearchItem}
-          />
-        </div>
-      </form>
-      <form className="form mt-5 w-100" action="input">
-        <p className="ml-3">Дата</p>
-        <div className="d-flex form-group m-3">
-          <input className="col-sm form-control mr-4" type="date" placeholder="дд/мм/гг"/>
-          <input className="col-sm form-control" type="date" placeholder="дд/мм/гг"/>
-        </div>
-      </form>
-    </div>
-  );
+          </div>
+        </form>
+        <form className="form mt-5 w-100" action="input">
+          <p className="ml-3">Дата</p>
+          <div className="d-flex form-group m-3">
+            <input className="col-sm form-control mr-4" type="date" onChange={(e) => console.log(e.currentTarget.value)}/>
+            <input className="col-sm form-control" type="date" />
+          </div>
+        </form>
+      </div>
+    );
+  };
 };
 
 

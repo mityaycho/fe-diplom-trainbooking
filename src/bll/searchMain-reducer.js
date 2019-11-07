@@ -4,15 +4,23 @@ const SET_SEARCH_ITEM = 'SET_SEARCH_ITEM';
 
 const initState = {
   dataCities: [],
-  searchItem: ''
+  searchItem: '',
+  error: ''
 }
 
 const searchMainReducer = (state = initState, action) => {
     switch(action.type) {
       case SET_CITIES:
-        return {
-          ...state,
-          dataCities: [...state.dataCities, ...action.cities]
+        if (!action.cities.error) {
+          return {
+            ...state,
+            dataCities: [...state.dataCities, ...action.cities]
+          };
+        } else {
+          return {
+            ...state,
+            error: action.cities.error
+          }
         }
       case SET_SEARCH_ITEM:
         return {
