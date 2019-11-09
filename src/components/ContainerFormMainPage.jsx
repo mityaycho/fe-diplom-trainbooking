@@ -49,7 +49,9 @@ class ContainerFormMainPage extends React.Component {
     this.setState({whereToDate: event.currentTarget.value})
   };
 
-
+  saveMainState = () => {
+    console.log(this.state)
+  }
 
   render() {
     return <FormMainPage {...this.state}
@@ -58,6 +60,7 @@ class ContainerFormMainPage extends React.Component {
                          setWhereToName={this.setWhereToName}
                          setWhereFromDate={this.setWhereFromDate}
                          setWhereToDate={this.setWhereToDate}
+                         saveMainState={this.saveMainState}
     />;
   };
 };
