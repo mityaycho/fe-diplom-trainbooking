@@ -40,7 +40,8 @@ const FormMainPage = (props) => {
                    type="date"
                    onChange={props.setWhereFromDate} />
             <input className="col-sm form-control"
-                   type="date" />
+                   type="date"
+                   onChange={props.setWhereToDate} />
           </div>
         </form>
       </div>

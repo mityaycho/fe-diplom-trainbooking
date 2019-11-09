@@ -45,6 +45,10 @@ class ContainerFormMainPage extends React.Component {
     this.setState({whereFromDate: event.currentTarget.value})
   };
 
+  setWhereToDate = (event) => {
+    this.setState({whereToDate: event.currentTarget.value})
+  };
+
 
 
   render() {
@@ -53,6 +57,7 @@ class ContainerFormMainPage extends React.Component {
                          setWhereFromName={this.setWhereFromName}
                          setWhereToName={this.setWhereToName}
                          setWhereFromDate={this.setWhereFromDate}
+                         setWhereToDate={this.setWhereToDate}
     />;
   };
 };
