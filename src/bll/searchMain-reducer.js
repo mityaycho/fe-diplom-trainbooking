@@ -6,7 +6,7 @@ const initState = {
   dataCities: [],
   searchItem: '',
   error: ''
-}
+};
 
 const searchMainReducer = (state = initState, action) => {
     switch(action.type) {
@@ -20,15 +20,15 @@ const searchMainReducer = (state = initState, action) => {
           return {
             ...state,
             error: action.cities.error
-          }
-        }
+          };
+        };
       case SET_SEARCH_ITEM:
         return {
           ...state,
           searchItem: action.searchItem
-        }
-      default: return state
-    }
+        };
+      default: return state;
+    };
 };
 
 

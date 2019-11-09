@@ -9,6 +9,7 @@ class ContainerFormMainPage extends React.Component {
   state = {
     value: '',
     dataCities: [],
+    form: {whereFromName: ''},
     whereFromName: '',
     whereFromDate: null,
     whereToName: '',
@@ -30,28 +31,28 @@ class ContainerFormMainPage extends React.Component {
   };
 
   setEvent = (event) => {
-    this.setState({value: event})
+    this.setState({value: event});
   };
 
   setWhereFromName = (event) => {
-    this.setState({whereFromName: event[0]})
+    this.setState({whereFromName: event[0]});
   };
 
   setWhereToName = (event) => {
-    this.setState({whereToName: event[0]})
+    this.setState({whereToName: event[0]});
   };
 
   setWhereFromDate = (event) => {
-    this.setState({whereFromDate: event.currentTarget.value})
+    this.setState({whereFromDate: event.currentTarget.value});
   };
 
   setWhereToDate = (event) => {
-    this.setState({whereToDate: event.currentTarget.value})
+    this.setState({whereToDate: event.currentTarget.value});
   };
 
   saveMainState = () => {
     console.log(this.state)
-  }
+  };
 
   render() {
     return <FormMainPage {...this.state}

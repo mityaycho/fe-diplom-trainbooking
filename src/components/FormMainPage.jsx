@@ -5,7 +5,6 @@ import {Typeahead} from 'react-bootstrap-typeahead';
 import {NavLink} from "react-router-dom";
 
 const FormMainPage = (props) => {
-  console.log(props)
 
   const options = props.dataCities.map(el => el.name);
 
