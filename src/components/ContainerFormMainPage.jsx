@@ -9,11 +9,12 @@ class ContainerFormMainPage extends React.Component {
   state = {
     value: '',
     dataCities: [],
-    form: {whereFromName: ''},
-    whereFromName: '',
-    whereFromDate: null,
-    whereToName: '',
-    whereToDate: null
+    form: {
+      whereFromName: '',
+      whereFromDate: null,
+      whereToName: '',
+      whereToDate: null
+    }
   };
 
   componentDidMount() {
@@ -68,9 +69,7 @@ class ContainerFormMainPage extends React.Component {
 
 const mapState = (state) => {
   return {
-    dataCities: state.sectionSearch.dataCities,
-    searchItem: state.sectionSearch.searchItem,
-    error: state.sectionSearch.error
+    form: state.sectionSearch.form
   };
 };
 
