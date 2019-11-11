@@ -36,27 +36,28 @@ class ContainerFormMainPage extends React.Component {
   };
 
   setWhereFromName = (event) => {
-    let newWhereFromName = {whereFromName: event[0]}
+    let newWhereFromName = {whereFromName: event[0]};
     this.setState({form: newWhereFromName});
   };
 
   setWhereToName = (event) => {
-    let newWhereToName = {whereToName: event[0]}
+    let newWhereToName = {whereToName: event[0]};
     this.setState({form: newWhereToName});
   };
 
   setWhereFromDate = (event) => {
-    let newWhereFromDate = {whereFromDate: event.currentTarget.value}
+    let newWhereFromDate = {whereFromDate: event.currentTarget.value};
     this.setState({form: newWhereFromDate});
   };
 
   setWhereToDate = (event) => {
-    let newWhereToDate = {whereToDate: event.currentTarget.value}
+    let newWhereToDate = {whereToDate: event.currentTarget.value};
     this.setState({form: newWhereToDate});
   };
 
   saveMainState = () => {
-    console.log(this.state)
+    console.log(this.state.form);
+    setDataForm(this.state.form);
   };
 
   render() {

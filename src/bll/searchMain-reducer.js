@@ -8,6 +8,7 @@ const initState = {
 const searchMainReducer = (state = initState, action) => {
     switch(action.type) {
       case SET_FORM:
+        console.log(state, action)
         return {
           ...state,
           form: action.form
