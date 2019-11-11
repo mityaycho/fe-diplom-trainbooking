@@ -1,4 +1,4 @@
-const SET_CITIES = 'SET_CITIES';
+const SET_FORM = 'SET_FORM';
 
 
 const initState = {
@@ -7,10 +7,10 @@ const initState = {
 
 const searchMainReducer = (state = initState, action) => {
     switch(action.type) {
-      case SET_CITIES:
+      case SET_FORM:
         return {
           ...state,
-          searchItem: action.searchItem
+          form: action.form
         };
       default: return state;
     };
@@ -18,7 +18,7 @@ const searchMainReducer = (state = initState, action) => {
 
 
 
-export const setDataCities = (cities) => ({type: SET_CITIES, cities });
+export const setDataForm = (form) => ({type: SET_FORM, form });
 
 
 

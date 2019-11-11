@@ -1,5 +1,5 @@
 import React from 'react';
-import {setDataCities, setSearchItem} from "../bll/searchMain-reducer";
+import {setDataForm} from "../bll/searchMain-reducer";
 import {connect} from "react-redux";
 import FormMainPage from "./FormMainPage";
 
@@ -74,4 +74,4 @@ const mapState = (state) => {
   };
 };
 
-export default connect(mapState, {setDataCities, setSearchItem})(ContainerFormMainPage);
+export default connect(mapState, {setDataForm})(ContainerFormMainPage);
