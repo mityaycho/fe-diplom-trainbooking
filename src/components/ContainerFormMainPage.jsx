@@ -9,12 +9,10 @@ class ContainerFormMainPage extends React.Component {
   state = {
     value: '',
     dataCities: [],
-    form: {
-      whereFromName: '',
-      whereFromDate: null,
-      whereToName: '',
-      whereToDate: null
-    }
+    whereFromName: '',
+    whereFromDate: null,
+    whereToName: '',
+    whereToDate: null
   };
 
   componentDidMount() {
@@ -24,11 +22,12 @@ class ContainerFormMainPage extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.value !== prevProps.value) {
+    if (prevState.value !== this.state.value) {
+      debugger
       fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.state.value}`)
         .then(response => response.json())
         .then(data => this.setState(data.error ? {dataCities: [], value: data.error} : {dataCities: data}));
-    };
+    }
   };
 
   setEvent = (event) => {
@@ -36,28 +35,25 @@ class ContainerFormMainPage extends React.Component {
   };
 
   setWhereFromName = (event) => {
-    let newWhereFromName = {whereFromName: event[0]};
-    this.setState({form: newWhereFromName});
+    this.setState({whereFromName: event[0]});
   };
 
   setWhereToName = (event) => {
-    let newWhereToName = {whereToName: event[0]};
-    this.setState({form: newWhereToName});
+    this.setState({whereToName: event[0]});
   };
 
   setWhereFromDate = (event) => {
-    let newWhereFromDate = {whereFromDate: event.currentTarget.value};
-    this.setState({form: newWhereFromDate});
+    this.setState({whereFromDate: event.currentTarget.value});
   };
 
   setWhereToDate = (event) => {
-    let newWhereToDate = {whereToDate: event.currentTarget.value};
-    this.setState({form: newWhereToDate});
+    this.setState({whereToDate: event.currentTarget.value});
   };
 
   saveMainState = () => {
-    console.log(this.state.form);
-    setDataForm(this.state.form);
+    const {whereFromName, whereToName, whereFromDate, whereToDate} = this.state;
+    const setForm = {whereFromName, whereToName, whereFromDate, whereToDate};
+    this.props.setDataForm(setForm);
   };
 
   render() {
