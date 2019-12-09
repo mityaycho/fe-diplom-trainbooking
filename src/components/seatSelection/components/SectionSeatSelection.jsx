@@ -1,48 +1,48 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import iconCoupe from '../images/icon_coupe.png';
-import iconEconomclass from '../images/icon_economclass.png';
-import iconSedentary from '../images/icon_sedentary.png';
-import iconLuxury from '../images/icon_luxury.png';
-import iconWifi from '../images/icon_wifi.png';
-import iconExpress from '../images/icon_express.png';
-import iconThere from '../images/icon_there.png';
-import iconBack from '../images/icon_back.png';
-import iconMinus from '../images/icon_minus.png';
-import iconRuble from '../images/icon_ruble.png';
-import iconWifiRocketCup from '../images/icons_wifiRocketCup.png';
-import progressStateSelect from '../images/progress_state_select.png';
-import progressStateDefault from '../images/progress_state_default.png';
-import choiceOtherTrainButtonThere from '../images/choice_other_train_button_there.png';
-import choiceTrainIcon from '../images/icon_choice_train.png';
-import iconSearchThere from '../images/icon_search_there.png';
-import choiceTimeIcon from '../images/icon_choice_time.png';
-import iconRubleSmall from '../images/icon_ruble_small.png';
-import imageVagonPlaces from '../images/image_vagon_places.png';
-import choiceOtherTrainButtonBack from '../images/choice_other_train_button_back.png';
-import iconSearchBack from '../images/icon_search_back.png';
+import iconCoupe from '../../../images/icon_coupe.png';
+import iconEconomclass from '../../../images/icon_economclass.png';
+import iconSedentary from '../../../images/icon_sedentary.png';
+import iconLuxury from '../../../images/icon_luxury.png';
+import iconWifi from '../../../images/icon_wifi.png';
+import iconExpress from '../../../images/icon_express.png';
+import iconThere from '../../../images/icon_there.png';
+import iconBack from '../../../images/icon_back.png';
+import iconMinus from '../../../images/icon_minus.png';
+import iconRuble from '../../../images/icon_ruble.png';
+import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
+import progressStateSelect from '../../../images/progress_state_select.png';
+import progressStateDefault from '../../../images/progress_state_default.png';
+import choiceOtherTrainButtonThere from '../../../images/choice_other_train_button_there.png';
+import choiceTrainIcon from '../../../images/icon_choice_train.png';
+import iconSearchThere from '../../../images/icon_search_there.png';
+import choiceTimeIcon from '../../../images/icon_choice_time.png';
+import iconRubleSmall from '../../../images/icon_ruble_small.png';
+import imageVagonPlaces from '../../../images/image_vagon_places.png';
+import choiceOtherTrainButtonBack from '../../../images/choice_other_train_button_back.png';
+import iconSearchBack from '../../../images/icon_search_back.png';
 
 const SectionSeatSelection = () => {
 	return (
 		<div>
 			<div className="progress-state">
-				<ul class="list-group list-group-horizontal justify-content-between w-100">
-					<li class="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
+				<ul className="list-group list-group-horizontal justify-content-between w-100">
+					<li className="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
 						<p className="progress-state-number">1</p>
 						<p className="progress-state-text mr-5">Билеты</p>
 						<img className="justify-content-end ml-5" src={progressStateSelect} alt="..."/>
 					</li>
-					<li class="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
+					<li className="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
 						<p className="progress-state-number">2</p>
 						<p className="progress-state-text mr-5">Пассажиры</p>
 						<img className="" src={progressStateDefault} alt="..."/>
 					</li>
-					<li class="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
+					<li className="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
 						<p className="progress-state-number">3</p>
 						<p className="progress-state-text mr-5">Оплата</p>
 						<img className="ml-4" src={progressStateDefault} alt="..."/>
 					</li>
-					<li class="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0 bg-dark">
+					<li className="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0 bg-dark">
 						<p className="progress-state-number ml-5">4</p>
 						<p className="progress-state-text ">Проверка</p>
 					</li>
@@ -67,55 +67,55 @@ const SectionSeatSelection = () => {
 						<div className="container coupe ml-5 d-flex">
 							<img className="icon-coupe" src={iconCoupe} alt="иконка купе"/>
 							<p className="container">Купе</p>
-							<div class="custom-control custom-switch d-flex justify-content-end pr-5">
-								<input type="checkbox" class="custom-control-input" id="customSwitch1"/>
-								<label class="custom-control-label" for="customSwitch1"></label>
+							<div className="custom-control custom-switch d-flex justify-content-end pr-5">
+								<input type="checkbox" className="custom-control-input" id="customSwitch1"/>
+								<label className="custom-control-label" for="customSwitch1"></label>
 							</div>
 						</div>
 						<div className="container economclass ml-5 d-flex">
 							<img className="icon-coupe" src={iconEconomclass} alt="иконка Плацкарт"/>
 							<p className="container">Плацкарт</p>
-							<div class="custom-control custom-switch d-flex justify-content-end pr-5">
-								<input type="checkbox" class="custom-control-input" id="customSwitch2"/>
-								<label class="custom-control-label" for="customSwitch2"></label>
+							<div className="custom-control custom-switch d-flex justify-content-end pr-5">
+								<input type="checkbox" className="custom-control-input" id="customSwitch2"/>
+								<label className="custom-control-label" for="customSwitch2"></label>
 							</div>
 						</div>
 						<div className="container coupe ml-5 d-flex">
 							<img className="icon-coupe" src={iconSedentary} alt="иконка Сидячий"/>
 							<p className="container">Сидячий</p>
-							<div class="custom-control custom-switch d-flex justify-content-end pr-5">
-								<input type="checkbox" class="custom-control-input" id="customSwitch3"/>
-								<label class="custom-control-label" for="customSwitch3"></label>
+							<div className="custom-control custom-switch d-flex justify-content-end pr-5">
+								<input type="checkbox" className="custom-control-input" id="customSwitch3"/>
+								<label className="custom-control-label" for="customSwitch3"></label>
 							</div>
 						</div>
 						<div className="container coupe ml-5 d-flex">
 							<img className="icon-coupe" src={iconLuxury} alt="иконка Люкс"/>
 							<p className="container">Люкс</p>
-							<div class="custom-control custom-switch d-flex justify-content-end pr-5">
-								<input type="checkbox" class="custom-control-input" id="customSwitch4"/>
-								<label class="custom-control-label" for="customSwitch4"></label>
+							<div className="custom-control custom-switch d-flex justify-content-end pr-5">
+								<input type="checkbox" className="custom-control-input" id="customSwitch4"/>
+								<label className="custom-control-label" for="customSwitch4"></label>
 							</div>
 						</div>
 						<div className="container coupe ml-5 d-flex">
 							<img className="icon-coupe" src={iconWifi} alt="иконка Wi-Fi"/>
 							<p className="container">Wi-Fi</p>
-							<div class="custom-control custom-switch d-flex justify-content-end pr-5">
-								<input type="checkbox" class="custom-control-input" id="customSwitch5"/>
-								<label class="custom-control-label" for="customSwitch5"></label>
+							<div className="custom-control custom-switch d-flex justify-content-end pr-5">
+								<input type="checkbox" className="custom-control-input" id="customSwitch5"/>
+								<label className="custom-control-label" for="customSwitch5"></label>
 							</div>
 						</div>
 						<div className="container coupe ml-5 d-flex">
 							<img className="icon-coupe" src={iconExpress} alt="иконка Экспресс"/>
 							<p className="container">Экспресс</p>
-							<div class="custom-control custom-switch d-flex justify-content-end pr-5">
-								<input type="checkbox" class="custom-control-input" id="customSwitch6"/>
-								<label class="custom-control-label" for="customSwitch6"></label>
+							<div className="custom-control custom-switch d-flex justify-content-end pr-5">
+								<input type="checkbox" className="custom-control-input" id="customSwitch6"/>
+								<label className="custom-control-label" for="customSwitch6"></label>
 							</div>
 						</div>
 						<hr className="bg-light" />
 						<form className="form pt-3 pl-4 pr-4 w-100" action="input">
-							<label for="customRange3">Стоимость</label>
-							<input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+							<label htmlFor="customRange3">Стоимость</label>
+							<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
 						</form>
 						<hr className="bg-light" />
 						<div className="container d-flex justify-content-between w-100">
@@ -123,14 +123,14 @@ const SectionSeatSelection = () => {
 							<img className="icon-coupe mr-3" src={iconMinus} alt="иконка плюс"/>
 						</div>
 						<form className="form pl-4 pr-4 w-100" action="input">
-							<label for="customRange3">Время отбытия</label>
-							<input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+							<label htmlFor="customRange3">Время отбытия</label>
+							<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
 						</form>
 						<form className="form pl-4 pr-4 w-100" action="input">
 							<div className="d-flex mt-4 justify-content-end">
-								<label for="customRange3">Время прибытия</label>
+								<label htmlFor="customRange3">Время прибытия</label>
 							</div>
-							<input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+							<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
 						</form>
 						<hr className="bg-light" />
 						<div className="container d-flex justify-content-between w-100">
@@ -138,14 +138,14 @@ const SectionSeatSelection = () => {
 							<img className="icon-coupe mr-3" src={iconMinus} alt="иконка плюс"/>
 						</div>
 						<form className="form pl-4 pr-4 w-100" action="input">
-							<label for="customRange3">Время отбытия</label>
-							<input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+							<label htmlFor="customRange3">Время отбытия</label>
+							<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
 						</form>
 						<form className="form mb-5 pl-4 pr-4 w-100" action="input">
 							<div className="d-flex mt-4 justify-content-end">
-								<label for="customRange3">Время прибытия</label>
+								<label htmlFor="customRange3">Время прибытия</label>
 							</div>
-							<input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+							<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
 						</form>
 					</div>
 					<div className="last-tickets">

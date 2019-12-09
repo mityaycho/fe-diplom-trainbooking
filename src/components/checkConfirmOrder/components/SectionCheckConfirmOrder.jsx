@@ -1,41 +1,41 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import iconThere from '../images/icon_there.png';
-import iconBack from '../images/icon_back.png';
-import iconMinus from '../images/icon_minus.png';
-import iconRuble from '../images/icon_ruble.png';
-import progressStateSelected from '../images/progress_state_selected.png';
-import iconSearchThere from '../images/icon_search_there.png';
-import iconRubleSmall from '../images/icon_ruble_small.png';
-import iconPassanger from '../images/icon_passanger.png';
-import iconTicketTrain from '../images/icon_ticket_train.png';
-import iconArrowRightGray from '../images/icon_arrow_right_gray.png'
-import iconArrowRightBlack from '../images/icon_arrow_right_black.png'
-import iconSearchBack from '../images/icon_search_back.png';
-import iconWifiRocketCup from '../images/icons_wifiRocketCup.png';
-import iconPassangerSircle from '../images/icon_passanger_sircle.png';
+import iconThere from '../../../images/icon_there.png';
+import iconBack from '../../../images/icon_back.png';
+import iconMinus from '../../../images/icon_minus.png';
+import iconRuble from '../../../images/icon_ruble.png';
+import progressStateSelected from '../../../images/progress_state_selected.png';
+import iconSearchThere from '../../../images/icon_search_there.png';
+import iconRubleSmall from '../../../images/icon_ruble_small.png';
+import iconPassanger from '../../../images/icon_passanger.png';
+import iconTicketTrain from '../../../images/icon_ticket_train.png';
+import iconArrowRightGray from '../../../images/icon_arrow_right_gray.png'
+import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png'
+import iconSearchBack from '../../../images/icon_search_back.png';
+import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
+import iconPassangerSircle from '../../../images/icon_passanger_sircle.png';
 
 const SectionCheckConfirmOrder = () => {
 	return (
 		<div>
 			<div className="progress-state">
-				<ul class="list-group list-group-horizontal justify-content-between w-100">
-					<li class="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
+				<ul className="list-group list-group-horizontal justify-content-between w-100">
+					<li className="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
 						<p className="progress-state-number">1</p>
 						<p className="progress-state-text mr-5">Билеты</p>
 						<img className="justify-content-end ml-5" src={progressStateSelected} alt="..."/>
 					</li>
-					<li class="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
+					<li className="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
 						<p className="progress-state-number">2</p>
 						<p className="progress-state-text mr-5">Пассажиры</p>
 						<img className="" src={progressStateSelected} alt="..."/>
 					</li>
-					<li class="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
+					<li className="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
 						<p className="progress-state-number">3</p>
 						<p className="progress-state-text mr-5">Оплата</p>
 						<img className="ml-4" src={progressStateSelected} alt="..."/>
 					</li>
-					<li class="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0">
+					<li className="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0">
 						<p className="progress-state-number ml-5">4</p>
 						<p className="progress-state-text ">Проверка</p>
 					</li>

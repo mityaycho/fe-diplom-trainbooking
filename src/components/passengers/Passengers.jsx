@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import SectionSearchTicketsHeader from './SectionSearchTicketsHeader';
-import SectionPassengers from './SectionPassengers';
+import SectionSearchTicketsHeader from '../shared/SectionSearchTicketsHeader';
+import SectionPassengers from './components/SectionPassengers';
 
 class Passengers extends Component {
 	render() {

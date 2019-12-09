@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import iconCachedWhite from '../images/icon_cached_white.png';
+import iconCachedWhite from '../../../images/icon_cached_white.png';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import {Typeahead} from 'react-bootstrap-typeahead';
 import {NavLink} from "react-router-dom";

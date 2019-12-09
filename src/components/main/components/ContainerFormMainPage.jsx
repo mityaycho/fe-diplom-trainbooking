@@ -1,5 +1,5 @@
 import React from 'react';
-import {setDataForm} from "../bll/searchMain-reducer";
+import {setDataForm} from "../../../bll/searchMain-reducer";
 import {connect} from "react-redux";
 import FormMainPage from "./FormMainPage";
 

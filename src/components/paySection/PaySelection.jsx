@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import SectionSearchTicketsHeader from './SectionSearchTicketsHeader';
-import SectionSearchSixPage from '../components/SectionSearchSixPage';
+import SectionSearchTicketsHeader from '../shared/SectionSearchTicketsHeader';
+import PaySectionSearch from './components/PaySectionSearch';
 
 class PaySelection extends Component {
 	render() {
 		return (
 			<div>
 				<SectionSearchTicketsHeader />
-				<SectionSearchSixPage />
+				<PaySectionSearch />
 			</div>
 		);
 	};

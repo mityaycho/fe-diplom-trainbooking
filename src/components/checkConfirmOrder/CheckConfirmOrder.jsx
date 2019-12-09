@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import SectionSearchTicketsHeader from './SectionSearchTicketsHeader';
-import SectionCheckConfirmOrder from './SectionCheckConfirmOrder';
+import SectionSearchTicketsHeader from '../shared/SectionSearchTicketsHeader';
+import SectionCheckConfirmOrder from './components/SectionCheckConfirmOrder';
 
 class CheckConfirmOrder extends Component {
 	render() {

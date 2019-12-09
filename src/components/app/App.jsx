@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
-import '../css/App.css';
-import '../css/animate.css';
+import '../../css/App.css';
+import '../../css/animate.css';
 
-import Main from './Main';
-import SearchTickets from './SearchTickets';
-import SeatSelection from './SeatSelection';
-import Passengers from './Passengers';
-import PaySelection from './PaySelection';
-import CheckConfirmOrder from './CheckConfirmOrder';
-import OrderConfirmed from './OrderConfirmed';
-import Footer from "./Footer";
-import NavBar from "./NavBar";
-import NavBarTemporary from "./NavBarTemporary";
+import Main from '../main/Main';
+import SearchTickets from '../searchTickets/SearchTickets';
+import SeatSelection from '../seatSelection/SeatSelection';
+import Passengers from '../passengers/Passengers';
+import PaySelection from '../paySection/PaySelection';
+import CheckConfirmOrder from '../checkConfirmOrder/CheckConfirmOrder';
+import OrderConfirmed from '../orderConfirmed/OrderConfirmed';
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
+import NavBarTemporary from "./components/NavBarTemporary";
 
 
 export class App extends Component {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import iconRuble from "../images/icon_ruble.png";
-import iconOrderTicketSend from "../images/icon_order_ticket_send.png";
-import iconOrderTicketPrint from "../images/icon_order_ticket_print.png";
-import iconOrderTicketPresent from "../images/icon_order_ticket_present.png";
-import iconRateService from "../images/icon_rate_service.png";
+import iconRuble from "../../images/icon_ruble.png";
+import iconOrderTicketSend from "../../images/icon_order_ticket_send.png";
+import iconOrderTicketPrint from "../../images/icon_order_ticket_print.png";
+import iconOrderTicketPresent from "../../images/icon_order_ticket_present.png";
+import iconRateService from "../../images/icon_rate_service.png";
 import {NavLink} from "react-router-dom";
 
 class OrderConfirmed extends Component {

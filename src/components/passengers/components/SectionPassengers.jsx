@@ -1,43 +1,43 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import iconThere from '../images/icon_there.png';
-import iconBack from '../images/icon_back.png';
-import iconMinus from '../images/icon_minus.png';
-import iconRuble from '../images/icon_ruble.png';
-import progressStateSelect from '../images/progress_state_select.png';
-import progressStateSelected from '../images/progress_state_selected.png';
-import progressStateDefault from '../images/progress_state_default.png';
-import iconSearchThere from '../images/icon_search_there.png';
-import iconRubleSmall from '../images/icon_ruble_small.png';
-import iconPassanger from '../images/icon_passanger.png';
-import iconMinusSircle from '../images/icon_minus_sircle.png';
-import iconPlusSircle from '../images/icon_plus_sircle.png';
-import iconCloseX from '../images/icon_close_x.png';
-import iconCloseXSircle from '../images/icon_close_x_sircle.png';
-import iconPlusSmallYellow from '../images/icon_plus_small_yellow.png';
-import iconDawSircle from '../images/icon_daw_sircle.png';
+import iconThere from '../../../images/icon_there.png';
+import iconBack from '../../../images/icon_back.png';
+import iconMinus from '../../../images/icon_minus.png';
+import iconRuble from '../../../images/icon_ruble.png';
+import progressStateSelect from '../../../images/progress_state_select.png';
+import progressStateSelected from '../../../images/progress_state_selected.png';
+import progressStateDefault from '../../../images/progress_state_default.png';
+import iconSearchThere from '../../../images/icon_search_there.png';
+import iconRubleSmall from '../../../images/icon_ruble_small.png';
+import iconPassanger from '../../../images/icon_passanger.png';
+import iconMinusSircle from '../../../images/icon_minus_sircle.png';
+import iconPlusSircle from '../../../images/icon_plus_sircle.png';
+import iconCloseX from '../../../images/icon_close_x.png';
+import iconCloseXSircle from '../../../images/icon_close_x_sircle.png';
+import iconPlusSmallYellow from '../../../images/icon_plus_small_yellow.png';
+import iconDawSircle from '../../../images/icon_daw_sircle.png';
 
 const SectionPassengers = () => {
 	return (
 		<div>
 			<div className="progress-state">
-				<ul class="list-group list-group-horizontal justify-content-between w-100">
-					<li class="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
+				<ul className="list-group list-group-horizontal justify-content-between w-100">
+					<li className="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
 						<p className="progress-state-number">1</p>
 						<p className="progress-state-text mr-5">Билеты</p>
 						<img className="justify-content-end ml-5" src={progressStateSelected} alt="..."/>
 					</li>
-					<li class="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
+					<li className="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
 						<p className="progress-state-number">2</p>
 						<p className="progress-state-text mr-5">Пассажиры</p>
 						<img className="" src={progressStateSelect} alt="..."/>
 					</li>
-					<li class="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
+					<li className="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
 						<p className="progress-state-number">3</p>
 						<p className="progress-state-text mr-5">Оплата</p>
 						<img className="ml-4" src={progressStateDefault} alt="..."/>
 					</li>
-					<li class="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0 bg-dark">
+					<li className="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0 bg-dark">
 						<p className="progress-state-number ml-5">4</p>
 						<p className="progress-state-text ">Проверка</p>
 					</li>
@@ -170,7 +170,7 @@ const SectionPassengers = () => {
 								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
 							</div>
 
-							<select class="form-control w-25 ml-4 mt-4">
+							<select className="form-control w-25 ml-4 mt-4">
 								<option>Взрослый</option>
 								<option>Десткий</option>
 							</select>
@@ -218,7 +218,7 @@ const SectionPassengers = () => {
 							<div className="row border-bottom">
 								<form className="form ml-4 pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Тип докумета</p>
-									<select class="form-control">
+									<select className="form-control">
 										<option>Паспорт РФ</option>
 										<option>Свидетельство о рождении</option>
 									</select>
@@ -251,7 +251,7 @@ const SectionPassengers = () => {
 								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
 							</div>
 
-							<select class="form-control w-25 ml-4 mt-4">
+							<select className="form-control w-25 ml-4 mt-4">
 								<option>Десткий</option>
 								<option>Взрослый</option>
 							</select>
@@ -300,7 +300,7 @@ const SectionPassengers = () => {
 							<div className="row border-bottom">
 								<form className="form ml-4 pt-3 pl-4 pr-4 w-50" action="input">
 									<p>Тип докумета</p>
-									<select class="form-control">
+									<select className="form-control">
 										<option>Свидетельство о рождении</option>
 										<option>Паспорт РФ</option>
 									</select>
@@ -325,7 +325,7 @@ const SectionPassengers = () => {
 								<h5 className="ml-3">Пассажир 2</h5>
 								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
 							</div>
-							<select class="form-control w-25 ml-4 mt-4">
+							<select className="form-control w-25 ml-4 mt-4">
 								<option>Десткий</option>
 								<option>Взрослый</option>
 							</select>
@@ -373,7 +373,7 @@ const SectionPassengers = () => {
 							<div className="d-flex">
 								<form className="form pt-3 pl-4 pr-4 w-50" action="input">
 									<p>Тип докумета</p>
-									<select class="form-control">
+									<select className="form-control">
 										<option>Свидетельство о рождении</option>
 										<option>Паспорт РФ</option>
 									</select>
@@ -399,7 +399,7 @@ const SectionPassengers = () => {
 								<h5 className="ml-3">Пассажир 2</h5>
 								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
 							</div>
-							<select class="form-control w-25 ml-4 mt-4">
+							<select className="form-control w-25 ml-4 mt-4">
 								<option>Десткий</option>
 								<option>Взрослый</option>
 							</select>
@@ -447,7 +447,7 @@ const SectionPassengers = () => {
 							<div className="d-flex">
 								<form className="form pt-3 pl-4 pr-4 w-50" action="input">
 									<p>Тип докумета</p>
-									<select class="form-control">
+									<select className="form-control">
 										<option>Свидетельство о рождении</option>
 										<option>Паспорт РФ</option>
 									</select>

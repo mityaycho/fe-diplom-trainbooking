@@ -1,5 +1,5 @@
 import React from 'react';
-import iconScrollTop from '../images/icon_footer_bottom.png';
+import iconScrollTop from '../../../images/icon_footer_bottom.png';
 
 const Footer = () => {
 	return (
