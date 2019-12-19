@@ -59,7 +59,7 @@ class ContainerFormMainPage extends React.Component {
     return <FormMainPage {...this.state}
                          setEvent={this.setEvent}
                          setWhereFromCity={this.setWhereFromCity}
-                         setWhereToCity={this.setWhereToNCity}
+                         setWhereToCity={this.setWhereToCity}
                          setWhereFromDate={this.setWhereFromDate}
                          setWhereToDate={this.setWhereToDate}
                          saveMainState={this.saveMainState}
