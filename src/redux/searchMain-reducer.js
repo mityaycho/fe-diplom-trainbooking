@@ -1,4 +1,4 @@
-const SET_FORM = 'SET_FORM';
+import {SET_FORM} from "./action";
 
 
 const initState = {
@@ -9,18 +9,18 @@ const searchMainReducer = (state = initState, action) => {
 
   switch(action.type) {
       case SET_FORM:
-        debugger
+        console.log(action.form);
         return {
           ...state,
           form: action.form
         };
       default: return state;
-    };
+    }
 };
 
 
 
-export const setDataForm = (form) => ({type: SET_FORM, form });
+
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import {setDataForm} from "../../../bll/searchMain-reducer";
 import {connect} from "react-redux";
 import FormMainPage from "./FormMainPage";
+import {setDataFormAC} from "../../../redux/action";
 
 
 class ContainerFormMainPage extends React.Component {
@@ -23,7 +23,6 @@ class ContainerFormMainPage extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.value !== this.state.value) {
-      debugger
       fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.state.value}`)
         .then(response => response.json())
         .then(data => this.setState(data.error ? {dataCities: [], value: data.error} : {dataCities: data}));
@@ -66,7 +65,7 @@ class ContainerFormMainPage extends React.Component {
                          saveMainState={this.saveMainState}
     />;
   };
-};
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -74,4 +73,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {setDataForm})(ContainerFormMainPage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setDataForm: (form) => {
+      const action = setDataFormAC(form);
+      dispatch(action);
+    }
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContainerFormMainPage);
