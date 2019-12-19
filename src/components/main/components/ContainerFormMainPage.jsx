@@ -9,16 +9,16 @@ class ContainerFormMainPage extends React.Component {
   state = {
     value: '',
     dataCities: [],
-    whereFromName: '',
+    whereFromCity: '',
     whereFromDate: null,
-    whereToName: '',
+    whereToCity: '',
     whereToDate: null
   };
 
   componentDidMount() {
-    fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=с`)
+    fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=`)
       .then(response => response.json())
-      .then(data => this.setState({dataCities: data}));
+      .then(data => this.setState(data.error ? {dataCities: [], value: data.error} : {dataCities: data}));
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -33,12 +33,12 @@ class ContainerFormMainPage extends React.Component {
     this.setState({value: event});
   };
 
-  setWhereFromName = (event) => {
-    this.setState({whereFromName: event[0]});
+  setWhereFromCity = (event) => {
+    this.setState({whereFromCity: event[0]});
   };
 
-  setWhereToName = (event) => {
-    this.setState({whereToName: event[0]});
+  setWhereToCity = (event) => {
+    this.setState({whereToCity: event[0]});
   };
 
   setWhereFromDate = (event) => {
@@ -50,16 +50,16 @@ class ContainerFormMainPage extends React.Component {
   };
 
   saveMainState = () => {
-    const {whereFromName, whereToName, whereFromDate, whereToDate} = this.state;
-    const setForm = {whereFromName, whereToName, whereFromDate, whereToDate};
+    const {whereFromCity, whereToCity, whereFromDate, whereToDate} = this.state;
+    const setForm = {whereFromCity: whereFromCity, whereToCity: whereToCity, whereFromDate, whereToDate};
     this.props.setDataForm(setForm);
   };
 
   render() {
     return <FormMainPage {...this.state}
                          setEvent={this.setEvent}
-                         setWhereFromName={this.setWhereFromName}
-                         setWhereToName={this.setWhereToName}
+                         setWhereFromCity={this.setWhereFromCity}
+                         setWhereToCity={this.setWhereToNCity}
                          setWhereFromDate={this.setWhereFromDate}
                          setWhereToDate={this.setWhereToDate}
                          saveMainState={this.saveMainState}
