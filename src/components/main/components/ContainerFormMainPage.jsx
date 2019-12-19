@@ -68,10 +68,10 @@ class ContainerFormMainPage extends React.Component {
   };
 };
 
-const mapState = (state) => {
+const mapStateToProps = (state) => {
   return {
     form: state.sectionSearch.form
   };
 };
 
-export default connect(mapState, {setDataForm})(ContainerFormMainPage);
+export default connect(mapStateToProps, {setDataForm})(ContainerFormMainPage);

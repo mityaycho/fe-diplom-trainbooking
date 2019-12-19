@@ -11,7 +11,7 @@ const FormMainPage = (props) => {
   return (
     <div className="section-header-form col-lg-6">
       <div className="row mt-5">
-        <form className="form mt-5 w-100" action="input">
+        <form className="form mt-5 w-100">
           <p className="ml-3">Направление</p>
           <div className="d-flex form-group m-3 justify-content-center">
             <Fragment>
@@ -33,7 +33,7 @@ const FormMainPage = (props) => {
             />
           </div>
         </form>
-        <form className="form mt-5 w-100" action="input">
+        <form className="form mt-5 w-100">
           <p className="ml-3">Дата</p>
           <div className="d-flex form-group m-3">
             <input className="col-sm form-control mr-4"
