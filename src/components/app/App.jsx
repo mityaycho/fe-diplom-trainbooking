@@ -10,9 +10,9 @@ import Passengers from '../passengers/Passengers';
 import PaySelection from '../paySection/PaySelection';
 import CheckConfirmOrder from '../checkConfirmOrder/CheckConfirmOrder';
 import OrderConfirmed from '../orderConfirmed/OrderConfirmed';
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
-import NavBarTemporary from "./components/NavBarTemporary";
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
+import NavBarTemporary from './components/NavBarTemporary';
 
 
 export class App extends Component {
