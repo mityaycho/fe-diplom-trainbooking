@@ -1,7 +1,7 @@
 import React from 'react';
-import {connect} from "react-redux";
-import FormMainPage from "./FormMainPage";
-import {setDataFormAC} from "../../../redux/action";
+import {connect} from 'react-redux';
+import FormMainPage from './FormMainPage';
+import {setDataFormAC} from '../../../redux/action';
 
 
 class ContainerFormMainPage extends React.Component {
