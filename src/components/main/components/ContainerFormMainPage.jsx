@@ -36,22 +36,26 @@ class ContainerFormMainPage extends React.Component {
   };
 
   setWhereFromCity = (event) => {
-		const cityId = this.state.dataCities.map(el => {
+		const cityId = this.state.dataCities.find(el => {
+			let id;
 			if (el.name === event[0]) {
-				return el._id
+				id = el._id
 			}
+			return id;
 		})
 		
-		this.setState({whereFromCity: event[0], cityWhereFromId: cityId[0], dataCities: [], value: ''});
+		this.setState({whereFromCity: event[0], cityWhereFromId: cityId._id, dataCities: [], value: ''});
   };
 
   setWhereToCity = (event) => {
-		const cityId = this.state.dataCities.map(el => {
+		const cityId = this.state.dataCities.find(el => {
+			let id;
 			if (el.name === event[0]) {
-				return el._id
+				id = el._id
 			}
+			return id;
 		})
-    this.setState({whereToCity: event[0], cityWhereToId: cityId[0], dataCities: [], value: ''}, () => console.log(this.state));
+    this.setState({whereToCity: event[0], cityWhereToId: cityId._id, dataCities: [], value: ''}, () => console.log(this.state));
 	};
 
   setWhereFromDate = (event) => {
