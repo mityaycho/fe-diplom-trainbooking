@@ -42,7 +42,7 @@ class ContainerFormMainPage extends React.Component {
 			}
 		})
 		
-		this.setState({whereFromCity: event[0], cityWhereFromId: cityId[0], dataCities: []});
+		this.setState({whereFromCity: event[0], cityWhereFromId: cityId[0]});
   };
 
   setWhereToCity = (event) => {
@@ -51,8 +51,12 @@ class ContainerFormMainPage extends React.Component {
 				return el._id
 			}
 		})
-    this.setState({whereToCity: event[0], cityWhereToId: cityId[0], dataCities: []});
-  };
+    this.setState({whereToCity: event[0], cityWhereToId: cityId[0]}, () => console.log(this.state));
+	};
+	
+	clearDataCities = () => {
+		this.setState({value: ''})
+	}
 
   setWhereFromDate = (event) => {
     this.setState({whereFromDate: event.currentTarget.value});
@@ -63,8 +67,9 @@ class ContainerFormMainPage extends React.Component {
   };
 
   saveMainState = () => {
-    const {whereFromCity, whereToCity, whereFromDate, whereToDate} = this.state;
-    const setForm = {whereFromCity: whereFromCity, whereToCity: whereToCity, whereFromDate, whereToDate};
+    const {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId} = this.state;
+		const setForm = {whereFromCity: whereFromCity, whereToCity: whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId};
+		console.log(setForm);
     this.props.setDataForm(setForm);
   };
 
@@ -75,7 +80,8 @@ class ContainerFormMainPage extends React.Component {
                          setWhereToCity={this.setWhereToCity}
                          setWhereFromDate={this.setWhereFromDate}
                          setWhereToDate={this.setWhereToDate}
-                         saveMainState={this.saveMainState}
+												 saveMainState={this.saveMainState}
+												 clearDataCities={this.clearDataCities}
     />;
   };
 }
