@@ -12,7 +12,9 @@ class ContainerFormMainPage extends React.Component {
     whereFromCity: '',
     whereFromDate: null,
     whereToCity: '',
-    whereToDate: null
+		whereToDate: null,
+		cityWhereFromId: '',
+		cityWhereToId: ''
   };
 
   componentDidMount() {
@@ -34,11 +36,22 @@ class ContainerFormMainPage extends React.Component {
   };
 
   setWhereFromCity = (event) => {
-    this.setState({whereFromCity: event[0]});
+		const cityId = this.state.dataCities.map(el => {
+			if (el.name === event[0]) {
+				return el._id
+			}
+		})
+		
+		this.setState({whereFromCity: event[0], cityWhereFromId: cityId[0], dataCities: []});
   };
 
   setWhereToCity = (event) => {
-    this.setState({whereToCity: event[0]});
+		const cityId = this.state.dataCities.map(el => {
+			if (el.name === event[0]) {
+				return el._id
+			}
+		})
+    this.setState({whereToCity: event[0], cityWhereToId: cityId[0], dataCities: []});
   };
 
   setWhereFromDate = (event) => {
