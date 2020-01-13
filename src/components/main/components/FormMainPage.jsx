@@ -28,7 +28,6 @@ const FormMainPage = (props) => {
                                options={options}
                                onInputChange={props.setEvent}
 															 onChange={props.setWhereFromCity}
-															 onBlur={props.clearDataCities}
                     />
                   </Fragment>
                   <img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>
@@ -40,7 +39,6 @@ const FormMainPage = (props) => {
                     options={options}
                     onInputChange={props.setEvent}
 										onChange={props.setWhereToCity}
-										onBlur={props.clearDataCities}
                   />
                 </div>
               </form>
