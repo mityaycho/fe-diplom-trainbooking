@@ -7,7 +7,6 @@ import {NavLink} from 'react-router-dom';
 const FormMainPage = (props) => {
 
 	const options = props.dataCities.map(el => el.name);
-	const citiesId = props.dataCities.map(el => el._id);
 
   return (
     <div className="header-section">
@@ -25,7 +24,7 @@ const FormMainPage = (props) => {
                   <Fragment>
                     <Typeahead value={props.value}
 															 placeholder={props.dataCities.error ? props.dataCities.error : "откуда"}
-															 id={citiesId}
+															 id="whereFromCity"
                                options={options}
                                onInputChange={props.setEvent}
 															 onChange={props.setWhereFromCity}
@@ -37,7 +36,7 @@ const FormMainPage = (props) => {
                   <Typeahead
                     value={props.searchItem}
 										placeholder={props.dataCities.error ? props.dataCities.error : "куда"}
-										id={citiesId}
+										id="whereToCity"
                     options={options}
                     onInputChange={props.setEvent}
 										onChange={props.setWhereToCity}
