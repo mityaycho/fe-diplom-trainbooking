@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 import iconCoupe from '../../../images/icon_coupe.png';
 import iconEconomclass from '../../../images/icon_economclass.png';
 import iconSedentary from '../../../images/icon_sedentary.png';
@@ -404,4 +405,4 @@ const SectionSeatSelection = () => {
 	);
 };
 
-export default SectionSeatSelection;
+export default connect()(SectionSeatSelection);
