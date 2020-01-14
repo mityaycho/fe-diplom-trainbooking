@@ -49,7 +49,7 @@ const SectionCheckConfirmOrder = () => {
 						<div className="d-flex align-items-center">
 							<img className="ml-3" src={iconThere} alt="иконка туда"/>
 							<h5 className="ml-2">Туда</h5>
-							<h7 className="ml-2 text-white-50">30.08.2018</h7>
+							<h6 className="ml-2 text-white-50">30.08.2018</h6>
 							<img className="ml-auto mr-3" src={iconMinus} alt="..."/>
 						</div>
 						<div className="d-flex justify-content-between">
@@ -79,12 +79,12 @@ const SectionCheckConfirmOrder = () => {
 						</div>
 						<div className="d-flex justify-content-between">
 							<div className="ml-3">
-								<h7>Москва</h7>
+								<h6>Москва</h6>
 								<p className="text-white-50">Курский </p>
 								<p className="mt-n3 text-white-50">вокзал</p>
 							</div>
 							<div className="mr-3 text-right">
-								<h7>Санкт-Петербург</h7>
+								<h6>Санкт-Петербург</h6>
 								<p className="text-white-50">Ладожский</p>
 								<p className="mt-n3 text-white-50">вокзал</p>
 							</div>
@@ -94,7 +94,7 @@ const SectionCheckConfirmOrder = () => {
 						<div className="d-flex align-items-center">
 							<img className="ml-3" src={iconBack} alt="иконка туда"/>
 							<h5 className="ml-2">Обратно</h5>
-							<h7 className="ml-2 text-white-50">09.09.2018</h7>
+							<h6 className="ml-2 text-white-50">09.09.2018</h6>
 							<img className="ml-auto mr-3" src={iconMinus} alt="..."/>
 						</div>
 						<div className="d-flex justify-content-between">
@@ -124,12 +124,12 @@ const SectionCheckConfirmOrder = () => {
 						</div>
 						<div className="d-flex justify-content-between">
 							<div className="ml-3">
-								<h7>Москва</h7>
+								<h6>Москва</h6>
 								<p className="text-white-50">Курский </p>
 								<p className="mt-n3 text-white-50">вокзал</p>
 							</div>
 							<div className="mr-3 text-right">
-								<h7>Санкт-Петербург</h7>
+								<h6>Санкт-Петербург</h6>
 								<p className="text-white-50">Ладожский</p>
 								<p className="mt-n3 text-white-50">вокзал</p>
 							</div>

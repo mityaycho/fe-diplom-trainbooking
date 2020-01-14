@@ -72,7 +72,7 @@ class SectionSeatSelection extends React.Component {
 								<p className="container">Купе</p>
 								<div className="custom-control custom-switch d-flex justify-content-end pr-5">
 									<input type="checkbox" className="custom-control-input" id="customSwitch1"/>
-									<label className="custom-control-label" for="customSwitch1"></label>
+									<label className="custom-control-label" htmlFor="customSwitch1"></label>
 								</div>
 							</div>
 							<div className="container economclass ml-5 d-flex">
@@ -80,7 +80,7 @@ class SectionSeatSelection extends React.Component {
 								<p className="container">Плацкарт</p>
 								<div className="custom-control custom-switch d-flex justify-content-end pr-5">
 									<input type="checkbox" className="custom-control-input" id="customSwitch2"/>
-									<label className="custom-control-label" for="customSwitch2"></label>
+									<label className="custom-control-label" htmlFor="customSwitch2"></label>
 								</div>
 							</div>
 							<div className="container coupe ml-5 d-flex">
@@ -88,7 +88,7 @@ class SectionSeatSelection extends React.Component {
 								<p className="container">Сидячий</p>
 								<div className="custom-control custom-switch d-flex justify-content-end pr-5">
 									<input type="checkbox" className="custom-control-input" id="customSwitch3"/>
-									<label className="custom-control-label" for="customSwitch3"></label>
+									<label className="custom-control-label" htmlFor="customSwitch3"></label>
 								</div>
 							</div>
 							<div className="container coupe ml-5 d-flex">
@@ -96,7 +96,7 @@ class SectionSeatSelection extends React.Component {
 								<p className="container">Люкс</p>
 								<div className="custom-control custom-switch d-flex justify-content-end pr-5">
 									<input type="checkbox" className="custom-control-input" id="customSwitch4"/>
-									<label className="custom-control-label" for="customSwitch4"></label>
+									<label className="custom-control-label" htmlFor="customSwitch4"></label>
 								</div>
 							</div>
 							<div className="container coupe ml-5 d-flex">
@@ -104,7 +104,7 @@ class SectionSeatSelection extends React.Component {
 								<p className="container">Wi-Fi</p>
 								<div className="custom-control custom-switch d-flex justify-content-end pr-5">
 									<input type="checkbox" className="custom-control-input" id="customSwitch5"/>
-									<label className="custom-control-label" for="customSwitch5"></label>
+									<label className="custom-control-label" htmlFor="customSwitch5"></label>
 								</div>
 							</div>
 							<div className="container coupe ml-5 d-flex">
@@ -112,7 +112,7 @@ class SectionSeatSelection extends React.Component {
 								<p className="container">Экспресс</p>
 								<div className="custom-control custom-switch d-flex justify-content-end pr-5">
 									<input type="checkbox" className="custom-control-input" id="customSwitch6"/>
-									<label className="custom-control-label" for="customSwitch6"></label>
+									<label className="custom-control-label" htmlFor="customSwitch6"></label>
 								</div>
 							</div>
 							<hr className="bg-light" />
@@ -317,10 +317,10 @@ class SectionSeatSelection extends React.Component {
 								<div className="col-lg-4 mt-3">
 									<p>Обслуживание ФПК</p>
 									<div>
-									<label><imput type="checkbox" className="icon-vagon-conditioner align-self-center"/><span></span></label>
-									<label><imput type="checkbox" className="icon-vagon-wifi align-self-center"/><span></span></label>
-									<label><imput type="checkbox" className="icon-vagon-linens align-self-center"/><span></span></label>
-									<label><imput type="checkbox" className="icon-vagon-cup align-self-center"/><span></span></label>
+									<label><input type="checkbox" className="icon-vagon-conditioner align-self-center"/><span></span></label>
+									<label><input type="checkbox" className="icon-vagon-wifi align-self-center"/><span></span></label>
+									<label><input type="checkbox" className="icon-vagon-linens align-self-center"/><span></span></label>
+									<label><input type="checkbox" className="icon-vagon-cup align-self-center"/><span></span></label>
 									</div>
 								</div>
 							</div>
