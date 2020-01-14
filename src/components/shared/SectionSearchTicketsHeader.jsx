@@ -166,5 +166,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SectionSearchTicketsHeader);
-
-// whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId
