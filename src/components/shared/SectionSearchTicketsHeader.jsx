@@ -10,9 +10,9 @@ class SectionSearchTicketsHeader extends React.Component {
 		valueToCity: '',
     dataCities: [],
     whereFromCity: '',
-    whereFromDate: null,
+    whereFromDate: undefined,
     whereToCity: '',
-		whereToDate: null,
+		whereToDate: undefined,
 		cityWhereFromId: '',
 		cityWhereToId: ''
 	};
