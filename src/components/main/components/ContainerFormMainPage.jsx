@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import FormMainPage from './FormMainPage';
 import {setDataFormAC} from '../../../redux/action';
 
-
 class ContainerFormMainPage extends React.Component {
 
   state = {
@@ -39,7 +38,7 @@ class ContainerFormMainPage extends React.Component {
 		const cityId = this.state.dataCities.find(el => {
 			let id;
 			if (el.name === event[0]) {
-				id = el._id
+				id = el
 			}
 			return id;
 		})
@@ -51,7 +50,7 @@ class ContainerFormMainPage extends React.Component {
 		const cityId = this.state.dataCities.find(el => {
 			let id;
 			if (el.name === event[0]) {
-				id = el._id
+				id = el
 			}
 			return id;
 		})
@@ -68,7 +67,7 @@ class ContainerFormMainPage extends React.Component {
 
   saveMainState = () => {
     const {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId} = this.state;
-		const setForm = {whereFromCity: whereFromCity, whereToCity: whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId};
+		const setForm = {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId};
 		console.log(setForm);
     this.props.setDataForm(setForm);
   };
