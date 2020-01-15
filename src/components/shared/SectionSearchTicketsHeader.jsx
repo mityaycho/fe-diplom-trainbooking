@@ -147,8 +147,7 @@ class SectionSearchTicketsHeader extends React.Component {
 			</div>
 		);
 	}
-	
-};
+}
 
 const mapStateToProps = (state) => {
   return {
