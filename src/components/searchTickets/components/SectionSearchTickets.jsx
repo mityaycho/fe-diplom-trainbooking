@@ -26,12 +26,18 @@ import {setDataFormAC} from "../../../redux/action";
 import {connect} from "react-redux";
 
 class SectionSearchTickets extends React.Component {
-	state = {}
+	state = {
+		total_count: 0
+	};
 
 	componentDidMount() {
 		fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`)
 			.then(response => response.json())
-			.then(data => console.log(data))
+			.then(data => {
+				console.log(data);
+				return data;
+			})
+			.then(data => this.setState({total_count: data.total_count}))
 	};
 
 	render() {
@@ -220,7 +226,7 @@ class SectionSearchTickets extends React.Component {
 
 					<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
 						<div className="row">
-							<div className="col">найдено 20</div>
+							<div className="col">найдено {this.state.total_count}</div>
 							<div className="col text-right">сортировать по: времени</div>
 							<div className="col text-right">показывать по: 5 10 20</div>
 						</div>
