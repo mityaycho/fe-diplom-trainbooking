@@ -9,9 +9,9 @@ class ContainerFormMainPage extends React.Component {
     value: '',
     dataCities: [],
     whereFromCity: '',
-    whereFromDate: null,
+    whereFromDate: undefined,
     whereToCity: '',
-		whereToDate: null,
+		whereToDate: undefined,
 		cityWhereFromId: '',
 		cityWhereToId: ''
   };

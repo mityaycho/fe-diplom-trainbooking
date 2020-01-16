@@ -28,6 +28,7 @@ const FormMainPage = (props) => {
                                options={options}
                                onInputChange={props.setEvent}
 															 onChange={props.setWhereFromCity}
+                               className="col-sm"
                     />
                   </Fragment>
                   <img className="mt-auto mb-2" src={iconCachedWhite} alt="..."/>
@@ -39,6 +40,7 @@ const FormMainPage = (props) => {
                     options={options}
                     onInputChange={props.setEvent}
 										onChange={props.setWhereToCity}
+                    className="col-sm"
                   />
                 </div>
               </form>

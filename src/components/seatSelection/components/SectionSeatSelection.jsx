@@ -275,7 +275,7 @@ class SectionSeatSelection extends React.Component {
 							<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 							<div className="choice-type-vagon-button d-flex justify-content-between mt-4">
 								<button type="button" className="btn btn-outline-light ml-5">
-									<a className="icon-type-vagon-seat align-self-center" href="a#"/>
+									<a className="icon-type-vagon-seat align-self-center" href="#a.a"/>
 									<p>Сидячий</p>
 								</button>
 								<button type="button" className="btn btn-outline-light">
