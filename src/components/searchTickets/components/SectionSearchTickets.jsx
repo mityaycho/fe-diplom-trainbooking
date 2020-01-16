@@ -39,7 +39,11 @@ class SectionSearchTickets extends React.Component {
         console.log(data);
         return data;
       })
-      .then(data => this.setState({total_count: data.total_count}));
+      .then(data => this.setState({
+        total_count: data.total_count,
+        whereFromDate: this.props.form.whereFromDate,
+        whereToDate: this.props.form.whereToDate
+      }));
   };
 
 	setWhereFromDate = (event) => {
