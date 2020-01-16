@@ -24,12 +24,13 @@ import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
 import {setDataFormAC} from "../../../redux/action";
 import {connect} from "react-redux";
+ let server = {
+   total_count: 24,
 
+ }
 class SectionSearchTickets extends React.Component {
   state = {
-    total_count: 0,
-		whereFromDate: undefined,
-		whereToDate: undefined
+    total_count: 0
   };
 
   componentDidMount() {
@@ -44,6 +45,9 @@ class SectionSearchTickets extends React.Component {
         whereFromDate: this.props.form.whereFromDate,
         whereToDate: this.props.form.whereToDate
       }));
+    fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`)
+      .then(response => response.json())
+      .then(data => console.log(data))
   };
 
 	setWhereFromDate = (event) => {

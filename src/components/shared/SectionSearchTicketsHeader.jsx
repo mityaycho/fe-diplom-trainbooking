@@ -20,7 +20,7 @@ class SectionSearchTicketsHeader extends React.Component {
   componentDidMount() {
     fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=`)
       .then(response => response.json())
-      .then(data => this.setState(data.error ? {dataCities: [], value: data.error} : {dataCities: data}));
+      .then(data => this.setState(data.error ? {dataCities: []} : {dataCities: data}));
     this.setState({
       whereFromCity: this.props.form.whereFromCity,
       whereToCity: this.props.form.whereToCity,
@@ -35,12 +35,12 @@ class SectionSearchTicketsHeader extends React.Component {
     if (prevState.value !== this.state.value) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.state.valueFromCity}`)
         .then(response => response.json())
-        .then(data => this.setState(data.error ? {dataCities: [], value: data.error} : {dataCities: data}));
+        .then(data => this.setState(data.error ? {dataCities: [], valueFromCity: data.error} : {dataCities: data}));
     }
     if (prevState.value !== this.state.value) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.state.valueToCity}`)
         .then(response => response.json())
-        .then(data => this.setState(data.error ? {dataCities: [], value: data.error} : {dataCities: data}));
+        .then(data => this.setState(data.error ? {dataCities: [], valueToCity: data.error} : {dataCities: data}));
     }
   };
 
