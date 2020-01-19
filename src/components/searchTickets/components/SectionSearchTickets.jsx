@@ -30,7 +30,8 @@ class SectionSearchTickets extends React.Component {
     total_count: 0,
     have_second_class: false,
     have_third_class: false,
-    have_fourth_class: false
+    have_fourth_class: false,
+    have_first_class: false
   };
 
   componentDidMount() {
@@ -71,7 +72,8 @@ class SectionSearchTickets extends React.Component {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
       + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
           + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
-        + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`)
+        + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
+        + `${this.state.have_first_class ? '&have_first_class=true' : ''}`)
         .then(response => response.json())
         .then(data => {
           console.log(data);
@@ -83,7 +85,8 @@ class SectionSearchTickets extends React.Component {
           whereToDate: this.props.form.whereToDate,
           have_second_class: this.state.have_second_class,
           have_third_class: this.state.have_third_class,
-          have_fourth_class: this.state.have_fourth_class
+          have_fourth_class: this.state.have_fourth_class,
+          have_first_class: this.state.have_first_class
         }));
     }
   };
@@ -106,6 +109,10 @@ class SectionSearchTickets extends React.Component {
 
   checkFourthClass = (event) => {
     this.setState({have_fourth_class : event.currentTarget.checked})
+  };
+
+  checkFirstClass = (event) => {
+    this.setState({have_first_class : event.currentTarget.checked})
   };
 
   render() {
@@ -167,7 +174,8 @@ class SectionSearchTickets extends React.Component {
                 <img className="icon-coupe" src={iconCoupe} alt="иконка купе"/>
                 <p className="container">Купе</p>
                 <div className="custom-control custom-switch d-flex justify-content-end pr-5">
-                  <input type="checkbox" className="custom-control-input" id="customSwitch1" checked={this.state.have_second_class} onChange={this.checkSecondClass}/>
+                  <input type="checkbox" className="custom-control-input" id="customSwitch1"
+                         checked={this.state.have_second_class} onChange={this.checkSecondClass}/>
                   <label className="custom-control-label" htmlFor="customSwitch1"></label>
                 </div>
               </div>
@@ -175,7 +183,8 @@ class SectionSearchTickets extends React.Component {
                 <img className="icon-coupe" src={iconEconomclass} alt="иконка Плацкарт"/>
                 <p className="container">Плацкарт</p>
                 <div className="custom-control custom-switch d-flex justify-content-end pr-5">
-                  <input type="checkbox" className="custom-control-input" id="customSwitch2" checked={this.state.have_third_class} onChange={this.checkThirdClass}/>
+                  <input type="checkbox" className="custom-control-input" id="customSwitch2"
+                         checked={this.state.have_third_class} onChange={this.checkThirdClass}/>
                   <label className="custom-control-label" htmlFor="customSwitch2"></label>
                 </div>
               </div>
@@ -183,7 +192,8 @@ class SectionSearchTickets extends React.Component {
                 <img className="icon-coupe" src={iconSedentary} alt="иконка Сидячий"/>
                 <p className="container">Сидячий</p>
                 <div className="custom-control custom-switch d-flex justify-content-end pr-5">
-                  <input type="checkbox" className="custom-control-input" id="customSwitch3" checked={this.state.have_fourth_class} onChange={this.checkFourthClass}/>
+                  <input type="checkbox" className="custom-control-input" id="customSwitch3"
+                         checked={this.state.have_fourth_class} onChange={this.checkFourthClass}/>
                   <label className="custom-control-label" htmlFor="customSwitch3"></label>
                 </div>
               </div>
@@ -191,7 +201,8 @@ class SectionSearchTickets extends React.Component {
                 <img className="icon-coupe" src={iconLuxury} alt="иконка Люкс"/>
                 <p className="container">Люкс</p>
                 <div className="custom-control custom-switch d-flex justify-content-end pr-5">
-                  <input type="checkbox" className="custom-control-input" id="customSwitch4"/>
+                  <input type="checkbox" className="custom-control-input" id="customSwitch4"
+                         checked={this.state.have_first_class} onChange={this.checkFirstClass}/>
                   <label className="custom-control-label" htmlFor="customSwitch4"></label>
                 </div>
               </div>
