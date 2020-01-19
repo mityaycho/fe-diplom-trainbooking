@@ -58,8 +58,7 @@ class SectionSearchTickets extends React.Component {
         total_count: data.total_count,
         whereFromDate: this.props.form.whereFromDate,
         whereToDate: this.props.form.whereToDate,
-        have_second_class: this.state.have_second_class,
-        have_third_class: this.state.have_third_class
+        have_second_class: this.state.have_second_class
       }));
   };
 
@@ -67,7 +66,7 @@ class SectionSearchTickets extends React.Component {
   // (не понимаю почему не работает фильтрация на сервере отправляю true как в примере, но ничего не меняется)
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.have_second_class !== this.state.have_second_class) {
+    if (prevState.have_third_class !== this.state.have_third_class) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
       + `${this.state.have_second_class ? '&have_second_class=true' : ''}${this.state.have_third_class ? '&have_third_class=true' : ''}`)
         .then(response => response.json())
@@ -79,7 +78,8 @@ class SectionSearchTickets extends React.Component {
           total_count: data.total_count,
           whereFromDate: this.props.form.whereFromDate,
           whereToDate: this.props.form.whereToDate,
-          have_second_class: this.state.have_second_class
+          have_second_class: this.state.have_second_class,
+          have_third_class: this.state.have_third_class
         }));
     }
   };
@@ -93,9 +93,12 @@ class SectionSearchTickets extends React.Component {
 	};
 
 	checkSecondClass = (event) => {
-	  this.setState({have_second_class: event.currentTarget.checked}, () => console.log(this.state.have_second_class))
+    this.setState({have_second_class: event.currentTarget.checked})
+  };
 
-  }
+  checkThirdClass = (event) => {
+    this.setState({have_third_class: event.currentTarget.checked})
+  };
 
   render() {
     return (
@@ -164,7 +167,7 @@ class SectionSearchTickets extends React.Component {
                 <img className="icon-coupe" src={iconEconomclass} alt="иконка Плацкарт"/>
                 <p className="container">Плацкарт</p>
                 <div className="custom-control custom-switch d-flex justify-content-end pr-5">
-                  <input type="checkbox" className="custom-control-input" id="customSwitch2"/>
+                  <input type="checkbox" className="custom-control-input" id="customSwitch2" checked={this.state.have_third_class} onChange={this.checkThirdClass}/>
                   <label className="custom-control-label" htmlFor="customSwitch2"></label>
                 </div>
               </div>
