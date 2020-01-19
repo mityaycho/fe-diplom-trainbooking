@@ -31,7 +31,9 @@ class SectionSearchTickets extends React.Component {
     have_second_class: false,
     have_third_class: false,
     have_fourth_class: false,
-    have_first_class: false
+    have_first_class: false,
+    have_wifi: false,
+    have_express: false
   };
 
   componentDidMount() {
@@ -64,16 +66,15 @@ class SectionSearchTickets extends React.Component {
       }));
   };
 
-  // don't work have_second_class
-  // (не понимаю почему не работает фильтрация на сервере отправляю true как в примере, но ничего не меняется)
-
   componentDidUpdate(prevProps, prevState) {
     if (prevState.have_fourth_class !== this.state.have_fourth_class) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
       + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
           + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
         + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
-        + `${this.state.have_first_class ? '&have_first_class=true' : ''}`)
+        + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
+        + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
+        + `${this.state.have_express ? '&have_express=true' : ''}`)
         .then(response => response.json())
         .then(data => {
           console.log(data);
@@ -86,7 +87,9 @@ class SectionSearchTickets extends React.Component {
           have_second_class: this.state.have_second_class,
           have_third_class: this.state.have_third_class,
           have_fourth_class: this.state.have_fourth_class,
-          have_first_class: this.state.have_first_class
+          have_first_class: this.state.have_first_class,
+          have_wifi: this.state.have_wifi,
+          have_express: this.state.have_express
         }));
     }
   };
@@ -113,6 +116,14 @@ class SectionSearchTickets extends React.Component {
 
   checkFirstClass = (event) => {
     this.setState({have_first_class : event.currentTarget.checked})
+  };
+
+  checkWiFi = (event) => {
+    this.setState({have_wifi : event.currentTarget.checked})
+  };
+
+  checkExpress = (event) => {
+    this.setState({have_express : event.currentTarget.checked})
   };
 
   render() {
@@ -210,7 +221,8 @@ class SectionSearchTickets extends React.Component {
                 <img className="icon-coupe" src={iconWifi} alt="иконка Wi-Fi"/>
                 <p className="container">Wi-Fi</p>
                 <div className="custom-control custom-switch d-flex justify-content-end pr-5">
-                  <input type="checkbox" className="custom-control-input" id="customSwitch5"/>
+                  <input type="checkbox" className="custom-control-input" id="customSwitch5"
+                         checked={this.state.have_wifi} onChange={this.checkWiFi}/>
                   <label className="custom-control-label" htmlFor="customSwitch5"></label>
                 </div>
               </div>
@@ -218,7 +230,8 @@ class SectionSearchTickets extends React.Component {
                 <img className="icon-coupe" src={iconExpress} alt="иконка Экспресс"/>
                 <p className="container">Экспресс</p>
                 <div className="custom-control custom-switch d-flex justify-content-end pr-5">
-                  <input type="checkbox" className="custom-control-input" id="customSwitch6"/>
+                  <input type="checkbox" className="custom-control-input" id="customSwitch6"
+                         checked={this.state.have_express} onChange={this.checkExpress}/>
                   <label className="custom-control-label" htmlFor="customSwitch6"></label>
                 </div>
               </div>
