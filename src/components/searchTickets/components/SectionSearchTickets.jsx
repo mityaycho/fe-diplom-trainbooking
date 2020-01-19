@@ -28,11 +28,13 @@ import {connect} from "react-redux";
 class SectionSearchTickets extends React.Component {
   state = {
     total_count: 0,
-    have_second_class: false
+    have_second_class: false,
+    have_third_class: false
   };
 
   componentDidMount() {
-    fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`)
+    fetch(`https://netology-trainbooking.herokuapp.com/`
+      + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`)
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -56,7 +58,8 @@ class SectionSearchTickets extends React.Component {
         total_count: data.total_count,
         whereFromDate: this.props.form.whereFromDate,
         whereToDate: this.props.form.whereToDate,
-        have_second_class: this.state.have_second_class
+        have_second_class: this.state.have_second_class,
+        have_third_class: this.state.have_third_class
       }));
   };
 
@@ -65,7 +68,8 @@ class SectionSearchTickets extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.have_second_class !== this.state.have_second_class) {
-      fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673&have_second_class=${this.state.have_second_class}`)
+      fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
+      + `${this.state.have_second_class ? '&have_second_class=true' : ''}${this.state.have_third_class ? '&have_third_class=true' : ''}`)
         .then(response => response.json())
         .then(data => {
           console.log(data);
