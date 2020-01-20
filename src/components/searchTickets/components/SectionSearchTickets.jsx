@@ -139,7 +139,7 @@ class SectionSearchTickets extends React.Component {
   };
 
   render() {
-    const resultSearch = this.state.items.map(el => <ResultSearchTickets/>);
+    const resultSearch = this.state.items.map(el => <ResultSearchTickets state={el}/>);
     return (
       <div className="text-white tickets-search-window animated zoomInDow">
         <div className="progress-state">

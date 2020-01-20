@@ -7,12 +7,12 @@ import iconRubleSmall from "../../../images/icon_ruble_small.png";
 import iconSearchBack from "../../../images/icon_search_back.png";
 
 
-const ResultSearchTickets = () => {
+const ResultSearchTickets = (props) => {
   return (
     <div className="result-search-of-tickets row mt-4">
       <div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
         <img className="pl-5" src={iconTicketTrain} alt="иконка поезда"/>
-        <h5 className="text-center">116C</h5>
+        <h5 className="text-center">{props.state.departure.train.name}</h5>
         <p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
                                                              alt="..."/></p>
         <p className="pl-3">Москва<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
