@@ -33,7 +33,9 @@ class SectionSearchTickets extends React.Component {
     have_fourth_class: false,
     have_first_class: false,
     have_wifi: false,
-    have_express: false
+    have_express: false,
+    whereFromDate: undefined,
+    whereToDate: undefined
   };
 
   componentDidMount() {
@@ -67,7 +69,13 @@ class SectionSearchTickets extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.have_fourth_class !== this.state.have_fourth_class) {
+    if (prevState.total_count !== this.state.total_count ||
+      prevState.have_second_class !== this.state.have_second_class ||
+      prevState.have_third_class !== this.state.have_third_class ||
+      prevState.have_fourth_class !== this.state.have_fourth_class ||
+      prevState.have_first_class !== this.state.have_first_class ||
+      prevState.have_wifi !== this.state.have_wifi ||
+      prevState.have_express !== this.state.have_express ) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
       + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
           + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
@@ -712,16 +720,19 @@ class SectionSearchTickets extends React.Component {
             </div>
 
             <div className="row justify-content-end mt-5">
-              <button className="page-search-select-number ml-3" to="/" type="button"><img src={iconSearchLeft}
-                                                                                           alt="иконка влево"/></button>
+              <button className="page-search-select-number ml-3" to="/" type="button">
+                <img src={iconSearchLeft} alt="иконка влево"/>
+              </button>
               <button className="page-search-select-number ml-3" to="/" type="button">1</button>
               <button className="page-search-select-number ml-3" to="/" type="button">2</button>
               <button className="page-search-select-number ml-3" to="/" type="button">3</button>
-              <button className="page-search-select-number ml-3" to="/" type="button"><img src={iconSearchDots}
-                                                                                           alt="иконка влево"/></button>
+              <button className="page-search-select-number ml-3" to="/" type="button">
+                <img src={iconSearchDots} alt="иконка влево"/>
+              </button>
               <button className="page-search-select-number ml-3" to="/" type="button">10</button>
-              <NavLink className="page-search-select-number ml-3" to="/seat_selection" type="button"><img
-                src={iconSearchRight} alt="иконка влево"/></NavLink>
+              <NavLink className="page-search-select-number ml-3" to="/seat_selection" type="button">
+                <img src={iconSearchRight} alt="иконка влево"/>
+              </NavLink>
             </div>
           </div>
         </div>
