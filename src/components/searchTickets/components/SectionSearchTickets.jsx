@@ -24,10 +24,12 @@ import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
 import {setDataFormAC} from "../../../redux/action";
 import {connect} from "react-redux";
+import ResultSearchTickets from "./ResultSearchTickets";
 
 class SectionSearchTickets extends React.Component {
   state = {
     total_count: 0,
+    items: [],
     have_second_class: false,
     have_third_class: false,
     have_fourth_class: false,
@@ -90,6 +92,7 @@ class SectionSearchTickets extends React.Component {
         })
         .then(data => this.setState({
           total_count: data.total_count,
+          items: data.items,
           whereFromDate: this.props.form.whereFromDate,
           whereToDate: this.props.form.whereToDate,
           have_second_class: this.state.have_second_class,
@@ -100,6 +103,7 @@ class SectionSearchTickets extends React.Component {
           have_express: this.state.have_express
         }));
     }
+    console.log(this.state.items)
   };
 
 	setWhereFromDate = (event) => {
@@ -135,6 +139,7 @@ class SectionSearchTickets extends React.Component {
   };
 
   render() {
+    const resultSearch = this.state.items.map(el => <ResultSearchTickets/>);
     return (
       <div className="text-white tickets-search-window animated zoomInDow">
         <div className="progress-state">
@@ -339,385 +344,7 @@ class SectionSearchTickets extends React.Component {
               <div className="col text-right">показывать по: 5 10 20</div>
             </div>
 
-            <div className="result-search-of-tickets row mt-4">
-              <div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
-                <img className="pl-5" src={iconTicketTrain} alt="иконка поезда"/>
-                <h5 className="text-center">116C</h5>
-                <p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
-                                                                     alt="..."/></p>
-                <p className="pl-3">Москва<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
-                <p className="pl-3">Санкт-Петербург</p>
-              </div>
-              <div className="col-lg-9">
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="pl-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchThere} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="pl-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchBack} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="ml-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row justify-content-end">
-                  <button className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">Выбрать места
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="result-search-of-tickets row mt-4">
-              <div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
-                <img className="pl-5" src={iconTicketTrain} alt="иконка поезда"/>
-                <h5 className="text-center">116C</h5>
-                <p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
-                                                                     alt="..."/></p>
-                <p className="pl-3">Москва<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
-                <p className="pl-3">Санкт-Петербург</p>
-              </div>
-              <div className="col-lg-9">
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="pl-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchThere} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="pl-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchBack} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="ml-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row justify-content-end">
-                  <button className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">Выбрать места
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="result-search-of-tickets row mt-4">
-              <div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
-                <img className="pl-5" src={iconTicketTrain} alt="иконка поезда"/>
-                <h5 className="text-center">116C</h5>
-                <p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
-                                                                     alt="..."/></p>
-                <p className="pl-3">Москва<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
-                <p className="pl-3">Санкт-Петербург</p>
-              </div>
-              <div className="col-lg-9">
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="pl-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchThere} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="pl-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchBack} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="ml-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row justify-content-end">
-                  <button className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">Выбрать места
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="result-search-of-tickets row mt-4">
-              <div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
-                <img className="pl-5" src={iconTicketTrain} alt="иконка поезда"/>
-                <h5 className="text-center">116C</h5>
-                <p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
-                                                                     alt="..."/></p>
-                <p className="pl-3">Москва<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
-                <p className="pl-3">Санкт-Петербург</p>
-              </div>
-              <div className="col-lg-9">
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="pl-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchThere} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="pl-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row pl-4 pr-4 pt-5 justify-content-between">
-                  <div>
-                    <h5>00:10</h5>
-                    <p>Москва</p>
-                    <p className="font-weight-light">Курский вокзал</p>
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-weight-light">9:42</p>
-                    <img src={iconSearchBack} alt="иконка стрелки вправо"/>
-                  </div>
-                  <div className="ml-4">
-                    <h5>9:52</h5>
-                    <p>Санкт-Петербург</p>
-                    <p className="font-weight-light">Ладожский вокзал</p>
-                  </div>
-                  <div className="pl-5">
-                    <div className="row">
-                      <p className="pr-1">Сидячий</p>
-                      <p className="quantity-places-orange ml-auto">88</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">1 920</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Плацкарт</p>
-                      <p className="quantity-places-orange ml-auto">52</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">2 530</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                    <div className="row mt-3">
-                      <p className="pr-1">Купе</p>
-                      <p className="quantity-places-orange ml-auto">24</p>
-                      <p className="ml-2">от</p>
-                      <h5 className="mt-n2 ml-2">3 820</h5>
-                      <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row justify-content-end">
-                  <button className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">Выбрать места
-                  </button>
-                </div>
-              </div>
-            </div>
+            {resultSearch}
 
             <div className="row justify-content-end mt-5">
               <button className="page-search-select-number ml-3" to="/" type="button">
