@@ -75,7 +75,7 @@ class SectionSearchTickets extends React.Component {
       prevState.have_fourth_class !== this.state.have_fourth_class ||
       prevState.have_first_class !== this.state.have_first_class ||
       prevState.have_wifi !== this.state.have_wifi ||
-      prevState.have_express !== this.state.have_express ) {
+      prevState.have_express !== this.state.have_express) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
       + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
           + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
