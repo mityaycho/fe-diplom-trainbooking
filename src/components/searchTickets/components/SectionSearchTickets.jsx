@@ -73,8 +73,8 @@ class SectionSearchTickets extends React.Component {
       prevState.have_wifi !== this.state.have_wifi ||
       prevState.have_express !== this.state.have_express) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
-      + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
-          + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
+        + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
+        + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
         + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
         + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
         + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
@@ -100,15 +100,15 @@ class SectionSearchTickets extends React.Component {
     console.log(this.state.items)
   };
 
-	setWhereFromDate = (event) => {
-		this.setState({whereFromDate: event.currentTarget.value});
-	};
+  setWhereFromDate = (event) => {
+    this.setState({whereFromDate: event.currentTarget.value});
+  };
 
-	setWhereToDate = (event) => {
-		this.setState({whereToDate: event.currentTarget.value});
-	};
+  setWhereToDate = (event) => {
+    this.setState({whereToDate: event.currentTarget.value});
+  };
 
-	checkSecondClass = (event) => {
+  checkSecondClass = (event) => {
     this.setState({have_second_class: event.currentTarget.checked})
   };
 
@@ -117,19 +117,19 @@ class SectionSearchTickets extends React.Component {
   };
 
   checkFourthClass = (event) => {
-    this.setState({have_fourth_class : event.currentTarget.checked})
+    this.setState({have_fourth_class: event.currentTarget.checked})
   };
 
   checkFirstClass = (event) => {
-    this.setState({have_first_class : event.currentTarget.checked})
+    this.setState({have_first_class: event.currentTarget.checked})
   };
 
   checkWiFi = (event) => {
-    this.setState({have_wifi : event.currentTarget.checked})
+    this.setState({have_wifi: event.currentTarget.checked})
   };
 
   checkExpress = (event) => {
-    this.setState({have_express : event.currentTarget.checked})
+    this.setState({have_express: event.currentTarget.checked})
   };
 
   render() {
@@ -170,21 +170,21 @@ class SectionSearchTickets extends React.Component {
               <form className="form pt-5 pl-4 pr-4 w-100" action="input">
                 <p>Дата поездки</p>
                 <div className="d-flex form-group">
-									<input className="col-sm form-control"
-												 type="date"
-												 onChange={this.setWhereFromDate}
-												 value={this.state.whereFromDate}
-									/>
+                  <input className="col-sm form-control"
+                         type="date"
+                         onChange={this.setWhereFromDate}
+                         value={this.state.whereFromDate}
+                  />
                 </div>
               </form>
               <form className="form pt-3 pl-4 pr-4 w-100" action="input">
                 <p>Дата возвращения</p>
                 <div className="d-flex form-group">
-									<input className="col-sm form-control"
-												 type="date"
-												 onChange={this.setWhereToDate}
-												 value={this.state.whereToDate}
-									/>
+                  <input className="col-sm form-control"
+                         type="date"
+                         onChange={this.setWhereToDate}
+                         value={this.state.whereToDate}
+                  />
                 </div>
               </form>
               <hr className="bg-light"/>
@@ -334,7 +334,13 @@ class SectionSearchTickets extends React.Component {
           <div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
             <div className="row">
               <div className="col">найдено {this.state.total_count}</div>
-              <div className="col text-right">сортировать по: времени</div>
+              <div className="row text-right">сортировать по:
+                <select className="custom-sort-train" name="sortTrain" id="sort">
+                  <option value="1">времени</option>
+                  <option value="2">стоимости</option>
+                  <option value="3">длительности</option>
+                </select>
+              </div>
               <div className="col text-right">показывать по: 5 10 20</div>
             </div>
 
