@@ -334,11 +334,11 @@ class SectionSearchTickets extends React.Component {
           <div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
             <div className="row">
               <div className="col">найдено {this.state.total_count}</div>
-              <div className="row text-right">сортировать по:
+              <div className="row text-right">сортировать по:&nbsp;
                 <select className="custom-sort-train" name="sortTrain" id="sort">
-                  <option value="1">времени</option>
-                  <option value="2">стоимости</option>
-                  <option value="3">длительности</option>
+                  <option value="date">времени</option>
+                  <option value="price">стоимости</option>
+                  <option value="duration">длительности</option>
                 </select>
               </div>
               <div className="col text-right">показывать по: 5 10 20</div>

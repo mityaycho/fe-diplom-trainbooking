@@ -15,24 +15,27 @@ const ResultSearchTickets = (props) => {
         <h5 className="text-center">{props.state.departure.train.name}</h5>
         <p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
                                                              alt="..."/></p>
-        <p className="pl-3">Москва<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
-        <p className="pl-3">Санкт-Петербург</p>
+        <p className="pl-3">{props.state.departure.from.city.name}<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
+        <p className="pl-3">{props.state.departure.to.city.name}</p>
       </div>
       <div className="col-lg-9">
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>00:10</h5>
-            <p>Москва</p>
-            <p className="font-weight-light">Курский вокзал</p>
+            <h5>{new Date(props.state.departure.from.datetime).getHours()}:{new Date(props.state.departure.duration).getMinutes()}</h5>
+            <p>{props.state.departure.from.city.name}</p>
+            <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
           </div>
           <div className="pl-4">
-            <p className="font-weight-light">9:42</p>
+            <p className="font-weight-light">
+              {new Date(props.state.departure.duration).getHours()}:
+              {(new Date(props.state.departure.duration).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.duration).getMinutes()}
+            </p>
             <img src={iconSearchThere} alt="иконка стрелки вправо"/>
           </div>
           <div className="pl-4">
-            <h5>9:52</h5>
-            <p>Санкт-Петербург</p>
-            <p className="font-weight-light">Ладожский вокзал</p>
+            <h5>{new Date(props.state.departure.to.datetime).getHours()}:52</h5>
+            <p>{props.state.departure.to.city.name}</p>
+            <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
           </div>
           <div className="pl-5">
             <div className="row">
