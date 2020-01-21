@@ -9,13 +9,7 @@ import iconExpress from '../../../images/icon_express.png';
 import iconThere from '../../../images/icon_there.png';
 import iconBack from '../../../images/icon_back.png';
 import iconPlus from '../../../images/icon_plus.png';
-import iconTicketTrain from '../../../images/icon_ticket_train.png';
-import iconArrowRightGray from '../../../images/icon_arrow_right_gray.png'
-import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png'
-import iconSearchThere from '../../../images/icon_search_there.png';
-import iconSearchBack from '../../../images/icon_search_back.png';
 import iconRuble from '../../../images/icon_ruble.png';
-import iconRubleSmall from '../../../images/icon_ruble_small.png';
 import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
 import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
@@ -139,7 +133,7 @@ class SectionSearchTickets extends React.Component {
   };
 
   render() {
-    const resultSearch = this.state.items.map(el => <ResultSearchTickets state={el}/>);
+    const resultSearch = this.state.items.map((el, idx) => <ResultSearchTickets key={idx} state={el}/>);
     return (
       <div className="text-white tickets-search-window animated zoomInDow">
         <div className="progress-state">
