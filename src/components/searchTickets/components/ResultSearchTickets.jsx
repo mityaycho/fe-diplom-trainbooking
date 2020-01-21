@@ -21,7 +21,8 @@ const ResultSearchTickets = (props) => {
       <div className="col-lg-9">
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>{new Date(props.state.departure.from.datetime).getHours()}:{new Date(props.state.departure.duration).getMinutes()}</h5>
+            <h5>{new Date(props.state.departure.from.datetime).getHours()}:
+              {(new Date(props.state.departure.from.datetime).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.from.datetime).getMinutes()}</h5>
             <p>{props.state.departure.from.city.name}</p>
             <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
           </div>
@@ -33,7 +34,8 @@ const ResultSearchTickets = (props) => {
             <img src={iconSearchThere} alt="иконка стрелки вправо"/>
           </div>
           <div className="pl-4">
-            <h5>{new Date(props.state.departure.to.datetime).getHours()}:52</h5>
+            <h5>{new Date(props.state.departure.to.datetime).getHours()}:
+              {(new Date(props.state.departure.to.datetime).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.to.datetime).getMinutes()}</h5>
             <p>{props.state.departure.to.city.name}</p>
             <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
           </div>
@@ -63,7 +65,8 @@ const ResultSearchTickets = (props) => {
         </div>
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>00:10</h5>
+            <h5>{new Date(props.state.departure.to.datetime).getHours()}:
+              {(new Date(props.state.departure.to.datetime).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.to.datetime).getMinutes()}</h5>
             <p>Москва</p>
             <p className="font-weight-light">Курский вокзал</p>
           </div>
