@@ -11,12 +11,16 @@ const ResultSearchTickets = (props) => {
   let fromDateTime = props.state.departure.from.datetime;
   let toDateTime = props.state.departure.to.datetime;
   let duration = props.state.departure.duration;
+  let fromArrival = fromDateTime + duration;
+  let toArrival = toDateTime + duration;
   let durationHours = new Date(duration).getHours();
   let durationMinutes = (new Date(duration).getMinutes() < 10 ? '0' : '') + new Date(duration).getMinutes();
-  let fromDateTimeHours = new Date(fromDateTime).getHours();
-  let fromDateTimeMinutes = (new Date(fromDateTime).getMinutes() < 10 ? '0' : '') + new Date(fromDateTime).getMinutes();
-  let toDateTimeHours = new Date(toDateTime).getHours();
-  let toDateTimeMinutes = (new Date(toDateTime).getMinutes() < 10 ? '0' : '') + new Date(toDateTime).getMinutes();
+  let fromHours = new Date(fromDateTime).getHours();
+  let fromMinutes = (new Date(fromDateTime).getMinutes() < 10 ? '0' : '') + new Date(fromDateTime).getMinutes();
+  let fromHoursArrival = new Date(fromArrival).getHours();
+  let fromMinutesArrival = (new Date(fromArrival).getMinutes() < 10 ? '0' : '') + new Date(fromArrival).getMinutes();
+  let toHours = new Date(toDateTime).getHours();
+  let toMinutes = (new Date(toDateTime).getMinutes() < 10 ? '0' : '') + new Date(toDateTime).getMinutes();
 
 
   return (
@@ -32,7 +36,7 @@ const ResultSearchTickets = (props) => {
       <div className="col-lg-9">
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>{fromDateTimeHours}:{fromDateTimeMinutes}</h5>
+            <h5>{fromHours}:{fromMinutes}</h5>
             <p>{props.state.departure.from.city.name}</p>
             <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
           </div>
@@ -41,7 +45,7 @@ const ResultSearchTickets = (props) => {
             <img src={iconSearchThere} alt="иконка стрелки вправо"/>
           </div>
           <div className="pl-4">
-            <h5>{toDateTimeHours}:{toDateTimeMinutes}</h5>
+            <h5>{fromHoursArrival}:{fromMinutesArrival}</h5>
             <p>{props.state.departure.to.city.name}</p>
             <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
           </div>
