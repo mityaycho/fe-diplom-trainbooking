@@ -21,7 +21,8 @@ const ResultSearchTickets = (props) => {
   let fromMinutesArrival = (new Date(fromArrival).getMinutes() < 10 ? '0' : '') + new Date(fromArrival).getMinutes();
   let toHours = new Date(toDateTime).getHours();
   let toMinutes = (new Date(toDateTime).getMinutes() < 10 ? '0' : '') + new Date(toDateTime).getMinutes();
-
+  let toHoursArrival = new Date(toArrival).getHours();
+  let toMinutesArrival = (new Date(toArrival).getMinutes() < 10 ? '0' : '') + new Date(toArrival).getMinutes();
 
   return (
     <div className="result-search-of-tickets row mt-4">
@@ -75,7 +76,7 @@ const ResultSearchTickets = (props) => {
         </div>
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>{toHours}:{toMinutes}</h5>
+            <h5>{toHoursArrival}:{toMinutesArrival}</h5>
             <p>Москва</p>
             <p className="font-weight-light">Курский вокзал</p>
           </div>
