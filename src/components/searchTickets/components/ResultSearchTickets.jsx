@@ -8,6 +8,17 @@ import iconSearchBack from "../../../images/icon_search_back.png";
 
 
 const ResultSearchTickets = (props) => {
+  let fromDateTime = props.state.departure.from.datetime;
+  let toDateTime = props.state.departure.to.datetime;
+  let duration = props.state.departure.duration;
+  let durationHours = new Date(duration).getHours();
+  let durationMinutes = (new Date(duration).getMinutes() < 10 ? '0' : '') + new Date(duration).getMinutes();
+  let fromDateTimeHours = new Date(fromDateTime).getHours();
+  let fromDateTimeMinutes = (new Date(fromDateTime).getMinutes() < 10 ? '0' : '') + new Date(fromDateTime).getMinutes();
+  let toDateTimeHours = new Date(toDateTime).getHours();
+  let toDateTimeMinutes = (new Date(toDateTime).getMinutes() < 10 ? '0' : '') + new Date(toDateTime).getMinutes();
+
+
   return (
     <div className="result-search-of-tickets row mt-4">
       <div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
@@ -21,21 +32,16 @@ const ResultSearchTickets = (props) => {
       <div className="col-lg-9">
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>{new Date(props.state.departure.from.datetime).getHours()}:
-              {(new Date(props.state.departure.from.datetime).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.from.datetime).getMinutes()}</h5>
+            <h5>{fromDateTimeHours}:{fromDateTimeMinutes}</h5>
             <p>{props.state.departure.from.city.name}</p>
             <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
           </div>
           <div className="pl-4">
-            <p className="font-weight-light">
-              {new Date(props.state.departure.duration).getHours()}:
-              {(new Date(props.state.departure.duration).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.duration).getMinutes()}
-            </p>
+            <p className="font-weight-light">{durationHours}:{durationMinutes}</p>
             <img src={iconSearchThere} alt="иконка стрелки вправо"/>
           </div>
           <div className="pl-4">
-            <h5>{new Date(props.state.departure.to.datetime).getHours()}:
-              {(new Date(props.state.departure.to.datetime).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.to.datetime).getMinutes()}</h5>
+            <h5>{toDateTimeHours}:{toDateTimeMinutes}</h5>
             <p>{props.state.departure.to.city.name}</p>
             <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
           </div>
