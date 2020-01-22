@@ -8,21 +8,15 @@ import iconSearchBack from "../../../images/icon_search_back.png";
 
 
 const ResultSearchTickets = (props) => {
+
   let fromDateTime = props.state.departure.from.datetime;
   let toDateTime = props.state.departure.to.datetime;
   let duration = props.state.departure.duration;
   let fromArrival = fromDateTime + duration;
   let toArrival = toDateTime + duration;
-  let durationHours = new Date(duration).getHours();
-  let durationMinutes = (new Date(duration).getMinutes() < 10 ? '0' : '') + new Date(duration).getMinutes();
-  let fromHours = new Date(fromDateTime).getHours();
-  let fromMinutes = (new Date(fromDateTime).getMinutes() < 10 ? '0' : '') + new Date(fromDateTime).getMinutes();
-  let fromHoursArrival = new Date(fromArrival).getHours();
-  let fromMinutesArrival = (new Date(fromArrival).getMinutes() < 10 ? '0' : '') + new Date(fromArrival).getMinutes();
-  let toHours = new Date(toDateTime).getHours();
-  let toMinutes = (new Date(toDateTime).getMinutes() < 10 ? '0' : '') + new Date(toDateTime).getMinutes();
-  let toHoursArrival = new Date(toArrival).getHours();
-  let toMinutesArrival = (new Date(toArrival).getMinutes() < 10 ? '0' : '') + new Date(toArrival).getMinutes();
+  const getHours = (msc) => new Date(msc).getHours();
+  const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+
 
   return (
     <div className="result-search-of-tickets row mt-4">
@@ -37,16 +31,16 @@ const ResultSearchTickets = (props) => {
       <div className="col-lg-9">
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>{fromHours}:{fromMinutes}</h5>
+            <h5>{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</h5>
             <p>{props.state.departure.from.city.name}</p>
             <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
           </div>
           <div className="pl-4">
-            <p className="font-weight-light">{durationHours}:{durationMinutes}</p>
+            <p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
             <img src={iconSearchThere} alt="иконка стрелки вправо"/>
           </div>
           <div className="pl-4">
-            <h5>{fromHoursArrival}:{fromMinutesArrival}</h5>
+            <h5>{getHours(fromArrival)}:{getMinutes(fromArrival)}</h5>
             <p>{props.state.departure.to.city.name}</p>
             <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
           </div>
@@ -76,16 +70,16 @@ const ResultSearchTickets = (props) => {
         </div>
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>{toHoursArrival}:{toMinutesArrival}</h5>
+            <h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
             <p>Москва</p>
             <p className="font-weight-light">Курский вокзал</p>
           </div>
           <div className="ml-4">
-            <p className="font-weight-light">{durationHours}:{durationMinutes}</p>
+            <p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
             <img src={iconSearchBack} alt="иконка стрелки влево"/>
           </div>
           <div className="ml-4">
-            <h5>{toHours}:{toMinutes}</h5>
+            <h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
             <p>Санкт-Петербург</p>
             <p className="font-weight-light">Ладожский вокзал</p>
           </div>
