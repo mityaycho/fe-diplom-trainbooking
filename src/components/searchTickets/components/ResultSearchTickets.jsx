@@ -75,17 +75,16 @@ const ResultSearchTickets = (props) => {
         </div>
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
           <div>
-            <h5>{new Date(props.state.departure.to.datetime).getHours()}:
-              {(new Date(props.state.departure.to.datetime).getMinutes() < 10 ? '0' : '') + new Date(props.state.departure.to.datetime).getMinutes()}</h5>
+            <h5>{toHours}:{toMinutes}</h5>
             <p>Москва</p>
             <p className="font-weight-light">Курский вокзал</p>
           </div>
           <div className="ml-4">
-            <p className="font-weight-light">9:42</p>
-            <img src={iconSearchBack} alt="иконка стрелки вправо"/>
+            <p className="font-weight-light">{durationHours}:{durationMinutes}</p>
+            <img src={iconSearchBack} alt="иконка стрелки влево"/>
           </div>
           <div className="ml-4">
-            <h5>9:52</h5>
+            <h5>{toHours}:{toMinutes}</h5>
             <p>Санкт-Петербург</p>
             <p className="font-weight-light">Ладожский вокзал</p>
           </div>
