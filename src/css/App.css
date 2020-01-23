@@ -221,6 +221,10 @@ a:hover {
 	-webkit-appearance: none;
 }
 
+.custom-sort-train:hover {
+	cursor: pointer;
+}
+
 .custom-sort-train::-ms-expand {
 	display: none;
 }

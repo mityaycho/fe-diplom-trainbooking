@@ -50,21 +50,21 @@ const ResultSearchTickets = (props) => {
               <p className="quantity-places-orange ml-auto">88</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">1 920</h5>
-              <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
             <div className="row mt-3">
               <p className="pr-1">Плацкарт</p>
               <p className="quantity-places-orange ml-auto">52</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">2 530</h5>
-              <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
             <div className="row mt-3">
               <p className="pr-1">Купе</p>
               <p className="quantity-places-orange ml-auto">24</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">3 820</h5>
-              <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ const ResultSearchTickets = (props) => {
           <div>
             <h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
             <p>Москва</p>
-            <p className="font-weight-light">Курский вокзал</p>
+            <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
           </div>
           <div className="ml-4">
             <p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
@@ -81,7 +81,7 @@ const ResultSearchTickets = (props) => {
           <div className="ml-4">
             <h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
             <p>Санкт-Петербург</p>
-            <p className="font-weight-light">Ладожский вокзал</p>
+            <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
           </div>
           <div className="pl-5">
             <div className="row">
@@ -89,21 +89,21 @@ const ResultSearchTickets = (props) => {
               <p className="quantity-places-orange ml-auto">88</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">1 920</h5>
-              <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
             <div className="row mt-3">
               <p className="pr-1">Плацкарт</p>
               <p className="quantity-places-orange ml-auto">52</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">2 530</h5>
-              <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
             <div className="row mt-3">
               <p className="pr-1">Купе</p>
               <p className="quantity-places-orange ml-auto">24</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">3 820</h5>
-              <img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
           </div>
         </div>
