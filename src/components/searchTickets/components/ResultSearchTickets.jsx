@@ -54,14 +54,14 @@ const ResultSearchTickets = (props) => {
             </div>
             <div className="row mt-3">
               <p className="pr-1">Плацкарт</p>
-              <p className="quantity-places-orange ml-auto">52</p>
+              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.third}</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">2 530</h5>
               <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
             <div className="row mt-3">
               <p className="pr-1">Купе</p>
-              <p className="quantity-places-orange ml-auto">24</p>
+              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.first}</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">3 820</h5>
               <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
@@ -93,14 +93,14 @@ const ResultSearchTickets = (props) => {
             </div>
             <div className="row mt-3">
               <p className="pr-1">Плацкарт</p>
-              <p className="quantity-places-orange ml-auto">52</p>
+              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.third}</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">2 530</h5>
               <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
             <div className="row mt-3">
               <p className="pr-1">Купе</p>
-              <p className="quantity-places-orange ml-auto">24</p>
+              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.first}</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">3 820</h5>
               <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
