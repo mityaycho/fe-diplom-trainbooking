@@ -47,7 +47,7 @@ const ResultSearchTickets = (props) => {
           <div className="pl-5">
             <div className="row">
               <p className="pr-1">Сидячий</p>
-              <p className="quantity-places-orange ml-auto">88</p>
+              <p className="quantity-places-orange ml-auto">{props.state.available_seats}</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">1 920</h5>
               <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
@@ -86,7 +86,7 @@ const ResultSearchTickets = (props) => {
           <div className="pl-5">
             <div className="row">
               <p className="pr-1">Сидячий</p>
-              <p className="quantity-places-orange ml-auto">88</p>
+              <p className="quantity-places-orange ml-auto">{props.state.available_seats}</p>
               <p className="ml-2">от</p>
               <h5 className="mt-n2 ml-2">1 920</h5>
               <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
