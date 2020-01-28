@@ -31,7 +31,8 @@ class SectionSearchTickets extends React.Component {
     have_wifi: false,
     have_express: false,
     whereFromDate: undefined,
-    whereToDate: undefined
+    whereToDate: undefined,
+    sort: 'date'
   };
 
   componentDidMount() {
@@ -71,14 +72,16 @@ class SectionSearchTickets extends React.Component {
       prevState.have_fourth_class !== this.state.have_fourth_class ||
       prevState.have_first_class !== this.state.have_first_class ||
       prevState.have_wifi !== this.state.have_wifi ||
-      prevState.have_express !== this.state.have_express) {
+      prevState.have_express !== this.state.have_express ||
+      prevState.sort !== this.state.sort) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
         + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
         + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
         + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
         + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
         + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
-        + `${this.state.have_express ? '&have_express=true' : ''}`)
+        + `${this.state.have_express ? '&have_express=true' : ''}`
+        + (`${this.state.sort}` ? `&sort=${this.state.sort}` : ''))
         .then(response => response.json())
         .then(data => {
           console.log(data);
@@ -94,7 +97,8 @@ class SectionSearchTickets extends React.Component {
           have_fourth_class: this.state.have_fourth_class,
           have_first_class: this.state.have_first_class,
           have_wifi: this.state.have_wifi,
-          have_express: this.state.have_express
+          have_express: this.state.have_express,
+          sort: this.state.sort
         }));
     }
     console.log(this.state.items)
@@ -133,12 +137,12 @@ class SectionSearchTickets extends React.Component {
   };
 
   sortSearch = (event) => {
-    console.log(event.currentTarget.value)
+    this.setState({sort: event.currentTarget.value})
   };
 
   render() {
-    const resultSearch = this.state.items.map((el, idx) =>
-      <ResultSearchTickets key={idx} state={el} />);
+    const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
+      <ResultSearchTickets key={idx} state={el} />) : [];
     return (
       <div className="text-white tickets-search-window animated zoomInDow">
         <div className="progress-state">
