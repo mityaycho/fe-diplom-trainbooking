@@ -132,8 +132,13 @@ class SectionSearchTickets extends React.Component {
     this.setState({have_express: event.currentTarget.checked})
   };
 
+  sortSearch = (event) => {
+    console.log(event.currentTarget.value)
+  };
+
   render() {
-    const resultSearch = this.state.items.map((el, idx) => <ResultSearchTickets key={idx} state={el}/>);
+    const resultSearch = this.state.items.map((el, idx) =>
+      <ResultSearchTickets key={idx} state={el} />);
     return (
       <div className="text-white tickets-search-window animated zoomInDow">
         <div className="progress-state">
@@ -335,7 +340,7 @@ class SectionSearchTickets extends React.Component {
             <div className="row">
               <div className="col">найдено {this.state.total_count}</div>
               <div className="row text-right">сортировать по:&nbsp;
-                <select className="custom-sort-train" name="sortTrain" id="sort">
+                <select className="custom-sort-train" name="sortTrain" id="sort" onChange={this.sortSearch}>
                   <option value="date">времени</option>
                   <option value="price">стоимости</option>
                   <option value="duration">длительности</option>
