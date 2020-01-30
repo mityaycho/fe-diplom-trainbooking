@@ -45,7 +45,7 @@ const ResultSearchTickets = (props) => {
             <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
           </div>
           <div className="pl-5">
-            <div className="row">
+            <div className="row mt-3">
               <p className="pr-1">Сидячий</p>
               <p className="quantity-places-orange ml-auto">{props.state.available_seats}</p>
               <p className="ml-2">от</p>
@@ -66,6 +66,14 @@ const ResultSearchTickets = (props) => {
               <h5 className="mt-n2 ml-2">3 820</h5>
               <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
             </div>
+            {props.state.departure.have_first_class &&
+            <div className="row mt-3">
+              <p className="pr-1">Люкс</p>
+              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.first}</p>
+              <p className="ml-2">от</p>
+              <h5 className="mt-n2 ml-2">{props.state.departure.price_info.first.top_price}</h5>
+              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+            </div>}
           </div>
         </div>
         <div className="row pl-4 pr-4 pt-5 justify-content-between">
