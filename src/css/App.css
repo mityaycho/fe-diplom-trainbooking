@@ -229,6 +229,10 @@ a:hover {
 	display: none;
 }
 
+.ticketPriceAndSeats {
+	border-left: solid #ececec 2px;
+}
+
 /* ---------------------------------------------------------------orderConfirmed */
 
 footer {

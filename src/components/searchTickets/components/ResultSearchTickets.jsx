@@ -5,6 +5,7 @@ import iconArrowRightBlack from "../../../images/icon_arrow_right_black.png";
 import iconSearchThere from "../../../images/icon_search_there.png";
 import iconRubleSmall from "../../../images/icon_ruble_small.png";
 import iconSearchBack from "../../../images/icon_search_back.png";
+import TicketPriceAndSeats from "./TicketPriceAndSeats";
 
 
 const ResultSearchTickets = (props) => {
@@ -29,96 +30,70 @@ const ResultSearchTickets = (props) => {
         <p className="pl-3">{props.state.departure.to.city.name}</p>
       </div>
       <div className="col-lg-9">
-        <div className="row pl-4 pr-4 pt-5 justify-content-between">
-          <div>
-            <h5>{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</h5>
-            <p>{props.state.departure.from.city.name}</p>
-            <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
-          </div>
-          <div className="pl-4">
-            <p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
-            <img src={iconSearchThere} alt="иконка стрелки вправо"/>
-          </div>
-          <div className="pl-4">
-            <h5>{getHours(fromArrival)}:{getMinutes(fromArrival)}</h5>
-            <p>{props.state.departure.to.city.name}</p>
-            <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
-          </div>
-          <div className="pl-5">
-            <div className="row mt-3">
-              <p className="pr-1">Сидячий</p>
-              <p className="quantity-places-orange ml-auto">{props.state.available_seats}</p>
-              <p className="ml-2">от</p>
-              <h5 className="mt-n2 ml-2">1 920</h5>
-              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+        <div className="row h-100">
+          <div className="col-lg-8">
+            <div className="row pl-4 pr-4 pt-5 justify-content-between">
+              <div>
+                <h5>{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</h5>
+                <p>{props.state.departure.from.city.name}</p>
+                <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
+              </div>
+              <div className="pl-4">
+                <p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
+                <img src={iconSearchThere} alt="иконка стрелки вправо"/>
+              </div>
+              <div className="pl-4">
+                <h5>{getHours(fromArrival)}:{getMinutes(fromArrival)}</h5>
+                <p>{props.state.departure.to.city.name}</p>
+                <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
+              </div>
             </div>
-            <div className="row mt-3">
-              <p className="pr-1">Плацкарт</p>
-              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.third}</p>
-              <p className="ml-2">от</p>
-              <h5 className="mt-n2 ml-2">2 530</h5>
-              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+            <div className="row pl-4 pr-4 pt-5 justify-content-between">
+              <div>
+                <h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
+                <p>Москва</p>
+                <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
+              </div>
+              <div className="pl-4">
+                <p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
+                <img src={iconSearchBack} alt="иконка стрелки влево"/>
+              </div>
+              <div className="pl-4">
+                <h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
+                <p>Санкт-Петербург</p>
+                <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
+              </div>
             </div>
-            <div className="row mt-3">
-              <p className="pr-1">Купе</p>
-              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.first}</p>
-              <p className="ml-2">от</p>
-              <h5 className="mt-n2 ml-2">3 820</h5>
-              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-            </div>
+          </div>
+
+          <div className="ticketPriceAndSeats col h-100 pl-4 pt-5 mr-2">
+            {props.state.departure.have_fourth_class &&
+            <TicketPriceAndSeats name="Сидячий"
+                                 seats={props.state.available_seats_info.fourth}
+                                 price={props.state.departure.price_info.fourth.top_price} />
+            }
+            {props.state.departure.have_third_class &&
+            <TicketPriceAndSeats name="Плацкарт"
+                                 seats={props.state.available_seats_info.third}
+                                 price={props.state.departure.price_info.third.top_price} />
+            }
+            {props.state.departure.have_second_class &&
+            <TicketPriceAndSeats name="Купе"
+                                 seats={props.state.available_seats_info.second}
+                                 price={props.state.departure.price_info.second.top_price} />
+            }
             {props.state.departure.have_first_class &&
-            <div className="row mt-3">
-              <p className="pr-1">Люкс</p>
-              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.first}</p>
-              <p className="ml-2">от</p>
-              <h5 className="mt-n2 ml-2">{props.state.departure.price_info.first.top_price}</h5>
-              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-            </div>}
-          </div>
-        </div>
-        <div className="row pl-4 pr-4 pt-5 justify-content-between">
-          <div>
-            <h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
-            <p>Москва</p>
-            <p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
-          </div>
-          <div className="ml-4">
-            <p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
-            <img src={iconSearchBack} alt="иконка стрелки влево"/>
-          </div>
-          <div className="ml-4">
-            <h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
-            <p>Санкт-Петербург</p>
-            <p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
-          </div>
-          <div className="pl-5">
+            <TicketPriceAndSeats name="Люкс"
+                                 seats={props.state.available_seats_info.first}
+                                 price={props.state.departure.price_info.first.top_price} />
+            }
             <div className="row">
-              <p className="pr-1">Сидячий</p>
-              <p className="quantity-places-orange ml-auto">{props.state.available_seats}</p>
-              <p className="ml-2">от</p>
-              <h5 className="mt-n2 ml-2">1 920</h5>
-              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-            </div>
-            <div className="row mt-3">
-              <p className="pr-1">Плацкарт</p>
-              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.third}</p>
-              <p className="ml-2">от</p>
-              <h5 className="mt-n2 ml-2">2 530</h5>
-              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-            </div>
-            <div className="row mt-3">
-              <p className="pr-1">Купе</p>
-              <p className="quantity-places-orange ml-auto">{props.state.available_seats_info.first}</p>
-              <p className="ml-2">от</p>
-              <h5 className="mt-n2 ml-2">3 820</h5>
-              <img className="mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+              <button className="btn btn-warning m-3" to="/three_page" type="button">Выбрать места
+              </button>
             </div>
           </div>
         </div>
-        <div className="row justify-content-end">
-          <button className="btn btn-warning btn-sm m-3 col-lg-3" to="/three_page" type="button">Выбрать места
-          </button>
-        </div>
+
       </div>
     </div>
   )
