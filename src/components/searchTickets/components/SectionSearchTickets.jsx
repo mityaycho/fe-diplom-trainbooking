@@ -16,9 +16,9 @@ import iconSearchRight from '../../../images/icon_page_search_right.png';
 import iconSearchDots from '../../../images/icon_page_search_dots.png';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
-import {setDataFormAC} from "../../../redux/action";
-import {connect} from "react-redux";
-import ResultSearchTickets from "./ResultSearchTickets";
+import {setDataFormAC} from '../../../redux/action';
+import {connect} from 'react-redux';
+import ResultSearchTickets from './ResultSearchTickets';
 
 class SectionSearchTickets extends React.Component {
   state = {
