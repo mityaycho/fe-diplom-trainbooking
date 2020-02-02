@@ -236,6 +236,10 @@ a:hover {
 	justify-content: space-between;
 }
 
+.filter-choice-tickets:hover {
+	cursor: pointer;
+}
+
 /* ---------------------------------------------------------------orderConfirmed */
 
 footer {

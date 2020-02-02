@@ -32,7 +32,8 @@ class SectionSearchTickets extends React.Component {
     have_express: false,
     whereFromDate: undefined,
     whereToDate: undefined,
-    sort: 'date'
+    sort: 'date',
+    limit: 5
   };
 
   componentDidMount() {
@@ -73,7 +74,8 @@ class SectionSearchTickets extends React.Component {
       prevState.have_first_class !== this.state.have_first_class ||
       prevState.have_wifi !== this.state.have_wifi ||
       prevState.have_express !== this.state.have_express ||
-      prevState.sort !== this.state.sort) {
+      prevState.sort !== this.state.sort ||
+      prevState.limit !== this.state.limit) {
       fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
         + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
         + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
@@ -81,7 +83,8 @@ class SectionSearchTickets extends React.Component {
         + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
         + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
         + `${this.state.have_express ? '&have_express=true' : ''}`
-        + (`${this.state.sort}` ? `&sort=${this.state.sort}` : ''))
+        + (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
+        + (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
         .then(response => response.json())
         .then(data => {
           console.log(data);
@@ -98,7 +101,8 @@ class SectionSearchTickets extends React.Component {
           have_first_class: this.state.have_first_class,
           have_wifi: this.state.have_wifi,
           have_express: this.state.have_express,
-          sort: this.state.sort
+          sort: this.state.sort,
+          limit: this.state.limit
         }));
     }
     console.log(this.state.items)
@@ -138,6 +142,10 @@ class SectionSearchTickets extends React.Component {
 
   sortSearch = (event) => {
     this.setState({sort: event.currentTarget.value})
+  };
+
+  filterChoiceTickets = () => {
+    this.setState({limit: 10}, () => console.log(this.state.limit))
   };
 
   render() {
@@ -352,7 +360,7 @@ class SectionSearchTickets extends React.Component {
               </div>
               <div className="row text-right ml-5 mr-3">показывать по:&nbsp;
                 <div>5</div>&nbsp;
-                <div>10</div>&nbsp;
+                <div className="filter-choice-tickets" onClick={this.filterChoiceTickets}>10</div>&nbsp;
                 <div>20</div>
               </div>
             </div>
