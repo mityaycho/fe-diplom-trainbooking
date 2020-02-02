@@ -65,28 +65,31 @@ const ResultSearchTickets = (props) => {
             </div>
           </div>
 
-          <div className="ticketPriceAndSeats col h-100 pl-4 pt-5 mr-2">
-            {props.state.departure.have_fourth_class &&
-            <TicketPriceAndSeats name="Сидячий"
-                                 seats={props.state.available_seats_info.fourth}
-                                 price={props.state.departure.price_info.fourth.top_price} />
-            }
-            {props.state.departure.have_third_class &&
-            <TicketPriceAndSeats name="Плацкарт"
-                                 seats={props.state.available_seats_info.third}
-                                 price={props.state.departure.price_info.third.top_price} />
-            }
-            {props.state.departure.have_second_class &&
-            <TicketPriceAndSeats name="Купе"
-                                 seats={props.state.available_seats_info.second}
-                                 price={props.state.departure.price_info.second.top_price} />
-            }
-            {props.state.departure.have_first_class &&
-            <TicketPriceAndSeats name="Люкс"
-                                 seats={props.state.available_seats_info.first}
-                                 price={props.state.departure.price_info.first.top_price} />
-            }
-            <div className="row">
+          <div className="ticketPriceAndSeats col h-100 pl-4 pt-5 pr-4">
+            <div>
+              {props.state.departure.have_fourth_class &&
+              <TicketPriceAndSeats name="Сидячий"
+                                   seats={props.state.available_seats_info.fourth}
+                                   price={props.state.departure.price_info.fourth.top_price} />
+              }
+              {props.state.departure.have_third_class &&
+              <TicketPriceAndSeats name="Плацкарт"
+                                   seats={props.state.available_seats_info.third}
+                                   price={props.state.departure.price_info.third.top_price} />
+              }
+              {props.state.departure.have_second_class &&
+              <TicketPriceAndSeats name="Купе"
+                                   seats={props.state.available_seats_info.second}
+                                   price={props.state.departure.price_info.second.top_price} />
+              }
+              {props.state.departure.have_first_class &&
+              <TicketPriceAndSeats name="Люкс"
+                                   seats={props.state.available_seats_info.first}
+                                   price={props.state.departure.price_info.first.top_price} />
+              }
+            </div>
+
+            <div className="row pb-3">
               <button className="btn btn-warning m-3" to="/three_page" type="button">Выбрать места
               </button>
             </div>

@@ -350,7 +350,7 @@ class SectionSearchTickets extends React.Component {
                   <option value="duration">длительности</option>
                 </select>
               </div>
-              <div className="row text-right">показывать по:&nbsp;
+              <div className="row text-right ml-5 mr-3">показывать по:&nbsp;
                 <div>5</div>&nbsp;
                 <div>10</div>&nbsp;
                 <div>20</div>
