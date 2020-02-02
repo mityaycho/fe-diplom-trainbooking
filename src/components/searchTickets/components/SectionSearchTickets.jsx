@@ -145,8 +145,7 @@ class SectionSearchTickets extends React.Component {
   };
 
   filterChoiceTickets = (event) => {
-
-    this.setState({limit: event.currentTarget.innerHTML}, () => console.log(this.state.limit));
+    this.setState({limit: event.currentTarget.innerHTML});
   };
 
   render() {
@@ -360,12 +359,12 @@ class SectionSearchTickets extends React.Component {
                 </select>
               </div>
               <div className="row text-right ml-5 mr-3">показывать по:&nbsp;
-                <div className="filter-choice-tickets"
-                     onClick={this.filterChoiceTickets}>5</div>&nbsp;
-                <div className="filter-choice-tickets"
-                     onClick={this.filterChoiceTickets}>10</div>&nbsp;
-                <div className="filter-choice-tickets"
-                     onClick={this.filterChoiceTickets}>20</div>
+                <button className="filter-choice-tickets"
+                     onClick={this.filterChoiceTickets}>5</button>
+                <button className="filter-choice-tickets"
+                     onClick={this.filterChoiceTickets}>10</button>
+                <button className="filter-choice-tickets"
+                     onClick={this.filterChoiceTickets}>20</button>
               </div>
             </div>
 

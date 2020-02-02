@@ -236,7 +236,14 @@ a:hover {
 	justify-content: space-between;
 }
 
+.filter-choice-tickets {
+	border: none;
+	background-color: rgb(251, 249, 249);
+	outline: none;
+}
+
 .filter-choice-tickets:hover {
+	color: gray;
 	cursor: pointer;
 }
 
