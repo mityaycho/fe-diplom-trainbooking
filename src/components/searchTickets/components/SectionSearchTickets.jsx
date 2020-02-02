@@ -150,7 +150,7 @@ class SectionSearchTickets extends React.Component {
 
   render() {
     const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
-      <ResultSearchTickets key={idx} state={el} />) : [];
+      <ResultSearchTickets key={idx} state={el}/>) : [];
     return (
       <div className="text-white tickets-search-window animated zoomInDow">
         <div className="progress-state">
@@ -360,11 +360,14 @@ class SectionSearchTickets extends React.Component {
               </div>
               <div className="row text-right ml-5 mr-3">показывать по:&nbsp;
                 <button className="filter-choice-tickets"
-                     onClick={this.filterChoiceTickets}>5</button>
+                        onClick={this.filterChoiceTickets}>5
+                </button>
                 <button className="filter-choice-tickets"
-                     onClick={this.filterChoiceTickets}>10</button>
+                        onClick={this.filterChoiceTickets}>10
+                </button>
                 <button className="filter-choice-tickets"
-                     onClick={this.filterChoiceTickets}>20</button>
+                        onClick={this.filterChoiceTickets}>20
+                </button>
               </div>
             </div>
 

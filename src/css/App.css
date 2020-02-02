@@ -243,8 +243,16 @@ a:hover {
 }
 
 .filter-choice-tickets:hover {
+	font-weight: bold;
 	color: gray;
 	cursor: pointer;
+}
+
+.filter-choice-tickets:after {
+	content: "";
+	outline: none;
+	color: green;
+	font-weight: bold;
 }
 
 /* ---------------------------------------------------------------orderConfirmed */
