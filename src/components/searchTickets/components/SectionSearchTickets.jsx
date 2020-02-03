@@ -33,7 +33,7 @@ class SectionSearchTickets extends React.Component {
     whereFromDate: undefined,
     whereToDate: undefined,
     sort: 'date',
-    limit: 5
+    limit: '5'
   };
 
   componentDidMount() {
@@ -152,6 +152,12 @@ class SectionSearchTickets extends React.Component {
     let classFilterChoiceFive = this.state.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
     let classFilterChoiceTen = this.state.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
     let classFilterChoiceTwenty = this.state.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+
+    let pages = Math.ceil(this.state.total_count / Number(this.state.limit));
+    let buttonsPages = [];
+    for (let i = 1; i < pages; i++) {
+      buttonsPages.push(<button className="page-search-select-number ml-3" to="/" type="button">{i}</button>);
+    }
 
     const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
       <ResultSearchTickets key={idx} state={el}/>) : [];
@@ -382,16 +388,14 @@ class SectionSearchTickets extends React.Component {
               <button className="page-search-select-number ml-3" to="/" type="button">
                 <img src={iconSearchLeft} alt="иконка влево"/>
               </button>
-              <button className="page-search-select-number ml-3" to="/" type="button">1</button>
-              <button className="page-search-select-number ml-3" to="/" type="button">2</button>
-              <button className="page-search-select-number ml-3" to="/" type="button">3</button>
+              {buttonsPages}
               <button className="page-search-select-number ml-3" to="/" type="button">
                 <img src={iconSearchDots} alt="иконка влево"/>
               </button>
               <button className="page-search-select-number ml-3" to="/" type="button">10</button>
-              <NavLink className="page-search-select-number ml-3" to="/seat_selection" type="button">
-                <img src={iconSearchRight} alt="иконка влево"/>
-              </NavLink>
+              <button className="page-search-select-number ml-3" to="/" type="button">
+                <img src={iconSearchRight} alt="иконка вправо"/>
+              </button>
             </div>
           </div>
         </div>

@@ -3,6 +3,13 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+* {
+	outline: 1px solid transparent;
+}
+
+button, button:focus {
+	outline: 1px solid transparent;
+}
 /* -----------------------------------------------------------------header */
 
 .nav-bar {
@@ -242,6 +249,11 @@ a:hover {
 	outline: none;
 }
 
+button.filter-choice-tickets:focus, button.filter-choice-tickets:active{
+	outline: 1px solid transparent;
+}
+
+
 .filter-choice-tickets:hover {
 	font-weight: bold;
 	color: gray;
@@ -253,8 +265,12 @@ a:hover {
 	border: none;
 	background-color: rgb(251, 249, 249);
 	outline: none;
+
 }
 
+button.filter-choice-tickets-active:focus, button.filter-choice-tickets-active:active {
+	outline: 1px solid transparent;
+}
 /* ---------------------------------------------------------------orderConfirmed */
 
 footer {
