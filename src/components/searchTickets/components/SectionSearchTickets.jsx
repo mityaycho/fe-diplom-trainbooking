@@ -149,8 +149,13 @@ class SectionSearchTickets extends React.Component {
   };
 
   render() {
+    let classFilterChoiceFive = this.state.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+    let classFilterChoiceTen = this.state.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+    let classFilterChoiceTwenty = this.state.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+
     const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
       <ResultSearchTickets key={idx} state={el}/>) : [];
+
     return (
       <div className="text-white tickets-search-window animated zoomInDow">
         <div className="progress-state">
@@ -359,13 +364,13 @@ class SectionSearchTickets extends React.Component {
                 </select>
               </div>
               <div className="row text-right ml-5 mr-3">показывать по:&nbsp;
-                <button className="filter-choice-tickets"
+                <button className={classFilterChoiceFive}
                         onClick={this.filterChoiceTickets}>5
                 </button>
-                <button className="filter-choice-tickets"
+                <button className={classFilterChoiceTen}
                         onClick={this.filterChoiceTickets}>10
                 </button>
-                <button className="filter-choice-tickets"
+                <button className={classFilterChoiceTwenty}
                         onClick={this.filterChoiceTickets}>20
                 </button>
               </div>

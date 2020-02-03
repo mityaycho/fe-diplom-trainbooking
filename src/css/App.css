@@ -248,11 +248,11 @@ a:hover {
 	cursor: pointer;
 }
 
-.filter-choice-tickets:after {
-	content: "";
-	outline: none;
-	color: green;
+.filter-choice-tickets-active {
 	font-weight: bold;
+	border: none;
+	background-color: rgb(251, 249, 249);
+	outline: none;
 }
 
 /* ---------------------------------------------------------------orderConfirmed */
