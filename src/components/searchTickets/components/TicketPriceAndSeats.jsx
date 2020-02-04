@@ -1,5 +1,5 @@
-import React from "react";
-import iconRubleSmall from "../../../images/icon_ruble_small.png";
+import React from 'react';
+import iconRubleSmall from '../../../images/icon_ruble_small.png';
 
 const TicketPriceAndSeats = (props) => {
   return (

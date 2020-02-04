@@ -1,10 +1,10 @@
-import React from "react";
-import iconTicketTrain from "../../../images/icon_ticket_train.png";
-import iconArrowRightGray from "../../../images/icon_arrow_right_gray.png";
-import iconArrowRightBlack from "../../../images/icon_arrow_right_black.png";
-import iconSearchThere from "../../../images/icon_search_there.png";
-import iconSearchBack from "../../../images/icon_search_back.png";
-import TicketPriceAndSeats from "./TicketPriceAndSeats";
+import React from 'react';
+import iconTicketTrain from '../../../images/icon_ticket_train.png';
+import iconArrowRightGray from '../../../images/icon_arrow_right_gray.png';
+import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png';
+import iconSearchThere from '../../../images/icon_search_there.png';
+import iconSearchBack from '../../../images/icon_search_back.png';
+import TicketPriceAndSeats from './TicketPriceAndSeats';
 
 
 const ResultSearchTickets = (props) => {
