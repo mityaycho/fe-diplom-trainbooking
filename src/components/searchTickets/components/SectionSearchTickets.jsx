@@ -156,7 +156,7 @@ class SectionSearchTickets extends React.Component {
     let pages = Math.ceil(this.state.total_count / Number(this.state.limit));
     let buttonsPages = [];
     for (let i = 1; i < pages; i++) {
-      buttonsPages.push(<button className="page-search-select-number ml-3" to="/" type="button">{i}</button>);
+      buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
     }
 
     const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
@@ -385,15 +385,15 @@ class SectionSearchTickets extends React.Component {
             {resultSearch}
 
             <div className="row justify-content-end mt-5">
-              <button className="page-search-select-number ml-3" to="/" type="button">
+              <button className="page-search-select-number ml-3" type="button">
                 <img src={iconSearchLeft} alt="иконка влево"/>
               </button>
               {buttonsPages}
-              <button className="page-search-select-number ml-3" to="/" type="button">
+              <button className="page-search-select-number ml-3" type="button">
                 <img src={iconSearchDots} alt="иконка влево"/>
               </button>
-              <button className="page-search-select-number ml-3" to="/" type="button">10</button>
-              <button className="page-search-select-number ml-3" to="/" type="button">
+              <button className="page-search-select-number ml-3" type="button">10</button>
+              <button className="page-search-select-number ml-3" type="button">
                 <img src={iconSearchRight} alt="иконка вправо"/>
               </button>
             </div>
