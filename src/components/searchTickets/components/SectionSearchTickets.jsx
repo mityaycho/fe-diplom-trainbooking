@@ -19,6 +19,7 @@ import {setDataFormAC} from '../../../redux/action';
 import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
 import ReactPaginate from 'react-paginate';
+import Pagination from 'react-bootstrap/Pagination';
 
 class SectionSearchTickets extends React.Component {
   state = {
@@ -405,7 +406,23 @@ class SectionSearchTickets extends React.Component {
                            previousClassName="page-search-select-number ml-3"
                            nextClassName="page-search-select-number ml-3"
                            />
+            <Pagination>
+              <Pagination.First />
+              <Pagination.Prev />
+              <Pagination.Item>{1}</Pagination.Item>
+              <Pagination.Ellipsis />
 
+              <Pagination.Item>{10}</Pagination.Item>
+              <Pagination.Item>{11}</Pagination.Item>
+              <Pagination.Item active>{12}</Pagination.Item>
+              <Pagination.Item>{13}</Pagination.Item>
+              <Pagination.Item disabled>{14}</Pagination.Item>
+
+              <Pagination.Ellipsis />
+              <Pagination.Item>{20}</Pagination.Item>
+              <Pagination.Next />
+              <Pagination.Last />
+            </Pagination>
 
           </div>
         </div>
