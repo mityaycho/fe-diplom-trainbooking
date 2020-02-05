@@ -387,7 +387,9 @@ class SectionSearchTickets extends React.Component {
               <button className="page-search-select-number ml-3" type="button">
                 <img src={iconSearchLeft} alt="иконка влево"/>
               </button>
+
               {buttonsPages}
+
               <button className="page-search-select-number ml-3" type="button">
                 <img src={iconSearchDots} alt="иконка влево"/>
               </button>
