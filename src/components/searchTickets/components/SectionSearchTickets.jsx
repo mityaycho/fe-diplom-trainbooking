@@ -18,6 +18,7 @@ import progressStateDefault from '../../../images/progress_state_default.png';
 import {setDataFormAC} from '../../../redux/action';
 import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
+import ReactPaginate from 'react-paginate';
 
 class SectionSearchTickets extends React.Component {
   state = {
@@ -398,6 +399,12 @@ class SectionSearchTickets extends React.Component {
                 <img src={iconSearchRight} alt="иконка вправо"/>
               </button>
             </div>
+            <ReactPaginate containerClassName="row justify-content-end mt-5"
+                           pageClassName="page-search-select-number ml-3"
+                           breakClassName="page-search-select-number ml-3"
+                           previousClassName="page-search-select-number ml-3"
+                           nextClassName="page-search-select-number ml-3"/>
+
           </div>
         </div>
       </div>
