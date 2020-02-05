@@ -392,7 +392,7 @@ class SectionSearchTickets extends React.Component {
               {buttonsPages}
 
               <button className="page-search-select-number ml-3" type="button">
-                <img src={iconSearchDots} alt="иконка влево"/>
+                <img src={iconSearchDots} alt="иконка точки"/>
               </button>
               <button className="page-search-select-number ml-3" type="button">10</button>
               <button className="page-search-select-number ml-3" type="button">
@@ -403,7 +403,9 @@ class SectionSearchTickets extends React.Component {
                            pageClassName="page-search-select-number ml-3"
                            breakClassName="page-search-select-number ml-3"
                            previousClassName="page-search-select-number ml-3"
-                           nextClassName="page-search-select-number ml-3"/>
+                           nextClassName="page-search-select-number ml-3"
+                           />
+
 
           </div>
         </div>
