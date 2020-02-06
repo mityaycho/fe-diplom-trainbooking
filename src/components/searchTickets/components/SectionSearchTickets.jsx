@@ -401,30 +401,6 @@ class SectionSearchTickets extends React.Component {
                 <img src={iconSearchRight} alt="иконка вправо"/>
               </button>
             </div>
-            <ReactPaginate containerClassName="row justify-content-end mt-5"
-                           pageClassName="page-search-select-number ml-3"
-                           breakClassName="page-search-select-number ml-3"
-                           previousClassName="page-search-select-number ml-3"
-                           nextClassName="page-search-select-number ml-3"
-                           />
-            <Pagination>
-              <Pagination.First />
-              <Pagination.Prev />
-              <Pagination.Item>{1}</Pagination.Item>
-              <Pagination.Ellipsis />
-
-              <Pagination.Item>{10}</Pagination.Item>
-              <Pagination.Item>{11}</Pagination.Item>
-              <Pagination.Item active>{12}</Pagination.Item>
-              <Pagination.Item>{13}</Pagination.Item>
-              <Pagination.Item disabled>{14}</Pagination.Item>
-
-              <Pagination.Ellipsis />
-              <Pagination.Item>{20}</Pagination.Item>
-              <Pagination.Next />
-              <Pagination.Last />
-            </Pagination>
-
           </div>
         </div>
       </div>
