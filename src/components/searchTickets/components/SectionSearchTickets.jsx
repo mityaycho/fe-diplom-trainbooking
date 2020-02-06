@@ -272,8 +272,9 @@ class SectionSearchTickets extends React.Component {
                 </div>
               </div>
               <hr className="bg-light"/>
-              <form className="form pt-3 pl-4 pr-4 w-100" action="input">
+              <form className="form pt-3 pl-4 pr-4 w-100">
                 <label htmlFor="customRange3">Стоимость</label>
+                <div className="row justify-content-between ml-1 mr-1"><span>от</span><span>до</span></div>
                 <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
               </form>
               <hr className="bg-light"/>
