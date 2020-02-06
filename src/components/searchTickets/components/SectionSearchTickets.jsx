@@ -270,6 +270,8 @@ class SectionSearchTickets extends React.Component {
                   <label className="custom-control-label" htmlFor="customSwitch6"></label>
                 </div>
               </div>
+
+
               <hr className="bg-light"/>
               <form className="form pt-3 pl-4 pr-4 w-100">
                 <label htmlFor="customRange3">Стоимость</label>
