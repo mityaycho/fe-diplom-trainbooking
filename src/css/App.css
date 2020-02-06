@@ -271,6 +271,7 @@ button.filter-choice-tickets:focus, button.filter-choice-tickets:active{
 button.filter-choice-tickets-active:focus, button.filter-choice-tickets-active:active {
 	outline: 1px solid transparent;
 }
+
 /* ---------------------------------------------------------------orderConfirmed */
 
 footer {

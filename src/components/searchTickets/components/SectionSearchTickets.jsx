@@ -276,6 +276,8 @@ class SectionSearchTickets extends React.Component {
                 <div className="row justify-content-between ml-1 mr-1"><span>от</span><span>до</span></div>
                 <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
               </form>
+
+
               <hr className="bg-light"/>
               <div className="container d-flex justify-content-between w-100">
                 <p className="ml-2 font-weight-bold"><img className="icon-coupe mr-3" src={iconThere}
