@@ -18,8 +18,7 @@ import progressStateDefault from '../../../images/progress_state_default.png';
 import {setDataFormAC} from '../../../redux/action';
 import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
-import ReactPaginate from 'react-paginate';
-import Pagination from 'react-bootstrap/Pagination';
+
 
 class SectionSearchTickets extends React.Component {
   state = {
