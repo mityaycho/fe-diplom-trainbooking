@@ -274,23 +274,24 @@ class SectionSearchTickets extends React.Component {
 
               <hr className="bg-light"/>
               <form className="form pt-3 pl-4 pr-4 w-100">
-                <label htmlFor="customRange3">Стоимость</label>
+                <label className="custom-range-cost" htmlFor="customRange3">Стоимость</label>
                 <div className="row justify-content-between ml-1 mr-1"><span>от</span><span>до</span></div>
                 <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+                <div className="row justify-content-between ml-1 mr-1"><span>0</span><span>7000</span></div>
               </form>
 
 
               <hr className="bg-light"/>
               <div className="container d-flex justify-content-between w-100">
-                <p className="ml-2 font-weight-bold"><img className="icon-coupe mr-3" src={iconThere}
+                <p className="custom-range-cost ml-2 font-weight-bold"><img className="mr-2" src={iconThere}
                                                           alt="иконка туда"/>Туда</p>
-                <img className="icon-coupe mr-3" src={iconPlus} alt="иконка плюс"/>
+                <img className="icon-coupe mr-3 mt-2" src={iconPlus} alt="иконка плюс"/>
               </div>
               <hr className="bg-light"/>
               <div className="container d-flex justify-content-between w-100">
-                <p className="ml-2 font-weight-bold"><img className="icon-coupe mr-3" src={iconBack}
+                <p className="custom-range-cost ml-2 font-weight-bold"><img className="mr-2" src={iconBack}
                                                           alt="иконка обратно"/>Обратно</p>
-                <img className="icon-coupe mr-3" src={iconPlus} alt="иконка плюс"/>
+                <img className="icon-coupe mr-3 mt-2" src={iconPlus} alt="иконка плюс"/>
               </div>
             </div>
             <div className="last-tickets">

@@ -272,6 +272,9 @@ button.filter-choice-tickets-active:focus, button.filter-choice-tickets-active:a
 	outline: 1px solid transparent;
 }
 
+.custom-range-cost {
+	font-size: 22px;
+}
 /* ---------------------------------------------------------------orderConfirmed */
 
 footer {
