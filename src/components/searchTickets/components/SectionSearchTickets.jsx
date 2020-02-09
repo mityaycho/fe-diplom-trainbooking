@@ -22,6 +22,7 @@ import ResultSearchTickets from './ResultSearchTickets';
 
 class SectionSearchTickets extends React.Component {
   state = {
+    customRangeCost: false,
     total_count: 0,
     items: [],
     have_second_class: false,
@@ -146,6 +147,10 @@ class SectionSearchTickets extends React.Component {
 
   filterChoiceTickets = (event) => {
     this.setState({limit: event.currentTarget.innerHTML});
+  };
+
+  setCustomRangeCost = (bool) => {
+    this.setState({customRangeCost: bool})
   };
 
   render() {
@@ -283,15 +288,21 @@ class SectionSearchTickets extends React.Component {
 
               <hr className="bg-light"/>
               <div className="container d-flex justify-content-between w-100">
-                <p className="custom-range-cost ml-2 font-weight-bold"><img className="mr-2" src={iconThere}
-                                                          alt="иконка туда"/>Туда</p>
-                <img className="icon-coupe mr-3 mt-2" src={iconPlus} alt="иконка плюс"/>
+                <p className="custom-range-cost ml-2 mt-2 font-weight-bold">
+                  <img className="mr-2"
+                       src={iconThere}
+                       alt="иконка туда"/>Туда</p>
+                <img className="custom-range-cost-check icon-coupe mr-3 mt-3"
+                     onClick={() => this.setCustomRangeCost(true)}
+                     src={iconPlus} alt="иконка плюс"/>
               </div>
               <hr className="bg-light"/>
               <div className="container d-flex justify-content-between w-100">
-                <p className="custom-range-cost ml-2 font-weight-bold"><img className="mr-2" src={iconBack}
-                                                          alt="иконка обратно"/>Обратно</p>
-                <img className="icon-coupe mr-3 mt-2" src={iconPlus} alt="иконка плюс"/>
+                <p className="custom-range-cost ml-2 mt-2 pb-3 font-weight-bold">
+                  <img className="mr-2"
+                       src={iconBack}
+                       alt="иконка обратно"/>Обратно</p>
+                <img className="custom-range-cost-check icon-coupe mr-3 mt-3" src={iconPlus} alt="иконка плюс"/>
               </div>
             </div>
             <div className="last-tickets">

@@ -275,7 +275,11 @@ button.filter-choice-tickets-active:focus, button.filter-choice-tickets-active:a
 .custom-range-cost {
 	font-size: 22px;
 }
-/* ---------------------------------------------------------------orderConfirmed */
+
+.custom-range-cost-check {
+	cursor: pointer;
+}
+	/* ---------------------------------------------------------------orderConfirmed */
 
 footer {
 	background-color: rgba(45, 43, 47, 1);
