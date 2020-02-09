@@ -501,6 +501,10 @@ footer {
 
 /* ------------------------------------------------four page */
 
+.custom-control-input + label {
+	cursor: pointer;
+}
+
 .custom-control-label::before {
 	width: 30px;
 }
