@@ -18,11 +18,13 @@ import progressStateDefault from '../../../images/progress_state_default.png';
 import {setDataFormAC} from '../../../redux/action';
 import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
+import iconMinus from "../../../images/icon_minus.png";
 
 
 class SectionSearchTickets extends React.Component {
   state = {
-    customRangeCost: false,
+    customRangeCostFrom: false,
+    customRangeCostTo: false,
     total_count: 0,
     items: [],
     have_second_class: false,
@@ -149,8 +151,12 @@ class SectionSearchTickets extends React.Component {
     this.setState({limit: event.currentTarget.innerHTML});
   };
 
-  setCustomRangeCost = (bool) => {
-    this.setState({customRangeCost: bool})
+  setCustomRangeCostFrom = (bool) => {
+    this.setState({customRangeCostFrom: bool})
+  };
+
+  setCustomRangeCostTo = (bool) => {
+    this.setState({customRangeCostTo: bool})
   };
 
   render() {
@@ -287,24 +293,71 @@ class SectionSearchTickets extends React.Component {
 
 
               <hr className="bg-light"/>
-              <div className="container d-flex justify-content-between w-100">
+              {this.state.customRangeCostFrom ?
+                <div>
+                  <div className="container d-flex justify-content-between w-100">
+                    <p className="custom-range-cost ml-2 mt-2 font-weight-bold">
+                      <img className="mr-2" src={iconThere} alt="иконка туда"/>Туда</p>
+                    <img className="custom-range-cost-check icon-coupe mr-3 mt-3"
+                         onClick={() => this.setCustomRangeCostFrom(false)}
+                         src={iconMinus} alt="иконка плюс"/>
+                  </div>
+                  <form className="form pl-4 pr-4 w-100">
+                    <label htmlFor="customRange3">Время отбытия</label>
+                    <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+                  </form>
+                  <form className="form pl-4 pr-4 w-100">
+                    <div className="d-flex mt-4 justify-content-end">
+                      <label htmlFor="customRange3">Время прибытия</label>
+                    </div>
+                    <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+                  </form>
+                </div> :
+                <div className="container d-flex justify-content-between w-100">
                 <p className="custom-range-cost ml-2 mt-2 font-weight-bold">
                   <img className="mr-2"
                        src={iconThere}
                        alt="иконка туда"/>Туда</p>
                 <img className="custom-range-cost-check icon-coupe mr-3 mt-3"
-                     onClick={() => this.setCustomRangeCost(true)}
+                     onClick={() => this.setCustomRangeCostFrom(true)}
                      src={iconPlus} alt="иконка плюс"/>
-              </div>
+              </div>}
+
               <hr className="bg-light"/>
-              <div className="container d-flex justify-content-between w-100">
-                <p className="custom-range-cost ml-2 mt-2 pb-3 font-weight-bold">
-                  <img className="mr-2"
-                       src={iconBack}
-                       alt="иконка обратно"/>Обратно</p>
-                <img className="custom-range-cost-check icon-coupe mr-3 mt-3" src={iconPlus} alt="иконка плюс"/>
-              </div>
+
+              {this.state.customRangeCostTo ?
+                <div>
+                  <div className="container d-flex justify-content-between w-100">
+                    <p className="custom-range-cost ml-2 mt-2 font-weight-bold">
+                      <img className="mr-2" src={iconBack} alt="иконка туда"/>Обратно</p>
+                    <img className="custom-range-cost-check icon-coupe mr-3 mt-3"
+                         onClick={() => this.setCustomRangeCostTo(false)}
+                         src={iconMinus} alt="иконка плюс"/>
+                  </div>
+                  <form className="form pl-4 pr-4 w-100">
+                    <label htmlFor="customRange3">Время отбытия</label>
+                    <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+                  </form>
+                  <form className="form pl-4 pr-4 w-100">
+                    <div className="d-flex mt-4 justify-content-end">
+                      <label htmlFor="customRange3">Время прибытия</label>
+                    </div>
+                    <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
+                  </form>
+                </div> :
+                <div className="container d-flex justify-content-between w-100">
+                  <p className="custom-range-cost ml-2 mt-2 pb-3 font-weight-bold">
+                    <img className="mr-2"
+                         src={iconBack}
+                         alt="иконка обратно"/>Обратно</p>
+                  <img className="custom-range-cost-check icon-coupe mr-3 mt-3"
+                       onClick={() => this.setCustomRangeCostTo(true)}
+                       src={iconPlus} alt="иконка плюс"/>
+                </div>
+              }
             </div>
+
+
             <div className="last-tickets">
               <h4 className="mt-5 mb-2">Последние билеты</h4>
               <div className="last-ticket-result row ml-1 mt-2 p-2">
