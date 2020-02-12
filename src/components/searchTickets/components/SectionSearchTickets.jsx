@@ -41,8 +41,18 @@ class SectionSearchTickets extends React.Component {
   };
 
   componentDidMount() {
+
+
     fetch(`https://netology-trainbooking.herokuapp.com/`
-      + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`)
+      + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
+      + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
+      + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
+      + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
+      + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
+      + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
+      + `${this.state.have_express ? '&have_express=true' : ''}`
+      + (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
+      + (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -50,24 +60,47 @@ class SectionSearchTickets extends React.Component {
       })
       .then(data => this.setState({
         total_count: data.total_count,
+        items: data.items,
         whereFromDate: this.props.form.whereFromDate,
-        whereToDate: this.props.form.whereToDate
+        whereToDate: this.props.form.whereToDate,
+        have_second_class: this.state.have_second_class,
+        have_third_class: this.state.have_third_class,
+        have_fourth_class: this.state.have_fourth_class,
+        have_first_class: this.state.have_first_class,
+        have_wifi: this.state.have_wifi,
+        have_express: this.state.have_express,
+        sort: this.state.sort,
+        limit: this.state.limit
       }));
+
+
+    // fetch(`https://netology-trainbooking.herokuapp.com/`
+    //   + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     return data;
+    //   })
+    //   .then(data => this.setState({
+    //     total_count: data.total_count,
+    //     whereFromDate: this.props.form.whereFromDate,
+    //     whereToDate: this.props.form.whereToDate
+    //   }));
 
     // test url from work UI
 
-    fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        return data;
-      })
-      .then(data => this.setState({
-        total_count: data.total_count,
-        whereFromDate: this.props.form.whereFromDate,
-        whereToDate: this.props.form.whereToDate,
-        have_second_class: this.state.have_second_class
-      }));
+    // fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     return data;
+    //   })
+    //   .then(data => this.setState({
+    //     total_count: data.total_count,
+    //     whereFromDate: this.props.form.whereFromDate,
+    //     whereToDate: this.props.form.whereToDate,
+    //     have_second_class: this.state.have_second_class
+    //   }));
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -80,7 +113,8 @@ class SectionSearchTickets extends React.Component {
       prevState.have_express !== this.state.have_express ||
       prevState.sort !== this.state.sort ||
       prevState.limit !== this.state.limit) {
-      fetch(`https://netology-trainbooking.herokuapp.com/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa7f83e028786ea5673`
+      fetch(`https://netology-trainbooking.herokuapp.com/`
+        + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
         + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
         + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
         + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
