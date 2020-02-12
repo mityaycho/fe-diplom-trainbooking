@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SectionSearchTicketsHeader from '../shared/SectionSearchTicketsHeader';
+import SectionSearchTicketsHeader from '../shared/HeaderSearchForm';
 import SectionSearchTickets from './components/SectionSearchTickets';
 
 class SearchTickets extends Component {

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {setDataFormAC} from '../../redux/action';
 import {Typeahead} from 'react-bootstrap-typeahead';
 
-class SectionSearchTicketsHeader extends React.Component {
+class HeaderSearchForm extends React.Component {
   state = {
     valueFromCity: '',
     valueToCity: '',
@@ -55,7 +55,7 @@ class SectionSearchTicketsHeader extends React.Component {
         id = el
       }
       return id;
-    })
+    });
 
     this.setState({whereFromCity: event[0], cityWhereFromId: cityId._id, dataCities: [], value: ''});
   };
@@ -67,7 +67,7 @@ class SectionSearchTicketsHeader extends React.Component {
         id = el
       }
       return id;
-    })
+    });
     this.setState({
       whereToCity: event[0],
       cityWhereToId: cityId._id,
@@ -171,4 +171,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionSearchTicketsHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderSearchForm);
