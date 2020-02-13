@@ -110,11 +110,13 @@ class HeaderSearchForm extends React.Component {
                     <p className="ml-3">Дата</p>
                     <div className="d-flex form-group m-3">
                       <input className="col-sm form-control mr-4"
+                             key="dateFrom"
                              type="date"
                              onChange={this.setWhereFromDate}
                              value={this.state.whereFromDate}
                       />
                       <input className="col-sm form-control"
+                             key="dateTo"
                              type="date"
                              onChange={this.setWhereToDate}
                              value={this.state.whereToDate}

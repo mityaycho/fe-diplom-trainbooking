@@ -23,34 +23,19 @@ import iconRubleSmall from '../../../images/icon_ruble_small.png';
 import imageVagonPlaces from '../../../images/image_vagon_places.png';
 import choiceOtherTrainButtonBack from '../../../images/choice_other_train_button_back.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
+import ProgressLineCost from "../../shared/ProgressLineCost";
 
 class SectionSeatSelection extends React.Component {
 	render () {
 		return (
 			<div>
-				<div className="progress-state">
-					<ul className="list-group list-group-horizontal justify-content-between w-100">
-						<li className="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
-							<p className="progress-state-number">1</p>
-							<p className="progress-state-text mr-5">Билеты</p>
-							<img className="justify-content-end ml-5" src={progressStateSelect} alt="..."/>
-						</li>
-						<li className="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
-							<p className="progress-state-number">2</p>
-							<p className="progress-state-text mr-5">Пассажиры</p>
-							<img className="" src={progressStateDefault} alt="..."/>
-						</li>
-						<li className="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
-							<p className="progress-state-number">3</p>
-							<p className="progress-state-text mr-5">Оплата</p>
-							<img className="ml-4" src={progressStateDefault} alt="..."/>
-						</li>
-						<li className="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0 bg-dark">
-							<p className="progress-state-number ml-5">4</p>
-							<p className="progress-state-text ">Проверка</p>
-						</li>
-					</ul>
-				</div>
+				<ProgressLineCost tickets={progressStateSelect}
+													passengers={progressStateDefault}
+													passengersClass=""
+													payment={progressStateDefault}
+													paymentClass=""
+													checkClass=""/>
+
 				<div className="container d-flex">
 					<div className="tickets-search-param col-lg-3 mt-5 mb-5">
 						<div className="tickets-search-menu bg-dark pt-5 pb-1">
@@ -406,7 +391,7 @@ class SectionSeatSelection extends React.Component {
 			</div>
 		);
 	}
-};
+}
 
 const mapStateToProps = (state) => {
   return {

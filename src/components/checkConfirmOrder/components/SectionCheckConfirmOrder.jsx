@@ -14,33 +14,18 @@ import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png'
 import iconSearchBack from '../../../images/icon_search_back.png';
 import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
 import iconPassangerSircle from '../../../images/icon_passanger_sircle.png';
+import ProgressLineCost from "../../shared/ProgressLineCost";
 
 const SectionCheckConfirmOrder = () => {
 	return (
 		<div>
-			<div className="progress-state">
-				<ul className="list-group list-group-horizontal justify-content-between w-100">
-					<li className="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
-						<p className="progress-state-number">1</p>
-						<p className="progress-state-text mr-5">Билеты</p>
-						<img className="justify-content-end ml-5" src={progressStateSelected} alt="..."/>
-					</li>
-					<li className="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
-						<p className="progress-state-number">2</p>
-						<p className="progress-state-text mr-5">Пассажиры</p>
-						<img className="" src={progressStateSelected} alt="..."/>
-					</li>
-					<li className="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0">
-						<p className="progress-state-number">3</p>
-						<p className="progress-state-text mr-5">Оплата</p>
-						<img className="ml-4" src={progressStateSelected} alt="..."/>
-					</li>
-					<li className="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0">
-						<p className="progress-state-number ml-5">4</p>
-						<p className="progress-state-text ">Проверка</p>
-					</li>
-				</ul>
-			</div>
+			<ProgressLineCost tickets={progressStateSelected}
+												passengers={progressStateSelected}
+												passengersClass="completed"
+												payment={progressStateSelected}
+												paymentClass="completed"
+												checkClass="completed"/>
+
 			<div className="container d-flex">
 				<div className="trip-details-tickets col-lg-3 mt-5 mb-5">
 					<div className="trip-details bg-dark pt-4 pb-4">

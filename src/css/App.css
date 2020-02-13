@@ -122,6 +122,10 @@ a:hover {
 	background: rgba(255, 168, 0, 1);
 }
 
+.input-typeahead {
+	width: 450px;
+}
+
 /* ------------------------------------------------------------------section-about-us */
 
 .about-us {
@@ -190,18 +194,23 @@ a:hover {
 }
 
 
-/* --------------------------------------------------------------progress-line-const */
+/* --------------------------------------------------------------progress-line-cost */
 
-.progress-line-const {
-
+.progress-line-cost {
+	background: rgba(62, 60, 65, 1);
 }
 
-.progress-line-const-button {
+.progress-line-cost-button {
 	padding: 0;
+	background: rgba(62, 60, 65, 1);
+	color: white;
+}
+
+.progress-line-cost-button.completed {
 	background: #FFA800;
 }
 
-.progress-line-const-number {
+.progress-line-cost-number {
 	border: 2px solid #FFFFFF;
 	border-radius: 15px;
 	padding-left: 8px;
@@ -210,7 +219,7 @@ a:hover {
 	margin-bottom: 35px;
 }
 
-.progress-line-const-text {
+.progress-line-cost-text {
 	margin-left: 2%;
 	margin-top: 30px;
 	font-size: 25px;

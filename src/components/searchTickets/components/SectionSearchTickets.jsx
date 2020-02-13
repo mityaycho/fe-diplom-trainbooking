@@ -19,7 +19,6 @@ import {setDataFormAC} from '../../../redux/action';
 import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
 import iconMinus from "../../../images/icon_minus.png";
-import CustomInputRange from "./CustomInputRange";
 import ProgressLineCost from "../../shared/ProgressLineCost";
 
 
@@ -187,9 +186,12 @@ class SectionSearchTickets extends React.Component {
 
     return (
       <div className="text-white tickets-search-window ">
-        <ProgressLineCost one={progressStateSelect}
-                          two={progressStateDefault}
-                          three={progressStateDefault}/>
+        <ProgressLineCost tickets={progressStateSelect}
+                          passengers={progressStateDefault}
+                          passengersClass=""
+                          payment={progressStateDefault}
+                          paymentClass=""
+                          checkClass=""/>
 
         <div className="container d-flex">
           <div className="tickets-search-param col-lg-3 mt-5 mb-5">
@@ -306,14 +308,14 @@ class SectionSearchTickets extends React.Component {
                   </form>
                 </div> :
                 <div className="container d-flex justify-content-between w-100">
-                <p className="custom-range-cost ml-2 mt-2 font-weight-bold">
-                  <img className="mr-2"
-                       src={iconThere}
-                       alt="иконка туда"/>Туда</p>
-                <img className="custom-range-cost-check icon-coupe mr-3 mt-3"
-                     onClick={() => this.setCustomRangeCostFrom(true)}
-                     src={iconPlus} alt="иконка плюс"/>
-              </div>}
+                  <p className="custom-range-cost ml-2 mt-2 font-weight-bold">
+                    <img className="mr-2"
+                         src={iconThere}
+                         alt="иконка туда"/>Туда</p>
+                  <img className="custom-range-cost-check icon-coupe mr-3 mt-3"
+                       onClick={() => this.setCustomRangeCostFrom(true)}
+                       src={iconPlus} alt="иконка плюс"/>
+                </div>}
 
               <hr className="bg-light"/>
 
