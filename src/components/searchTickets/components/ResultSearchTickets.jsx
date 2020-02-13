@@ -98,7 +98,7 @@ const ResultSearchTickets = (props) => {
 
       </div>
     </div>
-  )
+  );
 };
 
 export default ResultSearchTickets;

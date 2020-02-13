@@ -467,7 +467,7 @@ class SectionSearchTickets extends React.Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 const mapStateToProps = (state) => {
@@ -482,7 +482,7 @@ const mapDispatchToProps = (dispatch) => {
       const action = setDataFormAC(form);
       dispatch(action);
     }
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SectionSearchTickets);

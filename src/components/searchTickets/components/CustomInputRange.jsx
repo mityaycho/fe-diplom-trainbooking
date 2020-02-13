@@ -25,7 +25,7 @@ const CustomInputRange = () => {
       <Slider range marks={marks} defaultValue={[26, 37]}/>
 
     </div>
-  )
+  );
 };
 
 export default CustomInputRange;

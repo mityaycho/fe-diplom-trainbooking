@@ -30,7 +30,7 @@ const ProgressLineCost = (props) => {
         </li>
       </ul>
     </div>
-  )
+  );
 };
 
 export default ProgressLineCost;
