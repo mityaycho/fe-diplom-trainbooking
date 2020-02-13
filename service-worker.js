@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/fe-diplom-trainbooking/precache-manifest.cdb8b9f77926bda2d66e1a64541d3e44.js"
+  "/fe-diplom-trainbooking/precache-manifest.cd1ba6da8ad5bf277b55fd4a1af5e19b.js"
 );
 
 workbox.clientsClaim();
@@ -30,5 +30,5 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerNavigationRoute("/fe-diplom-trainbooking/index.html", {
   
-  blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
+  blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
