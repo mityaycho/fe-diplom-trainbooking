@@ -20,6 +20,7 @@ import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
 import iconMinus from "../../../images/icon_minus.png";
 import CustomInputRange from "./CustomInputRange";
+import ProgressLineCost from "../../shared/ProgressLineCost";
 
 
 class SectionSearchTickets extends React.Component {
@@ -185,34 +186,10 @@ class SectionSearchTickets extends React.Component {
       <ResultSearchTickets key={idx} state={el}/>) : [];
 
     return (
-      <div className="text-white tickets-search-window animated zoomInDow">
-        <div className="progress-state">
-          <ul className="list-group list-group-horizontal justify-content-between w-100">
-            <li
-              className="progress-state-button tickets list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
-              <p className="progress-state-number">1</p>
-              <p className="progress-state-text mr-5">Билеты</p>
-              <img className="justify-content-end ml-5" src={progressStateSelect} alt="..."/>
-            </li>
-            <li
-              className="progress-state-button passengers list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
-              <p className="progress-state-number">2</p>
-              <p className="progress-state-text mr-5">Пассажиры</p>
-              <img className="" src={progressStateDefault} alt="..."/>
-            </li>
-            <li
-              className="progress-state-button payment list-group-item w-25 justify-content-end d-flex font-weight-bold border-0 bg-dark">
-              <p className="progress-state-number">3</p>
-              <p className="progress-state-text mr-5">Оплата</p>
-              <img className="ml-4" src={progressStateDefault} alt="..."/>
-            </li>
-            <li
-              className="progress-state-button check list-group-item w-50 justify-content-left d-flex font-weight-bold border-0 bg-dark">
-              <p className="progress-state-number ml-5">4</p>
-              <p className="progress-state-text ">Проверка</p>
-            </li>
-          </ul>
-        </div>
+      <div className="text-white tickets-search-window ">
+        <ProgressLineCost one={progressStateSelect}
+                          two={progressStateDefault}
+                          three={progressStateDefault}/>
 
         <div className="container d-flex">
           <div className="tickets-search-param col-lg-3 mt-5 mb-5">

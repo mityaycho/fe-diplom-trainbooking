@@ -189,6 +189,33 @@ a:hover {
 	width: 162px;
 }
 
+
+/* --------------------------------------------------------------progress-line-const */
+
+.progress-line-const {
+
+}
+
+.progress-line-const-button {
+	padding: 0;
+	background: #FFA800;
+}
+
+.progress-line-const-number {
+	border: 2px solid #FFFFFF;
+	border-radius: 15px;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.progress-line-const-text {
+	margin-left: 2%;
+	margin-top: 30px;
+	font-size: 25px;
+}
+
 /* --------------------------------------------------------------section-reviews */
 
 .reviews {
@@ -392,31 +419,8 @@ footer {
 
 /* -------------------------------------------------------------three-page */
 
-.progress-state-number {
-	border: 2px solid #FFFFFF;
-	border-radius: 15px;
-	padding-left: 8px;
-	padding-right: 8px;
-	margin-top: 35px;
-	margin-bottom: 35px;
-}
-
-.progress-state-text {
-	margin-left: 2%;
-	margin-top: 35px;
-}
-
 .tickets-search-param {
 	color: white;
-}
-
-.progress-state {
-	color: white;
-}
-
-.progress-state-button {
-	padding: 0px;
-	background: #FFA800;
 }
 
 .tickets-search-window {
