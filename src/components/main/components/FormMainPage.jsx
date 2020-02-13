@@ -10,13 +10,13 @@ const FormMainPage = (props) => {
 
   return (
     <div className="header-section">
-      <div className="container section-header text-white animated zoomInDow">
+      <div className="container section-header text-white">
         <div className="row">
-          <div className="section-header-text col-lg-6 pl-5">
+          <div className="section-header-text col-lg-6 pl-5  animated zoomInDown">
             <h1 className="display-4">Вся жизнь -</h1>
             <h1 className="display-4 font-weight-bold">путешествие!</h1>
           </div>
-          <div className="section-header-form col-lg-6">
+          <div className="section-header-form col-lg-6  animated zoomInDown">
             <div className="row mt-5">
               <form className="form mt-5 w-100">
                 <p className="ml-3">Направление</p>

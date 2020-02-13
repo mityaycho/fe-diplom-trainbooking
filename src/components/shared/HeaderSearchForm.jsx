@@ -79,7 +79,7 @@ class HeaderSearchForm extends React.Component {
 
     return (
       <div className="header-section-three-page">
-        <div className="text-white animated zoomInDow">
+        <div className="text-white animated zoomInDown">
           <div className="container section-header-order">
             <div className="row">
               <div className="section-header-form-order col-lg-12">
