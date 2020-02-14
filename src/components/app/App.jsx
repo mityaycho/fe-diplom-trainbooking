@@ -21,7 +21,7 @@ export class App extends Component {
       <div className="App">
         <NavBar />
         <NavBarTemporary />
-          <Route exact path="/" render={() => <Main />}/>
+          <Route exact={true} path="/" render={() => <Main />}/>
           <Route path="/search_tickets" render={() => <SearchTickets />}/>
           <Route path="/seat_selection" render={() => <SeatSelection />}/>
           <Route path="/passengers" render={() => <Passengers />}/>
