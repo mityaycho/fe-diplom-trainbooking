@@ -19,16 +19,16 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <NavBarTemporary />
-          <Route exact={true} path="/" render={() => <Main />}/>
-          <Route path="/search_tickets" render={() => <SearchTickets />}/>
-          <Route path="/seat_selection" render={() => <SeatSelection />}/>
-          <Route path="/passengers" render={() => <Passengers />}/>
-          <Route path="/pay_selection" render={() => <PaySelection />}/>
-          <Route path="/check_confirm_order" render={() => <CheckConfirmOrder />}/>
-          <Route path="/order_confirmed" render={() => <OrderConfirmed />}/>
-        <Footer />
+        <NavBar/>
+        <NavBarTemporary/>
+        <Route exact path="/" render={() => <Main/>}/>
+        <Route path="/search_tickets" render={() => <SearchTickets/>}/>
+        <Route path="/seat_selection" render={() => <SeatSelection/>}/>
+        <Route path="/passengers" render={() => <Passengers/>}/>
+        <Route path="/pay_selection" render={() => <PaySelection/>}/>
+        <Route path="/check_confirm_order" render={() => <CheckConfirmOrder/>}/>
+        <Route path="/order_confirmed" render={() => <OrderConfirmed/>}/>
+        <Footer/>
       </div>
     );
   };

@@ -4,7 +4,7 @@ import React from 'react';
 const ProgressLineCost = (props) => {
   return (
     <div className="progress-line-cost">
-      <ul className="list-group list-group-horizontal justify-content-between w-100 animated fadeInLeft">
+      <ul className="list-group list-group-horizontal justify-content-between w-100">
         <li
           className="progress-line-cost-button completed list-group-item w-50 justify-content-end d-flex font-weight-bold border-0">
           <p className="progress-line-cost-number">1</p>

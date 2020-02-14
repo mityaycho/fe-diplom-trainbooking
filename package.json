@@ -2,9 +2,8 @@
   "name": "fe-diplom-trainbooking",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mityaycho.github.io/fe-diplom-trainbooking/",
+  "homepage": "https://mityaycho.github.io/",
   "dependencies": {
-    "antd": "^3.26.9",
     "bootstrap": "^4.4.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
