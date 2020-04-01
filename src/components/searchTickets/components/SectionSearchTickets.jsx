@@ -363,7 +363,7 @@ class SectionSearchTickets extends React.Component {
 
 
 						<div className="last-tickets">
-							<h4 className="mt-5 mb-2">Последние билеты</h4>
+							<h4 className="mt-5 mb-2 ml-1">Последние билеты</h4>
             	{lastRoutesJSX}
 						</div>
           </div>
