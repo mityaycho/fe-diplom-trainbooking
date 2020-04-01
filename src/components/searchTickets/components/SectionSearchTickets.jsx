@@ -19,6 +19,7 @@ import ResultSearchTickets from './ResultSearchTickets';
 import iconMinus from "../../../images/icon_minus.png";
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import LastRoutes from './LastRoutes';
+import SearchTicket from './SearchTicket';
 
 
 class SectionSearchTickets extends React.Component {
@@ -368,6 +369,8 @@ class SectionSearchTickets extends React.Component {
 						</div>
           </div>
 
+
+					
           <div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
             <div className="row">
               <div className="col">найдено {this.state.total_count}</div>

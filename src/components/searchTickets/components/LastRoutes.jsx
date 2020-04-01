@@ -22,7 +22,7 @@ const LastRoutes = (props) => {
 					<div className="col">
 						<img className="icon-wifi-rocket-cup" src={iconWifiRocketCup} alt="иконки Wi-Fi рокета кружка" />
 					</div>
-					<div className="row ml-2 justify-content-end">
+					<div className="row justify-content-end">
 						<p>от</p>
 						<p className="last-ticket-price ml-1">{props.state.min_price}</p>
 						<img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль" />
