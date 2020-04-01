@@ -20,6 +20,7 @@ import iconMinus from "../../../images/icon_minus.png";
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import LastRoutes from './LastRoutes';
 import SearchTicket from './SearchTicket';
+import SeatSelection from './SeatSelection';
 
 
 class SectionSearchTickets extends React.Component {
@@ -38,7 +39,8 @@ class SectionSearchTickets extends React.Component {
     whereFromDate: undefined,
     whereToDate: undefined,
     sort: 'date',
-    limit: '5'
+		limit: '5',
+		seatSelection: false
   };
 
   componentDidMount() {
@@ -176,7 +178,9 @@ class SectionSearchTickets extends React.Component {
 
   setCustomRangeCostFrom = (bool) => this.setState({customRangeCostFrom: bool});
 
-  setCustomRangeCostTo = (bool) => this.setState({customRangeCostTo: bool});
+	setCustomRangeCostTo = (bool) => this.setState({customRangeCostTo: bool});
+	
+	setSeatSelection = (bool) => this.setState({seatSelection: bool});
 
   render() {
     let classFilterChoiceFive = this.state.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
@@ -370,48 +374,12 @@ class SectionSearchTickets extends React.Component {
           </div>
 
 
-					
-          <div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
-            <div className="row">
-              <div className="col">найдено {this.state.total_count}</div>
-              <div className="row text-right">сортировать по:&nbsp;
-                <select className="custom-sort-train" name="sortTrain" id="sort" onChange={this.sortSearch}>
-                  <option value="date">времени</option>
-                  <option value="price">стоимости</option>
-                  <option value="duration">длительности</option>
-                </select>
-              </div>
-              <div className="row text-right ml-5 mr-3">показывать по:&nbsp;
-                <button className={classFilterChoiceFive}
-                        onClick={this.filterChoiceTickets}>5
-                </button>
-                <button className={classFilterChoiceTen}
-                        onClick={this.filterChoiceTickets}>10
-                </button>
-                <button className={classFilterChoiceTwenty}
-                        onClick={this.filterChoiceTickets}>20
-                </button>
-              </div>
-            </div>
-
-            {resultSearch}
-
-            <div className="row justify-content-end mt-5">
-              <button className="page-search-select-number ml-3" type="button">
-                <img src={iconSearchLeft} alt="иконка влево"/>
-              </button>
-
-              {buttonsPages}
-
-              <button className="page-search-select-number ml-3" type="button">
-                <img src={iconSearchDots} alt="иконка точки"/>
-              </button>
-              <button className="page-search-select-number ml-3" type="button">10</button>
-              <button className="page-search-select-number ml-3" type="button">
-                <img src={iconSearchRight} alt="иконка вправо"/>
-              </button>
-            </div>
-          </div>
+					{this.state.seatSelection ? 
+					<SeatSelection setSeatSelection={this.setSeatSelection}/> : 
+					<SearchTicket state={this.state} 
+					filterChoiceTickets={this.filterChoiceTickets}
+					sortSearch={this.sortSearch}
+					setSeatSelection={this.setSeatSelection}/>}
         </div>
       </div>
     );

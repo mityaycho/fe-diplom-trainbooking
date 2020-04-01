@@ -18,7 +18,7 @@ const SearchTicket = (props) => {
 	}
 
 	const resultSearch = props.state.items ? props.state.items.map((el, idx) =>
-		<ResultSearchTickets key={idx} state={el} />) : [];
+		<ResultSearchTickets key={idx} state={el} setSeatSelection={props.setSeatSelection}/>) : [];
 
 	return (
 		<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">

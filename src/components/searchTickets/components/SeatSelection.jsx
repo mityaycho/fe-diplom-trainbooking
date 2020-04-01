@@ -10,7 +10,7 @@ import choiceOtherTrainButtonBack from '../../../images/choice_other_train_butto
 import iconSearchBack from '../../../images/icon_search_back.png';
 
 
-const SeatSelection = () => {
+const SeatSelection = (props) => {
 
 	return (
 		<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
@@ -18,7 +18,9 @@ const SeatSelection = () => {
 			<div className="choice-of-place-there">
 				<div className="choice-other-train-button d-flex mt-4">
 					<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
-					<button type="button" className="btn btn-outline-dark ml-3 font-weight-bold">Выбрать другой поезд</button>
+					<button type="button" 
+					className="btn btn-outline-dark ml-3 font-weight-bold"
+					onClick={() => props.setSeatSelection(false)}>Выбрать другой поезд</button>
 				</div>
 				<div className="choice-ticket-train-there d-flex mt-4 pt-3 justify-content-between">
 					<div className="d-flex">

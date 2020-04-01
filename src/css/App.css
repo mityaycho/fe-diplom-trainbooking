@@ -530,6 +530,10 @@ footer {
 	width: 30px;
 }
 
+.choice-of-place {
+	color: black;
+}
+
 .choice-of-place-there {
 	background: #FFFFFF;
 	border: 1px solid #C4C4C4;

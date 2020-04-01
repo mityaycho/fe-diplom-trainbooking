@@ -90,7 +90,7 @@ const ResultSearchTickets = (props) => {
             </div>
 
             <div className="row pb-3">
-              <button className="btn btn-warning m-3" to="/three_page" type="button">Выбрать места
+              <button className="btn btn-warning m-3" onClick={() => props.setSeatSelection(true)} type="button">Выбрать места
               </button>
             </div>
           </div>
