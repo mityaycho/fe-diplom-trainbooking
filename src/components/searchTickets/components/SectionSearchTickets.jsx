@@ -8,8 +8,6 @@ import iconExpress from '../../../images/icon_express.png';
 import iconThere from '../../../images/icon_there.png';
 import iconBack from '../../../images/icon_back.png';
 import iconPlus from '../../../images/icon_plus.png';
-import iconRuble from '../../../images/icon_ruble.png';
-import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
 import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
 import iconSearchDots from '../../../images/icon_page_search_dots.png';
@@ -20,6 +18,7 @@ import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
 import iconMinus from "../../../images/icon_minus.png";
 import ProgressLineCost from "../../shared/ProgressLineCost";
+import LastRoutes from './LastRoutes';
 
 
 class SectionSearchTickets extends React.Component {
@@ -27,7 +26,8 @@ class SectionSearchTickets extends React.Component {
     customRangeCostFrom: false,
     customRangeCostTo: false,
     total_count: 0,
-    items: [],
+		items: [],
+		lastRoutes: [],
     have_second_class: false,
     have_third_class: false,
     have_fourth_class: false,
@@ -42,8 +42,12 @@ class SectionSearchTickets extends React.Component {
 
   componentDidMount() {
 		fetch( 'https://netology-trainbooking.herokuapp.com/routes/last' )
-    .then( response => response.json())
-    .then( data => console.log( data ));
+		.then( response => response.json())
+		.then(data => {
+			console.log(data);
+			return data;
+		})
+    .then( data => this.setState({lastRoutes: data}));
 
 
     fetch(`https://netology-trainbooking.herokuapp.com/`
@@ -182,7 +186,10 @@ class SectionSearchTickets extends React.Component {
     let buttonsPages = [];
     for (let i = 1; i < pages; i++) {
       buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
-    }
+		}
+		
+		const lastRoutesJSX = this.state.lastRoutes ? this.state.lastRoutes.map((el, idx) => 
+		<LastRoutes key={idx} state={el}/>) : [];
 
     const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
       <ResultSearchTickets key={idx} state={el}/>) : [];
@@ -355,75 +362,10 @@ class SectionSearchTickets extends React.Component {
             </div>
 
 
-            <div className="last-tickets">
-              <h4 className="mt-5 mb-2">Последние билеты</h4>
-              <div className="last-ticket-result row ml-1 mt-2 p-2">
-                <div className="d-flex justify-content-between w-100">
-                  <div className="">
-                    <p className="last-ticket-direction font-weight-bold">Санкт-Петербург</p>
-                    <p className="last-ticket-station font-weight-light mt-n3">Курский<br/>вокзал</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="last-ticket-direction font-weight-bold">Самара</p>
-                    <p className="last-ticket-station font-weight-light mt-n3">Московский<br/>вокзал</p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col">
-                    <img className="icon-wifi-rocket-cup" src={iconWifiRocketCup} alt="иконки Wi-Fi рокета кружка"/>
-                  </div>
-                  <div className="row ml-2">
-                    <p>от</p>
-                    <p className="last-ticket-price ml-1">2 500</p>
-                    <img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль"/>
-                  </div>
-                </div>
-              </div>
-              <div className="last-ticket-result row ml-1 mt-2 p-2">
-                <div className="d-flex justify-content-between w-100">
-                  <div className="">
-                    <p className="last-ticket-direction font-weight-bold">Москва</p>
-                    <p className="last-ticket-station font-weight-light mt-n3">Курский<br/>вокзал</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="last-ticket-direction font-weight-bold">Казань</p>
-                    <p className="last-ticket-station font-weight-light mt-n3">Московский<br/>вокзал</p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col">
-                    <img className="icon-wifi-rocket-cup" src={iconWifiRocketCup} alt="иконки Wi-Fi рокета кружка"/>
-                  </div>
-                  <div className="row ml-2">
-                    <p>от</p>
-                    <p className="last-ticket-price ml-1">3 500</p>
-                    <img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль"/>
-                  </div>
-                </div>
-              </div>
-              <div className="last-ticket-result row ml-1 mt-2 p-2">
-                <div className="d-flex justify-content-between w-100">
-                  <div className="">
-                    <p className="last-ticket-direction font-weight-bold">Казань</p>
-                    <p className="last-ticket-station font-weight-light mt-n3">Курский<br/>вокзал</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="last-ticket-direction font-weight-bold">Нижний новгород</p>
-                    <p className="last-ticket-station font-weight-light mt-n3">Московский<br/>вокзал</p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col">
-                    <img className="icon-wifi-rocket-cup" src={iconWifiRocketCup} alt="иконки Wi-Fi рокета кружка"/>
-                  </div>
-                  <div className="row ml-2">
-                    <p>от</p>
-                    <p className="last-ticket-price ml-1">3 800</p>
-                    <img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль"/>
-                  </div>
-                </div>
-              </div>
-            </div>
+						<div className="last-tickets">
+							<h4 className="mt-5 mb-2">Последние билеты</h4>
+            	{lastRoutesJSX}
+						</div>
           </div>
 
           <div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
