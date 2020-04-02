@@ -23,7 +23,7 @@ import iconRubleSmall from '../../../images/icon_ruble_small.png';
 import imageVagonPlaces from '../../../images/image_vagon_places.png';
 import choiceOtherTrainButtonBack from '../../../images/choice_other_train_button_back.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
-import ProgressLineCost from "../../shared/ProgressLineCost";
+import ProgressLineCost from '../../shared/ProgressLineCost';
 
 class SectionSeatSelection extends React.Component {
 	render () {

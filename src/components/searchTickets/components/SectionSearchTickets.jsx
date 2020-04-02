@@ -16,7 +16,7 @@ import progressStateDefault from '../../../images/progress_state_default.png';
 import {setDataFormAC} from '../../../redux/action';
 import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
-import iconMinus from "../../../images/icon_minus.png";
+import iconMinus from '../../../images/icon_minus.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import LastRoutes from './LastRoutes';
 import SearchTicket from './SearchTicket';
