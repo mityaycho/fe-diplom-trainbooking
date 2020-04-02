@@ -4,7 +4,7 @@ import '../../css/App.css';
 import '../../css/animate.css';
 
 import Main from '../main/Main';
-import SearchTicketsAndSeatSelection from '../searchTickets/SearchTicketsAndSeatSelection';
+import SearchTickets from '../searchTickets/SearchTickets';
 import SeatSelection from '../seatSelection/SeatSelection';
 import Passengers from '../passengers/Passengers';
 import PaySelection from '../paySection/PaySelection';
@@ -22,7 +22,7 @@ export class App extends Component {
         <NavBar/>
         <NavBarTemporary/>
         <Route exact path="/" render={() => <Main/>}/>
-        <Route path="/search_tickets" render={() => <SearchTicketsAndSeatSelection/>}/>
+        <Route path="/search_tickets" render={() => <SearchTickets/>}/>
         <Route path="/seat_selection" render={() => <SeatSelection/>}/>
         <Route path="/passengers" render={() => <Passengers/>}/>
         <Route path="/pay_selection" render={() => <PaySelection/>}/>

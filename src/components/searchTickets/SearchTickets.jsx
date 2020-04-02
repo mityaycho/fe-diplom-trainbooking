@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SectionSearchTicketsHeader from '../shared/HeaderSearchForm';
 import SectionSearchTickets from './components/SectionSearchTickets';
 
-class SearchTicketsAndSeatSelection extends Component {
+class SearchTickets extends Component {
 	render() {
 		return (
 			<div>
@@ -13,4 +13,4 @@ class SearchTicketsAndSeatSelection extends Component {
 	};
 };
 
-export default SearchTicketsAndSeatSelection;
+export default SearchTickets;
