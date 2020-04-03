@@ -14,7 +14,7 @@ import {setDataFormAC} from '../../../redux/action';
 import {connect} from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
 import iconMinus from '../../../images/icon_minus.png';
-import ProgressLineCost from '../../shared/ProgressLineCost';
+import ProgressLineCost from "../../shared/ProgressLineCost";
 import LastRoutes from '../../shared/LastRoutes';
 import SearchTicket from './SearchTicket';
 import SeatSelection from './SeatSelection';

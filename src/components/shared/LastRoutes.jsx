@@ -1,6 +1,6 @@
 import React from 'react';
-import iconRuble from '../../../images/icon_ruble.png';
-import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
+import iconRuble from '../../images/icon_ruble.png';
+import iconWifiRocketCup from '../../images/icons_wifiRocketCup.png';
 
 
 const LastRoutes = (props) => {
