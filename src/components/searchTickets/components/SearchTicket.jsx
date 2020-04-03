@@ -7,23 +7,23 @@ import iconSearchDots from '../../../images/icon_page_search_dots.png';
 
 const SearchTicket = (props) => {
 
-	let classFilterChoiceFive = props.state.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
-	let classFilterChoiceTen = props.state.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
-	let classFilterChoiceTwenty = props.state.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+	let classFilterChoiceFive = props.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+	let classFilterChoiceTen = props.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+	let classFilterChoiceTwenty = props.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
 
-	let pages = Math.ceil(Number(props.state.total_count) / Number(props.state.limit));
+	let pages = Math.ceil(Number(props.total_count) / Number(props.limit));
 	let buttonsPages = [];
 	for (let i = 1; i < pages; i++) {
 		buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
 	}
 
-	const resultSearch = props.state.items ? props.state.items.map((el, idx) =>
+	const resultSearch = props.items ? props.items.map((el, idx) =>
 		<ResultSearchTickets key={idx} state={el} setSeatSelection={props.setSeatSelection}/>) : [];
 
 	return (
 		<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
 			<div className="row">
-				<div className="col">найдено {props.state.total_count}</div>
+				<div className="col">найдено {props.total_count}</div>
 				<div className="row text-right">сортировать по:&nbsp;
                 <select className="custom-sort-train" name="sortTrain" id="sort" onChange={props.sortSearch}>
 						<option value="date">времени</option>

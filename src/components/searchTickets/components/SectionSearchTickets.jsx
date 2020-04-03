@@ -1,33 +1,21 @@
 import React from 'react';
-import iconCoupe from '../../../images/icon_coupe.png';
-import iconEconomclass from '../../../images/icon_economclass.png';
-import iconSedentary from '../../../images/icon_sedentary.png';
-import iconLuxury from '../../../images/icon_luxury.png';
-import iconWifi from '../../../images/icon_wifi.png';
-import iconExpress from '../../../images/icon_express.png';
-import iconThere from '../../../images/icon_there.png';
-import iconBack from '../../../images/icon_back.png';
-import iconPlus from '../../../images/icon_plus.png';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
 import { setDataFormAC } from '../../../redux/action';
 import { connect } from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
-import iconMinus from '../../../images/icon_minus.png';
 import ProgressLineCost from '../../shared/ProgressLineCost';
 import LastRoutes from '../../shared/LastRoutes';
 import SearchTicket from './SearchTicket';
-import SeatSelection from './SeatSelection';
 import { getLastRoutesTC } from '../../../redux/searchMain-reducer';
 import SideBarSearchTicketsAndSeatSelection from './../../shared/SideBarSearchTicketsAndSeatSelection';
+import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 
 
 class SectionSearchTickets extends React.Component {
   state = {
     customRangeCostFrom: false,
     customRangeCostTo: false,
-    total_count: 0,
-		items: [],
 		lastRoutes: [],
     have_second_class: false,
     have_third_class: false,
@@ -40,7 +28,23 @@ class SectionSearchTickets extends React.Component {
     sort: 'date',
 		limit: '5',
 		seatSelection: false
-  };
+	};
+	
+	 getTicketsFetch = () => {
+		const data = {
+			have_second_class: this.state.have_second_class,
+	have_third_class: this.state.have_third_class ,
+	have_fourth_class: this.state.have_fourth_class,
+	have_first_class: this.state.have_first_class,
+	have_wifi:this.state.have_wifi, 
+	have_express: this.state.have_express,
+	sort: this.state.sort,
+	limit: this.state.limit,
+	cityWhereFromId: this.props.form.cityWhereFromId,
+	cityWhereToId: this.props.form.cityWhereToId
+		}
+		this.props.getTickets(data)
+	}
 
   componentDidMount() {
 		// fetch( 'https://netology-trainbooking.herokuapp.com/routes/last' )
@@ -50,38 +54,38 @@ class SectionSearchTickets extends React.Component {
 		// 	return data;
 		// })
 		// .then( data => this.setState({lastRoutes: data}));
-		this.props.getLasRoutes()
+		// this.props.getLasRoutes()
 
-
-    fetch(`https://netology-trainbooking.herokuapp.com/`
-      + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
-      + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
-      + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
-      + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
-      + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
-      + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
-      + `${this.state.have_express ? '&have_express=true' : ''}`
-      + (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
-      + (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        return data;
-      })
-      .then(data => this.setState({
-        total_count: data.total_count,
-        items: data.items,
-        whereFromDate: this.props.form.whereFromDate,
-        whereToDate: this.props.form.whereToDate,
-        have_second_class: this.state.have_second_class,
-        have_third_class: this.state.have_third_class,
-        have_fourth_class: this.state.have_fourth_class,
-        have_first_class: this.state.have_first_class,
-        have_wifi: this.state.have_wifi,
-        have_express: this.state.have_express,
-        sort: this.state.sort,
-        limit: this.state.limit
-      }));
+// this.getTicketsFetch()
+    // fetch(`https://netology-trainbooking.herokuapp.com/`
+    //   + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
+    //   + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
+    //   + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
+    //   + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
+    //   + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
+    //   + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
+    //   + `${this.state.have_express ? '&have_express=true' : ''}`
+    //   + (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
+    //   + (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     return data;
+    //   })
+    //   .then(data => this.setState({
+    //     total_count: data.total_count,
+    //     items: data.items,
+    //     whereFromDate: this.props.form.whereFromDate,
+    //     whereToDate: this.props.form.whereToDate,
+    //     have_second_class: this.state.have_second_class,
+    //     have_third_class: this.state.have_third_class,
+    //     have_fourth_class: this.state.have_fourth_class,
+    //     have_first_class: this.state.have_first_class,
+    //     have_wifi: this.state.have_wifi,
+    //     have_express: this.state.have_express,
+    //     sort: this.state.sort,
+    //     limit: this.state.limit
+    //   }));
 
 
     // fetch(`https://netology-trainbooking.herokuapp.com/`
@@ -114,7 +118,7 @@ class SectionSearchTickets extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.total_count !== this.state.total_count ||
+    if (prevProps.total_count !== this.props.total_count ||
       prevState.have_second_class !== this.state.have_second_class ||
       prevState.have_third_class !== this.state.have_third_class ||
       prevState.have_fourth_class !== this.state.have_fourth_class ||
@@ -123,37 +127,38 @@ class SectionSearchTickets extends React.Component {
       prevState.have_express !== this.state.have_express ||
       prevState.sort !== this.state.sort ||
       prevState.limit !== this.state.limit) {
-      fetch(`https://netology-trainbooking.herokuapp.com/`
-        + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
-        + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
-        + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
-        + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
-        + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
-        + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
-        + `${this.state.have_express ? '&have_express=true' : ''}`
-        + (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
-        + (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          return data;
-        })
-        .then(data => this.setState({
-          total_count: data.total_count,
-          items: data.items,
-          whereFromDate: this.props.form.whereFromDate,
-          whereToDate: this.props.form.whereToDate,
-          have_second_class: this.state.have_second_class,
-          have_third_class: this.state.have_third_class,
-          have_fourth_class: this.state.have_fourth_class,
-          have_first_class: this.state.have_first_class,
-          have_wifi: this.state.have_wifi,
-          have_express: this.state.have_express,
-          sort: this.state.sort,
-          limit: this.state.limit
-        }));
+				// this.getTicketsFetch()
+      // fetch(`https://netology-trainbooking.herokuapp.com/`
+      //   + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
+      //   + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
+      //   + `${this.state.have_third_class ? '&have_third_class=true' : ''}`
+      //   + `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
+      //   + `${this.state.have_first_class ? '&have_first_class=true' : ''}`
+      //   + `${this.state.have_wifi ? '&have_wifi=true' : ''}`
+      //   + `${this.state.have_express ? '&have_express=true' : ''}`
+      //   + (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
+      //   + (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     console.log(data);
+      //     return data;
+      //   })
+      //   .then(data => this.setState({
+      //     total_count: data.total_count,
+      //     items: data.items,
+      //     whereFromDate: this.props.form.whereFromDate,
+      //     whereToDate: this.props.form.whereToDate,
+      //     have_second_class: this.state.have_second_class,
+      //     have_third_class: this.state.have_third_class,
+      //     have_fourth_class: this.state.have_fourth_class,
+      //     have_first_class: this.state.have_first_class,
+      //     have_wifi: this.state.have_wifi,
+      //     have_express: this.state.have_express,
+      //     sort: this.state.sort,
+      //     limit: this.state.limit
+      //   }));
     }
-    console.log(this.state.items)
+    console.log(this.props.items)
   };
 
   setWhereFromDate = (event) => this.setState({whereFromDate: event.currentTarget.value});
@@ -183,11 +188,9 @@ class SectionSearchTickets extends React.Component {
 	setSeatSelection = (bool) => this.setState({seatSelection: bool});
 
   render() {
-    let classFilterChoiceFive = this.state.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
-    let classFilterChoiceTen = this.state.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
-    let classFilterChoiceTwenty = this.state.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+  
 
-    let pages = Math.ceil(Number(this.state.total_count) / Number(this.state.limit));
+    let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
     let buttonsPages = [];
     for (let i = 1; i < pages; i++) {
       buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
@@ -196,7 +199,7 @@ class SectionSearchTickets extends React.Component {
 		const lastRoutesJSX = this.props.lastRoutes ? this.props.lastRoutes.map((el, idx) => 
 		<LastRoutes key={idx} state={el}/>) : [];
 
-    const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
+    const resultSearch = this.props.items ? this.props.items.map((el, idx) =>
       <ResultSearchTickets key={idx} state={el}/>) : [];
 
     return (
@@ -375,10 +378,9 @@ class SectionSearchTickets extends React.Component {
 
 					<SideBarSearchTicketsAndSeatSelection />
 
-
-					{this.state.seatSelection ? 
-					<SeatSelection setSeatSelection={this.setSeatSelection}/> : 
-					<SearchTicket state={this.state} 
+					<SearchTicket limit={this.state.limit} 
+					total_count={this.props.total_count} 
+					items={this.props.items}
 					filterChoiceTickets={this.filterChoiceTickets}
 					sortSearch={this.sortSearch}
 					setSeatSelection={this.setSeatSelection}/>}
@@ -391,7 +393,9 @@ class SectionSearchTickets extends React.Component {
 const mapStateToProps = (state) => {
   return {
 		form: state.sectionSearch.form,
-		lastRoutes: state.sectionSearch.lastRoutes
+		lastRoutes: state.sectionSearch.lastRoutes,
+		items: state.ticketsPayPage.tickets,
+		total_count: state.ticketsPayPage.totalCountTickets
   };
 };
 
@@ -403,6 +407,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		getLasRoutes: () => {
 			dispatch(getLastRoutesTC())
+		},
+		getTickets: (data) => {
+			dispatch(getTicketsTC(data))
 		}
   };
 };

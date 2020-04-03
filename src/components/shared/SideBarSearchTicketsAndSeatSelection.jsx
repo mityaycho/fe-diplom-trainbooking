@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import iconMinus from '../../images/icon_minus.png';
 import LastRoutes from './LastRoutes';
 import { getLastRoutesTC } from '../../redux/searchMain-reducer';
+import { getTicketsTC } from '../../redux/ticketsPay-reducer';
 
 
 class SideBarSearchTicketsAndSeatSelection extends React.Component {
@@ -34,6 +35,21 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		limit: '5',
 		seatSelection: false
 	};
+	getTicketsFetch = () => {
+		const data = {
+			have_second_class: this.state.have_second_class,
+	have_third_class: this.state.have_third_class ,
+	have_fourth_class: this.state.have_fourth_class,
+	have_first_class: this.state.have_first_class,
+	have_wifi:this.state.have_wifi, 
+	have_express: this.state.have_express,
+	sort: this.state.sort,
+	limit: this.state.limit,
+	cityWhereFromId: this.props.form.cityWhereFromId,
+	cityWhereToId: this.props.form.cityWhereToId
+		}
+		this.props.getTickets(data)
+	}
 
 	componentDidMount() {
 		// fetch( 'https://netology-trainbooking.herokuapp.com/routes/last' )
@@ -44,37 +60,37 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		// })
 		// .then( data => this.setState({lastRoutes: data}));
 		this.props.getLasRoutes()
+		this.getTicketsFetch()
 
-
-		fetch(`https://netology-trainbooking.herokuapp.com/`
-			+ `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
-			+ `${this.state.have_second_class ? '&have_second_class=true' : ''}`
-			+ `${this.state.have_third_class ? '&have_third_class=true' : ''}`
-			+ `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
-			+ `${this.state.have_first_class ? '&have_first_class=true' : ''}`
-			+ `${this.state.have_wifi ? '&have_wifi=true' : ''}`
-			+ `${this.state.have_express ? '&have_express=true' : ''}`
-			+ (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
-			+ (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
-			.then(response => response.json())
-			.then(data => {
-				console.log(data);
-				return data;
-			})
-			.then(data => this.setState({
-				total_count: data.total_count,
-				items: data.items,
-				whereFromDate: this.props.form.whereFromDate,
-				whereToDate: this.props.form.whereToDate,
-				have_second_class: this.state.have_second_class,
-				have_third_class: this.state.have_third_class,
-				have_fourth_class: this.state.have_fourth_class,
-				have_first_class: this.state.have_first_class,
-				have_wifi: this.state.have_wifi,
-				have_express: this.state.have_express,
-				sort: this.state.sort,
-				limit: this.state.limit
-			}));
+		// fetch(`https://netology-trainbooking.herokuapp.com/`
+		// 	+ `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
+		// 	+ `${this.state.have_second_class ? '&have_second_class=true' : ''}`
+		// 	+ `${this.state.have_third_class ? '&have_third_class=true' : ''}`
+		// 	+ `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
+		// 	+ `${this.state.have_first_class ? '&have_first_class=true' : ''}`
+		// 	+ `${this.state.have_wifi ? '&have_wifi=true' : ''}`
+		// 	+ `${this.state.have_express ? '&have_express=true' : ''}`
+		// 	+ (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
+		// 	+ (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
+		// 	.then(response => response.json())
+		// 	.then(data => {
+		// 		console.log(data);
+		// 		return data;
+		// 	})
+		// 	.then(data => this.setState({
+		// 		total_count: data.total_count,
+		// 		items: data.items,
+		// 		whereFromDate: this.props.form.whereFromDate,
+		// 		whereToDate: this.props.form.whereToDate,
+		// 		have_second_class: this.state.have_second_class,
+		// 		have_third_class: this.state.have_third_class,
+		// 		have_fourth_class: this.state.have_fourth_class,
+		// 		have_first_class: this.state.have_first_class,
+		// 		have_wifi: this.state.have_wifi,
+		// 		have_express: this.state.have_express,
+		// 		sort: this.state.sort,
+		// 		limit: this.state.limit
+		// 	}));
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -87,35 +103,36 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.have_express !== this.state.have_express ||
 			prevState.sort !== this.state.sort ||
 			prevState.limit !== this.state.limit) {
-			fetch(`https://netology-trainbooking.herokuapp.com/`
-				+ `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
-				+ `${this.state.have_second_class ? '&have_second_class=true' : ''}`
-				+ `${this.state.have_third_class ? '&have_third_class=true' : ''}`
-				+ `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
-				+ `${this.state.have_first_class ? '&have_first_class=true' : ''}`
-				+ `${this.state.have_wifi ? '&have_wifi=true' : ''}`
-				+ `${this.state.have_express ? '&have_express=true' : ''}`
-				+ (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
-				+ (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
-				.then(response => response.json())
-				.then(data => {
-					console.log(data);
-					return data;
-				})
-				.then(data => this.setState({
-					total_count: data.total_count,
-					items: data.items,
-					whereFromDate: this.props.form.whereFromDate,
-					whereToDate: this.props.form.whereToDate,
-					have_second_class: this.state.have_second_class,
-					have_third_class: this.state.have_third_class,
-					have_fourth_class: this.state.have_fourth_class,
-					have_first_class: this.state.have_first_class,
-					have_wifi: this.state.have_wifi,
-					have_express: this.state.have_express,
-					sort: this.state.sort,
-					limit: this.state.limit
-				}));
+				this.getTicketsFetch()
+			// fetch(`https://netology-trainbooking.herokuapp.com/`
+			// 	+ `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
+			// 	+ `${this.state.have_second_class ? '&have_second_class=true' : ''}`
+			// 	+ `${this.state.have_third_class ? '&have_third_class=true' : ''}`
+			// 	+ `${this.state.have_fourth_class ? '&have_fourth_class=true' : ''}`
+			// 	+ `${this.state.have_first_class ? '&have_first_class=true' : ''}`
+			// 	+ `${this.state.have_wifi ? '&have_wifi=true' : ''}`
+			// 	+ `${this.state.have_express ? '&have_express=true' : ''}`
+			// 	+ (`${this.state.sort}` ? `&sort=${this.state.sort}` : '')
+			// 	+ (`${this.state.limit}` ? `&limit=${this.state.limit}` : ''))
+			// 	.then(response => response.json())
+			// 	.then(data => {
+			// 		console.log(data);
+			// 		return data;
+			// 	})
+			// 	.then(data => this.setState({
+			// 		total_count: data.total_count,
+			// 		items: data.items,
+			// 		whereFromDate: this.props.form.whereFromDate,
+			// 		whereToDate: this.props.form.whereToDate,
+			// 		have_second_class: this.state.have_second_class,
+			// 		have_third_class: this.state.have_third_class,
+			// 		have_fourth_class: this.state.have_fourth_class,
+			// 		have_first_class: this.state.have_first_class,
+			// 		have_wifi: this.state.have_wifi,
+			// 		have_express: this.state.have_express,
+			// 		sort: this.state.sort,
+			// 		limit: this.state.limit
+			// 	}));
 		}
 		console.log(this.state.items)
 	};
@@ -328,7 +345,9 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		form: state.sectionSearch.form,
-		lastRoutes: state.sectionSearch.lastRoutes
+		lastRoutes: state.sectionSearch.lastRoutes,
+		items: state.ticketsPayPage.tickets,
+		total_count: state.ticketsPayPage.totalCountTickets
 	};
 };
 
@@ -340,6 +359,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		getLasRoutes: () => {
 			dispatch(getLastRoutesTC())
+		},
+		getTickets: (data) => {
+			dispatch(getTicketsTC(data))
 		}
 	};
 };
