@@ -8,9 +8,6 @@ import iconExpress from '../../../images/icon_express.png';
 import iconThere from '../../../images/icon_there.png';
 import iconBack from '../../../images/icon_back.png';
 import iconPlus from '../../../images/icon_plus.png';
-import iconSearchLeft from '../../../images/icon_page_search_left.png';
-import iconSearchRight from '../../../images/icon_page_search_right.png';
-import iconSearchDots from '../../../images/icon_page_search_dots.png';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
 import {setDataFormAC} from '../../../redux/action';
@@ -21,6 +18,7 @@ import ProgressLineCost from "../../shared/ProgressLineCost";
 import LastRoutes from './LastRoutes';
 import SearchTicket from './SearchTicket';
 import SeatSelection from './SeatSelection';
+import { getLastRoutesTC } from '../../../redux/searchMain-reducer';
 
 
 class SectionSearchTickets extends React.Component {
@@ -44,13 +42,14 @@ class SectionSearchTickets extends React.Component {
   };
 
   componentDidMount() {
-		fetch( 'https://netology-trainbooking.herokuapp.com/routes/last' )
-		.then( response => response.json())
-		.then(data => {
-			console.log(data);
-			return data;
-		})
-    .then( data => this.setState({lastRoutes: data}));
+		// fetch( 'https://netology-trainbooking.herokuapp.com/routes/last' )
+		// .then( response => response.json())
+		// .then(data => {
+		// 	console.log(data);
+		// 	return data;
+		// })
+		// .then( data => this.setState({lastRoutes: data}));
+		this.props.getLasRoutes()
 
 
     fetch(`https://netology-trainbooking.herokuapp.com/`
@@ -193,7 +192,7 @@ class SectionSearchTickets extends React.Component {
       buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
 		}
 		
-		const lastRoutesJSX = this.state.lastRoutes ? this.state.lastRoutes.map((el, idx) => 
+		const lastRoutesJSX = this.props.lastRoutes ? this.props.lastRoutes.map((el, idx) => 
 		<LastRoutes key={idx} state={el}/>) : [];
 
     const resultSearch = this.state.items ? this.state.items.map((el, idx) =>
@@ -388,7 +387,8 @@ class SectionSearchTickets extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    form: state.sectionSearch.form
+		form: state.sectionSearch.form,
+		lastRoutes: state.sectionSearch.lastRoutes
   };
 };
 
@@ -397,7 +397,10 @@ const mapDispatchToProps = (dispatch) => {
     setDataForm: (form) => {
       const action = setDataFormAC(form);
       dispatch(action);
-    }
+		},
+		getLasRoutes: () => {
+			dispatch(getLastRoutesTC())
+		}
   };
 };
 
