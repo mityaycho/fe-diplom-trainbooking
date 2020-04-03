@@ -1,4 +1,4 @@
-import {SET_FORM} from "./action";
+import { SET_FORM, SET_LAST_ROUTES, setLastRoutes } from "./action";
 
 
 const initState = {
@@ -14,7 +14,7 @@ const searchMainReducer = (state = initState, action) => {
           ...state,
           form: action.form
 				};
-				case 'SET_LAST_ROUTES': 
+				case SET_LAST_ROUTES: 
 				return {
 					...state,
 					lastRoutes: action.lastRoutes
@@ -23,9 +23,6 @@ const searchMainReducer = (state = initState, action) => {
     }
 };
 
-const setLastRoutes = (lastRoutes) => ({type: 'SET_LAST_ROUTES', lastRoutes})
-
-
 export const getLastRoutesTC = () => (dispatch) => {
 	fetch( 'https://netology-trainbooking.herokuapp.com/routes/last' )
 	.then( response => response.json())
@@ -33,11 +30,5 @@ export const getLastRoutesTC = () => (dispatch) => {
 		dispatch(setLastRoutes(data))
 	})
 }
-
-
-
-
-
-
 
 export default searchMainReducer;

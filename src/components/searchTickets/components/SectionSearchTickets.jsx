@@ -10,8 +10,8 @@ import iconBack from '../../../images/icon_back.png';
 import iconPlus from '../../../images/icon_plus.png';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
-import {setDataFormAC} from '../../../redux/action';
-import {connect} from 'react-redux';
+import { setDataFormAC } from '../../../redux/action';
+import { connect } from 'react-redux';
 import ResultSearchTickets from './ResultSearchTickets';
 import iconMinus from '../../../images/icon_minus.png';
 import ProgressLineCost from '../../shared/ProgressLineCost';
@@ -19,6 +19,7 @@ import LastRoutes from '../../shared/LastRoutes';
 import SearchTicket from './SearchTicket';
 import SeatSelection from './SeatSelection';
 import { getLastRoutesTC } from '../../../redux/searchMain-reducer';
+import SideBarSearchTicketsAndSeatSelection from './../../shared/SideBarSearchTicketsAndSeatSelection';
 
 
 class SectionSearchTickets extends React.Component {
@@ -208,7 +209,7 @@ class SectionSearchTickets extends React.Component {
                           checkClass=""/>
 
         <div className="container d-flex">
-          <div className="tickets-search-param col-lg-3 mt-5 mb-5">
+          {/* <div className="tickets-search-param col-lg-3 mt-5 mb-5">
             <div className="tickets-search-menu bg-dark">
               <form className="form pt-5 pl-4 pr-4 w-100" action="input">
                 <p>Дата поездки</p>
@@ -370,7 +371,9 @@ class SectionSearchTickets extends React.Component {
 							<h4 className="mt-5 mb-2 ml-1">Последние билеты</h4>
             	{lastRoutesJSX}
 						</div>
-          </div>
+          </div> */}
+
+					<SideBarSearchTicketsAndSeatSelection />
 
 
 					{this.state.seatSelection ? 
