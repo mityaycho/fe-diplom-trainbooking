@@ -20,8 +20,8 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	state = {
 		customRangeCostFrom: false,
 		customRangeCostTo: false,
-		total_count: 0,
-		items: [],
+		// total_count: 0,
+		// items: [],
 		lastRoutes: [],
 		have_second_class: false,
 		have_third_class: false,
@@ -31,22 +31,21 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		have_express: false,
 		whereFromDate: undefined,
 		whereToDate: undefined,
-		sort: 'date',
-		limit: '5',
-		seatSelection: false
+		// sort: 'date',
+		// limit: '5'
 	};
 	getTicketsFetch = () => {
 		const data = {
 			have_second_class: this.state.have_second_class,
-	have_third_class: this.state.have_third_class ,
-	have_fourth_class: this.state.have_fourth_class,
-	have_first_class: this.state.have_first_class,
-	have_wifi:this.state.have_wifi, 
-	have_express: this.state.have_express,
-	sort: this.props.sort,
-	limit: this.props.limit,
-	cityWhereFromId: this.props.form.cityWhereFromId,
-	cityWhereToId: this.props.form.cityWhereToId
+			have_third_class: this.state.have_third_class,
+			have_fourth_class: this.state.have_fourth_class,
+			have_first_class: this.state.have_first_class,
+			have_wifi: this.state.have_wifi,
+			have_express: this.state.have_express,
+			// sort: this.props.sort,
+			// limit: this.props.limit,
+			cityWhereFromId: this.props.form.cityWhereFromId,
+			cityWhereToId: this.props.form.cityWhereToId
 		}
 		this.props.getTickets(data)
 	}
@@ -100,10 +99,12 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.have_fourth_class !== this.state.have_fourth_class ||
 			prevState.have_first_class !== this.state.have_first_class ||
 			prevState.have_wifi !== this.state.have_wifi ||
-			prevState.have_express !== this.state.have_express ||
-			prevState.sort !== this.state.sort ||
-			prevState.limit !== this.state.limit) {
-				this.getTicketsFetch()
+			prevState.have_express !== this.state.have_express 
+			// ||
+			// prevState.sort !== this.state.sort ||
+			// prevState.limit !== this.state.limit
+			) {
+			this.getTicketsFetch()
 			// fetch(`https://netology-trainbooking.herokuapp.com/`
 			// 	+ `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
 			// 	+ `${this.state.have_second_class ? '&have_second_class=true' : ''}`
@@ -134,7 +135,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			// 		limit: this.state.limit
 			// 	}));
 		}
-		console.log(this.state.items)
+		// console.log(this.state.items)
 	};
 
 	setWhereFromDate = (event) => this.setState({ whereFromDate: event.currentTarget.value });
@@ -153,23 +154,17 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	checkExpress = (event) => this.setState({ have_express: event.currentTarget.checked });
 
-	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
+	// sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
-	filterChoiceTickets = (event) => this.setState({ limit: event.currentTarget.innerHTML });
+	// filterChoiceTickets = (event) => this.setState({ limit: event.currentTarget.innerHTML });
 
 	setCustomRangeCostFrom = (bool) => this.setState({ customRangeCostFrom: bool });
 
 	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
 
-	setSeatSelection = (bool) => this.setState({ seatSelection: bool });
+	// setSeatSelection = (bool) => this.setState({ seatSelection: bool });
 
 	render() {
-
-		let pages = Math.ceil(Number(this.state.total_count) / Number(this.state.limit));
-		let buttonsPages = [];
-		for (let i = 1; i < pages; i++) {
-			buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
-		}
 
 		const lastRoutesJSX = this.props.lastRoutes ? this.props.lastRoutes.map((el, idx) =>
 			<LastRoutes key={idx} state={el} />) : [];
