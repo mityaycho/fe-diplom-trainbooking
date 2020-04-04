@@ -17,7 +17,7 @@ const SearchTicket = (props) => {
 		buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
 	}
 
-	const resultSearch = props.items ? props.items.map((el, idx) =>
+	const resultSearchTicketsJSX = props.items ? props.items.map((el, idx) =>
 		<ResultSearchTickets key={idx} state={el} setSeatSelection={props.setSeatSelection}/>) : [];
 
 	return (
@@ -44,7 +44,7 @@ const SearchTicket = (props) => {
 				</div>
 			</div>
 
-			{resultSearch}
+			{resultSearchTicketsJSX}
 
 			<div className="row justify-content-end mt-5">
 				<button className="page-search-select-number ml-3" type="button">

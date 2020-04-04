@@ -34,7 +34,7 @@ const ticketsPayReducer = (state = initState, action) => {
 			cityWhereFromId,
 			cityWhereToId
 		} = data
-		debugger
+		
 		fetch(`https://netology-trainbooking.herokuapp.com/`
         + `routes?from_city_id=${cityWhereFromId}&to_city_id=${cityWhereToId}`
         + `${have_second_class ? '&have_second_class=true' : ''}`

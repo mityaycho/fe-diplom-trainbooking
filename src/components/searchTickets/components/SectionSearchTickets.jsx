@@ -4,7 +4,7 @@ import progressStateDefault from '../../../images/progress_state_default.png';
 import { setDataFormAC } from '../../../redux/action';
 import { connect } from 'react-redux';
 import ProgressLineCost from '../../shared/ProgressLineCost';
-import SearchTicket from './SearchTicket';
+import SearchTicketsJSX from './SearchTicketsJSX';
 import { getLastRoutesTC } from '../../../redux/searchMain-reducer';
 import SideBarSearchTicketsAndSeatSelection from './../../shared/SideBarSearchTicketsAndSeatSelection';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
@@ -12,30 +12,29 @@ import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 
 class SectionSearchTickets extends React.Component {
 	state = {
-		customRangeCostFrom: false,
-		customRangeCostTo: false,
-		lastRoutes: [],
-		have_second_class: false,
-		have_third_class: false,
-		have_fourth_class: false,
-		have_first_class: false,
-		have_wifi: false,
-		have_express: false,
-		whereFromDate: undefined,
-		whereToDate: undefined,
+		// customRangeCostFrom: false,
+		// customRangeCostTo: false,
+		// lastRoutes: [],
+		// have_second_class: false,
+		// have_third_class: false,
+		// have_fourth_class: false,
+		// have_first_class: false,
+		// have_wifi: false,
+		// have_express: false,
+		// whereFromDate: undefined,
+		// whereToDate: undefined,
 		sort: 'date',
-		limit: '5',
-		seatSelection: false
+		limit: '5'
 	};
 
 	getTicketsFetch = () => {
 		const data = {
-			have_second_class: this.state.have_second_class,
-			have_third_class: this.state.have_third_class,
-			have_fourth_class: this.state.have_fourth_class,
-			have_first_class: this.state.have_first_class,
-			have_wifi: this.state.have_wifi,
-			have_express: this.state.have_express,
+			// have_second_class: this.state.have_second_class,
+			// have_third_class: this.state.have_third_class,
+			// have_fourth_class: this.state.have_fourth_class,
+			// have_first_class: this.state.have_first_class,
+			// have_wifi: this.state.have_wifi,
+			// have_express: this.state.have_express,
 			sort: this.state.sort,
 			limit: this.state.limit,
 			cityWhereFromId: this.props.form.cityWhereFromId,
@@ -116,16 +115,17 @@ class SectionSearchTickets extends React.Component {
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.total_count !== this.props.total_count ||
-			prevState.have_second_class !== this.state.have_second_class ||
-			prevState.have_third_class !== this.state.have_third_class ||
-			prevState.have_fourth_class !== this.state.have_fourth_class ||
-			prevState.have_first_class !== this.state.have_first_class ||
-			prevState.have_wifi !== this.state.have_wifi ||
-			prevState.have_express !== this.state.have_express ||
+		if (
+			// prevProps.total_count !== this.props.total_count ||
+			// prevState.have_second_class !== this.state.have_second_class ||
+			// prevState.have_third_class !== this.state.have_third_class ||
+			// prevState.have_fourth_class !== this.state.have_fourth_class ||
+			// prevState.have_first_class !== this.state.have_first_class ||
+			// prevState.have_wifi !== this.state.have_wifi ||
+			// prevState.have_express !== this.state.have_express ||
 			prevState.sort !== this.state.sort ||
 			prevState.limit !== this.state.limit) {
-			// this.getTicketsFetch()
+			this.getTicketsFetch()
 			// fetch(`https://netology-trainbooking.herokuapp.com/`
 			//   + `routes?from_city_id=${this.props.form.cityWhereFromId}&to_city_id=${this.props.form.cityWhereToId}`
 			//   + `${this.state.have_second_class ? '&have_second_class=true' : ''}`
@@ -156,42 +156,34 @@ class SectionSearchTickets extends React.Component {
 			//     limit: this.state.limit
 			//   }));
 		}
-		console.log(this.props.items)
+		// console.log(this.props.items)
 	};
 
-	setWhereFromDate = (event) => this.setState({ whereFromDate: event.currentTarget.value });
+	// setWhereFromDate = (event) => this.setState({ whereFromDate: event.currentTarget.value });
 
-	setWhereToDate = (event) => this.setState({ whereToDate: event.currentTarget.value });
+	// setWhereToDate = (event) => this.setState({ whereToDate: event.currentTarget.value });
 
-	checkSecondClass = (event) => this.setState({ have_second_class: event.currentTarget.checked });
+	// checkSecondClass = (event) => this.setState({ have_second_class: event.currentTarget.checked });
 
-	checkThirdClass = (event) => this.setState({ have_third_class: event.currentTarget.checked });
+	// checkThirdClass = (event) => this.setState({ have_third_class: event.currentTarget.checked });
 
-	checkFourthClass = (event) => this.setState({ have_fourth_class: event.currentTarget.checked });
+	// checkFourthClass = (event) => this.setState({ have_fourth_class: event.currentTarget.checked });
 
-	checkFirstClass = (event) => this.setState({ have_first_class: event.currentTarget.checked });
+	// checkFirstClass = (event) => this.setState({ have_first_class: event.currentTarget.checked });
 
-	checkWiFi = (event) => this.setState({ have_wifi: event.currentTarget.checked });
+	// checkWiFi = (event) => this.setState({ have_wifi: event.currentTarget.checked });
 
-	checkExpress = (event) => this.setState({ have_express: event.currentTarget.checked });
+	// checkExpress = (event) => this.setState({ have_express: event.currentTarget.checked });
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
 	filterChoiceTickets = (event) => this.setState({ limit: event.currentTarget.innerHTML });
 
-	setCustomRangeCostFrom = (bool) => this.setState({ customRangeCostFrom: bool });
+	// setCustomRangeCostFrom = (bool) => this.setState({ customRangeCostFrom: bool });
 
-	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
-
-	setSeatSelection = (bool) => this.setState({ seatSelection: bool });
+	// setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
 
 	render() {
-
-		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
-		let buttonsPages = [];
-		for (let i = 1; i < pages; i++) {
-			buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
-		}
 
 		return (
 			<div className="text-white tickets-search-window ">
@@ -205,14 +197,13 @@ class SectionSearchTickets extends React.Component {
 
 				<div className="container d-flex">
 
-					<SideBarSearchTicketsAndSeatSelection />
+					<SideBarSearchTicketsAndSeatSelection sort={this.state.sort} limit={this.state.limit} />
 
-					<SearchTicket limit={this.state.limit}
+					<SearchTicketsJSX limit={this.state.limit}
 						total_count={this.props.total_count}
 						items={this.props.items}
 						filterChoiceTickets={this.filterChoiceTickets}
-						sortSearch={this.sortSearch}
-						setSeatSelection={this.setSeatSelection} />}
+						sortSearch={this.sortSearch} />}
         </div>
 			</div>
 		);

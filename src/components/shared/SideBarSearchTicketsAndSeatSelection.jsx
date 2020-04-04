@@ -43,8 +43,8 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	have_first_class: this.state.have_first_class,
 	have_wifi:this.state.have_wifi, 
 	have_express: this.state.have_express,
-	sort: this.state.sort,
-	limit: this.state.limit,
+	sort: this.props.sort,
+	limit: this.props.limit,
 	cityWhereFromId: this.props.form.cityWhereFromId,
 	cityWhereToId: this.props.form.cityWhereToId
 		}
@@ -94,7 +94,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevState.total_count !== this.state.total_count ||
+		if (prevProps.total_count !== this.props.total_count ||
 			prevState.have_second_class !== this.state.have_second_class ||
 			prevState.have_third_class !== this.state.have_third_class ||
 			prevState.have_fourth_class !== this.state.have_fourth_class ||
