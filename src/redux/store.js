@@ -1,8 +1,7 @@
-import {combineReducers, createStore} from "redux";
-import searchMainReducer from "./searchMain-reducer";
-import { applyMiddleware } from "redux";
-import  thunk  from "redux-thunk";
-import ticketsPayReducer from "./ticketsPay-reducer";
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import searchMainReducer from './searchMain-reducer';
+import  thunk  from 'redux-thunk';
+import ticketsPayReducer from './ticketsPay-reducer';
 
 const reducers = combineReducers({
 	sectionSearch: searchMainReducer,

@@ -1,4 +1,4 @@
-import { SET_FORM, SET_LAST_ROUTES, setLastRoutes } from "./action";
+import { SET_FORM, SET_LAST_ROUTES, setLastRoutes } from './action';
 
 
 const initState = {

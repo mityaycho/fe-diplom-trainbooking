@@ -1,4 +1,5 @@
-const SET_TICKETS = 'ticketsPayReducer/SET_TICKETS'
+import { SET_TICKETS, setTickets } from "./action";
+
 
 const initState = {
 	tickets: [],
@@ -20,7 +21,6 @@ const ticketsPayReducer = (state = initState, action) => {
 
 	}
 	
-	const setTickets = (tickets, totalCountTickets) => ({type: SET_TICKETS, tickets, totalCountTickets})
 
 	export const getTicketsTC = (data) => (dispatch) => {
 		const {have_second_class, 
