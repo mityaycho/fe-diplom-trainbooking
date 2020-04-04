@@ -107,7 +107,7 @@ class SearchTicketsJSX extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		form: state.sectionSearch.form,
-		lastRoutes: state.sectionSearch.lastRoutes,
+		// lastRoutes: state.sectionSearch.lastRoutes,
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets
 	};
@@ -115,13 +115,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setDataForm: (form) => {
-			const action = setDataFormAC(form);
-			dispatch(action);
-		},
-		getLasRoutes: () => {
-			dispatch(getLastRoutesTC())
-		},
+		// setDataForm: (form) => {
+		// 	const action = setDataFormAC(form);
+		// 	dispatch(action);
+		// },
+		// getLasRoutes: () => {
+		// 	dispatch(getLastRoutesTC())
+		// },
 		getTickets: (data) => {
 			dispatch(getTicketsTC(data))
 		}

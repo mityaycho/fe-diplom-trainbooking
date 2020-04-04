@@ -162,8 +162,6 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
 
-	// setSeatSelection = (bool) => this.setState({ seatSelection: bool });
-
 	render() {
 
 		const lastRoutesJSX = this.props.lastRoutes ? this.props.lastRoutes.map((el, idx) =>
