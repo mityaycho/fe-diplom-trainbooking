@@ -27,15 +27,15 @@ export const Handle = ({
     style={{
       left: `${percent}%`,
       position: 'absolute',
-      marginLeft: '-11px',
-      marginTop: '-6px',
+      marginLeft: '-9px',
+      marginTop: '-1px',
       zIndex: 2,
-      width: 24,
-      height: 24,
+      width: 18,
+      height: 18,
       cursor: 'pointer',
       borderRadius: '50%',
       boxShadow: '1px 1px 1px 1px rgba(0, 0, 0, 0.2)',
-      backgroundColor: '#34568f'
+      backgroundColor: '#ffff'
     }}
     {...getHandleProps(id)}
   />
@@ -58,9 +58,9 @@ export const Track = ({
   <div
     style={{
       position: 'absolute',
-      height: 14,
+      height: 16,
       zIndex: 1,
-      backgroundColor: '#7aa0c4',
+      backgroundColor: '#FFA800',
       borderRadius: 7,
       cursor: 'pointer',
       left: `${source.percent}%`,
@@ -84,9 +84,9 @@ export const Tick = ({ tick, count }) => (
     <div
       style={{
         position: 'absolute',
-        marginTop: 14,
+        marginTop: 10,
         width: 1,
-        height: 5,
+        height: 0,
         backgroundColor: 'rgb(200,200,200)',
         left: `${tick.percent}%`
       }}
@@ -94,8 +94,8 @@ export const Tick = ({ tick, count }) => (
     <div
       style={{
         position: 'absolute',
-        marginTop: 22,
-        fontSize: 10,
+        marginTop: 16,
+        fontSize: 14,
         textAlign: 'center',
         marginLeft: `${-(100 / count) / 2}%`,
         width: `${100 / count}%`,

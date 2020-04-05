@@ -5,27 +5,29 @@ import { Handle, Track, Tick } from './components/components'; // example render
 const sliderStyle = {
   margin: '0%',
 	position: 'relative',
-  width: '100%'
+	width: '100%'
 };
 
 const railStyle = {
   position: 'absolute',
   width: '100%',
-  height: 10,
-  borderRadius: 10,
+  height: 16,
+  borderRadius: 7,
   cursor: 'pointer',
-  backgroundColor: 'rgb(155,155,155)'
+	backgroundColor: '#3E3C41',
+	border: '1px solid white'
 };
 
-const domain = [0, 7000];
+const domain = [0, 5000];
 
 class ReactCompoundSlider extends React.Component {
   state = {
-    values: [0, 7000]
+    values: [0, 4000]
   };
 
   onChange = (values) => {
-    this.setState({ values });
+		this.setState({ values });
+		console.log(this.state.values)
   };
 
   render() {
@@ -37,7 +39,7 @@ class ReactCompoundSlider extends React.Component {
       <div style={{ height: 15, width: '100%' }}>
         <Slider
           mode={1}
-          step={10}
+          step={1}
           domain={domain}
           rootStyle={sliderStyle}
           onChange={this.onChange}

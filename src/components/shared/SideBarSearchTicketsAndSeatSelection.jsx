@@ -258,7 +258,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 					<ReactCompoundSlider />
 
 						{/* <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" /> */}
-						<div className="row justify-content-between ml-1 mr-1"><span>0</span><span>7000</span></div>
+						{/* <div className="row justify-content-between ml-1 mr-1"><span>0</span><span>7000</span></div> */}
 					</form>
 
 
