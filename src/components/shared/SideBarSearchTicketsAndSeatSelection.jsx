@@ -254,17 +254,14 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 					<hr className="bg-light" />
 					<form className="form pt-3 pl-4 pr-4 w-100">
 						<label className="custom-range-cost" htmlFor="customRange3">Стоимость</label>
-						<div className="row justify-content-between ml-1 mr-1"><span>от</span><span>до</span></div>
-					<ReactCompoundSlider />
-
-						{/* <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" /> */}
-						{/* <div className="row justify-content-between ml-1 mr-1"><span>0</span><span>7000</span></div> */}
+						<div className="row justify-content-between react-compound-slider"><span>от</span><span>до</span></div>
+						<ReactCompoundSlider />
 					</form>
 
 
 
 
-					<hr className="bg-light" />
+					<hr className="bg-light mt-5" />
 					{this.state.customRangeCostFrom ?
 						<div>
 							<div className="container d-flex justify-content-between w-100">

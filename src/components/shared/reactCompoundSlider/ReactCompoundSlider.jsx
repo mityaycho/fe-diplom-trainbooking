@@ -22,7 +22,7 @@ const domain = [0, 5000];
 
 class ReactCompoundSlider extends React.Component {
   state = {
-    values: [0, 4000]
+    values: [0, 5000]
   };
 
   onChange = (values) => {

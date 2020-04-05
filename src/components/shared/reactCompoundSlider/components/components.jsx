@@ -94,12 +94,12 @@ export const Tick = ({ tick, count }) => (
     <div
       style={{
         position: 'absolute',
-        marginTop: 16,
+        marginTop: 18,
         fontSize: 14,
         textAlign: 'center',
         marginLeft: `${-(100 / count) / 2}%`,
         width: `${100 / count}%`,
-        left: `${tick.percent}%`
+				left: `${tick.percent}%`
       }}
     >
       {tick.value}
