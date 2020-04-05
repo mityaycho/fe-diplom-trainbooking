@@ -14,6 +14,8 @@ import iconMinus from '../../images/icon_minus.png';
 import LastRoutes from './LastRoutes';
 import { getLastRoutesTC } from '../../redux/searchMain-reducer';
 import { getTicketsTC } from '../../redux/ticketsPay-reducer';
+// import Example from './reactCompoundSlider/ReactCompoundSlider';
+import ReactCompoundSlider from './reactCompoundSlider/ReactCompoundSlider';
 
 
 class SideBarSearchTicketsAndSeatSelection extends React.Component {
@@ -253,7 +255,9 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 					<form className="form pt-3 pl-4 pr-4 w-100">
 						<label className="custom-range-cost" htmlFor="customRange3">Стоимость</label>
 						<div className="row justify-content-between ml-1 mr-1"><span>от</span><span>до</span></div>
-						<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" />
+					<ReactCompoundSlider />
+
+						{/* <input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" /> */}
 						<div className="row justify-content-between ml-1 mr-1"><span>0</span><span>7000</span></div>
 					</form>
 
