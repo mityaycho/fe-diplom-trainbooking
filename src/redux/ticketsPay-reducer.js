@@ -1,12 +1,11 @@
-import {
-	SET_TICKETS,
-	setTickets
-} from "./action";
+import { SET_TICKETS, setTickets } from "./action";
 
 
 const initState = {
 	tickets: [],
-	totalCountTickets: 0
+	totalCountTickets: 0,
+	sort: 'date',
+	limit: '5'
 };
 
 const ticketsPayReducer = (state = initState, action) => {
@@ -16,7 +15,7 @@ const ticketsPayReducer = (state = initState, action) => {
 			return {
 				...state,
 				tickets: action.tickets,
-					totalCountTickets: action.totalCountTickets
+				totalCountTickets: action.totalCountTickets
 			}
 			default:
 				return state;

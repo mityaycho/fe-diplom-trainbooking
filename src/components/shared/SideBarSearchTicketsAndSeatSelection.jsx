@@ -42,8 +42,8 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			have_first_class: this.state.have_first_class,
 			have_wifi: this.state.have_wifi,
 			have_express: this.state.have_express,
-			// sort: this.props.sort,
-			// limit: this.props.limit,
+			sort: this.props.sort,
+			limit: this.props.limit,
 			cityWhereFromId: this.props.form.cityWhereFromId,
 			cityWhereToId: this.props.form.cityWhereToId
 		}
@@ -102,7 +102,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.have_express !== this.state.have_express 
 			// ||
 			// prevState.sort !== this.state.sort ||
-			// prevState.limit !== this.state.limit
+			// prevProps.limit !== this.props.limit
 			) {
 			this.getTicketsFetch()
 			// fetch(`https://netology-trainbooking.herokuapp.com/`
@@ -340,7 +340,9 @@ const mapStateToProps = (state) => {
 		form: state.sectionSearch.form,
 		lastRoutes: state.sectionSearch.lastRoutes,
 		items: state.ticketsPayPage.tickets,
-		total_count: state.ticketsPayPage.totalCountTickets
+		total_count: state.ticketsPayPage.totalCountTickets,
+		sort: state.ticketsPayPage.sort,
+		limit: state.ticketsPayPage.limit
 	};
 };
 

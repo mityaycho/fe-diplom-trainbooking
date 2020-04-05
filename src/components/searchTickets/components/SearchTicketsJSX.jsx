@@ -41,7 +41,9 @@ class SearchTicketsJSX extends React.Component {
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
-	filterChoiceTickets = (event) => this.setState({ limit: event.currentTarget.innerHTML });
+	filterChoiceTickets = (event) => {
+		this.setState({ limit: event.currentTarget.innerHTML });
+	}
 
 	render() {
 
