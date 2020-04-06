@@ -87,10 +87,10 @@ class SearchTicketsJSX extends React.Component {
 
 				{buttonsPages}
 
-				<button className="page-search-select-number ml-3" type="button">
+				{/* <button className="page-search-select-number ml-3" type="button">
 					<img src={iconSearchDots} alt="иконка точки" />
 				</button>
-				<button className="page-search-select-number ml-3" type="button">10</button>
+				<button className="page-search-select-number ml-3" type="button">10</button> */}
 				<button className="page-search-select-number ml-3" type="button">
 					<img src={iconSearchRight} alt="иконка вправо" />
 				</button>

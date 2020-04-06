@@ -15,7 +15,6 @@ import LastRoutes from './LastRoutes';
 import { getLastRoutesTC } from '../../redux/searchMain-reducer';
 import { getTicketsTC } from '../../redux/ticketsPay-reducer';
 import ReactCompoundSlider from './reactCompoundSlider/ReactCompoundSlider';
-import ReactSlider from './reactCompoundSlider/ReactSlider';
 
 
 class SideBarSearchTicketsAndSeatSelection extends React.Component {
@@ -179,7 +178,6 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 						<div className="row justify-content-between react-compound-slider"><span>от</span><span>до</span></div>
 						<ReactCompoundSlider />
 					</form>
-					<ReactSlider />
 
 
 
