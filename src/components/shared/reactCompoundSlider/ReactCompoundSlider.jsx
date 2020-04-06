@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
-import { Handle, Track, Tick } from './components/components'; // example render components
+import { Handle, Track, Tick } from './components/components';
 
 const sliderStyle = {
   margin: '0%',
@@ -27,7 +27,7 @@ class ReactCompoundSlider extends React.Component {
 
   onChange = (values) => {
 		this.setState({ values });
-		console.log(this.state.values)
+		console.log(this.state.values);
   };
 
   render() {
@@ -90,7 +90,7 @@ class ReactCompoundSlider extends React.Component {
         </Slider>
       </div>
     );
-  }
-}
+  };
+};
 
 export default ReactCompoundSlider;

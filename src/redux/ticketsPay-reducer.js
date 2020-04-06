@@ -21,8 +21,7 @@ const ticketsPayReducer = (state = initState, action) => {
 			default:
 				return state;
 	};
-
-}
+};
 
 
 export const getTicketsTC = (data) => (dispatch) => {
@@ -37,7 +36,7 @@ export const getTicketsTC = (data) => (dispatch) => {
 		have_first_class,
 		have_wifi,
 		have_express
-	} = data
+	} = data;
 
 	api.filterRoutes(
 		cityWhereFromId, 
@@ -51,8 +50,7 @@ export const getTicketsTC = (data) => (dispatch) => {
 		have_wifi,
 		have_express
 	)
-		.then(res => dispatch(setTickets(res.data.items, res.data.total_count)))
-
-}
+		.then(res => dispatch(setTickets(res.data.items, res.data.total_count)));
+};
 
 export default ticketsPayReducer;

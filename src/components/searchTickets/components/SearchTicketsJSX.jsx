@@ -4,8 +4,6 @@ import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
 import iconSearchDots from '../../../images/icon_page_search_dots.png';
 import { connect } from 'react-redux';
-import { setDataFormAC } from './../../../redux/action';
-import { getLastRoutesTC } from './../../../redux/searchMain-reducer';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 
 
@@ -23,27 +21,23 @@ class SearchTicketsJSX extends React.Component {
 			limit: this.state.limit,
 			cityWhereFromId: this.props.form.cityWhereFromId,
 			cityWhereToId: this.props.form.cityWhereToId
-		}
-		this.props.getTickets(data)
+		};
+		this.props.getTickets(data);
 	};
 
 	componentDidMount() {
-		this.getTicketsFetch()
+		this.getTicketsFetch();
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		if (
-			prevState.sort !== this.state.sort ||
-			prevState.limit !== this.state.limit) {
-			this.getTicketsFetch()
-		}
+		if (prevState.sort !== this.state.sort || prevState.limit !== this.state.limit) {
+			this.getTicketsFetch();
+		};
 	};
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
-	filterChoiceTickets = (event) => {
-		this.setState({ limit: event.currentTarget.innerHTML });
-	}
+	filterChoiceTickets = (event) => this.setState({ limit: event.currentTarget.innerHTML });
 
 	render() {
 
@@ -109,7 +103,6 @@ class SearchTicketsJSX extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		form: state.sectionSearch.form,
-		// lastRoutes: state.sectionSearch.lastRoutes,
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets
 	};
@@ -117,13 +110,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// setDataForm: (form) => {
-		// 	const action = setDataFormAC(form);
-		// 	dispatch(action);
-		// },
-		// getLasRoutes: () => {
-		// 	dispatch(getLastRoutesTC())
-		// },
 		getTickets: (data) => {
 			dispatch(getTicketsTC(data))
 		}

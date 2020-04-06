@@ -5,7 +5,6 @@ import iconWifiRocketCup from '../../images/icons_wifiRocketCup.png';
 
 const LastRoutes = (props) => {
 
-
 	return (
 			<div className="last-ticket-result row ml-1 mt-2 p-2">
 				<div className="d-flex justify-content-between w-100">
