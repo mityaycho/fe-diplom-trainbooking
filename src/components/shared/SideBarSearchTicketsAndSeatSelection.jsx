@@ -38,16 +38,16 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	};
 	getTicketsFetch = () => {
 		const data = {
+			cityWhereFromId: this.props.form.cityWhereFromId,
+			cityWhereToId: this.props.form.cityWhereToId,
+			sort: this.props.sort,
+			limit: this.props.limit,
 			have_second_class: this.state.have_second_class,
 			have_third_class: this.state.have_third_class,
 			have_fourth_class: this.state.have_fourth_class,
 			have_first_class: this.state.have_first_class,
 			have_wifi: this.state.have_wifi,
-			have_express: this.state.have_express,
-			sort: this.props.sort,
-			limit: this.props.limit,
-			cityWhereFromId: this.props.form.cityWhereFromId,
-			cityWhereToId: this.props.form.cityWhereToId
+			have_express: this.state.have_express
 		}
 		this.props.getTickets(data)
 	}

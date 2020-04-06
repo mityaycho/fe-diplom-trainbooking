@@ -1,4 +1,5 @@
 import { SET_FORM, SET_LAST_ROUTES, setLastRoutes } from './action';
+import { api } from '../api/api';
 
 
 const initState = {
@@ -24,11 +25,8 @@ const searchMainReducer = (state = initState, action) => {
 };
 
 export const getLastRoutesTC = () => (dispatch) => {
-	fetch( 'https://netology-trainbooking.herokuapp.com/routes/last' )
-	.then( response => response.json())
-	.then(data => {
-		dispatch(setLastRoutes(data))
-	})
+	api.getLastRoutes()
+	.then( res => dispatch(setLastRoutes(res.data)))
 }
 
 export default searchMainReducer;
