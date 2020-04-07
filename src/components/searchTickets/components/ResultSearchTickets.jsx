@@ -5,6 +5,7 @@ import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png';
 import iconSearchThere from '../../../images/icon_search_there.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
 import TicketPriceAndSeats from './TicketPriceAndSeats';
+import { NavLink } from 'react-router-dom';
 
 
 const ResultSearchTickets = (props) => {
@@ -90,8 +91,8 @@ const ResultSearchTickets = (props) => {
             </div>
 
             <div className="row pb-3">
-              <button className="btn btn-warning m-3" onClick={() => props.setSeatSelection(true)} type="button">Выбрать места
-              </button>
+              <NavLink className="btn btn-warning m-3" to="/seat_selection" type="button">Выбрать места
+              </NavLink>
             </div>
           </div>
         </div>
