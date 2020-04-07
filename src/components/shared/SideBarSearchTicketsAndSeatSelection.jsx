@@ -15,6 +15,7 @@ import LastRoutes from './LastRoutes';
 import { getLastRoutesTC } from '../../redux/searchMain-reducer';
 import { getTicketsTC } from '../../redux/ticketsPay-reducer';
 import ReactCompoundSlider from './reactCompoundSlider/ReactCompoundSlider';
+import ReactCompoundSliderSmall from './reactCompoundSlider/ReactCompoundSliderSmall';
 
 
 class SideBarSearchTicketsAndSeatSelection extends React.Component {
@@ -193,7 +194,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							</div>
 							<form className="form pl-4 pr-4 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
-								<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" />
+								<ReactCompoundSliderSmall />
 							</form>
 							<form className="form pl-4 pr-4 w-100">
 								<div className="d-flex mt-4 justify-content-end">

@@ -30,8 +30,8 @@ export const Handle = ({
       marginLeft: '-9px',
       marginTop: '-1px',
       zIndex: 2,
-      width: 18,
-      height: 18,
+      width: 13,
+      height: 13,
       cursor: 'pointer',
       borderRadius: '50%',
       boxShadow: '1px 1px 1px 1px rgba(0, 0, 0, 0.2)',
@@ -58,7 +58,7 @@ export const Track = ({
   <div
     style={{
       position: 'absolute',
-      height: 16,
+      height: 10,
       zIndex: 1,
       backgroundColor: '#FFA800',
       borderRadius: 7,
@@ -95,7 +95,7 @@ export const Tick = ({ tick, count }) => (
       style={{
         position: 'absolute',
         marginTop: 18,
-        fontSize: 14,
+        fontSize: 12,
         textAlign: 'center',
         marginLeft: `${-(100 / count) / 2}%`,
         width: `${100 / count}%`,

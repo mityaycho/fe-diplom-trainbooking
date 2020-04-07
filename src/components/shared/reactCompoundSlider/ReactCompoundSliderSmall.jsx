@@ -11,18 +11,18 @@ const sliderStyle = {
 const railStyle = {
   position: 'absolute',
   width: '100%',
-  height: 16,
+  height: 10,
   borderRadius: 7,
   cursor: 'pointer',
 	backgroundColor: '#3E3C41',
 	border: '1px solid white'
 };
 
-const domain = [0, 5000];
+const domain = [0, 24];
 
-class ReactCompoundSlider extends React.Component {
+class ReactCompoundSliderSmall extends React.Component {
   state = {
-    values: [0, 5000]
+    values: [0, 24]
   };
 
   onChange = (values) => {
@@ -36,7 +36,7 @@ class ReactCompoundSlider extends React.Component {
     } = this;
 
     return (
-      <div style={{ height: 15, width: '100%' }}>
+      <div style={{ height: 10, width: '100%' }}>
         <Slider
           mode={1}
           step={1}
@@ -78,7 +78,7 @@ class ReactCompoundSlider extends React.Component {
               </div>
             )}
           </Tracks>
-          <Ticks count={1}>
+          <Ticks count={8}>
             {({ ticks }) => (
               <div className="slider-ticks">
                 {ticks.map(tick => (
@@ -93,4 +93,4 @@ class ReactCompoundSlider extends React.Component {
   };
 };
 
-export default ReactCompoundSlider;
+export default ReactCompoundSliderSmall;
