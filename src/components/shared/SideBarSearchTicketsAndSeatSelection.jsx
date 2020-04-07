@@ -192,15 +192,15 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 									onClick={() => this.setCustomRangeCostFrom(false)}
 									src={iconMinus} alt="иконка плюс" />
 							</div>
-							<form className="form pl-4 pr-4 w-100">
+							<form className="form pl-4 pr-4 mt-2 pb-2 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
 								<ReactCompoundSliderSmall />
 							</form>
-							<form className="form pl-4 pr-4 w-100">
+							<form className="form pl-4 pr-4 pt-3 pb-5 w-100">
 								<div className="d-flex mt-4 justify-content-end">
 									<label htmlFor="customRange3">Время прибытия</label>
 								</div>
-								<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" />
+								<ReactCompoundSliderSmall />
 							</form>
 						</div> :
 						<div className="container d-flex justify-content-between w-100">
@@ -216,7 +216,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 					<hr className="bg-light" />
 
 					{this.state.customRangeCostTo ?
-						<div>
+						<div className="pb-3">
 							<div className="container d-flex justify-content-between w-100">
 								<p className="custom-range-cost ml-2 mt-2 font-weight-bold">
 									<img className="mr-2" src={iconBack} alt="иконка туда" />Обратно</p>
@@ -224,15 +224,15 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 									onClick={() => this.setCustomRangeCostTo(false)}
 									src={iconMinus} alt="иконка плюс" />
 							</div>
-							<form className="form pl-4 pr-4 w-100">
+							<form className="form pl-4 pr-4 mt-2 pb-2 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
-								<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" />
+								<ReactCompoundSliderSmall />
 							</form>
-							<form className="form pl-4 pr-4 w-100">
+							<form className="form pl-4 pr-4 pt-3 pb-5 w-100">
 								<div className="d-flex mt-4 justify-content-end">
 									<label htmlFor="customRange3">Время прибытия</label>
 								</div>
-								<input type="range" className="custom-range" min="0" max="5" step="0.5" id="customRange3" />
+								<ReactCompoundSliderSmall />
 							</form>
 						</div> :
 						<div className="container d-flex justify-content-between w-100">
