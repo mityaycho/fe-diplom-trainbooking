@@ -27,7 +27,8 @@ class ReactCompoundSlider extends React.Component {
 
   onChange = (values) => {
 		this.setState({ values });
-		console.log(this.state.values);
+		this.props.setPriceFrom(values[0]);
+		this.props.setPriceTo(values[1]);
   };
 
   render() {

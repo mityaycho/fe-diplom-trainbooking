@@ -30,7 +30,9 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		have_wifi: false,
 		have_express: false,
 		whereFromDate: undefined,
-		whereToDate: undefined
+		whereToDate: undefined,
+		price_from: 0,
+		price_to: 5000
 	};
 	getTicketsFetch = () => {
 		const data = {
@@ -43,7 +45,9 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			have_fourth_class: this.state.have_fourth_class,
 			have_first_class: this.state.have_first_class,
 			have_wifi: this.state.have_wifi,
-			have_express: this.state.have_express
+			have_express: this.state.have_express,
+			price_from: this.state.price_from,
+			price_to: this.state.price_to
 		};
 		this.props.getTickets(data);
 	};
@@ -85,6 +89,13 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	setCustomRangeCostFrom = (bool) => this.setState({ customRangeCostFrom: bool });
 
 	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
+
+	setPriceFrom = (number) => {
+		this.setState({price_from: number});
+		console.log(this.state.price_from);
+	}
+
+	setPriceTo = (number) => this.setState({price_to: number})
 
 	render() {
 
@@ -177,7 +188,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 					<form className="form pt-3 pl-4 pr-4 w-100">
 						<label className="custom-range-cost" htmlFor="customRange3">Стоимость</label>
 						<div className="row justify-content-between react-compound-slider"><span>от</span><span>до</span></div>
-						<ReactCompoundSlider />
+						<ReactCompoundSlider setPriceFrom={this.setPriceFrom} setPriceTo={this.setPriceTo} />
 					</form>
 
 
