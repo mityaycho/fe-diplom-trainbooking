@@ -18,7 +18,9 @@ export const api = {
 		have_fourth_class,
 		have_first_class,
 		have_wifi,
-		have_express
+		have_express,
+		price_from,
+		price_to
 		) {
 		// cityWhereFromId: "5b9a2fa7f83e028786ea5672"
 		// cityWhereToId: "5b9a2fa7f83e028786ea5673"
@@ -33,7 +35,9 @@ export const api = {
 				`${have_fourth_class ? '&have_fourth_class=true' : ''}` +
 				`${have_first_class ? '&have_first_class=true' : ''}` +
 				`${have_wifi ? '&have_wifi=true' : ''}` +
-				`${have_express ? '&have_express=true' : ''}`
+				`${have_express ? '&have_express=true' : ''}` +
+				`${price_from ? `&price_from=${price_from}` : ''}` +
+				`${price_to ? `&price_to=${price_to}` : ''}`
 				)
 	}
 };

@@ -35,7 +35,9 @@ export const getTicketsTC = (data) => (dispatch) => {
 		have_fourth_class,
 		have_first_class,
 		have_wifi,
-		have_express
+		have_express,
+		price_from,
+		price_to
 	} = data;
 
 	api.filterRoutes(
@@ -48,7 +50,9 @@ export const getTicketsTC = (data) => (dispatch) => {
 		have_fourth_class,
 		have_first_class,
 		have_wifi,
-		have_express
+		have_express,
+		price_from,
+		price_to
 	)
 		.then(res => dispatch(setTickets(res.data.items, res.data.total_count)));
 };
