@@ -64,7 +64,9 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.have_fourth_class !== this.state.have_fourth_class ||
 			prevState.have_first_class !== this.state.have_first_class ||
 			prevState.have_wifi !== this.state.have_wifi ||
-			prevState.have_express !== this.state.have_express 
+			prevState.have_express !== this.state.have_express ||
+			prevState.price_from !== this.state.price_from ||
+			prevState.price_to !== this.state.price_to
 			) {
 			this.getTicketsFetch();
 			};
@@ -90,10 +92,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
 
-	setPriceFrom = (number) => {
-		this.setState({price_from: number});
-		console.log(this.state.price_from);
-	}
+	setPriceFrom = (number) => this.setState({price_from: number});
 
 	setPriceTo = (number) => this.setState({price_to: number})
 
