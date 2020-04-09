@@ -128,15 +128,6 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	
 	endArrival = (number) => this.setState({end_arrival_hour_from: number[0], end_arrival_hour_to: number[1]});
 
-	start_departure_hour_from: 0,
-	start_departure_hour_to: 24,
-	start_arrival_hour_from: 0,
-	start_arrival_hour_to: 24,
-	end_departure_hour_from: 0,
-	end_departure_hour_to: 24,
-	end_arrival_hour_from: 0,
-	end_arrival_hour_to: 24
-
 	render() {
 
 		const lastRoutesJSX = this.props.lastRoutes ? this.props.lastRoutes.map((el, idx) =>
