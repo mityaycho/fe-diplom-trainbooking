@@ -118,7 +118,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	setPrice = (array) => this.setState({price_from: array[0], price_to: array[1]});
 
-	startDeparture = (array) => this.setState({start_departure_hour_from: array[0], pricstart_departure_hour_toe_to: array[1]});
+	startDeparture = (array) => this.setState({start_departure_hour_from: array[0], start_departure_hour_to: array[1]});
 	
 	startArrival = (array) => this.setState({start_arrival_hour_from: array[0], start_arrival_hour_to: array[1]});
 	
