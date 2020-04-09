@@ -32,7 +32,15 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		whereFromDate: undefined,
 		whereToDate: undefined,
 		price_from: 0,
-		price_to: 5000
+		price_to: 5000,
+		start_departure_hour_from: 0,
+		start_departure_hour_to: 24,
+		start_arrival_hour_from: 0,
+		start_arrival_hour_to: 24,
+		end_departure_hour_from: 0,
+		end_departure_hour_to: 24,
+		end_arrival_hour_from: 0,
+		end_arrival_hour_to: 24
 	};
 	getTicketsFetch = () => {
 		const data = {
@@ -47,7 +55,15 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			have_wifi: this.state.have_wifi,
 			have_express: this.state.have_express,
 			price_from: this.state.price_from,
-			price_to: this.state.price_to
+			price_to: this.state.price_to,
+			start_departure_hour_from: this.state.start_departure_hour_from,
+			start_departure_hour_to: this.state.start_departure_hour_to,
+			start_arrival_hour_from: this.state.start_arrival_hour_from,
+			start_arrival_hour_to: this.state.start_arrival_hour_to,
+			end_departure_hour_from: this.state.end_departure_hour_from,
+			end_departure_hour_to: this.state.end_departure_hour_to,
+			end_arrival_hour_from: this.state.end_arrival_hour_from,
+			end_arrival_hour_to: this.state.end_arrival_hour_to
 		};
 		this.props.getTickets(data);
 	};
@@ -66,7 +82,15 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.have_wifi !== this.state.have_wifi ||
 			prevState.have_express !== this.state.have_express ||
 			prevState.price_from !== this.state.price_from ||
-			prevState.price_to !== this.state.price_to
+			prevState.price_to !== this.state.price_to ||
+			prevState.start_departure_hour_from !== this.state.start_departure_hour_from ||
+			prevState.start_departure_hour_to !== this.state.start_departure_hour_to ||
+			prevState.start_arrival_hour_from !== this.state.start_arrival_hour_from ||
+			prevState.start_arrival_hour_to !== this.state.start_arrival_hour_to ||
+			prevState.end_departure_hour_from !== this.state.end_departure_hour_from ||
+			prevState.end_departure_hour_to !== this.state.end_departure_hour_to ||
+			prevState.end_arrival_hour_from !== this.state.end_arrival_hour_from ||
+			prevState.end_arrival_hour_to !== this.state.end_arrival_hour_to
 			) {
 			this.getTicketsFetch();
 			};
@@ -92,9 +116,26 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
 
-	setPriceFrom = (number) => this.setState({price_from: number});
+	setPrice = (number) => this.setState({price_from: number[0], price_to: number[1]});
 
-	setPriceTo = (number) => this.setState({price_to: number})
+
+
+	startDeparture = (number) => this.setState({start_departure_hour_from: number[0], pricstart_departure_hour_toe_to: number[1]});
+	
+	startArrival = (number) => this.setState({start_arrival_hour_from: number[0], start_arrival_hour_to: number[1]});
+	
+	endDeparture = (number) => this.setState({end_departure_hour_from: number[0], end_departure_hour_to: number[1]});
+	
+	endArrival = (number) => this.setState({end_arrival_hour_from: number[0], end_arrival_hour_to: number[1]});
+
+	start_departure_hour_from: 0,
+	start_departure_hour_to: 24,
+	start_arrival_hour_from: 0,
+	start_arrival_hour_to: 24,
+	end_departure_hour_from: 0,
+	end_departure_hour_to: 24,
+	end_arrival_hour_from: 0,
+	end_arrival_hour_to: 24
 
 	render() {
 
@@ -187,7 +228,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 					<form className="form pt-3 pl-4 pr-4 w-100">
 						<label className="custom-range-cost" htmlFor="customRange3">Стоимость</label>
 						<div className="row justify-content-between react-compound-slider"><span>от</span><span>до</span></div>
-						<ReactCompoundSlider setPriceFrom={this.setPriceFrom} setPriceTo={this.setPriceTo} />
+						<ReactCompoundSlider setPrice={this.setPrice} />
 					</form>
 
 
@@ -204,13 +245,13 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							</div>
 							<form className="form pl-4 pr-4 mt-2 pb-2 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
-								<ReactCompoundSliderSmall />
+								<ReactCompoundSliderSmall setHourFilter={this.startDeparture} />
 							</form>
 							<form className="form pl-4 pr-4 pt-3 pb-5 w-100">
 								<div className="d-flex mt-4 justify-content-end">
 									<label htmlFor="customRange3">Время прибытия</label>
 								</div>
-								<ReactCompoundSliderSmall />
+								<ReactCompoundSliderSmall setHourFilter={this.startArrival} />
 							</form>
 						</div> :
 						<div className="container d-flex justify-content-between w-100">
@@ -236,13 +277,13 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							</div>
 							<form className="form pl-4 pr-4 mt-2 pb-2 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
-								<ReactCompoundSliderSmall />
+								<ReactCompoundSliderSmall setHourFilter={this.endDeparture}/>
 							</form>
 							<form className="form pl-4 pr-4 pt-3 pb-5 w-100">
 								<div className="d-flex mt-4 justify-content-end">
 									<label htmlFor="customRange3">Время прибытия</label>
 								</div>
-								<ReactCompoundSliderSmall />
+								<ReactCompoundSliderSmall setHourFilter={this.endArrival} />
 							</form>
 						</div> :
 						<div className="container d-flex justify-content-between w-100">

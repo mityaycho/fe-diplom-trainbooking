@@ -27,7 +27,7 @@ class ReactCompoundSliderSmall extends React.Component {
 
   onChange = (values) => {
 		this.setState({ values });
-		console.log(this.state.values);
+		this.props.setHourFilter(values);
   };
 
   render() {
