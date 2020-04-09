@@ -2,7 +2,6 @@ import React from 'react';
 import ResultSearchTickets from './ResultSearchTickets';
 import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
-import iconSearchDots from '../../../images/icon_page_search_dots.png';
 import { connect } from 'react-redux';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 
