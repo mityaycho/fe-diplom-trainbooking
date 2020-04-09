@@ -20,7 +20,15 @@ export const api = {
 		have_wifi,
 		have_express,
 		price_from,
-		price_to
+		price_to,
+		start_departure_hour_from,
+		start_departure_hour_to,
+		start_arrival_hour_from,
+		start_arrival_hour_to,
+		end_departure_hour_from,
+		end_departure_hour_to,
+		end_arrival_hour_from,
+		end_arrival_hour_to
 		) {
 		// cityWhereFromId: "5b9a2fa7f83e028786ea5672"
 		// cityWhereToId: "5b9a2fa7f83e028786ea5673"
@@ -37,7 +45,15 @@ export const api = {
 				`${have_wifi ? '&have_wifi=true' : ''}` +
 				`${have_express ? '&have_express=true' : ''}` +
 				`${price_from ? `&price_from=${price_from}` : ''}` +
-				`${price_to ? `&price_to=${price_to}` : ''}`
+				`${price_to ? `&price_to=${price_to}` : ''}` +
+				`${start_departure_hour_from ? `&start_departure_hour_from=${start_departure_hour_from}` : ''}` +
+				`${start_departure_hour_to ? `&start_departure_hour_to=${start_departure_hour_to}` : ''}` +
+				`${start_arrival_hour_from ? `&start_arrival_hour_from=${start_arrival_hour_from}` : ''}` +
+				`${start_arrival_hour_to ? `&start_arrival_hour_to=${start_arrival_hour_to}` : ''}` +
+				`${end_departure_hour_from ? `&end_departure_hour_from=${end_departure_hour_from}` : ''}` +
+				`${end_departure_hour_to ? `&end_departure_hour_to=${end_departure_hour_to}` : ''}` +
+				`${end_arrival_hour_from ? `&end_arrival_hour_from=${end_arrival_hour_from}` : ''}` +
+				`${end_arrival_hour_to ? `&end_arrival_hour_to=${end_arrival_hour_to}` : ''}`
 				)
 	}
 };

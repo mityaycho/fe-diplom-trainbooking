@@ -116,17 +116,15 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
 
-	setPrice = (number) => this.setState({price_from: number[0], price_to: number[1]});
+	setPrice = (array) => this.setState({price_from: array[0], price_to: array[1]});
 
-
-
-	startDeparture = (number) => this.setState({start_departure_hour_from: number[0], pricstart_departure_hour_toe_to: number[1]});
+	startDeparture = (array) => this.setState({start_departure_hour_from: array[0], pricstart_departure_hour_toe_to: array[1]});
 	
-	startArrival = (number) => this.setState({start_arrival_hour_from: number[0], start_arrival_hour_to: number[1]});
+	startArrival = (array) => this.setState({start_arrival_hour_from: array[0], start_arrival_hour_to: array[1]});
 	
-	endDeparture = (number) => this.setState({end_departure_hour_from: number[0], end_departure_hour_to: number[1]});
+	endDeparture = (array) => this.setState({end_departure_hour_from: array[0], end_departure_hour_to: array[1]});
 	
-	endArrival = (number) => this.setState({end_arrival_hour_from: number[0], end_arrival_hour_to: number[1]});
+	endArrival = (array) => this.setState({end_arrival_hour_from: array[0], end_arrival_hour_to: array[1]});
 
 	render() {
 
@@ -236,13 +234,13 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							</div>
 							<form className="form pl-4 pr-4 mt-2 pb-2 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
-								<ReactCompoundSliderSmall setHourFilter={this.startDeparture} />
+								<ReactCompoundSliderSmall setHoursFilter={this.startDeparture} />
 							</form>
 							<form className="form pl-4 pr-4 pt-3 pb-5 w-100">
 								<div className="d-flex mt-4 justify-content-end">
 									<label htmlFor="customRange3">Время прибытия</label>
 								</div>
-								<ReactCompoundSliderSmall setHourFilter={this.startArrival} />
+								<ReactCompoundSliderSmall setHoursFilter={this.startArrival} />
 							</form>
 						</div> :
 						<div className="container d-flex justify-content-between w-100">
@@ -268,13 +266,13 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							</div>
 							<form className="form pl-4 pr-4 mt-2 pb-2 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
-								<ReactCompoundSliderSmall setHourFilter={this.endDeparture}/>
+								<ReactCompoundSliderSmall setHoursFilter={this.endDeparture}/>
 							</form>
 							<form className="form pl-4 pr-4 pt-3 pb-5 w-100">
 								<div className="d-flex mt-4 justify-content-end">
 									<label htmlFor="customRange3">Время прибытия</label>
 								</div>
-								<ReactCompoundSliderSmall setHourFilter={this.endArrival} />
+								<ReactCompoundSliderSmall setHoursFilter={this.endArrival} />
 							</form>
 						</div> :
 						<div className="container d-flex justify-content-between w-100">
