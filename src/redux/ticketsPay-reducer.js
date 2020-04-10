@@ -1,5 +1,5 @@
-import { SET_TICKETS, setTickets } from "./action";
-import { api } from "../api/api";
+import { SET_TICKETS, setTickets } from './action';
+import { api } from '../api/api';
 
 
 const initState = {
