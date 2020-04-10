@@ -1,4 +1,4 @@
-import * as axios from "axios";
+import * as axios from 'axios';
 
 const instance = axios.create({
 	baseURL: 'https://netology-trainbooking.herokuapp.com/'
@@ -35,7 +35,7 @@ export const api = {
 		// `routes?from_city_id=${cityWhereFromId}&to_city_id=${cityWhereToId}` (line 28)
 
 		return instance.get(
-				`routes?from_city_id=${"5b9a2fa7f83e028786ea5672"}&to_city_id=${"5b9a2fa7f83e028786ea5673"}` +
+				`routes?from_city_id=${'5b9a2fa7f83e028786ea5672'}&to_city_id=${'5b9a2fa7f83e028786ea5673'}` +
 				(`${sort}` ? `&sort=${sort}` : '') +
 				(`${limit}` ? `&limit=${limit}` : '') +
 				`${have_second_class ? '&have_second_class=true' : ''}` +
