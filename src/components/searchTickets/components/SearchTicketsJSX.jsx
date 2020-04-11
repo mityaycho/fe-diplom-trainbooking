@@ -10,7 +10,9 @@ class SearchTicketsJSX extends React.Component {
 	state = {
 		sort: 'date',
 		limit: '5',
-		offset: 0
+		offset: 0,
+		nextPageDisabled: false,
+		actualPage: 0
 	};
 
 	getTicketsFetch = () => {
@@ -40,9 +42,23 @@ class SearchTicketsJSX extends React.Component {
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
-	filterChoiceTickets = (event) => this.setState({ limit: event.currentTarget.innerHTML });
+	filterChoiceTickets = (event) => this.setState({
+		limit: event.currentTarget.innerHTML,
+		offset: 0,
+		nextPageDisabled: false });
 
-	setNextPageOffset = () => this.setState({offset: 5})
+	setPrevPageOffset = () => {
+
+	}
+
+	setNextPageOffset = () => {
+		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
+		console.log((this.state.offset / Number(this.state.limit)))
+		if (pages === ((this.state.offset / Number(this.state.limit))) + 2) {
+			this.setState({nextPageDisabled: true});
+		}
+		this.setState({offset: (Number(this.state.offset) + Number(this.state.limit))});
+	}
 
 	render() {
 
@@ -52,7 +68,7 @@ class SearchTicketsJSX extends React.Component {
 
 	let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
 	let buttonsPages = [];
-	for (let i = 1; i < pages; i++) {
+	for (let i = 1; i <= pages; i++) {
 		buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
 	}
 
@@ -86,7 +102,7 @@ class SearchTicketsJSX extends React.Component {
 			{resultSearchTicketsJSX}
 
 			<div className="row justify-content-end mt-5">
-				<button className="page-search-select-number ml-3" type="button">
+				<button className="page-search-select-number ml-3" type="button" onClick={this.setPrevPageOffset}>
 					<img src={iconSearchLeft} alt="иконка влево" />
 				</button>
 
@@ -96,7 +112,10 @@ class SearchTicketsJSX extends React.Component {
 					<img src={iconSearchDots} alt="иконка точки" />
 				</button>
 				<button className="page-search-select-number ml-3" type="button">10</button> */}
-				<button className="page-search-select-number ml-3" type="button" onClick={this.setNextPageOffset}>
+				<button className="page-search-select-number ml-3" 
+				type="button" 
+				onClick={this.setNextPageOffset}
+				disabled={this.state.nextPageDisabled}>
 					<img src={iconSearchRight} alt="иконка вправо" />
 				</button>
 			</div>
