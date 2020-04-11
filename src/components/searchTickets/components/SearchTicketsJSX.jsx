@@ -9,7 +9,8 @@ import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 class SearchTicketsJSX extends React.Component {
 	state = {
 		sort: 'date',
-		limit: '5'
+		limit: '5',
+		offset: 0
 	};
 
 	getTicketsFetch = () => {
@@ -19,7 +20,8 @@ class SearchTicketsJSX extends React.Component {
 			sort: this.state.sort,
 			limit: this.state.limit,
 			cityWhereFromId: this.props.form.cityWhereFromId,
-			cityWhereToId: this.props.form.cityWhereToId
+			cityWhereToId: this.props.form.cityWhereToId,
+			offset: this.state.offset
 		};
 		this.props.getTickets(data);
 	};
@@ -29,7 +31,9 @@ class SearchTicketsJSX extends React.Component {
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevState.sort !== this.state.sort || prevState.limit !== this.state.limit) {
+		if (prevState.sort !== this.state.sort || 
+			prevState.limit !== this.state.limit || 
+			prevState.offset !== this.state.offset) {
 			this.getTicketsFetch();
 		};
 	};
@@ -37,6 +41,8 @@ class SearchTicketsJSX extends React.Component {
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
 	filterChoiceTickets = (event) => this.setState({ limit: event.currentTarget.innerHTML });
+
+	setNextPageOffset = () => this.setState({offset: 5})
 
 	render() {
 
@@ -90,7 +96,7 @@ class SearchTicketsJSX extends React.Component {
 					<img src={iconSearchDots} alt="иконка точки" />
 				</button>
 				<button className="page-search-select-number ml-3" type="button">10</button> */}
-				<button className="page-search-select-number ml-3" type="button">
+				<button className="page-search-select-number ml-3" type="button" onClick={this.setNextPageOffset}>
 					<img src={iconSearchRight} alt="иконка вправо" />
 				</button>
 			</div>

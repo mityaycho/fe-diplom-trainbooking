@@ -48,6 +48,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			cityWhereToId: this.props.form.cityWhereToId,
 			sort: this.props.sort,
 			limit: this.props.limit,
+			offset: this.props.offset,
 			have_second_class: this.state.have_second_class,
 			have_third_class: this.state.have_third_class,
 			have_fourth_class: this.state.have_fourth_class,
@@ -304,7 +305,8 @@ const mapStateToProps = (state) => {
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets,
 		sort: state.ticketsPayPage.sort,
-		limit: state.ticketsPayPage.limit
+		limit: state.ticketsPayPage.limit,
+		offset: state.ticketsPayPage.offset
 	};
 };
 

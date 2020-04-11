@@ -6,7 +6,8 @@ const initState = {
 	tickets: [],
 	totalCountTickets: 0,
 	sort: 'date',
-	limit: '5'
+	limit: '5',
+	offset: 0
 };
 
 const ticketsPayReducer = (state = initState, action) => {
@@ -30,6 +31,7 @@ export const getTicketsTC = (data) => (dispatch) => {
 		cityWhereToId,
 		sort,
 		limit,
+		offset,
 		have_second_class,
 		have_third_class,
 		have_fourth_class,
@@ -53,6 +55,7 @@ export const getTicketsTC = (data) => (dispatch) => {
 		cityWhereToId, 
 		sort,
 		limit,
+		offset,
 		have_second_class,
 		have_third_class,
 		have_fourth_class,

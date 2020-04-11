@@ -13,6 +13,7 @@ export const api = {
 		cityWhereToId, 
 		sort,
 		limit,
+		offset,
 		have_second_class,
 		have_third_class,
 		have_fourth_class,
@@ -38,6 +39,7 @@ export const api = {
 				`routes?from_city_id=${'5b9a2fa7f83e028786ea5672'}&to_city_id=${'5b9a2fa7f83e028786ea5673'}` +
 				(`${sort}` ? `&sort=${sort}` : '') +
 				(`${limit}` ? `&limit=${limit}` : '') +
+				(`${offset}` ? `&offset=${offset}` : '') +
 				`${have_second_class ? '&have_second_class=true' : ''}` +
 				`${have_third_class ? '&have_third_class=true' : ''}` +
 				`${have_fourth_class ? '&have_fourth_class=true' : ''}` +
