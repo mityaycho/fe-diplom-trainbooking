@@ -12,8 +12,7 @@ class SearchTicketsJSX extends React.Component {
 		limit: '5',
 		offset: 0,
 		nextPageDisabled: false,
-		prevPageDisabled: true,
-		actualPage: 0
+		prevPageDisabled: true
 	};
 
 	getTicketsFetch = () => {
@@ -49,22 +48,46 @@ class SearchTicketsJSX extends React.Component {
 		nextPageDisabled: false });
 
 	setPrevPageOffset = () => {
-		if (((this.state.offset / Number(this.state.limit))) === 1) {
+		if (this.state.offset / Number(this.state.limit) === 1) {
 			this.setState({prevPageDisabled: true});
 		}
-		this.setState({offset: (Number(this.state.offset) - Number(this.state.limit))});
-	}
+		this.setState({
+			offset: (Number(this.state.offset) - Number(this.state.limit)), 
+			nextPageDisabled: false});
+	};
 
 	setNextPageOffset = () => {
 		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
-		console.log((this.state.offset / Number(this.state.limit)) + 2)
-		if (pages === ((this.state.offset / Number(this.state.limit))) + 2) {
+		if (pages === (this.state.offset / Number(this.state.limit)) + 2) {
 			this.setState({nextPageDisabled: true});
 		}
-		if (pages >= ((this.state.offset / Number(this.state.limit))) - 2) {
+		if (pages >= (this.state.offset / Number(this.state.limit)) - 2) {
 			this.setState({prevPageDisabled: false});
 		}
-		this.setState({offset: (Number(this.state.offset) + Number(this.state.limit))});
+		this.setState({offset: Number(this.state.offset) + Number(this.state.limit)});
+	};
+
+	setButtonOffset = (event) => {
+		this.setState({offset: (Number(this.state.limit) * Number(event.currentTarget.innerHTML)) - Number(this.state.limit)});
+		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
+	
+		if (pages === Number(event.currentTarget.innerHTML)) {
+			this.setState({
+					nextPageDisabled: true,
+					prevPageDisabled: false
+			});
+	} else if (Number(event.currentTarget.innerHTML) === 1 ) {
+			this.setState({
+					prevPageDisabled: true,
+					nextPageDisabled: false,
+			});
+	} else {
+			this.setState({
+					nextPageDisabled: false,
+					prevPageDisabled: false
+			});
+	}
+
 	}
 
 	render() {
@@ -73,30 +96,19 @@ class SearchTicketsJSX extends React.Component {
 	let classFilterChoiceTen = this.state.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
 	let classFilterChoiceTwenty = this.state.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
 
-	// let buttonActive = [];
-	// if (buttonsPages.length !== 0) {
-	// 	for (let i = 0; i < buttonsPages; i++) {
-	// 		buttonActive.push('');
-	// 		if (i === this.actualPage) {
-	// 			buttonActive.push('active');
-	// 		}
-	// 	}
-	// }
-
 		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
 	let buttonsPages = [];
 
 	for (let i = 1; i <= pages; i++) {
 		const cls = ['page-search-select-number', 'ml-3'];
-		if(((this.state.offset / Number(this.state.limit))) + 1 === i) cls.push(' active')
-		buttonsPages.push(<button className={cls.join(' ')} key={i} type="button">{i}</button>);
+		if ((this.state.offset / Number(this.state.limit)) + 1 === i) {
+			cls.push('active');
+		}
+		buttonsPages.push(<button className={cls.join(' ')} 
+		key={i} 
+		type="button" 
+		onClick={this.setButtonOffset}>{i}</button>);
 	}
-
-	// let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
-	// let buttonsPages = [];
-	// for (let i = 1; i <= pages; i++) {
-	// 	buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
-	// }
 
 	const resultSearchTicketsJSX = this.props.items ? this.props.items.map((el, idx) =>
 		<ResultSearchTickets key={idx} state={el} />) : [];
@@ -106,7 +118,10 @@ class SearchTicketsJSX extends React.Component {
 			<div className="row">
 				<div className="col">найдено {this.props.total_count}</div>
 				<div className="row text-right">сортировать по:&nbsp;
-                <select className="custom-sort-train" name="sortTrain" id="sort" onChange={this.sortSearch}>
+					<select className="custom-sort-train" 
+								name="sortTrain" 
+								id="sort" 
+								onChange={this.sortSearch}>
 						<option value="date">времени</option>
 						<option value="price">стоимости</option>
 						<option value="duration">длительности</option>
@@ -137,10 +152,6 @@ class SearchTicketsJSX extends React.Component {
 
 				{buttonsPages}
 
-				{/* <button className="page-search-select-number ml-3" type="button">
-					<img src={iconSearchDots} alt="иконка точки" />
-				</button>
-				<button className="page-search-select-number ml-3" type="button">10</button> */}
 				<button className="page-search-select-number ml-3" 
 				type="button" 
 				onClick={this.setNextPageOffset}
