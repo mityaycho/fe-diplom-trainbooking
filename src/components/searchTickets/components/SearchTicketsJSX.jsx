@@ -66,11 +66,30 @@ class SearchTicketsJSX extends React.Component {
 	let classFilterChoiceTen = this.state.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
 	let classFilterChoiceTwenty = this.state.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
 
-	let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
+	// let buttonActive = [];
+	// if (buttonsPages.length !== 0) {
+	// 	for (let i = 0; i < buttonsPages; i++) {
+	// 		buttonActive.push('');
+	// 		if (i === this.actualPage) {
+	// 			buttonActive.push('active');
+	// 		}
+	// 	}
+	// }
+
+		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
 	let buttonsPages = [];
+
 	for (let i = 1; i <= pages; i++) {
-		buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
+		const cls = ['page-search-select-number', 'ml-3'];
+		if(((this.state.offset / Number(this.state.limit))) + 1 === i) cls.push(' active')
+		buttonsPages.push(<button className={cls.join(' ')} key={i} type="button">{i}</button>);
 	}
+
+	// let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
+	// let buttonsPages = [];
+	// for (let i = 1; i <= pages; i++) {
+	// 	buttonsPages.push(<button className="page-search-select-number ml-3" key={i} type="button">{i}</button>);
+	// }
 
 	const resultSearchTicketsJSX = this.props.items ? this.props.items.map((el, idx) =>
 		<ResultSearchTickets key={idx} state={el} />) : [];
