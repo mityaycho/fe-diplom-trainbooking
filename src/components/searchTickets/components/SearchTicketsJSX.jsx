@@ -49,19 +49,20 @@ class SearchTicketsJSX extends React.Component {
 		nextPageDisabled: false });
 
 	setPrevPageOffset = () => {
-		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
-		console.log((this.state.offset / Number(this.state.limit)))
-		if (pages === ((this.state.offset / Number(this.state.limit))) - 2) {
-			this.setState({prevPageDisabled: false});
+		if (((this.state.offset / Number(this.state.limit))) === 1) {
+			this.setState({prevPageDisabled: true});
 		}
 		this.setState({offset: (Number(this.state.offset) - Number(this.state.limit))});
 	}
 
 	setNextPageOffset = () => {
 		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
-		console.log((this.state.offset / Number(this.state.limit)))
+		console.log((this.state.offset / Number(this.state.limit)) + 2)
 		if (pages === ((this.state.offset / Number(this.state.limit))) + 2) {
 			this.setState({nextPageDisabled: true});
+		}
+		if (pages >= ((this.state.offset / Number(this.state.limit))) - 2) {
+			this.setState({prevPageDisabled: false});
 		}
 		this.setState({offset: (Number(this.state.offset) + Number(this.state.limit))});
 	}
