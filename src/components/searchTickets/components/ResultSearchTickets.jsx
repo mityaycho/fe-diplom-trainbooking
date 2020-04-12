@@ -16,7 +16,9 @@ const ResultSearchTickets = (props) => {
   let fromArrival = fromDateTime + duration;
   let toArrival = toDateTime + duration;
   const getHours = (msc) => new Date(msc).getHours();
-  const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+	const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+	
+	const saveProps = (event) => console.log(props);
 
 
   return (
@@ -91,7 +93,10 @@ const ResultSearchTickets = (props) => {
             </div>
 
             <div className="row pb-3">
-              <NavLink className="btn btn-warning m-3" to="/seat_selection" type="button">Выбрать места
+							<NavLink className="btn btn-warning m-3" 
+							to="/seat_selection" 
+							type="button"
+							onClick={saveProps}>Выбрать места
               </NavLink>
             </div>
           </div>
