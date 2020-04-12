@@ -12,6 +12,7 @@ class SearchTicketsJSX extends React.Component {
 		limit: '5',
 		offset: 0,
 		nextPageDisabled: false,
+		prevPageDisabled: true,
 		actualPage: 0
 	};
 
@@ -48,7 +49,12 @@ class SearchTicketsJSX extends React.Component {
 		nextPageDisabled: false });
 
 	setPrevPageOffset = () => {
-
+		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
+		console.log((this.state.offset / Number(this.state.limit)))
+		if (pages === ((this.state.offset / Number(this.state.limit))) - 2) {
+			this.setState({prevPageDisabled: false});
+		}
+		this.setState({offset: (Number(this.state.offset) - Number(this.state.limit))});
 	}
 
 	setNextPageOffset = () => {
@@ -121,7 +127,10 @@ class SearchTicketsJSX extends React.Component {
 			{resultSearchTicketsJSX}
 
 			<div className="row justify-content-end mt-5">
-				<button className="page-search-select-number ml-3" type="button" onClick={this.setPrevPageOffset}>
+				<button className="page-search-select-number ml-3" 
+				type="button" 
+				onClick={this.setPrevPageOffset}
+				disabled={this.state.prevPageDisabled}>
 					<img src={iconSearchLeft} alt="иконка влево" />
 				</button>
 
