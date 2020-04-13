@@ -211,7 +211,9 @@ class SectionSeatSelection extends React.Component {
 						<div className="choice-of-place-there">
 							<div className="choice-other-train-button d-flex mt-4">
 								<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..."/></button>
-								<button type="button" className="btn btn-outline-dark ml-3 font-weight-bold">Выбрать другой поезд</button>
+								<NavLink type="button" 
+								className="btn btn-outline-dark ml-3 font-weight-bold pt-3"
+								to="/search_tickets">Выбрать другой поезд</NavLink>
 							</div>
 							<div className="choice-ticket-train-there d-flex mt-4 pt-3 justify-content-between">
 								<div className="d-flex">
