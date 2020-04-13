@@ -1,10 +1,11 @@
-import { SET_TICKETS, setTickets } from './action';
+import { SET_TICKETS, setTickets, SET_TRAIN_ID } from './action';
 import { api } from '../api/api';
 
 
 const initState = {
 	tickets: [],
 	totalCountTickets: 0,
+	trainId: '',
 	sort: 'date',
 	limit: '5',
 	offset: 0
@@ -18,9 +19,14 @@ const ticketsPayReducer = (state = initState, action) => {
 				...state,
 				tickets: action.tickets,
 				totalCountTickets: action.totalCountTickets
+			};
+		case SET_TRAIN_ID:
+			return {
+				...state,
+				trainId: action.trainId
 			}
-			default:
-				return state;
+		default:
+			return state;
 	};
 };
 
