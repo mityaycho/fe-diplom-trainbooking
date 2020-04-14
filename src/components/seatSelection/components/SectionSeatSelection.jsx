@@ -2,17 +2,6 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setDataFormAC} from '../../../redux/action';
-import iconCoupe from '../../../images/icon_coupe.png';
-import iconEconomclass from '../../../images/icon_economclass.png';
-import iconSedentary from '../../../images/icon_sedentary.png';
-import iconLuxury from '../../../images/icon_luxury.png';
-import iconWifi from '../../../images/icon_wifi.png';
-import iconExpress from '../../../images/icon_express.png';
-import iconThere from '../../../images/icon_there.png';
-import iconBack from '../../../images/icon_back.png';
-import iconMinus from '../../../images/icon_minus.png';
-import iconRuble from '../../../images/icon_ruble.png';
-import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
 import choiceOtherTrainButtonThere from '../../../images/choice_other_train_button_there.png';
@@ -27,7 +16,9 @@ import ProgressLineCost from '../../shared/ProgressLineCost';
 import SideBarSearchTicketsAndSeatSelection from '../../shared/SideBarSearchTicketsAndSeatSelection';
 
 class SectionSeatSelection extends React.Component {
+
 	render () {
+		
 		return (
 			<div>
 				<ProgressLineCost tickets={progressStateSelect}
