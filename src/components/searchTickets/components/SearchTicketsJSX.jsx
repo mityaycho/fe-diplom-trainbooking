@@ -9,9 +9,9 @@ import { withRouter } from 'react-router';
 
 class SearchTicketsJSX extends React.Component {
 	state = {
-		sort: 'date',
-		limit: '5',
-		offset: 0,
+		sort: this.props.sort,
+		limit: this.props.limit,
+		offset: this.props.offset,
 		nextPageDisabled: false,
 		prevPageDisabled: true
 	};
@@ -124,7 +124,8 @@ class SearchTicketsJSX extends React.Component {
 					<select className="custom-sort-train" 
 								name="sortTrain" 
 								id="sort" 
-								onChange={this.sortSearch}>
+								onChange={this.sortSearch}
+								value={this.state.sort}>
 						<option value="date">времени</option>
 						<option value="price">стоимости</option>
 						<option value="duration">длительности</option>
@@ -171,7 +172,10 @@ const mapStateToProps = (state) => {
 	return {
 		form: state.sectionSearch.form,
 		items: state.ticketsPayPage.tickets,
-		total_count: state.ticketsPayPage.totalCountTickets
+		total_count: state.ticketsPayPage.totalCountTickets,
+		sort: state.ticketsPayPage.sort,
+		limit: state.ticketsPayPage.limit,
+		offset: state.ticketsPayPage.offset,
 	};
 };
 

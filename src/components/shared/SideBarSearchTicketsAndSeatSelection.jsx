@@ -21,27 +21,27 @@ import { withRouter } from 'react-router';
 
 class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	state = {
-		customRangeCostFrom: false,
-		customRangeCostTo: false,
+		customRangeCostFrom: this.props.customRangeCostFrom,
+		customRangeCostTo: this.props.customRangeCostTo,
 		lastRoutes: [],
-		have_second_class: false,
-		have_third_class: false,
-		have_fourth_class: false,
-		have_first_class: false,
-		have_wifi: false,
-		have_express: false,
+		have_second_class: this.props.have_second_class,
+		have_third_class: this.props.have_third_class,
+		have_fourth_class: this.props.have_fourth_class,
+		have_first_class: this.props.have_first_class,
+		have_wifi: this.props.have_wifi,
+		have_express: this.props.have_express,
 		whereFromDate: this.props.form.whereFromDate,
 		whereToDate: this.props.form.whereToDate,
-		price_from: 0,
-		price_to: 5000,
-		start_departure_hour_from: 0,
-		start_departure_hour_to: 24,
-		start_arrival_hour_from: 0,
-		start_arrival_hour_to: 24,
-		end_departure_hour_from: 0,
-		end_departure_hour_to: 24,
-		end_arrival_hour_from: 0,
-		end_arrival_hour_to: 24
+		price_from: this.props.price_from,
+		price_to: this.props.price_to,
+		start_departure_hour_from: this.props.start_departure_hour_from,
+		start_departure_hour_to: this.props.start_departure_hour_to,
+		start_arrival_hour_from: this.props.start_arrival_hour_from,
+		start_arrival_hour_to: this.props.start_arrival_hour_to,
+		end_departure_hour_from: this.props.end_departure_hour_from,
+		end_departure_hour_to: this.props.end_departure_hour_to,
+		end_arrival_hour_from: this.props.end_arrival_hour_from,
+		end_arrival_hour_to: this.props.end_arrival_hour_to
 	};
 	getTicketsFetch = () => {
 		const data = {
@@ -65,7 +65,9 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			end_departure_hour_from: this.state.end_departure_hour_from,
 			end_departure_hour_to: this.state.end_departure_hour_to,
 			end_arrival_hour_from: this.state.end_arrival_hour_from,
-			end_arrival_hour_to: this.state.end_arrival_hour_to
+			end_arrival_hour_to: this.state.end_arrival_hour_to,
+			customRangeCostFrom: this.state.customRangeCostFrom,
+			customRangeCostTo: this.state.customRangeCostTo
 		};
 
 		let url = this.props.match.url;
@@ -309,7 +311,25 @@ const mapStateToProps = (state) => {
 		total_count: state.ticketsPayPage.totalCountTickets,
 		sort: state.ticketsPayPage.sort,
 		limit: state.ticketsPayPage.limit,
-		offset: state.ticketsPayPage.offset
+		offset: state.ticketsPayPage.offset,
+		have_second_class: state.ticketsPayPage.have_second_class,
+		have_third_class: state.ticketsPayPage.have_third_class,
+		have_fourth_class: state.ticketsPayPage.have_fourth_class,
+		have_first_class: state.ticketsPayPage.have_first_class,
+		have_wifi: state.ticketsPayPage.have_wifi,
+		have_express: state.ticketsPayPage.have_express,
+		price_from: state.ticketsPayPage.price_from,
+		price_to: state.ticketsPayPage.price_to,
+		start_departure_hour_from: state.ticketsPayPage.start_departure_hour_from,
+		start_departure_hour_to: state.ticketsPayPage.start_departure_hour_to,
+		start_arrival_hour_from: state.ticketsPayPage.start_arrival_hour_from,
+		start_arrival_hour_to: state.ticketsPayPage.start_arrival_hour_to,
+		end_departure_hour_from: state.ticketsPayPage.end_departure_hour_from,
+		end_departure_hour_to: state.ticketsPayPage.end_departure_hour_to,
+		end_arrival_hour_from: state.ticketsPayPage.end_arrival_hour_from,
+		end_arrival_hour_to: state.ticketsPayPage.end_arrival_hour_to,
+		customRangeCostFrom: state.ticketsPayPage.customRangeCostFrom,
+		customRangeCostTo: state.ticketsPayPage.customRangeCostTo
 	};
 };
 
