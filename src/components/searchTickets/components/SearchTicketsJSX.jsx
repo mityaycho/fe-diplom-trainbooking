@@ -4,6 +4,7 @@ import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
 import { connect } from 'react-redux';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
+import { withRouter } from 'react-router';
 
 
 class SearchTicketsJSX extends React.Component {
@@ -25,7 +26,9 @@ class SearchTicketsJSX extends React.Component {
 			cityWhereToId: this.props.form.cityWhereToId,
 			offset: this.state.offset
 		};
-		this.props.getTickets(data);
+
+		let url = this.props.match.url;
+		this.props.getTickets(data, url);
 	};
 
 	componentDidMount() {
@@ -174,10 +177,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		getTickets: (data) => {
-			dispatch(getTicketsTC(data))
+		getTickets: (data, url) => {
+			dispatch(getTicketsTC(data, url))
 		}
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchTicketsJSX);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchTicketsJSX));
