@@ -67,21 +67,17 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			end_arrival_hour_from: this.state.end_arrival_hour_from,
 			end_arrival_hour_to: this.state.end_arrival_hour_to
 		};
-		let path = this.props.match.url
-		this.props.getTickets(path,data);
+
+		let url = this.props.match.url;
+		this.props.getTickets(data, url);
 	};
 
 	componentDidMount() {
-		debugger
-		// let path = this.props.match.url;
 		this.props.getLasRoutes();
 		this.getTicketsFetch();
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		
-
-
 		if (prevProps.total_count !== this.props.total_count ||
 			prevState.have_second_class !== this.state.have_second_class ||
 			prevState.have_third_class !== this.state.have_third_class ||
@@ -326,16 +322,8 @@ const mapDispatchToProps = (dispatch) => {
 		getLasRoutes: () => {
 			dispatch(getLastRoutesTC())
 		},
-		getTickets: (url, data) => {
-			
-		if(url === '/search_tickets') {
-			le
-			dispatch(getTicketsTC(data1))
-		} else if(url === '/seat_selection'){
-			debugger
-			dispatch(getTicketsTC(data2))
-		}
-			
+		getTickets: (data, url) => {
+			dispatch(getTicketsTC(data, url))
 		}
 	};
 };
