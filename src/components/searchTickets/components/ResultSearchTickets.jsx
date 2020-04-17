@@ -5,9 +5,9 @@ import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png';
 import iconSearchThere from '../../../images/icon_search_there.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
 import TicketPriceAndSeats from './TicketPriceAndSeats';
-import { NavLink } from 'react-router-dom';
-import { setTrainIdAC } from '../../../redux/action';
 import { connect } from 'react-redux';
+import { setTrainIdAC } from '../../../redux/action';
+import { NavLink } from 'react-router-dom';
 
 
 class ResultSearchTickets extends React.Component {

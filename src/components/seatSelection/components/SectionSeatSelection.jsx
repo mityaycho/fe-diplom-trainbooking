@@ -1,7 +1,4 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {setDataFormAC} from '../../../redux/action';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
 import choiceOtherTrainButtonThere from '../../../images/choice_other_train_button_there.png';
@@ -14,6 +11,9 @@ import choiceOtherTrainButtonBack from '../../../images/choice_other_train_butto
 import iconSearchBack from '../../../images/icon_search_back.png';
 import ProgressLineCost from '../../shared/ProgressLineCost';
 import SideBarSearchTicketsAndSeatSelection from '../../shared/SideBarSearchTicketsAndSeatSelection';
+import { connect } from 'react-redux';
+import { setDataFormAC } from '../../../redux/action';
+import { NavLink } from 'react-router-dom';
 
 class SectionSeatSelection extends React.Component {
 

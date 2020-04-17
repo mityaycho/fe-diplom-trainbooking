@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+import React, { Component } from 'react';
 import '../../css/App.css';
 import '../../css/animate.css';
 
@@ -13,6 +12,7 @@ import OrderConfirmed from '../orderConfirmed/OrderConfirmed';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import NavBarTemporary from './components/NavBarTemporary';
+import { Route } from 'react-router-dom';
 
 
 export class App extends Component {

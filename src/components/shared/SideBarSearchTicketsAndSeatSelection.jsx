@@ -8,14 +8,14 @@ import iconExpress from '../../images/icon_express.png';
 import iconThere from '../../images/icon_there.png';
 import iconBack from '../../images/icon_back.png';
 import iconPlus from '../../images/icon_plus.png';
-import { setDataFormAC } from '../../redux/action';
-import { connect } from 'react-redux';
 import iconMinus from '../../images/icon_minus.png';
 import LastRoutes from './LastRoutes';
-import { getLastRoutesTC } from '../../redux/searchMain-reducer';
-import { getTicketsTC } from '../../redux/ticketsPay-reducer';
 import ReactCompoundSlider from './reactCompoundSlider/ReactCompoundSlider';
 import ReactCompoundSliderSmall from './reactCompoundSlider/ReactCompoundSliderSmall';
+import { connect } from 'react-redux';
+import { setDataFormAC } from '../../redux/action';
+import { getLastRoutesTC } from '../../redux/searchMain-reducer';
+import { getTicketsTC } from '../../redux/ticketsPay-reducer';
 import { withRouter } from 'react-router';
 
 
