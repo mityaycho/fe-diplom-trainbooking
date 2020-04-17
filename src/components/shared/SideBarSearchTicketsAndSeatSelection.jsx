@@ -223,7 +223,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 					<form className="form pt-3 pl-4 pr-4 w-100">
 						<label className="custom-range-cost" htmlFor="customRange3">Стоимость</label>
 						<div className="row justify-content-between react-compound-slider"><span>от</span><span>до</span></div>
-						<ReactCompoundSlider setPrice={this.setPrice} />
+						<ReactCompoundSlider price={[this.state.price_from, this.state.price_to]} setPrice={this.setPrice} />
 					</form>
 
 

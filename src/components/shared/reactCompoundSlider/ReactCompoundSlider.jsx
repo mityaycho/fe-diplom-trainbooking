@@ -18,12 +18,15 @@ const railStyle = {
 	border: '1px solid white'
 };
 
-const domain = [0, 5000];
 
 class ReactCompoundSlider extends React.Component {
+
   state = {
     values: [0, 5000]
-  };
+	};
+
+domain = this.props.price;
+	
 
   onChange = (values) => {
 		this.setState({ values });
@@ -40,7 +43,7 @@ class ReactCompoundSlider extends React.Component {
         <Slider
           mode={1}
           step={1}
-          domain={domain}
+          domain={this.domain}
           rootStyle={sliderStyle}
           onChange={this.onChange}
           values={values}
@@ -57,7 +60,7 @@ class ReactCompoundSlider extends React.Component {
                   <Handle
                     key={handle.id}
                     handle={handle}
-                    domain={domain}
+                    domain={this.domain}
                     getHandleProps={getHandleProps}
                   />
                 ))}
