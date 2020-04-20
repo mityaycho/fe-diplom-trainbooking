@@ -40,16 +40,21 @@ class SearchTicketsJSX extends React.Component {
 			prevState.limit !== this.state.limit ||
 			prevState.offset !== this.state.offset) {
 			this.getTicketsFetch();
+			if (Math.ceil(Number(this.props.total_count) / Number(this.state.limit)) <= 1) {
+				this.setState({nextPageDisabled: true});
+			}
 		};
 	};
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
-	filterChoiceTickets = (event) => this.setState({
-		limit: event.currentTarget.innerHTML,
-		offset: 0,
-		nextPageDisabled: false
-	});
+	filterChoiceTickets = (event) => {
+		this.setState({
+			limit: event.currentTarget.innerHTML,
+			offset: 0,
+			nextPageDisabled: false
+		});
+	};
 
 	setPrevPageOffset = () => {
 		if (this.state.offset / Number(this.state.limit) === 1) {
