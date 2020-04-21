@@ -40,9 +40,9 @@ class SearchTicketsJSX extends React.Component {
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.sort !== this.state.sort ||
 			prevState.limit !== this.state.limit ||
-			prevState.offset !== this.state.offset
+			prevState.offset !== this.state.offset ||
+			prevState.trainId !== this.state.trainId
 		) {
-				console.log(this.state.trainId)
 			this.getTicketsFetch();
 			if (Math.ceil(Number(this.props.total_count) / Number(this.state.limit)) <= 1) {
 				this.setState({nextPageDisabled: true});
