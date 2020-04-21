@@ -41,7 +41,8 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		end_departure_hour_from: this.props.end_departure_hour_from,
 		end_departure_hour_to: this.props.end_departure_hour_to,
 		end_arrival_hour_from: this.props.end_arrival_hour_from,
-		end_arrival_hour_to: this.props.end_arrival_hour_to
+		end_arrival_hour_to: this.props.end_arrival_hour_to,
+		trainId: this.props.trainId
 	};
 	getTicketsFetch = () => {
 		const data = {
@@ -67,7 +68,8 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			end_arrival_hour_from: this.state.end_arrival_hour_from,
 			end_arrival_hour_to: this.state.end_arrival_hour_to,
 			customRangeCostFrom: this.state.customRangeCostFrom,
-			customRangeCostTo: this.state.customRangeCostTo
+			customRangeCostTo: this.state.customRangeCostTo,
+			trainId: this.props.trainId
 		};
 
 		let url = this.props.match.url;
@@ -96,7 +98,8 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.end_departure_hour_from !== this.state.end_departure_hour_from ||
 			prevState.end_departure_hour_to !== this.state.end_departure_hour_to ||
 			prevState.end_arrival_hour_from !== this.state.end_arrival_hour_from ||
-			prevState.end_arrival_hour_to !== this.state.end_arrival_hour_to
+			prevState.end_arrival_hour_to !== this.state.end_arrival_hour_to ||
+			prevProps.trainId !== this.props.trainId
 			) {
 			this.getTicketsFetch();
 			};
@@ -329,7 +332,8 @@ const mapStateToProps = (state) => {
 		end_arrival_hour_from: state.ticketsPayPage.end_arrival_hour_from,
 		end_arrival_hour_to: state.ticketsPayPage.end_arrival_hour_to,
 		customRangeCostFrom: state.ticketsPayPage.customRangeCostFrom,
-		customRangeCostTo: state.ticketsPayPage.customRangeCostTo
+		customRangeCostTo: state.ticketsPayPage.customRangeCostTo,
+		trainId: state.ticketsPayPage.trainId
 	};
 };
 

@@ -14,7 +14,7 @@ class SearchTicketsJSX extends React.Component {
 		offset: this.props.offset,
 		nextPageDisabled: false,
 		prevPageDisabled: true,
-		trainId: ''
+		trainId: this.props.trainId
 	};
 
 	getTicketsFetch = () => {
@@ -40,7 +40,9 @@ class SearchTicketsJSX extends React.Component {
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.sort !== this.state.sort ||
 			prevState.limit !== this.state.limit ||
-			prevState.offset !== this.state.offset) {
+			prevState.offset !== this.state.offset
+		) {
+				console.log(this.state.trainId)
 			this.getTicketsFetch();
 			if (Math.ceil(Number(this.props.total_count) / Number(this.state.limit)) <= 1) {
 				this.setState({nextPageDisabled: true});
@@ -48,7 +50,9 @@ class SearchTicketsJSX extends React.Component {
 		};
 	};
 
-	setTrainId = (trainId) => this.setState({ trainId })
+	setTrainId = (trainId) => {
+		this.setState({ trainId });
+	}
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
@@ -186,6 +190,7 @@ const mapStateToProps = (state) => {
 		sort: state.ticketsPayPage.sort,
 		limit: state.ticketsPayPage.limit,
 		offset: state.ticketsPayPage.offset,
+		trainId: state.ticketsPayPage.trainId
 	};
 };
 
