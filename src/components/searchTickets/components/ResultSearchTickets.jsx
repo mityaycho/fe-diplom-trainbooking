@@ -6,7 +6,7 @@ import iconSearchThere from '../../../images/icon_search_there.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
 import TicketPriceAndSeats from './TicketPriceAndSeats';
 import { connect } from 'react-redux';
-import { setTrainIdAC } from '../../../redux/action';
+import { setTrainId } from '../../../redux/action';
 import { NavLink } from 'react-router-dom';
 
 
@@ -113,7 +113,7 @@ class ResultSearchTickets extends React.Component {
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {setTrainId: (trainId) => dispatch(setTrainIdAC(trainId))}
+	return {setTrainId: (trainId) => dispatch(setTrainId(trainId))}
 }
 
 export default connect(null, mapDispatchToProps)(ResultSearchTickets);

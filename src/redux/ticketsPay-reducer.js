@@ -1,4 +1,4 @@
-import { SET_TICKETS, setTickets, SET_TRAIN_ID } from './action';
+import { SET_TICKETS, setTickets, SET_TRAIN_ID, setTrainId } from './action';
 import { api } from '../api/api';
 
 
@@ -94,7 +94,8 @@ export const getTicketsTC = (data, url) => (dispatch) => {
 		end_arrival_hour_from,
 		end_arrival_hour_to,
 		customRangeCostFrom,
-		customRangeCostTo
+		customRangeCostTo,
+		trainId
 	} = data;
 
 	if (url === '/search_tickets') {
@@ -147,7 +148,11 @@ export const getTicketsTC = (data, url) => (dispatch) => {
 				customRangeCostTo
 				)));
 	} else if (url === '/seat_selection') {
-		
+		api.setSeatSelection(trainId)
+		.then(res => {
+			console.log(res)
+			dispatch(setTrainId(res))
+		})
 	}
 };
 

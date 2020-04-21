@@ -57,5 +57,9 @@ export const api = {
 			`${end_arrival_hour_from ? `&end_arrival_hour_from=${end_arrival_hour_from}` : ''}` +
 			`${end_arrival_hour_to ? `&end_arrival_hour_to=${end_arrival_hour_to}` : ''}`
 		)
+	},
+	setSeatSelection(trainId) {
+		console.log('routes/' + `${trainId}` + '/seats?')
+		return instance.get('routes/' + `${trainId}` + '/seats?');
 	}
 };

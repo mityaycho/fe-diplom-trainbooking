@@ -13,7 +13,8 @@ class SearchTicketsJSX extends React.Component {
 		limit: this.props.limit,
 		offset: this.props.offset,
 		nextPageDisabled: false,
-		prevPageDisabled: true
+		prevPageDisabled: true,
+		trainId: ''
 	};
 
 	getTicketsFetch = () => {
@@ -24,7 +25,8 @@ class SearchTicketsJSX extends React.Component {
 			limit: this.state.limit,
 			cityWhereFromId: this.props.form.cityWhereFromId,
 			cityWhereToId: this.props.form.cityWhereToId,
-			offset: this.state.offset
+			offset: this.state.offset,
+			trainId: this.state.trainId
 		};
 
 		let url = this.props.match.url;
@@ -45,6 +47,8 @@ class SearchTicketsJSX extends React.Component {
 			}
 		};
 	};
+
+	setTrainId = (trainId) => this.setState({ trainId })
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
 
@@ -120,7 +124,7 @@ class SearchTicketsJSX extends React.Component {
 		}
 
 		const resultSearchTicketsJSX = this.props.items ? this.props.items.map((el, idx) =>
-			<ResultSearchTickets key={idx} state={el} />) : [];
+			<ResultSearchTickets key={idx} state={el} setTrainId={this.setTrainId} />) : [];
 
 		return (
 			<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
