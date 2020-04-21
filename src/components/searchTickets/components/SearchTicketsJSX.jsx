@@ -51,7 +51,9 @@ class SearchTicketsJSX extends React.Component {
 	};
 
 	setTrainId = (trainId) => {
-		this.setState({ trainId });
+		this.setState({ trainId }, () => {
+			console.log(trainId)
+		});
 	}
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
