@@ -41,16 +41,12 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		end_departure_hour_from: this.props.end_departure_hour_from,
 		end_departure_hour_to: this.props.end_departure_hour_to,
 		end_arrival_hour_from: this.props.end_arrival_hour_from,
-		end_arrival_hour_to: this.props.end_arrival_hour_to,
-		trainId: this.props.trainId
+		end_arrival_hour_to: this.props.end_arrival_hour_to
 	};
 	getTicketsFetch = () => {
 		const data = {
 			cityWhereFromId: this.props.form.cityWhereFromId,
 			cityWhereToId: this.props.form.cityWhereToId,
-			sort: this.props.sort,
-			limit: this.props.limit,
-			offset: this.props.offset,
 			have_second_class: this.state.have_second_class,
 			have_third_class: this.state.have_third_class,
 			have_fourth_class: this.state.have_fourth_class,
@@ -68,8 +64,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			end_arrival_hour_from: this.state.end_arrival_hour_from,
 			end_arrival_hour_to: this.state.end_arrival_hour_to,
 			customRangeCostFrom: this.state.customRangeCostFrom,
-			customRangeCostTo: this.state.customRangeCostTo,
-			trainId: this.props.trainId
+			customRangeCostTo: this.state.customRangeCostTo
 		};
 
 		let url = this.props.match.url;
@@ -98,8 +93,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.end_departure_hour_from !== this.state.end_departure_hour_from ||
 			prevState.end_departure_hour_to !== this.state.end_departure_hour_to ||
 			prevState.end_arrival_hour_from !== this.state.end_arrival_hour_from ||
-			prevState.end_arrival_hour_to !== this.state.end_arrival_hour_to ||
-			prevProps.trainId !== this.props.trainId
+			prevState.end_arrival_hour_to !== this.state.end_arrival_hour_to
 			) {
 			this.getTicketsFetch();
 			};
@@ -312,9 +306,6 @@ const mapStateToProps = (state) => {
 		lastRoutes: state.sectionSearch.lastRoutes,
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets,
-		sort: state.ticketsPayPage.sort,
-		limit: state.ticketsPayPage.limit,
-		offset: state.ticketsPayPage.offset,
 		have_second_class: state.ticketsPayPage.have_second_class,
 		have_third_class: state.ticketsPayPage.have_third_class,
 		have_fourth_class: state.ticketsPayPage.have_fourth_class,
@@ -332,8 +323,7 @@ const mapStateToProps = (state) => {
 		end_arrival_hour_from: state.ticketsPayPage.end_arrival_hour_from,
 		end_arrival_hour_to: state.ticketsPayPage.end_arrival_hour_to,
 		customRangeCostFrom: state.ticketsPayPage.customRangeCostFrom,
-		customRangeCostTo: state.ticketsPayPage.customRangeCostTo,
-		trainId: state.ticketsPayPage.trainId
+		customRangeCostTo: state.ticketsPayPage.customRangeCostTo
 	};
 };
 
