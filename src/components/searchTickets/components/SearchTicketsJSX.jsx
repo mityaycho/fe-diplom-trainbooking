@@ -38,7 +38,7 @@ class SearchTicketsJSX extends React.Component {
 		) {
 			this.getTicketsFetch();
 			if (Math.ceil(Number(this.props.total_count) / Number(this.props.limit)) <= 1) {
-				this.setState({nextPageDisabled: true});
+				this.setState({ nextPageDisabled: true });
 			}
 		};
 	};

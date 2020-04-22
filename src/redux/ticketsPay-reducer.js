@@ -51,8 +51,7 @@ const ticketsPayReducer = (state = initState, action) => {
 				end_arrival_hour_from: action.end_arrival_hour_from,
 				end_arrival_hour_to: action.end_arrival_hour_to,
 				customRangeCostFrom: action.customRangeCostFrom,
-				customRangeCostTo: action.customRangeCostTo,
-				trainId: action.trainId
+				customRangeCostTo: action.customRangeCostTo
 			};
 		case SET_TRAIN_ID:
 			console.log(action.trainId)
@@ -85,8 +84,7 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 		end_arrival_hour_from,
 		end_arrival_hour_to,
 		customRangeCostFrom,
-		customRangeCostTo,
-		trainId
+		customRangeCostTo
 	} = data;
 
 	if (url === '/search_tickets') {
@@ -133,8 +131,7 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 				end_arrival_hour_from,
 				end_arrival_hour_to,
 				customRangeCostFrom,
-				customRangeCostTo,
-				trainId
+				customRangeCostTo
 				)));
 	} else if (url === '/seat_selection') {
 		let trainnId = getState().ticketsAndSeatsPage.trainId

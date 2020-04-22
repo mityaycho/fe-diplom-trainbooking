@@ -34,8 +34,7 @@ export const setTickets = (
 	end_arrival_hour_from,
 	end_arrival_hour_to,
 	customRangeCostFrom,
-	customRangeCostTo,
-	trainId
+	customRangeCostTo
 	) => ({
 		type: SET_TICKETS, 
 		tickets, 
@@ -57,6 +56,5 @@ export const setTickets = (
 		end_arrival_hour_from,
 		end_arrival_hour_to,
 		customRangeCostFrom,
-		customRangeCostTo,
-		trainId
+		customRangeCostTo
 	});
