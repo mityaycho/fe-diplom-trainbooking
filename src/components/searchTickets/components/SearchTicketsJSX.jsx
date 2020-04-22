@@ -5,6 +5,7 @@ import iconSearchRight from '../../../images/icon_page_search_right.png';
 import { connect } from 'react-redux';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 import { withRouter } from 'react-router';
+import { setTrainId } from './../../../redux/action';
 
 
 class SearchTicketsJSX extends React.Component {
@@ -26,7 +27,7 @@ class SearchTicketsJSX extends React.Component {
 			cityWhereFromId: this.props.form.cityWhereFromId,
 			cityWhereToId: this.props.form.cityWhereToId,
 			offset: this.state.offset,
-			trainId: this.state.trainId
+			trainId: this.props.trainId
 		};
 
 		let url = this.props.match.url;
@@ -41,7 +42,7 @@ class SearchTicketsJSX extends React.Component {
 		if (prevState.sort !== this.state.sort ||
 			prevState.limit !== this.state.limit ||
 			prevState.offset !== this.state.offset ||
-			prevState.trainId !== this.state.trainId
+			prevProps.trainId !== this.props.trainId
 		) {
 			this.getTicketsFetch();
 			if (Math.ceil(Number(this.props.total_count) / Number(this.state.limit)) <= 1) {
@@ -51,9 +52,20 @@ class SearchTicketsJSX extends React.Component {
 	};
 
 	setTrainId = (trainId) => {
-		this.setState({ trainId }, () => {
-			console.log(trainId)
-		});
+
+		debugger
+		this.props.setTrainIdEvent(trainId);
+		// this.setState(
+		// 	{ trainId },
+		// 	 () => {
+		// 	console.log(this.state.trainId)
+		// });
+		debugger;
+		this.setState( {trainId: 1 }, ()=> {
+			debugger;
+			console.log(this.state);
+			
+		})
 	}
 
 	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
@@ -198,9 +210,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		getTickets: (data, url) => {
-			dispatch(getTicketsTC(data, url))
-		}
+		getTickets: (data, url) => dispatch(getTicketsTC(data, url)),
+		setTrainIdEvent: (trainId) => dispatch(setTrainId(trainId))
 	};
 };
 

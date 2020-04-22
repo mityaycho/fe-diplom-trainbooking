@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom';
 const ResultSearchTickets = (props) => {
 
 	const setTrainIdEvent = () => {
-		debugger
+		
 		props.setTrainId(props.state.departure._id);
 	}
 

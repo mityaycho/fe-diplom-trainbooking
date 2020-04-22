@@ -59,7 +59,7 @@ export const api = {
 		)
 	},
 	setSeatSelection(trainId) {
-		console.log('routes/' + `${trainId}` + '/seats?')
-		return instance.get('routes/' + `${trainId}` + '/seats?');
+		console.log(`routes/${trainId}/seats?`)
+		return instance.get(`routes/${trainId}/seats?`);
 	}
 };

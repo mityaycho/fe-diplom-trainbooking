@@ -1,4 +1,4 @@
-import { SET_TICKETS, setTickets } from './action';
+import { SET_TICKETS, setTickets, SET_TRAIN_ID } from './action';
 import { api } from '../api/api';
 
 
@@ -60,13 +60,18 @@ const ticketsPayReducer = (state = initState, action) => {
 				customRangeCostTo: action.customRangeCostTo,
 				trainId: action.trainId
 			};
+		case SET_TRAIN_ID:
+			console.log(action.trainId)
+			return {
+				...state, trainId: action.trainId
+			}
 		default:
 			return state;
 	};
 };
 
 
-export const getTicketsTC = (data, url) => (dispatch) => {
+export const getTicketsTC = (data, url) => (dispatch, getState) => {
 	const {
 		cityWhereFromId,
 		cityWhereToId,
@@ -145,7 +150,8 @@ export const getTicketsTC = (data, url) => (dispatch) => {
 				trainId
 				)));
 	} else if (url === '/seat_selection') {
-		api.setSeatSelection(trainId)
+		let trainnId = getState().ticketsPayPage.trainId
+		api.setSeatSelection(trainnId)
 		.then(res => {
 			console.log(res)
 			

@@ -6,7 +6,9 @@ export const SET_TRAIN_ID = 'ticketsPayReducer/SET_TRAIN_ID';
 
 export const setDataFormAC = (form) => ({ type: SET_FORM, form });
 
-export const setLastRoutes = (lastRoutes) => ({type: SET_LAST_ROUTES, lastRoutes});
+export const setLastRoutes = (lastRoutes) => ({ type: SET_LAST_ROUTES, lastRoutes });
+
+export const setTrainId = (trainId) => ({ type: SET_TRAIN_ID, trainId })
 
 export const setTickets = (
 	tickets, 
