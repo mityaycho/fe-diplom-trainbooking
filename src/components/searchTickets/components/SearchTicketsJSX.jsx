@@ -18,9 +18,7 @@ class SearchTicketsJSX extends React.Component {
 	getTicketsFetch = () => {
 		const data = {
 			items: this.props.items,
-			total_count: this.props.total_count,
-			cityWhereFromId: this.props.form.cityWhereFromId,
-			cityWhereToId: this.props.form.cityWhereToId
+			total_count: this.props.total_count
 		};
 
 		let url = this.props.match.url;
@@ -172,7 +170,6 @@ class SearchTicketsJSX extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		form: state.sectionSearch.form,
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets,
 		sort: state.ticketsAndSeatsPage.sort,
