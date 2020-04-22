@@ -6,28 +6,21 @@ import { connect } from 'react-redux';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 import { withRouter } from 'react-router';
 import { setTrainId } from './../../../redux/action';
+import { filterTicketsAndSeatsReducerTC } from '../../../redux/filterTicketsAndSeats-reducer';
 
 
 class SearchTicketsJSX extends React.Component {
 	state = {
-		sort: this.props.sort,
-		limit: this.props.limit,
-		offset: this.props.offset,
 		nextPageDisabled: false,
-		prevPageDisabled: true,
-		trainId: this.props.trainId
+		prevPageDisabled: true
 	};
 
 	getTicketsFetch = () => {
 		const data = {
 			items: this.props.items,
 			total_count: this.props.total_count,
-			sort: this.state.sort,
-			limit: this.state.limit,
 			cityWhereFromId: this.props.form.cityWhereFromId,
-			cityWhereToId: this.props.form.cityWhereToId,
-			offset: this.state.offset,
-			trainId: this.props.trainId
+			cityWhereToId: this.props.form.cityWhereToId
 		};
 
 		let url = this.props.match.url;
@@ -39,69 +32,50 @@ class SearchTicketsJSX extends React.Component {
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevState.sort !== this.state.sort ||
-			prevState.limit !== this.state.limit ||
-			prevState.offset !== this.state.offset ||
-			prevProps.trainId !== this.props.trainId
+		if (prevProps.sort !== this.props.sort ||
+			prevProps.limit !== this.props.limit ||
+			prevProps.offset !== this.props.offset
 		) {
 			this.getTicketsFetch();
-			if (Math.ceil(Number(this.props.total_count) / Number(this.state.limit)) <= 1) {
+			if (Math.ceil(Number(this.props.total_count) / Number(this.props.limit)) <= 1) {
 				this.setState({nextPageDisabled: true});
 			}
 		};
 	};
 
-	setTrainId = (trainId) => {
+	setTrainId = (trainId) => this.props.setSeatsAndTicketsEvent('trainId', trainId);
 
-		debugger
-		this.props.setTrainIdEvent(trainId);
-		// this.setState(
-		// 	{ trainId },
-		// 	 () => {
-		// 	console.log(this.state.trainId)
-		// });
-		debugger;
-		this.setState( {trainId: 1 }, ()=> {
-			debugger;
-			console.log(this.state);
-			
-		})
-	}
-
-	sortSearch = (event) => this.setState({ sort: event.currentTarget.value });
+	sortSearch = (event) => this.props.setSeatsAndTicketsEvent('sort', event.currentTarget.value);
 
 	filterChoiceTickets = (event) => {
-		this.setState({
-			limit: event.currentTarget.innerHTML,
-			offset: 0,
-			nextPageDisabled: false
-		});
+		this.props.setSeatsAndTicketsEvent('limit', event.currentTarget.innerHTML);
+		this.props.setSeatsAndTicketsEvent('offset', 0);
+		this.setState({ nextPageDisabled: false });
 	};
 
 	setPrevPageOffset = () => {
-		if (this.state.offset / Number(this.state.limit) === 1) {
+		if (this.props.offset / Number(this.props.limit) === 1) {
 			this.setState({ prevPageDisabled: true });
 		}
-		this.setState({
-			offset: (Number(this.state.offset) - Number(this.state.limit)),
-			nextPageDisabled: false
-		});
+		this.props.setSeatsAndTicketsEvent('offset', (this.props.offset - Number(this.props.limit)));
+		this.setState({ nextPageDisabled: false });
 	};
 
 	setNextPageOffset = () => {
-		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
-		if (pages === (this.state.offset / Number(this.state.limit)) + 2) {
+		let pages = Math.ceil(Number(this.props.total_count) / Number(this.props.limit));
+		if (pages === (this.props.offset / Number(this.props.limit)) + 2) {
 			this.setState({ nextPageDisabled: true });
 		}
-		if (pages >= (this.state.offset / Number(this.state.limit)) - 2) {
+		if (pages >= (this.props.offset / Number(this.props.limit)) - 2) {
 			this.setState({ prevPageDisabled: false });
 		}
-		this.setState({ offset: Number(this.state.offset) + Number(this.state.limit) });
+		this.props.setSeatsAndTicketsEvent('offset', (this.props.offset + Number(this.props.limit)));
 	};
 
 	setButtonOffset = (event) => {
-		this.setState({ offset: (Number(this.state.limit) * Number(event.currentTarget.innerHTML)) - Number(this.state.limit) });
-		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
+		this.props.setSeatsAndTicketsEvent('offset', ((Number(this.props.limit) * Number(event.currentTarget.innerHTML)) - Number(this.props.limit)));
+
+		let pages = Math.ceil(Number(this.props.total_count) / Number(this.props.limit));
 
 		if (pages === Number(event.currentTarget.innerHTML)) {
 			this.setState({
@@ -123,16 +97,16 @@ class SearchTicketsJSX extends React.Component {
 
 	render() {
 
-		let classFilterChoiceFive = this.state.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
-		let classFilterChoiceTen = this.state.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
-		let classFilterChoiceTwenty = this.state.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+		let classFilterChoiceFive = this.props.limit === "5" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+		let classFilterChoiceTen = this.props.limit === "10" ? "filter-choice-tickets-active" : "filter-choice-tickets";
+		let classFilterChoiceTwenty = this.props.limit === "20" ? "filter-choice-tickets-active" : "filter-choice-tickets";
 
-		let pages = Math.ceil(Number(this.props.total_count) / Number(this.state.limit));
+		let pages = Math.ceil(Number(this.props.total_count) / Number(this.props.limit));
 		let buttonsPages = [];
 
 		for (let i = 1; i <= pages; i++) {
 			const cls = ['page-search-select-number', 'ml-3'];
-			if ((this.state.offset / Number(this.state.limit)) + 1 === i) {
+			if ((this.props.offset / Number(this.props.limit)) + 1 === i) {
 				cls.push('active');
 			}
 			buttonsPages.push(<button className={cls.join(' ')}
@@ -153,7 +127,7 @@ class SearchTicketsJSX extends React.Component {
 							name="sortTrain"
 							id="sort"
 							onChange={this.sortSearch}
-							value={this.state.sort}>
+							value={this.props.sort}>
 							<option value="date">времени</option>
 							<option value="price">стоимости</option>
 							<option value="duration">длительности</option>
@@ -201,17 +175,17 @@ const mapStateToProps = (state) => {
 		form: state.sectionSearch.form,
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets,
-		sort: state.ticketsPayPage.sort,
-		limit: state.ticketsPayPage.limit,
-		offset: state.ticketsPayPage.offset,
-		trainId: state.ticketsPayPage.trainId
+		sort: state.ticketsAndSeatsPage.sort,
+		limit: state.ticketsAndSeatsPage.limit,
+		offset: state.ticketsAndSeatsPage.offset
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		getTickets: (data, url) => dispatch(getTicketsTC(data, url)),
-		setTrainIdEvent: (trainId) => dispatch(setTrainId(trainId))
+		setTrainIdEvent: (trainId) => dispatch(setTrainId(trainId)),
+		setSeatsAndTicketsEvent: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
 	};
 };
 

@@ -70,7 +70,6 @@ const ticketsPayReducer = (state = initState, action) => {
 	};
 };
 
-
 export const getTicketsTC = (data, url) => (dispatch, getState) => {
 	const {
 		cityWhereFromId,
@@ -150,7 +149,7 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 				trainId
 				)));
 	} else if (url === '/seat_selection') {
-		let trainnId = getState().ticketsPayPage.trainId
+		let trainnId = getState().ticketsAndSeatsPage.trainId
 		api.setSeatSelection(trainnId)
 		.then(res => {
 			console.log(res)
