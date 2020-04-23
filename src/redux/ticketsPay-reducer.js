@@ -22,8 +22,7 @@ const initState = {
 	end_arrival_hour_from: 0,
 	end_arrival_hour_to: 24,
 	customRangeCostFrom: false,
-	customRangeCostTo: false,
-	trainId: ''
+	customRangeCostTo: false
 };
 
 const ticketsPayReducer = (state = initState, action) => {
@@ -53,11 +52,6 @@ const ticketsPayReducer = (state = initState, action) => {
 				customRangeCostFrom: action.customRangeCostFrom,
 				customRangeCostTo: action.customRangeCostTo
 			};
-		case SET_TRAIN_ID:
-			console.log(action.trainId)
-			return {
-				...state, trainId: action.trainId
-			}
 		default:
 			return state;
 	};
@@ -91,9 +85,9 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 		api.filterRoutes(
 			cityWhereFromId, 
 			cityWhereToId, 
-			getState().ticketsAndSeatsPage.sort,
-			getState().ticketsAndSeatsPage.limit,
-			getState().ticketsAndSeatsPage.offset,
+			getState().filterChoiceTicketsAndSeatsPages.sort,
+			getState().filterChoiceTicketsAndSeatsPages.limit,
+			getState().filterChoiceTicketsAndSeatsPages.offset,
 			have_second_class,
 			have_third_class,
 			have_fourth_class,
@@ -134,7 +128,7 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 				customRangeCostTo
 				)));
 	} else if (url === '/seat_selection') {
-		let trainnId = getState().ticketsAndSeatsPage.trainId
+		let trainnId = getState().filterChoiceTicketsAndSeatsPages.trainId
 		api.setSeatSelection(trainnId)
 		.then(res => {
 			console.log(res)

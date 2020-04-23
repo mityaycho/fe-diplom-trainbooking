@@ -1,6 +1,5 @@
 import { filterTicketsAndSeatsAC, SET_TICKETS_AND_SEATS } from "./action";
 
-
 const initState = {
 	tickets: [],
 	totalCountTickets: 0,
@@ -40,23 +39,8 @@ const filterTicketsAndSeatsReducer = (state = initState, action) => {
 	};
 };
 
-
-// const action = {
-// 	type: 'change-filter-field',
-// 	filedName: 'have_second_class',
-// 	fieldValue: true
-// }
-// let state = {
-
-// }
-// return {...state, [action.fieldName]: action.fieldValue}
-
 export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispatch, getState) => {
 	dispatch(filterTicketsAndSeatsAC(fieldName, fieldValue));
-	let data = getState().tickects;
-	//api.sendRequest(data)
 }
-
-
 
 export default filterTicketsAndSeatsReducer;

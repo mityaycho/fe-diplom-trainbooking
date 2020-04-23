@@ -5,7 +5,6 @@ import iconSearchRight from '../../../images/icon_page_search_right.png';
 import { connect } from 'react-redux';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 import { withRouter } from 'react-router';
-import { setTrainId } from './../../../redux/action';
 import { filterTicketsAndSeatsReducerTC } from '../../../redux/filterTicketsAndSeats-reducer';
 
 
@@ -172,16 +171,15 @@ const mapStateToProps = (state) => {
 	return {
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets,
-		sort: state.ticketsAndSeatsPage.sort,
-		limit: state.ticketsAndSeatsPage.limit,
-		offset: state.ticketsAndSeatsPage.offset
+		sort: state.filterChoiceTicketsAndSeatsPages.sort,
+		limit: state.filterChoiceTicketsAndSeatsPages.limit,
+		offset: state.filterChoiceTicketsAndSeatsPages.offset
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		getTickets: (data, url) => dispatch(getTicketsTC(data, url)),
-		setTrainIdEvent: (trainId) => dispatch(setTrainId(trainId)),
 		setSeatsAndTicketsEvent: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
 	};
 };
