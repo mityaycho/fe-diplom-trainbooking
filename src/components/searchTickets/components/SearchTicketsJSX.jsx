@@ -4,7 +4,6 @@ import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
 import { connect } from 'react-redux';
 import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
-import { withRouter } from 'react-router';
 import { filterTicketsAndSeatsReducerTC } from '../../../redux/filterTicketsAndSeats-reducer';
 
 
@@ -16,12 +15,11 @@ class SearchTicketsJSX extends React.Component {
 
 	getTicketsFetch = () => {
 		const data = {
-			items: this.props.items,
 			total_count: this.props.total_count
 		};
 
-		let url = this.props.match.url;
-		this.props.getTickets(data, url);
+		
+		this.props.getTickets(data, 'url');
 	};
 
 	componentDidMount() {
@@ -112,7 +110,7 @@ class SearchTicketsJSX extends React.Component {
 				onClick={this.setButtonOffset}>{i}</button>);
 		}
 
-		const resultSearchTicketsJSX = this.props.items ? this.props.items.map((el, idx) =>
+		const resultSearchTicketsJSX = this.props.ticketsArray ? this.props.ticketsArray.map((el, idx) =>
 			<ResultSearchTickets key={idx} state={el} setTrainId={this.setTrainId} />) : [];
 
 		return (
@@ -169,7 +167,7 @@ class SearchTicketsJSX extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		items: state.ticketsPayPage.tickets,
+		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
 		total_count: state.ticketsPayPage.totalCountTickets,
 		sort: state.filterChoiceTicketsAndSeatsPages.sort,
 		limit: state.filterChoiceTicketsAndSeatsPages.limit,
@@ -184,4 +182,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchTicketsJSX));
+export default connect(mapStateToProps, mapDispatchToProps)(SearchTicketsJSX);

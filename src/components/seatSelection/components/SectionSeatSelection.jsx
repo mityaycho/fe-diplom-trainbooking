@@ -86,19 +86,19 @@ class SectionSeatSelection extends React.Component {
 							<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 							<div className="choice-type-vagon-button d-flex justify-content-between mt-4">
 								<button type="button" className="btn btn-outline-light ml-5">
-									<a className="icon-type-vagon-seat align-self-center" href="#a.a"/>
+									<a className="icon-type-vagon-seat align-self-center" href="a#"> </a>
 									<p>Сидячий</p>
 								</button>
 								<button type="button" className="btn btn-outline-light">
-									<a className="icon-type-vagon-reserved-seat align-self-center" href="a#"/>
+									<a className="icon-type-vagon-reserved-seat align-self-center" href="a#"> </a>
 									<p>Плацкарт</p>
 								</button>
 								<button type="button" className="btn btn-outline-light">
-									<a className="icon-type-vagon-coupe align-self-center" href="a#"/>
+									<a className="icon-type-vagon-coupe align-self-center" href="a#"> </a>
 									<p>Купе</p>
 								</button>
 								<button type="button" className="btn btn-outline-light mr-5">
-									<a className="icon-type-vagon-luxury align-self-center" href="a#"/>
+									<a className="icon-type-vagon-luxury align-self-center" href="a#"> </a>
 									<p>Люкс</p>
 								</button>
 							</div>
@@ -192,19 +192,19 @@ class SectionSeatSelection extends React.Component {
 							<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 							<div className="choice-type-vagon-button d-flex justify-content-between mt-4">
 								<button type="button" className="btn btn-outline-light ml-5">
-									<a className="icon-type-vagon-seat align-self-center" href="a#"/>
+									<a className="icon-type-vagon-seat align-self-center" href="a#"> </a>
 									<p>Сидячий</p>
 								</button>
 								<button type="button" className="btn btn-outline-light">
-									<a className="icon-type-vagon-reserved-seat align-self-center" href="a#"/>
+									<a className="icon-type-vagon-reserved-seat align-self-center" href="a#"> </a>
 									<p>Плацкарт</p>
 								</button>
 								<button type="button" className="btn btn-outline-light">
-									<a className="icon-type-vagon-coupe align-self-center" href="a#"/>
+									<a className="icon-type-vagon-coupe align-self-center" href="a#"> </a>
 									<p>Купе</p>
 								</button>
 								<button type="button" className="btn btn-outline-light mr-5">
-									<a className="icon-type-vagon-luxury align-self-center" href="a#"/>
+									<a className="icon-type-vagon-luxury align-self-center" href="a#"> </a>
 									<p>Люкс</p>
 								</button>
 							</div>

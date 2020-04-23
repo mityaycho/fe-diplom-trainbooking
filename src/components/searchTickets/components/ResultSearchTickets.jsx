@@ -10,12 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 const ResultSearchTickets = (props) => {
 
-	const setTrainIdEvent = () => {
-		
-		props.setTrainId(props.state.departure._id);
-	}
-
-
+	const setTrainIdEvent = () => props.setTrainId(props.state.departure._id);
 
 	let fromDateTime = props.state.departure.from.datetime;
 	let toDateTime = props.state.departure.to.datetime;

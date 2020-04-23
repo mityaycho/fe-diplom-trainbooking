@@ -17,6 +17,7 @@ import { setDataFormAC } from '../../redux/action';
 import { getLastRoutesTC } from '../../redux/searchMain-reducer';
 import { getTicketsTC } from '../../redux/ticketsPay-reducer';
 import { withRouter } from 'react-router';
+import { filterTicketsAndSeatsReducerTC } from '../../redux/filterTicketsAndSeats-reducer';
 
 
 class SideBarSearchTicketsAndSeatSelection extends React.Component {
@@ -67,11 +68,11 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			customRangeCostTo: this.state.customRangeCostTo
 		};
 
-		let url = this.props.match.url;
-		this.props.getTickets(data, url);
+		this.props.getTickets(data, 'url');
 	};
 
 	componentDidMount() {
+		this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
 		this.props.getLasRoutes();
 		this.getTicketsFetch();
 	};
@@ -304,6 +305,7 @@ const mapStateToProps = (state) => {
 	return {
 		form: state.sectionSearch.form,
 		lastRoutes: state.sectionSearch.lastRoutes,
+		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
 		items: state.ticketsPayPage.tickets,
 		total_count: state.ticketsPayPage.totalCountTickets,
 		have_second_class: state.ticketsPayPage.have_second_class,
@@ -338,7 +340,8 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		getTickets: (data, url) => {
 			dispatch(getTicketsTC(data, url))
-		}
+		},
+		setSeatsAndTicketsEvent: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
 	};
 };
 

@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-  SliderItem,
-  GetHandleProps,
-  GetTrackProps
-} from 'react-compound-slider';
+// import { SliderItem, GetHandleProps, GetTrackProps } from 'react-compound-slider';
 
 // *******************************************************
 // HANDLE COMPONENT

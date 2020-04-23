@@ -1,4 +1,4 @@
-import { SET_TICKETS, setTickets, SET_TRAIN_ID } from './action';
+import { SET_TICKETS, setTickets } from './action';
 import { api } from '../api/api';
 
 
@@ -81,7 +81,7 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 		customRangeCostTo
 	} = data;
 
-	if (url === '/search_tickets') {
+	if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/search_tickets') {
 		api.filterRoutes(
 			cityWhereFromId, 
 			cityWhereToId, 
@@ -127,7 +127,7 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 				customRangeCostFrom,
 				customRangeCostTo
 				)));
-	} else if (url === '/seat_selection') {
+	} else if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/seat_selection') {
 		let trainnId = getState().filterChoiceTicketsAndSeatsPages.trainId
 		api.setSeatSelection(trainnId)
 		.then(res => {
@@ -135,6 +135,7 @@ export const getTicketsTC = (data, url) => (dispatch, getState) => {
 			
 		})
 	}
+	console.log(getState().filterChoiceTicketsAndSeatsPages.actualPage)
 };
 
 export default ticketsPayReducer;

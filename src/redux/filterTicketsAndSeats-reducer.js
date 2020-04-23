@@ -1,7 +1,7 @@
 import { filterTicketsAndSeatsAC, SET_TICKETS_AND_SEATS } from "./action";
 
 const initState = {
-	tickets: [],
+	ticketsArray: [],
 	totalCountTickets: 0,
 	sort: 'date',
 	limit: '5',
@@ -24,7 +24,8 @@ const initState = {
 	end_arrival_hour_to: 24,
 	customRangeCostFrom: false,
 	customRangeCostTo: false,
-	trainId: ''
+	trainId: '',
+	actualPage: ''
 };
 
 const filterTicketsAndSeatsReducer = (state = initState, action) => {
