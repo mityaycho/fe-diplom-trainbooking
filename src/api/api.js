@@ -8,7 +8,7 @@ export const api = {
 	getLastRoutes() {
 		return instance.get('routes/last')
 	},
-	filterRoutes(
+	filterTicketsAndSeatsAPI(
 		cityWhereFromId,
 		cityWhereToId,
 		sort,

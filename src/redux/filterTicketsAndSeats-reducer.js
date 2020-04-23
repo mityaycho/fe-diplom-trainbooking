@@ -44,7 +44,7 @@ const filterTicketsAndSeatsReducer = (state = initState, action) => {
 export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispatch, getState) => {
 	dispatch(filterTicketsAndSeatsAC(fieldName, fieldValue));
 	if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/search_tickets') {
-			api.filterRoutes(
+			api.filterTicketsAndSeatsAPI(
 				getState().sectionSearch.form.cityWhereFromId,
 				getState().sectionSearch.form.cityWhereToId,
 				getState().filterChoiceTicketsAndSeatsPages.sort,
