@@ -68,7 +68,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			customRangeCostTo: this.state.customRangeCostTo
 		};
 
-		this.props.getTickets(data, 'url');
+		// this.props.getTickets(data, 'url');
 	};
 
 	componentDidMount() {
@@ -306,8 +306,8 @@ const mapStateToProps = (state) => {
 		form: state.sectionSearch.form,
 		lastRoutes: state.sectionSearch.lastRoutes,
 		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
-		items: state.ticketsPayPage.tickets,
-		total_count: state.ticketsPayPage.totalCountTickets,
+		items: state.filterChoiceTicketsAndSeatsPages.tickets,
+		total_count: state.filterChoiceTicketsAndSeatsPages.totalCountTickets,
 		have_second_class: state.ticketsPayPage.have_second_class,
 		have_third_class: state.ticketsPayPage.have_third_class,
 		have_fourth_class: state.ticketsPayPage.have_fourth_class,

@@ -12,8 +12,6 @@ export const filterTicketsAndSeatsAC = (fieldName, fieldValue) => ({type:SET_TIC
 
 
 export const setTickets = (
-	tickets, 
-	totalCountTickets, 
 	have_second_class,
 	have_third_class,
 	have_fourth_class,
@@ -34,8 +32,6 @@ export const setTickets = (
 	customRangeCostTo
 	) => ({
 		type: SET_TICKETS, 
-		tickets, 
-		totalCountTickets, 
 		have_second_class,
 		have_third_class,
 		have_fourth_class,

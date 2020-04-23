@@ -3,8 +3,8 @@ import ResultSearchTickets from './ResultSearchTickets';
 import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
 import { connect } from 'react-redux';
-import { getTicketsTC } from './../../../redux/ticketsPay-reducer';
 import { filterTicketsAndSeatsReducerTC } from '../../../redux/filterTicketsAndSeats-reducer';
+import { withRouter } from 'react-router';
 
 
 class SearchTicketsJSX extends React.Component {
@@ -13,17 +13,8 @@ class SearchTicketsJSX extends React.Component {
 		prevPageDisabled: true
 	};
 
-	getTicketsFetch = () => {
-		const data = {
-			total_count: this.props.total_count
-		};
-
-		
-		this.props.getTickets(data, 'url');
-	};
-
 	componentDidMount() {
-		this.getTicketsFetch();
+		this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
 	};
 
 	componentDidUpdate(prevProps, prevState) {
@@ -31,7 +22,7 @@ class SearchTicketsJSX extends React.Component {
 			prevProps.limit !== this.props.limit ||
 			prevProps.offset !== this.props.offset
 		) {
-			this.getTicketsFetch();
+			this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
 			if (Math.ceil(Number(this.props.total_count) / Number(this.props.limit)) <= 1) {
 				this.setState({ nextPageDisabled: true });
 			}
@@ -168,7 +159,7 @@ class SearchTicketsJSX extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
-		total_count: state.ticketsPayPage.totalCountTickets,
+		total_count: state.filterChoiceTicketsAndSeatsPages.totalCountTickets,
 		sort: state.filterChoiceTicketsAndSeatsPages.sort,
 		limit: state.filterChoiceTicketsAndSeatsPages.limit,
 		offset: state.filterChoiceTicketsAndSeatsPages.offset
@@ -177,9 +168,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		getTickets: (data, url) => dispatch(getTicketsTC(data, url)),
 		setSeatsAndTicketsEvent: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchTicketsJSX);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchTicketsJSX));

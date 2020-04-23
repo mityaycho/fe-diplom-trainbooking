@@ -1,4 +1,5 @@
 import { filterTicketsAndSeatsAC, SET_TICKETS_AND_SEATS } from "./action";
+import { api } from "../api/api";
 
 const initState = {
 	ticketsArray: [],
@@ -42,6 +43,27 @@ const filterTicketsAndSeatsReducer = (state = initState, action) => {
 
 export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispatch, getState) => {
 	dispatch(filterTicketsAndSeatsAC(fieldName, fieldValue));
+	if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/search_tickets') {
+			api.filterRoutes(
+				getState().sectionSearch.form.cityWhereFromId,
+				getState().sectionSearch.form.cityWhereToId,
+				getState().filterChoiceTicketsAndSeatsPages.sort,
+				getState().filterChoiceTicketsAndSeatsPages.limit,
+				getState().filterChoiceTicketsAndSeatsPages.offset
+			)
+				.then(res => {
+					dispatch(filterTicketsAndSeatsAC('ticketsArray', res.data.items));
+					dispatch(filterTicketsAndSeatsAC('totalCountTickets', res.data.total_count));
+				});
+		} else if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/seat_selection') {
+			let trainnId = getState().filterChoiceTicketsAndSeatsPages.trainId
+			api.setSeatSelection(trainnId)
+			.then(res => {
+				console.log(res)
+				
+			})
+		}
+		console.log(getState().filterChoiceTicketsAndSeatsPages.actualPage);
 }
 
 export default filterTicketsAndSeatsReducer;
