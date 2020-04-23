@@ -15,7 +15,6 @@ import ReactCompoundSliderSmall from './reactCompoundSlider/ReactCompoundSliderS
 import { connect } from 'react-redux';
 import { setDataFormAC } from '../../redux/action';
 import { getLastRoutesTC } from '../../redux/searchMain-reducer';
-import { getTicketsTC } from '../../redux/ticketsPay-reducer';
 import { withRouter } from 'react-router';
 import { filterTicketsAndSeatsReducerTC } from '../../redux/filterTicketsAndSeats-reducer';
 
@@ -24,13 +23,6 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	state = {
 		customRangeCostFrom: this.props.customRangeCostFrom,
 		customRangeCostTo: this.props.customRangeCostTo,
-		lastRoutes: [],
-		have_second_class: this.props.have_second_class,
-		have_third_class: this.props.have_third_class,
-		have_fourth_class: this.props.have_fourth_class,
-		have_first_class: this.props.have_first_class,
-		have_wifi: this.props.have_wifi,
-		have_express: this.props.have_express,
 		whereFromDate: this.props.form.whereFromDate,
 		whereToDate: this.props.form.whereToDate,
 		price_from: this.props.price_from,
@@ -44,47 +36,20 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 		end_arrival_hour_from: this.props.end_arrival_hour_from,
 		end_arrival_hour_to: this.props.end_arrival_hour_to
 	};
-	getTicketsFetch = () => {
-		const data = {
-			cityWhereFromId: this.props.form.cityWhereFromId,
-			cityWhereToId: this.props.form.cityWhereToId,
-			have_second_class: this.state.have_second_class,
-			have_third_class: this.state.have_third_class,
-			have_fourth_class: this.state.have_fourth_class,
-			have_first_class: this.state.have_first_class,
-			have_wifi: this.state.have_wifi,
-			have_express: this.state.have_express,
-			price_from: this.state.price_from,
-			price_to: this.state.price_to,
-			start_departure_hour_from: this.state.start_departure_hour_from,
-			start_departure_hour_to: this.state.start_departure_hour_to,
-			start_arrival_hour_from: this.state.start_arrival_hour_from,
-			start_arrival_hour_to: this.state.start_arrival_hour_to,
-			end_departure_hour_from: this.state.end_departure_hour_from,
-			end_departure_hour_to: this.state.end_departure_hour_to,
-			end_arrival_hour_from: this.state.end_arrival_hour_from,
-			end_arrival_hour_to: this.state.end_arrival_hour_to,
-			customRangeCostFrom: this.state.customRangeCostFrom,
-			customRangeCostTo: this.state.customRangeCostTo
-		};
-
-		// this.props.getTickets(data, 'url');
-	};
 
 	componentDidMount() {
 		this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
 		this.props.getLasRoutes();
-		this.getTicketsFetch();
 	};
 
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.total_count !== this.props.total_count ||
-			prevState.have_second_class !== this.state.have_second_class ||
-			prevState.have_third_class !== this.state.have_third_class ||
-			prevState.have_fourth_class !== this.state.have_fourth_class ||
-			prevState.have_first_class !== this.state.have_first_class ||
-			prevState.have_wifi !== this.state.have_wifi ||
-			prevState.have_express !== this.state.have_express ||
+			prevProps.have_second_class !== this.props.have_second_class ||
+			prevProps.have_third_class !== this.props.have_third_class ||
+			prevProps.have_fourth_class !== this.props.have_fourth_class ||
+			prevProps.have_first_class !== this.props.have_first_class ||
+			prevProps.have_wifi !== this.props.have_wifi ||
+			prevProps.have_express !== this.props.have_express ||
 			prevState.price_from !== this.state.price_from ||
 			prevState.price_to !== this.state.price_to ||
 			prevState.start_departure_hour_from !== this.state.start_departure_hour_from ||
@@ -96,7 +61,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevState.end_arrival_hour_from !== this.state.end_arrival_hour_from ||
 			prevState.end_arrival_hour_to !== this.state.end_arrival_hour_to
 			) {
-			this.getTicketsFetch();
+				this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
 			};
 	};
 
@@ -104,17 +69,17 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	setWhereToDate = (event) => this.setState({ whereToDate: event.currentTarget.value });
 
-	checkSecondClass = (event) => this.setState({ have_second_class: event.currentTarget.checked });
+	checkSecondClass = (event) => this.props.setSeatsAndTicketsEvent('have_second_class', event.currentTarget.checked);
 
-	checkThirdClass = (event) => this.setState({ have_third_class: event.currentTarget.checked });
+	checkThirdClass = (event) => this.props.setSeatsAndTicketsEvent('have_third_class', event.currentTarget.checked);
 
-	checkFourthClass = (event) => this.setState({ have_fourth_class: event.currentTarget.checked });
+	checkFourthClass = (event) => this.props.setSeatsAndTicketsEvent('have_fourth_class', event.currentTarget.checked);
 
-	checkFirstClass = (event) => this.setState({ have_first_class: event.currentTarget.checked });
+	checkFirstClass = (event) => this.props.setSeatsAndTicketsEvent('have_first_class', event.currentTarget.checked);
 
-	checkWiFi = (event) => this.setState({ have_wifi: event.currentTarget.checked });
+	checkWiFi = (event) => this.props.setSeatsAndTicketsEvent('have_wifi', event.currentTarget.checked);
 
-	checkExpress = (event) => this.setState({ have_express: event.currentTarget.checked });
+	checkExpress = (event) => this.props.setSeatsAndTicketsEvent('have_express', event.currentTarget.checked);
 
 	setCustomRangeCostFrom = (bool) => this.setState({ customRangeCostFrom: bool });
 
@@ -165,7 +130,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<p className="container">Купе</p>
 							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
 								<input type="checkbox" className="custom-control-input" id="customSwitch1"
-									checked={this.state.have_second_class} onChange={this.checkSecondClass} />
+									checked={this.props.have_second_class} onChange={this.checkSecondClass} />
 								<label className="custom-control-label" htmlFor="customSwitch1"></label>
 							</div>
 						</div>
@@ -174,7 +139,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<p className="container">Плацкарт</p>
 							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
 								<input type="checkbox" className="custom-control-input" id="customSwitch2"
-									checked={this.state.have_third_class} onChange={this.checkThirdClass} />
+									checked={this.props.have_third_class} onChange={this.checkThirdClass} />
 								<label className="custom-control-label" htmlFor="customSwitch2"></label>
 							</div>
 						</div>
@@ -183,7 +148,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<p className="container">Сидячий</p>
 							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
 								<input type="checkbox" className="custom-control-input" id="customSwitch3"
-									checked={this.state.have_fourth_class} onChange={this.checkFourthClass} />
+									checked={this.props.have_fourth_class} onChange={this.checkFourthClass} />
 								<label className="custom-control-label" htmlFor="customSwitch3"></label>
 							</div>
 						</div>
@@ -192,7 +157,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<p className="container">Люкс</p>
 							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
 								<input type="checkbox" className="custom-control-input" id="customSwitch4"
-									checked={this.state.have_first_class} onChange={this.checkFirstClass} />
+									checked={this.props.have_first_class} onChange={this.checkFirstClass} />
 								<label className="custom-control-label" htmlFor="customSwitch4"></label>
 							</div>
 						</div>
@@ -201,7 +166,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<p className="container">Wi-Fi</p>
 							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
 								<input type="checkbox" className="custom-control-input" id="customSwitch5"
-									checked={this.state.have_wifi} onChange={this.checkWiFi} />
+									checked={this.props.have_wifi} onChange={this.checkWiFi} />
 								<label className="custom-control-label" htmlFor="customSwitch5"></label>
 							</div>
 						</div>
@@ -210,7 +175,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<p className="container">Экспресс</p>
 							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
 								<input type="checkbox" className="custom-control-input" id="customSwitch6"
-									checked={this.state.have_express} onChange={this.checkExpress} />
+									checked={this.props.have_express} onChange={this.checkExpress} />
 								<label className="custom-control-label" htmlFor="customSwitch6"></label>
 							</div>
 						</div>
@@ -308,24 +273,24 @@ const mapStateToProps = (state) => {
 		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
 		items: state.filterChoiceTicketsAndSeatsPages.tickets,
 		total_count: state.filterChoiceTicketsAndSeatsPages.totalCountTickets,
-		have_second_class: state.ticketsPayPage.have_second_class,
-		have_third_class: state.ticketsPayPage.have_third_class,
-		have_fourth_class: state.ticketsPayPage.have_fourth_class,
-		have_first_class: state.ticketsPayPage.have_first_class,
-		have_wifi: state.ticketsPayPage.have_wifi,
-		have_express: state.ticketsPayPage.have_express,
-		price_from: state.ticketsPayPage.price_from,
-		price_to: state.ticketsPayPage.price_to,
-		start_departure_hour_from: state.ticketsPayPage.start_departure_hour_from,
-		start_departure_hour_to: state.ticketsPayPage.start_departure_hour_to,
-		start_arrival_hour_from: state.ticketsPayPage.start_arrival_hour_from,
-		start_arrival_hour_to: state.ticketsPayPage.start_arrival_hour_to,
-		end_departure_hour_from: state.ticketsPayPage.end_departure_hour_from,
-		end_departure_hour_to: state.ticketsPayPage.end_departure_hour_to,
-		end_arrival_hour_from: state.ticketsPayPage.end_arrival_hour_from,
-		end_arrival_hour_to: state.ticketsPayPage.end_arrival_hour_to,
-		customRangeCostFrom: state.ticketsPayPage.customRangeCostFrom,
-		customRangeCostTo: state.ticketsPayPage.customRangeCostTo
+		have_second_class: state.filterChoiceTicketsAndSeatsPages.have_second_class,
+		have_third_class: state.filterChoiceTicketsAndSeatsPages.have_third_class,
+		have_fourth_class: state.filterChoiceTicketsAndSeatsPages.have_fourth_class,
+		have_first_class: state.filterChoiceTicketsAndSeatsPages.have_first_class,
+		have_wifi: state.filterChoiceTicketsAndSeatsPages.have_wifi,
+		have_express: state.filterChoiceTicketsAndSeatsPages.have_express,
+		price_from: state.filterChoiceTicketsAndSeatsPages.price_from,
+		price_to: state.filterChoiceTicketsAndSeatsPages.price_to,
+		start_departure_hour_from: state.filterChoiceTicketsAndSeatsPages.start_departure_hour_from,
+		start_departure_hour_to: state.filterChoiceTicketsAndSeatsPages.start_departure_hour_to,
+		start_arrival_hour_from: state.filterChoiceTicketsAndSeatsPages.start_arrival_hour_from,
+		start_arrival_hour_to: state.filterChoiceTicketsAndSeatsPages.start_arrival_hour_to,
+		end_departure_hour_from: state.filterChoiceTicketsAndSeatsPages.end_departure_hour_from,
+		end_departure_hour_to: state.filterChoiceTicketsAndSeatsPages.end_departure_hour_to,
+		end_arrival_hour_from: state.filterChoiceTicketsAndSeatsPages.end_arrival_hour_from,
+		end_arrival_hour_to: state.filterChoiceTicketsAndSeatsPages.end_arrival_hour_to,
+		customRangeCostFrom: state.filterChoiceTicketsAndSeatsPages.customRangeCostFrom,
+		customRangeCostTo: state.filterChoiceTicketsAndSeatsPages.customRangeCostTo
 	};
 };
 
@@ -337,9 +302,6 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		getLasRoutes: () => {
 			dispatch(getLastRoutesTC())
-		},
-		getTickets: (data, url) => {
-			dispatch(getTicketsTC(data, url))
 		},
 		setSeatsAndTicketsEvent: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
 	};

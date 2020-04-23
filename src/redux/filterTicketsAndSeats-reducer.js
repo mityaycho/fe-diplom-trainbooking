@@ -45,13 +45,11 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 	dispatch(filterTicketsAndSeatsAC(fieldName, fieldValue));
 	if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/search_tickets') {
 			api.filterTicketsAndSeatsAPI(
-				getState().sectionSearch.form.cityWhereFromId,
-				getState().sectionSearch.form.cityWhereToId,
-				getState().filterChoiceTicketsAndSeatsPages.sort,
-				getState().filterChoiceTicketsAndSeatsPages.limit,
-				getState().filterChoiceTicketsAndSeatsPages.offset
+				getState().sectionSearch.form,
+				getState().filterChoiceTicketsAndSeatsPages
 			)
 				.then(res => {
+					console.log(res)
 					dispatch(filterTicketsAndSeatsAC('ticketsArray', res.data.items));
 					dispatch(filterTicketsAndSeatsAC('totalCountTickets', res.data.total_count));
 				});
