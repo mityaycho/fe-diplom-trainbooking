@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import { setDataFormAC } from '../../../redux/action';
 import iconCachedWhite from '../../../images/icon_cached_white.png';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
+import { connect } from 'react-redux';
+import { setDataFormAC } from '../../../redux/action';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { NavLink } from 'react-router-dom';
 import { searchMainAPI } from '../../../redux/searchMain-reducer';

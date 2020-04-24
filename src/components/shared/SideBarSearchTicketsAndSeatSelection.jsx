@@ -90,7 +90,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<input className="col-sm form-control"
 								type="date"
 								onChange={this.setWhereFromDate}
-								value={this.props.whereFromDate}
+								value={this.props.form.whereFromDate}
 							/>
 						</div>
 					</form>
@@ -100,7 +100,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<input className="col-sm form-control"
 								type="date"
 								onChange={this.setWhereToDate}
-								value={this.props.whereToDate}
+								value={this.props.form.whereToDate}
 							/>
 						</div>
 					</form>
