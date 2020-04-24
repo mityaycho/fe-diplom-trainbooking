@@ -8,7 +8,7 @@ export const api = {
 	getLastRoutes() {
 		return instance.get('routes/last')
 	},
-	filtersortTicketsAPI(
+	filterTicketsAndSeatsAPI(
 		sectionSearch,
 		sortTickets
 		// cityWhereFromId,
@@ -37,7 +37,7 @@ export const api = {
 		// cityWhereToId: "5b9a2fa7f83e028786ea5673"
 		// `routes?from_city_id=${cityWhereFromId}&to_city_id=${cityWhereToId}` (line 28) old
 		// `routes?from_city_id=${sectionSearch.cityWhereFromId}&to_city_id=${sectionSearch.cityWhereToId}` (line 28)
-debugger
+
 		return instance.get(
 			`routes?from_city_id=${'5b9a2fa7f83e028786ea5672'}&to_city_id=${'5b9a2fa7f83e028786ea5673'}` +
 			(`${sortTickets.sort}` ? `&sort=${sortTickets.sort}` : '') +

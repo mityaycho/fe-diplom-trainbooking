@@ -44,8 +44,7 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 				getState().filterChoiceTicketsAndSeatsPages
 			)
 				.then(res => {
-					console.log(res)
-					debugger
+					console.log(res);
 					dispatch(filterTicketsAndSeatsAC('ticketsArray', res.data.items));
 					dispatch(filterTicketsAndSeatsAC('totalCountTickets', res.data.total_count));
 				});
@@ -53,7 +52,7 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 			let trainnId = getState().filterChoiceTicketsAndSeatsPages.trainId
 			api.setSeatSelection(trainnId)
 			.then(res => {
-				console.log(res)
+				console.log(res);
 				
 			})
 		}

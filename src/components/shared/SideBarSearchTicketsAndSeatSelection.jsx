@@ -20,25 +20,9 @@ import { filterTicketsAndSeatsReducerTC } from '../../redux/filterTicketsAndSeat
 
 
 class SideBarSearchTicketsAndSeatSelection extends React.Component {
-	state = {
-		customRangeCostFrom: this.props.customRangeCostFrom,
-		customRangeCostTo: this.props.customRangeCostTo,
-		whereFromDate: this.props.form.whereFromDate,
-		whereToDate: this.props.form.whereToDate,
-		price_from: this.props.price_from,
-		price_to: this.props.price_to,
-		start_departure_hour_from: this.props.start_departure_hour_from,
-		start_departure_hour_to: this.props.start_departure_hour_to,
-		start_arrival_hour_from: this.props.start_arrival_hour_from,
-		start_arrival_hour_to: this.props.start_arrival_hour_to,
-		end_departure_hour_from: this.props.end_departure_hour_from,
-		end_departure_hour_to: this.props.end_departure_hour_to,
-		end_arrival_hour_from: this.props.end_arrival_hour_from,
-		end_arrival_hour_to: this.props.end_arrival_hour_to
-	};
 
 	componentDidMount() {
-		this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
+		this.props.setSeatsAndTickets('actualPage', this.props.match.url);
 		this.props.getLasRoutes();
 	};
 
@@ -50,18 +34,15 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevProps.have_first_class !== this.props.have_first_class ||
 			prevProps.have_wifi !== this.props.have_wifi ||
 			prevProps.have_express !== this.props.have_express ||
-			prevState.price_from !== this.state.price_from ||
-			prevState.price_to !== this.state.price_to ||
-			prevState.start_departure_hour_from !== this.state.start_departure_hour_from ||
-			prevState.start_departure_hour_to !== this.state.start_departure_hour_to ||
-			prevState.start_arrival_hour_from !== this.state.start_arrival_hour_from ||
-			prevState.start_arrival_hour_to !== this.state.start_arrival_hour_to ||
-			prevState.end_departure_hour_from !== this.state.end_departure_hour_from ||
-			prevState.end_departure_hour_to !== this.state.end_departure_hour_to ||
-			prevState.end_arrival_hour_from !== this.state.end_arrival_hour_from ||
-			prevState.end_arrival_hour_to !== this.state.end_arrival_hour_to
+			prevProps.price_arr !== this.props.price_arr ||
+			prevProps.start_departure_hour_arr !== this.props.start_departure_hour_arr ||
+			prevProps.start_arrival_hour_arr !== this.props.start_arrival_hour_arr ||
+			prevProps.end_departure_hour_arr !== this.props.end_departure_hour_arr ||
+			prevProps.end_arrival_hour_arr !== this.props.end_arrival_hour_arr ||
+			prevProps.customRangeCostFrom !== this.props.customRangeCostFrom ||
+			prevProps.customRangeCostTo !== this.props.customRangeCostTo
 			) {
-				this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
+				this.props.setSeatsAndTickets('actualPage', this.props.match.url);
 			};
 	};
 
@@ -69,31 +50,31 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 	setWhereToDate = (event) => this.setState({ whereToDate: event.currentTarget.value });
 
-	checkSecondClass = (event) => this.props.setSeatsAndTicketsEvent('have_second_class', event.currentTarget.checked);
+	checkSecondClass = (event) => this.props.setSeatsAndTickets('have_second_class', event.currentTarget.checked);
 
-	checkThirdClass = (event) => this.props.setSeatsAndTicketsEvent('have_third_class', event.currentTarget.checked);
+	checkThirdClass = (event) => this.props.setSeatsAndTickets('have_third_class', event.currentTarget.checked);
 
-	checkFourthClass = (event) => this.props.setSeatsAndTicketsEvent('have_fourth_class', event.currentTarget.checked);
+	checkFourthClass = (event) => this.props.setSeatsAndTickets('have_fourth_class', event.currentTarget.checked);
 
-	checkFirstClass = (event) => this.props.setSeatsAndTicketsEvent('have_first_class', event.currentTarget.checked);
+	checkFirstClass = (event) => this.props.setSeatsAndTickets('have_first_class', event.currentTarget.checked);
 
-	checkWiFi = (event) => this.props.setSeatsAndTicketsEvent('have_wifi', event.currentTarget.checked);
+	checkWiFi = (event) => this.props.setSeatsAndTickets('have_wifi', event.currentTarget.checked);
 
-	checkExpress = (event) => this.props.setSeatsAndTicketsEvent('have_express', event.currentTarget.checked);
+	checkExpress = (event) => this.props.setSeatsAndTickets('have_express', event.currentTarget.checked);
 
-	setCustomRangeCostFrom = (bool) => this.setState({ customRangeCostFrom: bool });
+	setCustomRangeCostFrom = (bool) => this.props.setSeatsAndTickets('customRangeCostFrom', bool);
 
-	setCustomRangeCostTo = (bool) => this.setState({ customRangeCostTo: bool });
+	setCustomRangeCostTo = (bool) => this.props.setSeatsAndTickets('customRangeCostTo', bool);
 
-	setPrice = (array) => this.setState({price_from: array[0], price_to: array[1]});
+	setPrice = (array) => this.props.setSeatsAndTickets('price_arr', array);
 
-	startDeparture = (array) => this.setState({start_departure_hour_from: array[0], start_departure_hour_to: array[1]});
+	startDeparture = (array) => this.props.setSeatsAndTickets('start_departure_hour_arr', array)
 	
-	startArrival = (array) => this.setState({start_arrival_hour_from: array[0], start_arrival_hour_to: array[1]});
+	startArrival = (array) => this.props.setSeatsAndTickets('start_arrival_hour_arr', array);
 	
-	endDeparture = (array) => this.setState({end_departure_hour_from: array[0], end_departure_hour_to: array[1]});
+	endDeparture = (array) => this.props.setSeatsAndTickets('end_departure_hour_arr', array);
 	
-	endArrival = (array) => this.setState({end_arrival_hour_from: array[0], end_arrival_hour_to: array[1]});
+	endArrival = (array) => this.props.setSeatsAndTickets('end_arrival_hour_arr', array);
 
 	render() {
 
@@ -109,7 +90,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<input className="col-sm form-control"
 								type="date"
 								onChange={this.setWhereFromDate}
-								value={this.state.whereFromDate}
+								value={this.props.whereFromDate}
 							/>
 						</div>
 					</form>
@@ -119,7 +100,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							<input className="col-sm form-control"
 								type="date"
 								onChange={this.setWhereToDate}
-								value={this.state.whereToDate}
+								value={this.props.whereToDate}
 							/>
 						</div>
 					</form>
@@ -192,7 +173,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 
 					<hr className="bg-light mt-5" />
-					{this.state.customRangeCostFrom ?
+					{this.props.customRangeCostFrom ?
 						<div>
 							<div className="container d-flex justify-content-between w-100">
 								<p className="custom-range-cost ml-2 mt-2 font-weight-bold">
@@ -224,7 +205,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 
 					<hr className="bg-light" />
 
-					{this.state.customRangeCostTo ?
+					{this.props.customRangeCostTo ?
 						<div className="pb-3">
 							<div className="container d-flex justify-content-between w-100">
 								<p className="custom-range-cost ml-2 mt-2 font-weight-bold">
@@ -298,7 +279,7 @@ const mapDispatchToProps = (dispatch) => {
 		getLasRoutes: () => {
 			dispatch(getLastRoutesTC())
 		},
-		setSeatsAndTicketsEvent: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
+		setSeatsAndTickets: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
 	};
 };
 

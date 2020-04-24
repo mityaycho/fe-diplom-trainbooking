@@ -18,7 +18,8 @@ class SearchTicketsJSX extends React.Component {
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.sort !== this.props.sort ||
+		if (prevProps.total_count !== this.props.total_count ||
+			prevProps.sort !== this.props.sort ||
 			prevProps.limit !== this.props.limit ||
 			prevProps.offset !== this.props.offset
 		) {
