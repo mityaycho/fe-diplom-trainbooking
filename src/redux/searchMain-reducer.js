@@ -25,6 +25,11 @@ const searchMainReducer = (state = initState, action) => {
 	};
 };
 
+export const searchMainAPI = (value) => {
+	return api.searchRoutes(value)
+	.then(res => res)
+}
+
 export const getLastRoutesTC = () => (dispatch) => {
 	api.getLastRoutes()
 		.then(res => dispatch(setLastRoutes(res.data)));

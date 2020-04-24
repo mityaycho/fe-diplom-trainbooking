@@ -5,33 +5,15 @@ const instance = axios.create({
 });
 
 export const api = {
+	searchRoutes(value) {
+		return instance.get(`routes/cities?name=${value}`);
+	},
 	getLastRoutes() {
-		return instance.get('routes/last')
+		return instance.get('routes/last');
 	},
 	filterTicketsAndSeatsAPI(
 		sectionSearch,
 		sortTickets
-		// cityWhereFromId,
-		// cityWhereToId,
-		// sort,
-		// limit,
-		// offset,
-		// have_second_class,
-		// have_third_class,
-		// have_fourth_class,
-		// have_first_class,
-		// have_wifi,
-		// have_express,
-		// price_from,
-		// price_to,
-		// start_departure_hour_from,
-		// start_departure_hour_to,
-		// start_arrival_hour_from,
-		// start_arrival_hour_to,
-		// end_departure_hour_from,
-		// end_departure_hour_to,
-		// end_arrival_hour_from,
-		// end_arrival_hour_to
 	) {
 		// cityWhereFromId: "5b9a2fa7f83e028786ea5672"
 		// cityWhereToId: "5b9a2fa7f83e028786ea5673"
