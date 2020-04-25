@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 const TrainFrom = (props) => {
 	return (
-		<div className="choice-of-place-there">
+		<div className="choice-of-place-there mb-3">
 							<div className="choice-other-train-button d-flex mt-4">
 								<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..."/></button>
 								<NavLink type="button" 

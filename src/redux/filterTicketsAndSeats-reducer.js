@@ -51,7 +51,7 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 		} else if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/seat_selection') {
 			api.setSeatSelection(getState().filterChoiceTicketsAndSeatsPages)
 			.then(res => {
-				console.log(res.data);
+				console.log(res);
 				dispatch(filterTicketsAndSeatsAC('choiceSeatsArray', res.data));
 			})
 		}

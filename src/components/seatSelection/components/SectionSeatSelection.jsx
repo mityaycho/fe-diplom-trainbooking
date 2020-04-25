@@ -9,9 +9,20 @@ import { NavLink } from 'react-router-dom';
 import TrainFrom from './TrainFrom';
 import TrainTo from './TrainTo';
 
+
+
 class SectionSeatSelection extends React.Component {
 
 	render () {
+
+		const ticketSelected = this.props.ticketsArray.find(el => el.departure._id === this.props.trainId);
+		console.log(ticketSelected)
+
+		const trainFromJSX = this.props.choiceSeatsArray ? this.props.choiceSeatsArray.map((el, idx) =>
+		<TrainFrom key={idx} seats={el} ticket={ticketSelected} />) : [];
+
+		const trainToJSX = this.props.choiceSeatsArray ? this.props.choiceSeatsArray.map((el, idx) =>
+		<TrainTo key={idx} seats={el} ticket={ticketSelected} />) : [];
 		
 		return (
 			<div>
@@ -26,8 +37,8 @@ class SectionSeatSelection extends React.Component {
 					<SideBarSearchTicketsAndSeatSelection />
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
-						<TrainFrom />
-						<TrainTo />
+						{trainFromJSX}
+						{trainToJSX}
 						<div className="d-flex justify-content-end">
 							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/passengers" type="button">Далее</NavLink>
 						</div>
@@ -41,7 +52,9 @@ class SectionSeatSelection extends React.Component {
 const mapStateToProps = (state) => {
   return {
 		form: state.sectionSearch.form,
-		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray
+		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
+		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
+		trainId: state.filterChoiceTicketsAndSeatsPages.trainId
   };
 };
 

@@ -8,7 +8,7 @@ import iconSearchBack from '../../../images/icon_search_back.png';
 
 const TrainTo = (props) => {
 	return (
-		<div className="choce-of-place-back mt-3 mb-5 pb-5">
+		<div className="choce-of-place-back mb-3 pb-5">
 							<div className="choice-other-train-button d-flex justify-content-end mt-4">
 								<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..."/></button>
 								<button type="button" className="btn btn-outline-dark ml-3 mr-3 font-weight-bold">Выбрать другой поезд</button>
