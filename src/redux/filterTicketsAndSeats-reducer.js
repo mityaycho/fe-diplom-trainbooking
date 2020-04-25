@@ -3,6 +3,7 @@ import { api } from "../api/api";
 
 const initState = {
 	ticketsArray: [],
+	choiceSeatsArray: [],
 	totalCountTickets: 0,
 	sort: 'date',
 	limit: '5',
@@ -44,7 +45,6 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 				getState().filterChoiceTicketsAndSeatsPages
 			)
 				.then(res => {
-					console.log(res);
 					dispatch(filterTicketsAndSeatsAC('ticketsArray', res.data.items));
 					dispatch(filterTicketsAndSeatsAC('totalCountTickets', res.data.total_count));
 				});
@@ -52,8 +52,8 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 			let trainnId = getState().filterChoiceTicketsAndSeatsPages.trainId
 			api.setSeatSelection(trainnId)
 			.then(res => {
-				console.log(res);
-				
+				console.log(res.data);
+				dispatch(filterTicketsAndSeatsAC('choiceSeatsArray', res.data));
 			})
 		}
 		console.log(getState().filterChoiceTicketsAndSeatsPages.actualPage);
