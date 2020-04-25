@@ -43,8 +43,15 @@ export const api = {
 			`${sortTickets.end_arrival_hour_arr[1] ? `&end_arrival_hour_to=${sortTickets.end_arrival_hour_arr[1]}` : ''}`
 		)
 	},
-	setSeatSelection(trainId) {
-		console.log(trainId)
-		return instance.get(`routes/${trainId}/seats?`);
+	setSeatSelection(sortTickets) {
+		return instance.get(
+			`routes/${sortTickets.trainId}/seats?` +
+			`${sortTickets.have_second_class ? '&have_second_class=true' : ''}` +
+			`${sortTickets.have_third_class ? '&have_third_class=true' : ''}` +
+			`${sortTickets.have_fourth_class ? '&have_fourth_class=true' : ''}` +
+			`${sortTickets.have_first_class ? '&have_first_class=true' : ''}` +
+			`${sortTickets.have_wifi ? '&have_wifi=true' : ''}` +
+			`${sortTickets.have_express ? '&have_express=true' : ''}`
+		);
 	}
 };

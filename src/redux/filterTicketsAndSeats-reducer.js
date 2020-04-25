@@ -49,8 +49,7 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 					dispatch(filterTicketsAndSeatsAC('totalCountTickets', res.data.total_count));
 				});
 		} else if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/seat_selection') {
-			let trainnId = getState().filterChoiceTicketsAndSeatsPages.trainId
-			api.setSeatSelection(trainnId)
+			api.setSeatSelection(getState().filterChoiceTicketsAndSeatsPages)
 			.then(res => {
 				console.log(res.data);
 				dispatch(filterTicketsAndSeatsAC('choiceSeatsArray', res.data));
