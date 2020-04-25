@@ -16,13 +16,7 @@ class SectionSeatSelection extends React.Component {
 	render () {
 
 		const ticketSelected = this.props.ticketsArray.find(el => el.departure._id === this.props.trainId);
-		console.log(ticketSelected)
-
-		const trainFromJSX = this.props.choiceSeatsArray ? this.props.choiceSeatsArray.map((el, idx) =>
-		<TrainFrom key={idx} seats={el} ticket={ticketSelected} />) : [];
-
-		const trainToJSX = this.props.choiceSeatsArray ? this.props.choiceSeatsArray.map((el, idx) =>
-		<TrainTo key={idx} seats={el} ticket={ticketSelected} />) : [];
+		console.log(ticketSelected);
 		
 		return (
 			<div>
@@ -37,8 +31,8 @@ class SectionSeatSelection extends React.Component {
 					<SideBarSearchTicketsAndSeatSelection />
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
-						{trainFromJSX}
-						{trainToJSX}
+						<TrainFrom ticket={ticketSelected} places={this.props.choiceSeatsArray} />
+						<TrainTo ticket={ticketSelected} places={this.props.choiceSeatsArray} />
 						<div className="d-flex justify-content-end">
 							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/passengers" type="button">Далее</NavLink>
 						</div>

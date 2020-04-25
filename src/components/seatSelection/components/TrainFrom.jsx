@@ -9,6 +9,16 @@ import { NavLink } from 'react-router-dom';
 
 
 const TrainFrom = (props) => {
+
+	let fromDateTime = props.ticket.departure.from.datetime;
+	let toDateTime = props.ticket.departure.to.datetime;
+	let duration = props.ticket.departure.duration;
+	let fromArrival = fromDateTime + duration;
+	let toArrival = toDateTime + duration;
+
+	const getHours = (msc) => new Date(msc).getHours();
+	const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+
 	return (
 		<div className="choice-of-place-there mb-3">
 							<div className="choice-other-train-button d-flex mt-4">
@@ -21,30 +31,30 @@ const TrainFrom = (props) => {
 								<div className="d-flex">
 									<img className="align-self-center ml-5 mr-5" src={choiceTrainIcon} alt="..."/>
 									<ul className="list-unstyled">
-										<li className="font-weight-bold">116C</li>
+										<li className="font-weight-bold">{props.ticket.departure.train.name}</li>
 										<li>Адлер</li>
-										<li>Москва</li>
-										<li>Санкт-Петербург</li>
+										<li>{props.ticket.departure.from.city.name}</li>
+										<li>{props.ticket.departure.to.city.name}</li>
 									</ul>
 								</div>
 								<div className="d-flex">
 									<ul className="list-unstyled align-self-center">
-										<li className="font-weight-bold">00:10</li>
-										<li className="">Москва</li>
-										<li className="font-weight-light">Курский вокзал</li>
+										<li className="font-weight-bold">{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</li>
+										<li className="">{props.ticket.departure.from.city.name}</li>
+										<li className="font-weight-light">{props.ticket.departure.from.railway_station_name}</li>
 									</ul>
 									<img className="col align-self-center" src={iconSearchThere} alt="иконка стрелки вправо"/>
 									<ul className="list-unstyled align-self-center">
-										<li className="font-weight-bold">09:52</li>
-										<li className="">Санкт-Петербург</li>
-										<li className="font-weight-light">Ладожский вокзал</li>
+										<li className="font-weight-bold">{getHours(duration)}:{getMinutes(duration)}</li>
+										<li className="">{props.ticket.departure.to.city.name}</li>
+										<li className="font-weight-light">{props.ticket.departure.to.railway_station_name}</li>
 									</ul>
 								</div>
 								<div className="d-flex mr-5">
 									<img className="align-self-center" src={choiceTimeIcon} alt="..."/>
 									<ul className="list-unstyled align-self-center mt-2 ml-2">
-										<li className="font-weight-bold">9 часов</li>
-										<li className="font-weight-bold">42 минуты</li>
+										<li className="font-weight-bold">{getHours(toArrival)} часов</li>
+										<li className="font-weight-bold">{getMinutes(toArrival)} минуты</li>
 									</ul>
 								</div>
 							</div>
