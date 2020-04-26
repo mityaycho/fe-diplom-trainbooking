@@ -5,12 +5,15 @@ import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png';
 import iconSearchThere from '../../../images/icon_search_there.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
 import TicketPriceAndSeats from './TicketPriceAndSeats';
-import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 
 const ResultSearchTickets = (props) => {
 	
-	const setTrainIdEvent = () => props.setTrainId(props.state.departure._id);
+	const setTrainIdEvent = () => {
+		props.setTrainId(props.state.departure._id);
+		props.history.push('/seat_selection')
+	}
 
 	let fromDateTime = props.state.departure.from.datetime;
 	let toDateTime = props.state.departure.to.datetime;
@@ -93,18 +96,16 @@ const ResultSearchTickets = (props) => {
 						</div>
 
 						<div className="row pb-3">
-							<NavLink className="btn btn-warning m-3"
-								to="/seat_selection"
+							<button className="btn btn-warning m-3"
 								type="button"
 								onClick={setTrainIdEvent}>Выбрать места
-              </NavLink>
+              </button>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	);
 };
 
-export default ResultSearchTickets;
+export default withRouter(ResultSearchTickets);
