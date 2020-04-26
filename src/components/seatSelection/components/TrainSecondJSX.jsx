@@ -1,9 +1,9 @@
 import React from 'react';
 import iconRubleSmall from '../../../images/icon_ruble_small.png';
-import imageVagonPlaces from '../../../images/image_vagon_places.png';
+import train_second_class from '../../../images/train_second_class.png';
 
 
-const TrainJSX = (props) => {
+const TrainSecondJSX = (props) => {
 	return (
 		<div>
 			<div className="number-of-vagon d-flex justify-content-between">
@@ -42,9 +42,9 @@ const TrainJSX = (props) => {
 							<div className="d-flex justify-content-end">
 								<p className="number-of-people-online mr-4">11 человек выбирают места в этом поезде</p>
 							</div>
-							<img className="image-vagon-places" src={imageVagonPlaces} alt="..."/>
+							<img className="image-vagon-places" src={train_second_class} alt="..."/>
 		</div>
 	);
 }
 
-export default TrainJSX;
+export default TrainSecondJSX;
