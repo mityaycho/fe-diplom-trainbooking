@@ -45,7 +45,7 @@ const TrainFrom = (props) => {
 									</ul>
 									<img className="col align-self-center" src={iconSearchThere} alt="иконка стрелки вправо"/>
 									<ul className="list-unstyled align-self-center">
-										<li className="font-weight-bold">{getHours(duration)}:{getMinutes(duration)}</li>
+										<li className="font-weight-bold">{getHours(fromArrival)}:{getMinutes(fromArrival)}</li>
 										<li className="">{props.ticket.departure.to.city.name}</li>
 										<li className="font-weight-light">{props.ticket.departure.to.railway_station_name}</li>
 									</ul>
@@ -53,8 +53,8 @@ const TrainFrom = (props) => {
 								<div className="d-flex mr-5">
 									<img className="align-self-center" src={choiceTimeIcon} alt="..."/>
 									<ul className="list-unstyled align-self-center mt-2 ml-2">
-										<li className="font-weight-bold">{getHours(toArrival)} часов</li>
-										<li className="font-weight-bold">{getMinutes(toArrival)} минуты</li>
+										<li className="font-weight-bold">{getHours(duration)} часов</li>
+										<li className="font-weight-bold">{getMinutes(duration)} минуты</li>
 									</ul>
 								</div>
 							</div>
