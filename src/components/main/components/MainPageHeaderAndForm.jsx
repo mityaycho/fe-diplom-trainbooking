@@ -4,7 +4,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { connect } from 'react-redux';
 import { setDataFormAC } from '../../../redux/action';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { searchMainAPI } from '../../../redux/searchMain-reducer';
 
 class MainPageHeaderAndForm extends React.Component {
@@ -58,8 +58,9 @@ class MainPageHeaderAndForm extends React.Component {
 	saveMainState = () => {
 		const { whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId } = this.state;
 		const setForm = { whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId };
-		console.log(setForm);
 		this.props.setDataForm(setForm);
+
+		this.props.history.push('/search_tickets');
 	};
 
 	render() {
@@ -117,10 +118,9 @@ class MainPageHeaderAndForm extends React.Component {
 								</form>
 							</div>
 							<div className="text-right ml-4">
-								<NavLink className="btn btn-warning mt-5 col-lg-6"
-									to="/search_tickets"
+								<button className="btn btn-warning mt-5 col-lg-6"
 									type="button"
-									onClick={this.saveMainState}>найти билеты</NavLink>
+									onClick={this.saveMainState}>найти билеты</button>
 							</div>
 						</div>
 					</div>
@@ -148,4 +148,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPageHeaderAndForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainPageHeaderAndForm));
