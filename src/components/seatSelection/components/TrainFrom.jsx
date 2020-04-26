@@ -3,16 +3,32 @@ import choiceTrainIcon from '../../../images/icon_choice_train.png';
 import choiceTimeIcon from '../../../images/icon_choice_time.png';
 import choiceOtherTrainButtonThere from '../../../images/choice_other_train_button_there.png';
 import iconSearchThere from '../../../images/icon_search_there.png';
-import iconRubleSmall from '../../../images/icon_ruble_small.png';
-import imageVagonPlaces from '../../../images/image_vagon_places.png';
 import { NavLink } from 'react-router-dom';
+import TrainJSX from './TrainJSX';
 
 
-const TrainFrom = (props) => {
+class TrainFrom extends React.Component {
 
-	let fromDateTime = props.ticket.departure.from.datetime;
-	let toDateTime = props.ticket.departure.to.datetime;
-	let duration = props.ticket.departure.duration;
+	state = {
+		forthClass: false,
+		thirdClass: false,
+		secondClass: false,
+		firstClass: false
+	}
+
+	setForthClass = () => this.setState({forthClass: true, thirdClass: false, secondClass: false,	firstClass: false});
+
+	setThirdClass = () => this.setState({forthClass: false, thirdClass: true, secondClass: false,	firstClass: false});
+
+	setSecondClass = () => this.setState({forthClass: false, thirdClass: false, secondClass: true,	firstClass: false});
+
+	setFirstClass = () => this.setState({forthClass: false, thirdClass: false, secondClass: false,	firstClass: true});
+
+	render() {
+
+	let fromDateTime = this.props.ticket.departure.from.datetime;
+	let toDateTime = this.props.ticket.departure.to.datetime;
+	let duration = this.props.ticket.departure.duration;
 	let fromArrival = fromDateTime + duration;
 	let toArrival = toDateTime + duration;
 
@@ -31,23 +47,23 @@ const TrainFrom = (props) => {
 								<div className="d-flex">
 									<img className="align-self-center ml-5 mr-5" src={choiceTrainIcon} alt="..."/>
 									<ul className="list-unstyled">
-										<li className="font-weight-bold">{props.ticket.departure.train.name}</li>
+										<li className="font-weight-bold">{this.props.ticket.departure.train.name}</li>
 										<li>Адлер</li>
-										<li>{props.ticket.departure.from.city.name}</li>
-										<li>{props.ticket.departure.to.city.name}</li>
+										<li>{this.props.ticket.departure.from.city.name}</li>
+										<li>{this.props.ticket.departure.to.city.name}</li>
 									</ul>
 								</div>
 								<div className="d-flex">
 									<ul className="list-unstyled align-self-center">
 										<li className="font-weight-bold">{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</li>
-										<li className="">{props.ticket.departure.from.city.name}</li>
-										<li className="font-weight-light">{props.ticket.departure.from.railway_station_name}</li>
+										<li className="">{this.props.ticket.departure.from.city.name}</li>
+										<li className="font-weight-light">{this.props.ticket.departure.from.railway_station_name}</li>
 									</ul>
 									<img className="col align-self-center" src={iconSearchThere} alt="иконка стрелки вправо"/>
 									<ul className="list-unstyled align-self-center">
 										<li className="font-weight-bold">{getHours(fromArrival)}:{getMinutes(fromArrival)}</li>
-										<li className="">{props.ticket.departure.to.city.name}</li>
-										<li className="font-weight-light">{props.ticket.departure.to.railway_station_name}</li>
+										<li className="">{this.props.ticket.departure.to.city.name}</li>
+										<li className="font-weight-light">{this.props.ticket.departure.to.railway_station_name}</li>
 									</ul>
 								</div>
 								<div className="d-flex mr-5">
@@ -73,62 +89,30 @@ const TrainFrom = (props) => {
 							<div className="horizontal-line-gray mt-5 mb-5"></div>
 							<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 							<div className="choice-type-vagon-button d-flex justify-content-between mt-4">
-								<button type="button" className="btn btn-outline-light ml-5">
-									<a className="icon-type-vagon-seat align-self-center" href="a#"> </a>
+								<button type="button" className="btn btn-outline-light ml-5" onClick={this.setForthClass}>
+									<div className="icon-type-vagon-seat align-self-center"></div>
 									<p>Сидячий</p>
 								</button>
-								<button type="button" className="btn btn-outline-light">
-									<a className="icon-type-vagon-reserved-seat align-self-center" href="a#"> </a>
+								<button type="button" className="btn btn-outline-light" onClick={this.setThirdClass}>
+									<div className="icon-type-vagon-reserved-seat align-self-center"></div>
 									<p>Плацкарт</p>
 								</button>
-								<button type="button" className="btn btn-outline-light">
-									<a className="icon-type-vagon-coupe align-self-center" href="a#"> </a>
+								<button type="button" className="btn btn-outline-light" onClick={this.setSecondClass}>
+									<div className="icon-type-vagon-coupe align-self-center"></div>
 									<p>Купе</p>
 								</button>
-								<button type="button" className="btn btn-outline-light mr-5">
-									<a className="icon-type-vagon-luxury align-self-center" href="a#"> </a>
+								<button type="button" className="btn btn-outline-light mr-5" onClick={this.setFirstClass}>
+									<div className="icon-type-vagon-luxury align-self-center"></div>
 									<p>Люкс</p>
 								</button>
 							</div>
-							<div className="number-of-vagon d-flex justify-content-between">
-								<div className="d-flex">
-									<p>Вагоны</p>
-									<p className="font-weight-bold text-white ml-1">07</p>
-									<p className="font-weight-bold ml-1">09</p>
-								</div>
-								<p>Нумерация вагонов начинается с головы поезда</p>
-							</div>
-							<div className="number-of-vagon-checked d-flex">
-								<div className="number-of-vagon-checked-yellow">
-									<p className="number-of-vagon-checked-yellow-number">07</p>
-									<p className="number-of-vagon-checked-yellow-text">вагон</p>
-								</div>
-								<div className="col ml-5 mt-3">
-									<p>места 11</p>
-									<p>Верхние 3</p>
-									<p>Нижние 8</p>
-								</div>
-								<div className="col ml-5 mt-3">
-									<p>Стоимость</p>
-									<p>2 920<img className="align-self-center ml-1" src={iconRubleSmall} alt="..."/></p>
-									<p>3 530<img className="align-self-center ml-1" src={iconRubleSmall} alt="..."/></p>
-								</div>
-								<div className="col-lg-4 mt-3">
-									<p>Обслуживание ФПК</p>
-									<div>
-									<label><input type="checkbox" className="icon-vagon-conditioner align-self-center"/><span></span></label>
-									<label><input type="checkbox" className="icon-vagon-wifi align-self-center"/><span></span></label>
-									<label><input type="checkbox" className="icon-vagon-linens align-self-center"/><span></span></label>
-									<label><input type="checkbox" className="icon-vagon-cup align-self-center"/><span></span></label>
-									</div>
-								</div>
-							</div>
-							<div className="d-flex justify-content-end">
-								<p className="number-of-people-online mr-4">11 человек выбирают места в этом поезде</p>
-							</div>
-							<img className="image-vagon-places" src={imageVagonPlaces} alt="..."/>
+							{this.state.forthClass && <TrainJSX />}
+							{this.state.thirdClass && <TrainJSX />}
+							{this.state.secondClass && <TrainJSX />}
+							{this.state.firstClass && <TrainJSX />}
 						</div>
 	);
+	}
 }
 
 export default TrainFrom;
