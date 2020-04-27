@@ -45,7 +45,7 @@ export const api = {
 	},
 	setSeatSelection(sortTickets) {
 		return instance.get(
-			`routes/${sortTickets.trainId}/seats?` +
+			`routes/${sortTickets.trainId === '' ? '5b9a3488f83e028786ea6ff8' : sortTickets.trainId}/seats?` +
 			`${sortTickets.have_second_class ? '&have_second_class=true' : ''}` +
 			`${sortTickets.have_third_class ? '&have_third_class=true' : ''}` +
 			`${sortTickets.have_fourth_class ? '&have_fourth_class=true' : ''}` +
