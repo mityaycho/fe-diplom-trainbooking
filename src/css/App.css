@@ -701,9 +701,94 @@ padding-right: 8px;
 	width: 740px;
 }
 
+
 .train-fourth-container {
 	position: relative;
 }
+
+.train-fourth-container .index {
+	display: flex;
+	height: 47px;
+	width: 22px;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: lightgray;
+	align-items: flex-end;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.train-fourth-container .index:hover {
+	background-color: gray;
+}
+
+.train-fourth-container .index:nth-child(2n-1) {
+	margin-left: 3px;
+}
+
+.train-fourth-container .index:nth-child(2n+2) {
+	margin-left: 25px;
+}
+
+
+.train-third-container {
+	position: relative;
+}
+
+.train-third-container .index {
+	display: flex;
+	height: 47px;
+	width: 22px;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: lightgray;
+	align-items: flex-end;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.train-third-container .index:hover {
+	background-color: gray;
+}
+
+.train-third-container .index:nth-child(2n-1) {
+	margin-left: 3px;
+}
+
+.train-third-container .index:nth-child(2n+2) {
+	margin-left: 25px;
+}
+
+
+.train-second-container {
+	position: relative;
+}
+
+.train-second-container .index {
+	display: flex;
+	height: 47px;
+	width: 22px;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: lightgray;
+	align-items: flex-end;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.train-second-container .index:hover {
+	background-color: gray;
+}
+
+.train-second-container .index:nth-child(2n-1) {
+	margin-left: 3px;
+}
+
+.train-second-container .index:nth-child(2n+2) {
+	margin-left: 25px;
+}
+
+
 
 .train-first-container {
 	position: relative;
@@ -732,6 +817,7 @@ padding-right: 8px;
 .train-first-container .index:nth-child(2n+2) {
 	margin-left: 25px;
 }
+
 
 .number-of-vagon-checked label {
 	width: 50px;
