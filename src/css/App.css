@@ -712,7 +712,8 @@ padding-right: 8px;
 	width: 22px;
 	font-size: 13px;
 	font-weight: bold;
-	background-color: lightgray;
+	/* background-color: lightgray; */
+	border: 1px solid black;
 	align-items: flex-end;
 	justify-content: center;
 	cursor: pointer;
@@ -741,7 +742,8 @@ padding-right: 8px;
 	width: 22px;
 	font-size: 13px;
 	font-weight: bold;
-	background-color: lightgray;
+	/* background-color: lightgray; */
+	border: 1px solid black;
 	align-items: flex-end;
 	justify-content: center;
 	cursor: pointer;
@@ -770,7 +772,8 @@ padding-right: 8px;
 	width: 22px;
 	font-size: 13px;
 	font-weight: bold;
-	background-color: lightgray;
+	/* background-color: lightgray; */
+	border: 1px solid black;
 	align-items: flex-end;
 	justify-content: center;
 	cursor: pointer;
@@ -787,7 +790,6 @@ padding-right: 8px;
 .train-second-container .index:nth-child(2n+2) {
 	margin-left: 25px;
 }
-
 
 
 .train-first-container {
