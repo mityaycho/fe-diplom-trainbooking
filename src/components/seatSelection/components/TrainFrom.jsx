@@ -91,7 +91,7 @@ class TrainFrom extends React.Component {
 				</div>
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
-				<div className="choice-type-vagon-button d-flex justify-content-between mt-4">
+				<div className="choice-type-vagon-button d-flex justify-content-between mt-4 mb-2">
 					<button type="button" className="btn btn-outline-light ml-5" onClick={this.setFourthClass}>
 						<div className="icon-type-vagon-seat align-self-center"></div>
 						<p>Сидячий</p>
