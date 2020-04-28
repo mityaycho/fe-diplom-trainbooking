@@ -4,7 +4,7 @@ import choiceTimeIcon from '../../../images/icon_choice_time.png';
 import choiceOtherTrainButtonBack from '../../../images/choice_other_train_button_back.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
 import { NavLink } from 'react-router-dom';
-import TrainFourthJSX from './TrainFourthJSX';
+import TrainFourthJSX from './TrainJSX';
 import TrainThirdJSX from './TrainThirdJSX';
 import TrainSecondJSX from './TrainSecondJSX';
 import TrainFirstJSX from './TrainFirstSX';

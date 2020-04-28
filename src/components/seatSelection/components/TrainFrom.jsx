@@ -3,17 +3,15 @@ import choiceTrainIcon from '../../../images/icon_choice_train.png';
 import choiceTimeIcon from '../../../images/icon_choice_time.png';
 import choiceOtherTrainButtonThere from '../../../images/choice_other_train_button_there.png';
 import iconSearchThere from '../../../images/icon_search_there.png';
+import TrainJSX from './TrainJSX';
 import { NavLink } from 'react-router-dom';
-import TrainFourthJSX from './TrainFourthJSX';
-import TrainThirdJSX from './TrainThirdJSX';
-import TrainSecondJSX from './TrainSecondJSX';
-import TrainFirstJSX from './TrainFirstSX';
 import { connect } from 'react-redux';
 
 
 class TrainFrom extends React.Component {
 
 	state = {
+		seatsArr: ['fourth', 'third', 'second', 'first'],
 		fourthClass: false,
 		thirdClass: false,
 		secondClass: false,
@@ -21,7 +19,7 @@ class TrainFrom extends React.Component {
 		fourth: true,
 		third: true,
 		second: true,
-		first: true,
+		first: false,
 	}
 
 	setFourthClass = () => this.setState({ fourthClass: true, thirdClass: false, secondClass: false, firstClass: false });
@@ -43,14 +41,9 @@ class TrainFrom extends React.Component {
 		const getHours = (msc) => new Date(msc).getHours();
 		const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
 
-		const seatsArr = this.props.choiceSeatsArray;
+		const seatsArrJSX = this.state.seatsArr.map(el => <TrainJSX key={el} name={el} />)
 
-		for (let i = 0; i <= seatsArr.length; i++) {
-			console.log(seatsArr[i])
-			// for (let type in this.props.choiceSeatsArray[0].coach.class_type) {
-			// 	this.setState({[type]: false});
-			// }
-		}
+		
 
 		const seatJSX = this.props.choiceSeatsArray.map(el => el.coach.class_type === 'fourth' ?
 		el.seats.map(elem => <div className="index">{elem.index}</div>) : '')
@@ -134,10 +127,7 @@ class TrainFrom extends React.Component {
 						<p>Люкс</p>
 					</button>
 				</div>
-				{this.state.fourthClass && <TrainFourthJSX />}
-				{this.state.thirdClass && <TrainThirdJSX />}
-				{this.state.secondClass && <TrainSecondJSX />}
-				{this.state.firstClass && <TrainFirstJSX />}
+				{seatsArrJSX}
 			</div>
 		);
 	}

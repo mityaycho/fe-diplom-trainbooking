@@ -3,7 +3,7 @@ import iconRubleSmall from '../../../images/icon_ruble_small.png';
 import train_fourth_class from '../../../images/train_fourth_class.png';
 
 
-const TrainFourthJSX = (props) => {
+const TrainJSX = (props) => {
 	return (
 		<div className="mb-3 pb-5">
 			<div className="number-of-vagon d-flex justify-content-between">
@@ -81,4 +81,4 @@ const TrainFourthJSX = (props) => {
 	);
 }
 
-export default TrainFourthJSX;
+export default TrainJSX;
