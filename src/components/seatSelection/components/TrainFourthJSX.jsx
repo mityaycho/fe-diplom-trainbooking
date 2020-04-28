@@ -43,41 +43,39 @@ const TrainFourthJSX = (props) => {
 				<p className="number-of-people-online mr-4">11 человек выбирают места в этом поезде</p>
 			</div>
 			<img className="image-vagon-places" src={train_fourth_class} alt="..." />
-			<div className="pl-4 pr-4">
-				<div className="train-fourth-container row ml-5 pl-5 pr-5 mt-4">
-					<div className="index">1</div>
-					<div className="index">2</div>
-					<div className="index">3</div>
-					<div className="index">4</div>
-					<div className="index">5</div>
-					<div className="index">6</div>
-					<div className="index">7</div>
-					<div className="index">8</div>
-					<div className="index">9</div>
-					<div className="index">10</div>
-					<div className="index">11</div>
-					<div className="index">12</div>
-					<div className="index">13</div>
-					<div className="index">14</div>
-					<div className="index">15</div>
-					<div className="index">16</div>
-					<div className="index">17</div>
-					<div className="index">18</div>
-					<div className="index">19</div>
-					<div className="index">20</div>
-					<div className="index">21</div>
-					<div className="index">22</div>
-					<div className="index">23</div>
-					<div className="index">24</div>
-					<div className="index">25</div>
-					<div className="index">26</div>
-					<div className="index">27</div>
-					<div className="index">28</div>
-					<div className="index">29</div>
-					<div className="index">30</div>
-					<div className="index">31</div>
-					<div className="index">32</div>
-				</div>
+			<div className="train-fourth-container row">
+				<div className="index">1</div>
+				<div className="index">2</div>
+				<div className="index">3</div>
+				<div className="index">4</div>
+				<div className="index">5</div>
+				<div className="index">6</div>
+				<div className="index">7</div>
+				<div className="index">8</div>
+				<div className="index">9</div>
+				<div className="index">10</div>
+				<div className="index">11</div>
+				<div className="index">12</div>
+				<div className="index">13</div>
+				<div className="index">14</div>
+				<div className="index">15</div>
+				<div className="index">16</div>
+				<div className="index">17</div>
+				<div className="index">18</div>
+				<div className="index">19</div>
+				<div className="index">20</div>
+				<div className="index">21</div>
+				<div className="index">22</div>
+				<div className="index">23</div>
+				<div className="index">24</div>
+				<div className="index">25</div>
+				<div className="index">26</div>
+				<div className="index">27</div>
+				<div className="index">28</div>
+				<div className="index">29</div>
+				<div className="index">30</div>
+				<div className="index">31</div>
+				<div className="index">32</div>
 			</div>
 		</div>
 	);

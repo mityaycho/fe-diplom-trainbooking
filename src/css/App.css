@@ -697,25 +697,25 @@ padding-right: 8px;
 .image-vagon-places {
 	position: absolute;
 	margin-left: 15px;
-	margin-bottom: 50px;
 	width: 740px;
 }
 
 
 .train-fourth-container {
 	position: relative;
-	padding-top: 2px;
+	padding-top: 27px;
+	padding-left: 134px;
+	padding-right: 100px;
 }
 
 .train-fourth-container .index {
+	margin-bottom: 2px;
 	display: flex;
-	height: 18px;
+	height: 15px;
 	width: 20px;
 	font-size: 13px;
 	font-weight: bold;
-	/* background-color: lightgray; */
-	border: 1px solid black;
-	align-items: flex-end;
+	background-color: lightgray;
 	justify-content: center;
 	cursor: pointer;
 }
@@ -726,7 +726,11 @@ padding-right: 8px;
 
 
 
-.train-fourth-container .index:nth-child(1n+2) {
+.train-fourth-container .index:nth-child(-n+17) {
+	margin-left: 15px;
+}
+
+.train-fourth-container .index:nth-child(+n+17) {
 	margin-left: 15px;
 }
 

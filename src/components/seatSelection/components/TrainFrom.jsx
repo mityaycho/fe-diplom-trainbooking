@@ -8,6 +8,7 @@ import TrainFourthJSX from './TrainFourthJSX';
 import TrainThirdJSX from './TrainThirdJSX';
 import TrainSecondJSX from './TrainSecondJSX';
 import TrainFirstJSX from './TrainFirstSX';
+import { connect } from 'react-redux';
 
 
 class TrainFrom extends React.Component {
@@ -16,7 +17,11 @@ class TrainFrom extends React.Component {
 		fourthClass: false,
 		thirdClass: false,
 		secondClass: false,
-		firstClass: false
+		firstClass: false,
+		fourth: true,
+		third: true,
+		second: true,
+		first: true,
 	}
 
 	setFourthClass = () => this.setState({ fourthClass: true, thirdClass: false, secondClass: false, firstClass: false });
@@ -37,6 +42,18 @@ class TrainFrom extends React.Component {
 
 		const getHours = (msc) => new Date(msc).getHours();
 		const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+
+		const seatsArr = this.props.choiceSeatsArray;
+
+		for (let i = 0; i <= seatsArr.length; i++) {
+			console.log(seatsArr[i])
+			// for (let type in this.props.choiceSeatsArray[0].coach.class_type) {
+			// 	this.setState({[type]: false});
+			// }
+		}
+
+		const seatJSX = this.props.choiceSeatsArray.map(el => el.coach.class_type === 'fourth' ?
+		el.seats.map(elem => <div className="index">{elem.index}</div>) : '')
 
 		return (
 			<div className="choice-of-place-there mb-3">
@@ -92,19 +109,27 @@ class TrainFrom extends React.Component {
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 				<div className="choice-type-vagon-button d-flex justify-content-between mt-4 mb-2">
-					<button type="button" className="btn btn-outline-light ml-5" onClick={this.setFourthClass}>
+					<button type="button" className="btn btn-outline-light ml-5" 
+					disabled={this.state.fourth}
+					onClick={this.setFourthClass}>
 						<div className="icon-type-vagon-seat align-self-center"></div>
 						<p>Сидячий</p>
 					</button>
-					<button type="button" className="btn btn-outline-light" onClick={this.setThirdClass}>
+					<button type="button" className="btn btn-outline-light" 
+					disabled={this.state.third}
+					onClick={this.setThirdClass}>
 						<div className="icon-type-vagon-reserved-seat align-self-center"></div>
 						<p>Плацкарт</p>
 					</button>
-					<button type="button" className="btn btn-outline-light" onClick={this.setSecondClass}>
+					<button type="button" className="btn btn-outline-light" 
+					disabled={this.state.second}
+					onClick={this.setSecondClass}>
 						<div className="icon-type-vagon-coupe align-self-center"></div>
 						<p>Купе</p>
 					</button>
-					<button type="button" className="btn btn-outline-light mr-5" onClick={this.setFirstClass}>
+					<button type="button" className="btn btn-outline-light mr-5" 
+					disabled={this.state.first}
+					onClick={this.setFirstClass}>
 						<div className="icon-type-vagon-luxury align-self-center"></div>
 						<p>Люкс</p>
 					</button>
@@ -118,4 +143,14 @@ class TrainFrom extends React.Component {
 	}
 }
 
-export default TrainFrom;
+const mapStateToProps = (state) => {
+  return {
+		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TrainFrom);
