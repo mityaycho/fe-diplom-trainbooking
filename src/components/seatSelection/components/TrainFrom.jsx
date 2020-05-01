@@ -16,7 +16,6 @@ import { connect } from 'react-redux';
 class TrainFrom extends React.Component {
 
 	state = {
-		seatsArr: ['fourth', 'third', 'second', 'first'],
 		fourthClass: false,
 		thirdClass: false,
 		secondClass: false,
@@ -129,19 +128,19 @@ class TrainFrom extends React.Component {
 				{this.state.fourthClass && <TrainJSX 
 				choiceSeatsArray={this.props.choiceSeatsArray} 
 				image={train_fourth_class} 
-				cls={this.state.seatsArr[0]} />}
+				cls="fourth" />}
 				{this.state.thirdClass && <TrainJSX 
 				choiceSeatsArray={this.props.choiceSeatsArray} 
 				image={train_third_class} 
-				cls={this.state.seatsArr[1]} />}
+				cls="third" />}
 				{this.state.secondClass && <TrainJSX 
 				choiceSeatsArray={this.props.choiceSeatsArray} 
 				image={train_second_class} 
-				cls={this.state.seatsArr[2]} />}
+				cls="second" />}
 				{this.state.firstClass && <TrainJSX 
 				choiceSeatsArray={this.props.choiceSeatsArray} 
 				image={train_first_class} 
-				cls={this.state.seatsArr[3]} />}
+				cls="first" />}
 			</div>
 		);
 	}
