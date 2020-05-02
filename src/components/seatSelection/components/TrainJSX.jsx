@@ -1,12 +1,10 @@
 import React from 'react';
 import iconRubleSmall from '../../../images/icon_ruble_small.png';
-import train_fourth_class from '../../../images/train_fourth_class.png';
 
 
 const TrainJSX = (props) => {
 
-	const seatJSX = props.choiceSeatsArray.map(el => el.coach.class_type ?
-		el.seats.map(elem => <div className="index" key={elem.index}>{elem.index}</div>) : '')
+	const seatJSX = props.train.seats.map(elem => <div className="index" key={elem.index}>{elem.index}</div>);
 
 	return (
 		<div className="mb-3 pb-5">

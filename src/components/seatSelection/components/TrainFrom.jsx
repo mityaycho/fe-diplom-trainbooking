@@ -20,13 +20,19 @@ class TrainFrom extends React.Component {
 		thirdClass: false,
 		secondClass: false,
 		firstClass: false,
-		fourth: false,
-		third: false,
-		second: false,
-		first: false
+		fourth: [],
+		third: [],
+		second: [],
+		first: []
 	}
 
-	setFourthClass = () => this.setState({ fourthClass: true, thirdClass: false, secondClass: false, firstClass: false });
+	setFourthClass = () => {
+		this.props.choiceSeatsArray.map(el => {
+			if (el.coach.class_type === 'fourth') {
+				this.setState({ fourth: el, fourthClass: true, thirdClass: false, secondClass: false, firstClass: false });
+			}
+		})
+	}
 
 	setThirdClass = () => this.setState({ fourthClass: false, thirdClass: true, secondClass: false, firstClass: false });
 
@@ -101,7 +107,6 @@ class TrainFrom extends React.Component {
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 				<div className="choice-type-vagon-button d-flex justify-content-between mt-4 mb-2">
 					<button type="button" className="btn btn-outline-light ml-5" 
-					disabled={this.state.fourth}
 					onClick={this.setFourthClass}>
 						<div className="icon-type-vagon-seat align-self-center"></div>
 						<p>Сидячий</p>
@@ -126,7 +131,7 @@ class TrainFrom extends React.Component {
 					</button>
 				</div>
 				{this.state.fourthClass && <TrainJSX 
-				choiceSeatsArray={this.props.choiceSeatsArray} 
+				train={this.state.fourth} 
 				image={train_fourth_class} 
 				cls="fourth" />}
 				{this.state.thirdClass && <TrainJSX 
