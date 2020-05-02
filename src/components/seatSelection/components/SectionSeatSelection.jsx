@@ -13,6 +13,13 @@ import TrainTo from './TrainTo';
 
 class SectionSeatSelection extends React.Component {
 
+	state = {
+		fourth: [],
+		third: [],
+		second: [],
+		first: []
+	}
+
 	render () {
 
 		const ticketSelected = this.props.ticketsArray.find(el => el.departure._id === this.props.trainId);
