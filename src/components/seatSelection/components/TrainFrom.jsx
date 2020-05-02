@@ -31,22 +31,40 @@ class TrainFrom extends React.Component {
 			if (el.coach.class_type === 'fourth') {
 				this.setState({ fourth: el, fourthClass: true, thirdClass: false, secondClass: false, firstClass: false });
 			}
-		})
+		});
 	}
 
-	setThirdClass = () => this.setState({ fourthClass: false, thirdClass: true, secondClass: false, firstClass: false });
+	setThirdClass = () => {
+		this.props.choiceSeatsArray.map(el => {
+			if (el.coach.class_type === 'third') {
+				this.setState({ third: el, fourthClass: false, thirdClass: true, secondClass: false, firstClass: false });
+			}
+		});
+	}
 
-	setSecondClass = () => this.setState({ fourthClass: false, thirdClass: false, secondClass: true, firstClass: false });
+	setSecondClass = () => {
+		this.props.choiceSeatsArray.map(el => {
+			if (el.coach.class_type === 'second') {
+				this.setState({ second: el, fourthClass: false, thirdClass: false, secondClass: true, firstClass: false });
+			}
+		});
+	}
 
-	setFirstClass = () => this.setState({ fourthClass: false, thirdClass: false, secondClass: false, firstClass: true });
+	setFirstClass = () => {
+		this.props.choiceSeatsArray.map(el => {
+			if (el.coach.class_type === 'first') {
+				this.setState({ first: el, fourthClass: false, thirdClass: false, secondClass: false, firstClass: true });
+			}
+		});
+	}
 
 	render() {
 
 		let fromDateTime = this.props.ticket.departure.from.datetime;
-		let toDateTime = this.props.ticket.departure.to.datetime;
+		// let toDateTime = this.props.ticket.departure.to.datetime;
 		let duration = this.props.ticket.departure.duration;
 		let fromArrival = fromDateTime + duration;
-		let toArrival = toDateTime + duration;
+		// let toArrival = toDateTime + duration;
 
 		const getHours = (msc) => new Date(msc).getHours();
 		const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
@@ -112,40 +130,25 @@ class TrainFrom extends React.Component {
 						<p>Сидячий</p>
 					</button>
 					<button type="button" className="btn btn-outline-light" 
-					disabled={this.state.third}
 					onClick={this.setThirdClass}>
 						<div className="icon-type-vagon-reserved-seat align-self-center"></div>
 						<p>Плацкарт</p>
 					</button>
 					<button type="button" className="btn btn-outline-light" 
-					disabled={this.state.second}
 					onClick={this.setSecondClass}>
 						<div className="icon-type-vagon-coupe align-self-center"></div>
 						<p>Купе</p>
 					</button>
 					<button type="button" className="btn btn-outline-light mr-5" 
-					disabled={this.state.first}
 					onClick={this.setFirstClass}>
 						<div className="icon-type-vagon-luxury align-self-center"></div>
 						<p>Люкс</p>
 					</button>
 				</div>
-				{this.state.fourthClass && <TrainJSX 
-				train={this.state.fourth} 
-				image={train_fourth_class} 
-				cls="fourth" />}
-				{this.state.thirdClass && <TrainJSX 
-				choiceSeatsArray={this.props.choiceSeatsArray} 
-				image={train_third_class} 
-				cls="third" />}
-				{this.state.secondClass && <TrainJSX 
-				choiceSeatsArray={this.props.choiceSeatsArray} 
-				image={train_second_class} 
-				cls="second" />}
-				{this.state.firstClass && <TrainJSX 
-				choiceSeatsArray={this.props.choiceSeatsArray} 
-				image={train_first_class} 
-				cls="first" />}
+				{this.state.fourthClass && <TrainJSX train={this.state.fourth} image={train_fourth_class} />}
+				{this.state.thirdClass && <TrainJSX train={this.state.third} image={train_third_class} />}
+				{this.state.secondClass && <TrainJSX train={this.state.second} image={train_second_class} />}
+				{this.state.firstClass && <TrainJSX train={this.state.first} image={train_first_class} />}
 			</div>
 		);
 	}

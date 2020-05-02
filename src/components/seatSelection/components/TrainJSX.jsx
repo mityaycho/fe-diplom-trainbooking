@@ -45,7 +45,7 @@ const TrainJSX = (props) => {
 				<p className="number-of-people-online mr-4">11 человек выбирают места в этом поезде</p>
 			</div>
 			<img className="image-vagon-places" src={props.image} alt="..." />
-			<div className={`train-${props.cls}-container row`}>
+			<div className={`train-${props.train.coach.class_type}-container row`}>
 				{seatJSX}
 			</div>
 		</div>
