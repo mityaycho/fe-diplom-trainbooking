@@ -112,7 +112,14 @@ class TrainFrom extends React.Component {
 				<h4 className="font-weight-bold mt-5 ml-3">Количество билетов</h4>
 				<div className="d-flex h-100">
 					<div className="quantity-tickets-check-there-left col pl-4">
-						<button type="button" className="btn btn-outline-dark mt-4 btn-block text-left mr-2">Взрослых — 2</button>
+						<select className="custom-select mt-4" id="inputGroupSelect01">
+							<option selected>Взрослых - 0</option>
+							<option value="1">Взрослых - 1</option>
+							<option value="2">Взрослых - 2</option>
+							<option value="3">Взрослых - 3</option>
+							<option value="4">Взрослых - 4</option>
+							<option value="5">Взрослых - 5</option>
+						</select>
 						<p className="mt-3">Можно добавить еще 3 пассажиров</p>
 					</div>
 					<div className="quantity-tickets-check-there-center col">
@@ -124,23 +131,23 @@ class TrainFrom extends React.Component {
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 				<div className="choice-type-vagon-button d-flex justify-content-between mt-4 mb-2">
-					<button type="button" className="btn btn-outline-light ml-5" 
-					onClick={this.setFourthClass}>
+					<button type="button" className="btn btn-outline-light ml-5"
+						onClick={this.setFourthClass}>
 						<div className="icon-type-vagon-seat align-self-center"></div>
 						<p>Сидячий</p>
 					</button>
-					<button type="button" className="btn btn-outline-light" 
-					onClick={this.setThirdClass}>
+					<button type="button" className="btn btn-outline-light"
+						onClick={this.setThirdClass}>
 						<div className="icon-type-vagon-reserved-seat align-self-center"></div>
 						<p>Плацкарт</p>
 					</button>
-					<button type="button" className="btn btn-outline-light" 
-					onClick={this.setSecondClass}>
+					<button type="button" className="btn btn-outline-light"
+						onClick={this.setSecondClass}>
 						<div className="icon-type-vagon-coupe align-self-center"></div>
 						<p>Купе</p>
 					</button>
-					<button type="button" className="btn btn-outline-light mr-5" 
-					onClick={this.setFirstClass}>
+					<button type="button" className="btn btn-outline-light mr-5"
+						onClick={this.setFirstClass}>
 						<div className="icon-type-vagon-luxury align-self-center"></div>
 						<p>Люкс</p>
 					</button>
@@ -155,13 +162,13 @@ class TrainFrom extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
+	return {
 		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
-  };
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {
-  
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrainFrom);
