@@ -4,6 +4,8 @@ import iconRubleSmall from '../../../images/icon_ruble_small.png';
 
 const TrainJSX = (props) => {
 
+	const seatsMath = Math.ceil(props.train.coach.available_seats / 2);
+
 	const seatJSX = props.train.seats.map(elem => <div className="index" key={elem.index}>{elem.index}</div>);
 
 	return (
@@ -22,14 +24,14 @@ const TrainJSX = (props) => {
 					<p className="number-of-vagon-checked-yellow-text">вагон</p>
 				</div>
 				<div className="col ml-5 mt-3">
-					<p>места 11</p>
-					<p>Верхние 3</p>
-					<p>Нижние 8</p>
+					<p>места {props.train.coach.available_seats}</p>
+					<p>Верхние {seatsMath}</p>
+					<p>Нижние {seatsMath}</p>
 				</div>
 				<div className="col ml-5 mt-3">
 					<p>Стоимость</p>
-					<p>2 920<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
-					<p>3 530<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
+					<p>{props.train.coach.top_price}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
+					<p>{props.train.coach.bottom_price}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
 				</div>
 				<div className="col-lg-4 mt-3">
 					<p>Обслуживание ФПК</p>

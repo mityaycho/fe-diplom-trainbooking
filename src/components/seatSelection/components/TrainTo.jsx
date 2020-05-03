@@ -71,7 +71,7 @@ class TrainTo extends React.Component {
 		const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
 
 		return (
-			<div className="choce-of-place-back mb-3">
+			<div className="choice-of-place-back mb-3">
 				<div className="choice-other-train-button d-flex justify-content-end mt-4">
 					<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
 					<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
