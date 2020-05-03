@@ -123,10 +123,26 @@ class TrainFrom extends React.Component {
 						<p className="mt-3">Можно добавить еще 3 пассажиров</p>
 					</div>
 					<div className="quantity-tickets-check-there-center col">
-						<button type="button" className="btn btn-outline-dark mt-4 btn-block text-left mr-2">Детских — 1</button>
+						<select className="custom-select mt-4" id="inputGroupSelect02">
+							<option selected>Детских - 0</option>
+							<option value="1">Детских - 1</option>
+							<option value="2">Детских - 2</option>
+							<option value="3">Детских - 3</option>
+							<option value="4">Детских - 4</option>
+							<option value="5">Детских - 5</option>
+						</select>
 						<p className="mt-3">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых, но дешевле в среднем на 50-65%</p>
 					</div>
-					<div className="col"><button type="button" className="btn btn-outline-dark mt-4">Детских «без места» — 0</button></div>
+					<div className="quantity-tickets-check-there-right col">
+					<select className="custom-select mt-4" id="inputGroupSelect03">
+							<option selected>Детских «без места» — 0</option>
+							<option value="1">Детских «без места» — 1</option>
+							<option value="2">Детских «без места» — 2</option>
+							<option value="3">Детских «без места» — 3</option>
+							<option value="4">Детских «без места» — 4</option>
+							<option value="5">Детских «без места» — 5</option>
+						</select>
+						</div>
 				</div>
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>

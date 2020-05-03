@@ -568,14 +568,25 @@ padding-right: 8px;
 	color: #000000;
 }
 
+.quantity-tickets-check-there-left:hover {
+	border: 1px solid #FFA800;
+}
+
 .quantity-tickets-check-there-center {
-	border: 1px solid rgba(255, 168, 0, 0.79);
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 19px;
 	color: #928F94;
+}
+
+.quantity-tickets-check-there-center:hover {
+	border: 1px solid #FFA800;
+}
+
+.quantity-tickets-check-there-right:hover {
+	border: 1px solid #FFA800;
 }
 
 .horizontal-line-gray {
