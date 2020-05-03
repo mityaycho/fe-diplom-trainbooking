@@ -110,15 +110,38 @@ class TrainTo extends React.Component {
 				</div>
 				<h4 className="font-weight-bold mt-5 ml-3">Количество билетов</h4>
 				<div className="d-flex h-100">
-					<div className="quantity-tickets-check-back-left col pl-4">
-						<button type="button" className="btn btn-outline-dark mt-4 btn-block text-left mr-2">Взрослых — 2</button>
+					<div className="quantity-tickets-check-left col">
+						<select className="custom-select mt-4">
+							<option selected value="0">Взрослых - 0</option>
+							<option value="1">Взрослых - 1</option>
+							<option value="2">Взрослых - 2</option>
+							<option value="3">Взрослых - 3</option>
+							<option value="4">Взрослых - 4</option>
+							<option value="5">Взрослых - 5</option>
+						</select>
 						<p className="mt-3">Можно добавить еще 3 пассажиров</p>
 					</div>
-					<div className="col">
-						<button type="button" className="btn btn-outline-dark mt-4 btn-block text-left mr-2">Детских — 0</button>
-						<p className="mt-3"></p>
+					<div className="quantity-tickets-check-center col">
+						<select className="custom-select mt-4">
+							<option selected value="0">Детских - 0</option>
+							<option value="1">Детских - 1</option>
+							<option value="2">Детских - 2</option>
+							<option value="3">Детских - 3</option>
+							<option value="4">Детских - 4</option>
+							<option value="5">Детских - 5</option>
+						</select>
+						<p className="mt-3">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых, но дешевле в среднем на 50-65%</p>
 					</div>
-					<div className="col"><button type="button" className="btn btn-outline-dark mt-4">Детских «без места» — 0</button></div>
+					<div className="quantity-tickets-check-right col">
+					<select className="custom-select mt-4">
+							<option selected value="0">Детских «без места» - 0</option>
+							<option value="1">Детских «без места» - 1</option>
+							<option value="2">Детских «без места» - 2</option>
+							<option value="3">Детских «без места» - 3</option>
+							<option value="4">Детских «без места» - 4</option>
+							<option value="5">Детских «без места» - 5</option>
+						</select>
+						</div>
 				</div>
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>

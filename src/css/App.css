@@ -557,7 +557,7 @@ padding-right: 8px;
 	line-height: 19px;
 }
 
-.quantity-tickets-check-there-left {
+.quantity-tickets-check-left {
 	background: #F7F6F6;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 	font-family: Roboto;
@@ -568,11 +568,12 @@ padding-right: 8px;
 	color: #000000;
 }
 
-.quantity-tickets-check-there-left:hover {
+.quantity-tickets-check-left:hover {
 	border: 1px solid #FFA800;
+	padding: 0 14px;
 }
 
-.quantity-tickets-check-there-center {
+.quantity-tickets-check-center {
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: normal;
@@ -581,12 +582,14 @@ padding-right: 8px;
 	color: #928F94;
 }
 
-.quantity-tickets-check-there-center:hover {
+.quantity-tickets-check-center:hover {
 	border: 1px solid #FFA800;
+	padding: 0 14px;
 }
 
-.quantity-tickets-check-there-right:hover {
+.quantity-tickets-check-right:hover {
 	border: 1px solid #FFA800;
+	padding: 0 14px;
 }
 
 .horizontal-line-gray {
@@ -947,12 +950,6 @@ padding-right: 8px;
 	line-height: 19px;
 }
 
-.quantity-tickets-check-back-left {
-	width: 317px;
-	height: 192px;
-	background: #F7F6F6;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-}
 
 /* ----------------------------------------------------- five page */
 
