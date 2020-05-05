@@ -1,27 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "8ee29a04d936f1e06d01",
-    "url": "/fe-diplom-trainbooking/static/css/main.303f519c.chunk.css"
+    "revision": "6aa69aab3c0a6d4316bc",
+    "url": "/fe-diplom-trainbooking/static/css/main.20286075.chunk.css"
   },
   {
-    "revision": "8ee29a04d936f1e06d01",
-    "url": "/fe-diplom-trainbooking/static/js/main.70c09719.chunk.js"
+    "revision": "6aa69aab3c0a6d4316bc",
+    "url": "/fe-diplom-trainbooking/static/js/main.3fce745e.chunk.js"
   },
   {
     "revision": "abeac4f788226cbc4347",
     "url": "/fe-diplom-trainbooking/static/js/runtime~main.1e9ecbb8.js"
   },
   {
-    "revision": "746ab170b0401ca019ce",
+    "revision": "c73959386c52fc4aff3d",
     "url": "/fe-diplom-trainbooking/static/css/2.1b6116bd.chunk.css"
   },
   {
-    "revision": "746ab170b0401ca019ce",
-    "url": "/fe-diplom-trainbooking/static/js/2.d435ab17.chunk.js"
-  },
-  {
-    "revision": "0967c085eccf041ba024db11f9022dd1",
-    "url": "/fe-diplom-trainbooking/static/media/image_vagon_places.0967c085.png"
+    "revision": "c73959386c52fc4aff3d",
+    "url": "/fe-diplom-trainbooking/static/js/2.85a60a36.chunk.js"
   },
   {
     "revision": "b4afe6045b31c3c772be38de257f6009",
@@ -48,7 +44,7 @@ self.__precacheManifest = [
     "url": "/fe-diplom-trainbooking/static/media/image_logo_final_order.4ff73f97.png"
   },
   {
-    "revision": "e479c372c5b7eeccb1fb580e2553ef65",
+    "revision": "56f1c1a67d3bc5ead2ddfaca48651d4c",
     "url": "/fe-diplom-trainbooking/index.html"
   }
 ];

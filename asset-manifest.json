@@ -1,17 +1,16 @@
 {
-  "main.css": "/fe-diplom-trainbooking/static/css/main.303f519c.chunk.css",
-  "main.js": "/fe-diplom-trainbooking/static/js/main.70c09719.chunk.js",
-  "main.js.map": "/fe-diplom-trainbooking/static/js/main.70c09719.chunk.js.map",
+  "main.css": "/fe-diplom-trainbooking/static/css/main.20286075.chunk.css",
+  "main.js": "/fe-diplom-trainbooking/static/js/main.3fce745e.chunk.js",
+  "main.js.map": "/fe-diplom-trainbooking/static/js/main.3fce745e.chunk.js.map",
   "runtime~main.js": "/fe-diplom-trainbooking/static/js/runtime~main.1e9ecbb8.js",
   "runtime~main.js.map": "/fe-diplom-trainbooking/static/js/runtime~main.1e9ecbb8.js.map",
   "static/css/2.1b6116bd.chunk.css": "/fe-diplom-trainbooking/static/css/2.1b6116bd.chunk.css",
-  "static/js/2.d435ab17.chunk.js": "/fe-diplom-trainbooking/static/js/2.d435ab17.chunk.js",
-  "static/js/2.d435ab17.chunk.js.map": "/fe-diplom-trainbooking/static/js/2.d435ab17.chunk.js.map",
+  "static/js/2.85a60a36.chunk.js": "/fe-diplom-trainbooking/static/js/2.85a60a36.chunk.js",
+  "static/js/2.85a60a36.chunk.js.map": "/fe-diplom-trainbooking/static/js/2.85a60a36.chunk.js.map",
   "index.html": "/fe-diplom-trainbooking/index.html",
-  "precache-manifest.326b48e57f9762960c98a37d5bdc9aac.js": "/fe-diplom-trainbooking/precache-manifest.326b48e57f9762960c98a37d5bdc9aac.js",
+  "precache-manifest.0ce5f20524736f82326aafffe8d95bce.js": "/fe-diplom-trainbooking/precache-manifest.0ce5f20524736f82326aafffe8d95bce.js",
   "service-worker.js": "/fe-diplom-trainbooking/service-worker.js",
   "static/css/2.1b6116bd.chunk.css.map": "/fe-diplom-trainbooking/static/css/2.1b6116bd.chunk.css.map",
-  "static/css/main.303f519c.chunk.css.map": "/fe-diplom-trainbooking/static/css/main.303f519c.chunk.css.map",
-  "static/media/App.css": "/fe-diplom-trainbooking/static/media/review_icon2.2f0f923c.png",
-  "static/media/image_vagon_places.png": "/fe-diplom-trainbooking/static/media/image_vagon_places.0967c085.png"
+  "static/css/main.20286075.chunk.css.map": "/fe-diplom-trainbooking/static/css/main.20286075.chunk.css.map",
+  "static/media/App.css": "/fe-diplom-trainbooking/static/media/review_icon2.2f0f923c.png"
 }
