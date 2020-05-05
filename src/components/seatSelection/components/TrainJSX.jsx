@@ -6,7 +6,11 @@ const TrainJSX = (props) => {
 
 	const seatsMath = Math.ceil(props.train.coach.available_seats / 2);
 
-	const seatJSX = props.train.seats.map(el => el.index <= 32 ? <div className="index" key={el.index}>{el.index}</div> : el.index >= 49 ? <div className="index" key={el.index}>{el.index}</div> : <div className="index mt-3" key={el.index}>{el.index}</div>);
+	const seatJSX = props.train.seats.map(el => el.index <= 32 ? 
+	<button className={`seats-index ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button> : 
+	el.index >= 49 ? 
+	<button className="seats-index" key={el.index} disabled={el.available}>{el.index}</button> : 
+	<button className="seats-index two-row" key={el.index} disabled={el.available}>{el.index}</button>);
 
 	return (
 		<div className="mb-3 pb-5">
