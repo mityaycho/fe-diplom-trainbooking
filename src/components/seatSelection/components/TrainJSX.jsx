@@ -9,8 +9,8 @@ const TrainJSX = (props) => {
 	const seatJSX = props.train.seats.map(el => el.index <= 32 ? 
 	<button className={`seats-index ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button> : 
 	el.index >= 49 ? 
-	<button className="seats-index" key={el.index} disabled={el.available}>{el.index}</button> : 
-	<button className="seats-index two-row" key={el.index} disabled={el.available}>{el.index}</button>);
+	<button className={`seats-index ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button> : 
+	<button className={`seats-index two-row ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button>);
 
 	return (
 		<div className="mb-3 pb-5">

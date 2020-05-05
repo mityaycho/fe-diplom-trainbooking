@@ -737,6 +737,15 @@ footer {
 	margin-top: 13px;
 }
 
+.seats-index.true {
+	color: white;
+	background-color: rgb(144, 144, 144);
+}
+
+.seats-index.false:hover {
+	background-color: rgb(167, 167, 167);
+}
+
 .train-fourth-container .seats-index {
 	margin-bottom: 3px;
 	display: flex;
@@ -746,12 +755,6 @@ footer {
 	font-weight: bold;
 	justify-content: center;
 }
-
-.train-fourth-container .seats-index.true {
-	background-color: rgb(169, 169, 169);
-}
-
-
 
 .train-fourth-container .seats-index:nth-child(-n+17) {
 	margin-left: 15px;
@@ -780,10 +783,6 @@ footer {
 	justify-content: center;
 }
 
-.train-third-container .seats-index.true {
-	background-color: rgb(169, 169, 169);
-}
-
 .train-third-container .seats-index:nth-child(2n-1) {
 	margin-left: 3px;
 }
@@ -793,10 +792,10 @@ footer {
 }
 
 .train-third-container .seats-index.two-row {
-	margin-top: 17px;
-	margin-left: 3px;
+	margin-top: 18px;
+	margin-left: 2px;
 	height: 19px;
-	width: 33px;
+	width: 34px;
 }
 
 
@@ -816,10 +815,6 @@ footer {
 	font-weight: bold;
 	align-items: flex-end;
 	justify-content: center;
-}
-
-.train-second-container .seats-index.true {
-	background-color: rgb(169, 169, 169);
 }
 
 .train-second-container .seats-index:nth-child(2n-1) {
@@ -846,10 +841,6 @@ footer {
 	font-weight: bold;
 	align-items: flex-end;
 	justify-content: center;
-}
-
-.train-first-container .seats-index.true {
-	background-color: rgb(169, 169, 169);
 }
 
 .train-first-container .seats-index:nth-child(2n-1) {
