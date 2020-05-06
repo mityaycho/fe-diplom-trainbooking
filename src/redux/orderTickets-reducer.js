@@ -1,4 +1,4 @@
-import SET_ROUTE_TRAIN_SEAT from './action';
+import { SET_ROUTE_TRAIN_SEAT } from './action';
 
 const initState = {
 	user: {
@@ -34,7 +34,8 @@ const orderTicketsReducer = (state = initState, action) => {
 	switch (action.type) {
 		case SET_ROUTE_TRAIN_SEAT:
 			return {
-
+				...state,
+				departure: { route_direction_id: action.route_direction_id }
 			}
 			default:
 				return state;

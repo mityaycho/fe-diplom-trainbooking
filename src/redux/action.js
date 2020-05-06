@@ -10,16 +10,16 @@ export const setLastRoutes = (lastRoutes) => ({ type: SET_LAST_ROUTES, lastRoute
 
 export const filterTicketsAndSeatsAC = (fieldName, fieldValue) => ({type:SET_TICKETS_AND_SEATS, fieldName, fieldValue});
 
-export const setRoutTrainSeatAC = (
+export const setRouteTrainSeatAC = (
 	route_direction_id, 
-	coach_id, seat_number, 
-	is_child,
-	include_children_seat
+	// coach_id, seat_number, 
+	// is_child,
+	// include_children_seat
 ) => ({ 
 	type: SET_ROUTE_TRAIN_SEAT, 
 	route_direction_id, 
-	coach_id, 
-	seat_number, 
-	is_child,
-	include_children_seat
+	// coach_id, 
+	// seat_number, 
+	// is_child,
+	// include_children_seat
 });

@@ -4,7 +4,7 @@ import progressStateDefault from '../../../images/progress_state_default.png';
 import ProgressLineCost from '../../shared/ProgressLineCost';
 import SideBarSearchTicketsAndSeatSelection from '../../shared/SideBarSearchTicketsAndSeatSelection';
 import { connect } from 'react-redux';
-import { setDataFormAC } from '../../../redux/action';
+import { setRouteTrainSeatAC } from '../../../redux/action';
 import { NavLink } from 'react-router-dom';
 import TrainFrom from './TrainFrom';
 import TrainTo from './TrainTo';
@@ -12,6 +12,14 @@ import TrainTo from './TrainTo';
 
 
 class SectionSeatSelection extends React.Component {
+
+	setTrainTicketsSeats = () => {
+		this.props.setRouteTrainSeat(this.props.trainId);
+	}
+
+	componentDidMount() {
+		this.props.setRouteTrainSeat(this.props.trainId);
+	}
 
 	render () {
 
@@ -54,8 +62,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setDataForm: (form) => {
-      const action = setDataFormAC(form);
+    setRouteTrainSeat: (train) => {
+      const action = setRouteTrainSeatAC(train);
       dispatch(action);
     }
   }
