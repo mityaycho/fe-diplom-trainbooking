@@ -718,23 +718,12 @@ footer {
 }
 
 
-.train-fourth-container {
-	position: relative;
-	padding-top: 26px;
-	padding-left: 134px;
-	padding-right: 100px;
-}
-
 .seats-index {
 	padding: 0;
 	border: none;
 	font: inherit;
 	color: inherit;
 	background-color: rgb(226, 226, 226);
-}
-
-.seats-index.two-row {
-	margin-top: 13px;
 }
 
 .seats-index.true {
@@ -746,14 +735,28 @@ footer {
 	background-color: rgb(167, 167, 167);
 }
 
+.train-fourth-container {
+	position: relative;
+	padding-top: 26px;
+	padding-left: 124px;
+	padding-right: 100px;
+	display: grid;
+	grid-auto-flow: column dense;
+	grid-template-rows: repeat(2, 18px);
+	grid-template-columns: repeat(16, 35px);
+}
+
 .train-fourth-container .seats-index {
 	margin-bottom: 3px;
-	display: flex;
 	height: 15px;
 	width: 20px;
 	font-size: 13px;
 	font-weight: bold;
 	justify-content: center;
+}
+
+.train-fourth-container .seats-index:nth-child(2n+1) {
+	grid-row-start: 2;
 }
 
 .train-fourth-container .seats-index:nth-child(-n+17) {
@@ -764,11 +767,43 @@ footer {
 	margin-left: 15px;
 }
 
+.train-fourth-container-two {
+	position: relative;
+	margin-top: 11px;
+	padding-left: 124px;
+	padding-right: 100px;
+	display: grid;
+	grid-auto-flow: column dense;
+	grid-template-rows: repeat(2, 18px);
+	grid-template-columns: repeat(16, 35px);
+}
+
+.train-fourth-container-two .seats-index {
+	margin-bottom: 3px;
+	display: flex;
+	height: 15px;
+	width: 20px;
+	font-size: 13px;
+	font-weight: bold;
+	justify-content: center;
+}
+
+.train-fourth-container-two .seats-index:nth-child(2n+1) {
+	grid-row-start: 2;
+}
+
+.train-fourth-container-two .seats-index:nth-child(-n+17) {
+	margin-left: 15px;
+}
+
+.train-fourth-container-two .seats-index:nth-child(+n+17) {
+	margin-left: 15px;
+}
 
 .train-third-container {
 	position: relative;
 	padding-top: 23px;
-	padding-left: 137px;
+	padding-left: 122px;
 	padding-right: 85px;
 	display: grid;
 	grid-auto-flow: column dense;
@@ -790,7 +825,6 @@ footer {
 	margin-right: 3px;
 }
 
-
 .train-third-container .seats-index:nth-child(4n) {
 	justify-self: end;
 	margin-right: 3px;
@@ -808,24 +842,32 @@ footer {
 	justify-self: start;
 }
 
-.train-third-container .seats-index.two-row {
-	margin-top: 18px;
-	margin-left: 2px;
+.train-third-container-two {
+	position: relative;
+	padding-top: 18px;
+	padding-left: 122px;
+	padding-right: 85px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.train-third-container-two .seats-index.two-row {
+	margin-right: 2px;
 	height: 19px;
 	width: 34px;
 }
 
-
-.train-second-container {
+/* .train-second-container {
 	position: relative;
+	display: flex;
+	flex-direction: row;
 	padding-top: 23px;
-	padding-left: 134px;
+	padding-left: 120px;
 	padding-right: 85px;
 }
 
 .train-second-container .seats-index {
 	margin-bottom: 1px;
-	display: flex;
 	height: 23px;
 	width: 22px;
 	font-size: 13px;
@@ -840,13 +882,57 @@ footer {
 
 .train-second-container .seats-index:nth-child(2n+2) {
 	margin-left: 25px;
+} */
+
+.train-second-container {
+	position: relative;
+	padding-top: 23px;
+	padding-left: 122px;
+	padding-right: 85px;
+	display: grid;
+	grid-auto-flow: column dense;
+	grid-template-rows: repeat(2, 25px);
+	grid-template-columns: repeat(16, 36px);
+}
+
+.train-second-container .seats-index {
+	margin-bottom: 1px;
+	height: 24px;
+	width: 22px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.train-second-container .seats-index:nth-child(2n-1) {
+	grid-row-start: 2;
+	justify-self: end;
+	margin-right: 3px;
+}
+
+.train-second-container .seats-index:nth-child(4n) {
+	justify-self: end;
+	margin-right: 3px;
+}
+
+.train-second-container .seats-index:nth-child(4n-6) {
+	justify-self: start;
+}
+
+.train-second-container .seats-index:nth-child(4n+5) {
+	justify-self: start;
+}
+
+.train-second-container .seats-index:nth-child(1) {
+	justify-self: start;
 }
 
 
 .train-first-container {
 	position: relative;
+	display: flex;
+	flex-direction: row;
 	padding-top: 23px;
-	padding-left: 134px;
+	padding-left: 119px;
 	padding-right: 100px;
 }
 
@@ -868,7 +954,6 @@ footer {
 	margin-left: 25px;
 }
 
-
 .number-of-vagon-checked label {
 	width: 50px;
 	height: 50px;
@@ -882,7 +967,7 @@ footer {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: url('../images/icon_vagon_conditioner.png') no-repeat;
+	background: url(../images/icon_vagon_conditioner.png) no-repeat;
 	cursor: pointer;
 }
 

@@ -6,17 +6,15 @@ const TrainJSX = (props) => {
 
 	const seatsMath = Math.ceil(props.train.coach.available_seats / 2);
 
-	const seatFirstRowJSX = props.train.seats.map(el => el.index <= 32 ? 
-	<button className={`seats-index ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button> : '');
+	const seatFirstRowJSX = props.train.seats.map(el => el.index <= 32 ?
+		<button className={`seats-index ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button> : '');
 
-	const seatTwoRowJSX = props.train.seats.map(el => el.index <= 32 ? 
-		'' : 
-		el.index >= 49 ? 
-		<button className={`seats-index ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button> : 
+	const seatTwoRowJSX = props.train.seats.map(el => el.index <= 32 ?
+		'' :
 		<button className={`seats-index two-row ${el.available}`} key={el.index} disabled={el.available}>{el.index}</button>)
 
 	return (
-		<div className="mb-3 pb-5">
+		<div>
 			<div className="number-of-vagon d-flex justify-content-between">
 				<div className="d-flex">
 					<p>Вагоны</p>
@@ -53,12 +51,14 @@ const TrainJSX = (props) => {
 			<div className="d-flex justify-content-end">
 				<p className="number-of-people-online mr-4">11 человек выбирают места в этом поезде</p>
 			</div>
-			<img className="image-vagon-places" src={props.image} alt="..." />
-			<div className={`train-${props.train.coach.class_type}-container row`}>
-				{seatFirstRowJSX}
-			</div>
-			<div className={`train-${props.train.coach.class_type}-container row`}>
-				{seatTwoRowJSX}
+			<div className="mb-5">
+				<img className="image-vagon-places" src={props.image} alt="..." />
+				<div className={`train-${props.train.coach.class_type}-container`}>
+					{seatFirstRowJSX}
+				</div>
+				<div className={`train-${props.train.coach.class_type}-container-two`}>
+					{seatTwoRowJSX}
+				</div>
 			</div>
 		</div>
 	);
