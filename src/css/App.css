@@ -768,34 +768,44 @@ footer {
 .train-third-container {
 	position: relative;
 	padding-top: 23px;
-	padding-left: 134px;
+	padding-left: 137px;
 	padding-right: 85px;
 	display: grid;
-	grid-template-rows: repeat(3, 25px);
+	grid-auto-flow: column dense;
+	grid-template-rows: repeat(2, 25px);
 	grid-template-columns: repeat(16, 36px);
 }
 
 .train-third-container .seats-index {
 	margin-bottom: 1px;
-	display: flex;
 	height: 24px;
 	width: 22px;
 	font-size: 13px;
 	font-weight: bold;
-	align-items: flex-end;
-	justify-content: center;
-}
-
-.train-third-container .seats-index:nth-child(1) {
-	grid-column-start: 2;
 }
 
 .train-third-container .seats-index:nth-child(2n-1) {
-	justify-items: start;
+	grid-row-start: 2;
+	justify-self: end;
+	margin-right: 3px;
 }
 
-.train-third-container .seats-index:nth-child(2n+2) {
-	justify-items: end;
+
+.train-third-container .seats-index:nth-child(4n) {
+	justify-self: end;
+	margin-right: 3px;
+}
+
+.train-third-container .seats-index:nth-child(4n-6) {
+	justify-self: start;
+}
+
+.train-third-container .seats-index:nth-child(4n+5) {
+	justify-self: start;
+}
+
+.train-third-container .seats-index:nth-child(1) {
+	justify-self: start;
 }
 
 .train-third-container .seats-index.two-row {
