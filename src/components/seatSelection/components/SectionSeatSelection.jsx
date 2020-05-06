@@ -13,8 +13,12 @@ import TrainTo from './TrainTo';
 
 class SectionSeatSelection extends React.Component {
 
-	setTrainTicketsSeats = () => {
-		this.props.setRouteTrainSeat(this.props.trainId);
+	state = {
+		route_direction_id: this.props.trainId, 
+	coach_id: '', 
+	seat_number: '', 
+	is_child: '',
+	include_children_seat: ''
 	}
 
 	componentDidMount() {

@@ -40,7 +40,7 @@ const TrainJSX = (props) => {
 				<div className="col-lg-4 mt-3">
 					<p>Обслуживание ФПК</p>
 					<div>
-						<label><input type="checkbox" className="icon-vagon-conditioner align-self-center" /><span></span></label>
+						<div type="checkbox" className="icon-vagon-conditioner align-self-center"></div>
 						<label><input type="checkbox" className="icon-vagon-wifi align-self-center" /><span></span></label>
 						<label><input type="checkbox" className="icon-vagon-linens align-self-center" /><span></span></label>
 						<label><input type="checkbox" className="icon-vagon-cup align-self-center" /><span></span></label>
