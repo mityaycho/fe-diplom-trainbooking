@@ -110,7 +110,7 @@ class TrainFrom extends React.Component {
 					</div>
 				</div>
 				<h4 className="font-weight-bold mt-5 ml-3">Количество билетов</h4>
-				<div className="d-flex h-100">
+				<div className="d-flex">
 					<div className="quantity-tickets-check-left col">
 						<select className="custom-select mt-4">
 							<option selected value="0">Взрослых - 0</option>

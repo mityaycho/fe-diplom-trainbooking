@@ -38,13 +38,13 @@ const TrainJSX = (props) => {
 					<p>{props.train.coach.top_price}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
 					<p>{props.train.coach.bottom_price}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
 				</div>
-				<div className="col-lg-4 mt-3">
+				<div className="col-lg-4 justify-content-center w-100 mt-3">
 					<p>Обслуживание ФПК</p>
-					<div>
-						<div type="checkbox" className="icon-vagon-conditioner align-self-center"></div>
-						<label><input type="checkbox" className="icon-vagon-wifi align-self-center" /><span></span></label>
-						<label><input type="checkbox" className="icon-vagon-linens align-self-center" /><span></span></label>
-						<label><input type="checkbox" className="icon-vagon-cup align-self-center" /><span></span></label>
+					<div className="row justify-content-around w-75 mt-3 ml-1">
+						<div type="checkbox" className="col icon-vagon-conditioner"></div>
+						<div type="checkbox" className="col icon-vagon-wifi"></div>
+						<div type="checkbox" className="col icon-vagon-linens"></div>
+						<div type="checkbox" className="col icon-vagon-cup"></div>
 					</div>
 				</div>
 			</div>

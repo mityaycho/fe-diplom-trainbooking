@@ -772,6 +772,7 @@ footer {
 	margin-top: 11px;
 	padding-left: 124px;
 	padding-right: 100px;
+	padding-bottom: 2px;
 	display: grid;
 	grid-auto-flow: column dense;
 	grid-template-rows: repeat(2, 18px);
@@ -847,6 +848,7 @@ footer {
 	padding-top: 18px;
 	padding-left: 122px;
 	padding-right: 85px;
+	padding-bottom: 1px;
 	font-size: 13px;
 	font-weight: bold;
 }
@@ -856,33 +858,6 @@ footer {
 	height: 19px;
 	width: 34px;
 }
-
-/* .train-second-container {
-	position: relative;
-	display: flex;
-	flex-direction: row;
-	padding-top: 23px;
-	padding-left: 120px;
-	padding-right: 85px;
-}
-
-.train-second-container .seats-index {
-	margin-bottom: 1px;
-	height: 23px;
-	width: 22px;
-	font-size: 13px;
-	font-weight: bold;
-	align-items: flex-end;
-	justify-content: center;
-}
-
-.train-second-container .seats-index:nth-child(2n-1) {
-	margin-left: 3px;
-}
-
-.train-second-container .seats-index:nth-child(2n+2) {
-	margin-left: 25px;
-} */
 
 .train-second-container {
 	position: relative;
@@ -926,6 +901,9 @@ footer {
 	justify-self: start;
 }
 
+.train-second-container-two {
+	padding-bottom: 37px;
+}
 
 .train-first-container {
 	position: relative;
@@ -954,6 +932,10 @@ footer {
 	margin-left: 25px;
 }
 
+.train-first-container-two {
+	padding-bottom: 40px;
+}
+
 .number-of-vagon-checked label {
 	width: 50px;
 	height: 50px;
@@ -962,11 +944,8 @@ footer {
 }
 
 .icon-vagon-conditioner {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_conditioner.png) no-repeat;
 	cursor: pointer;
 }
@@ -976,20 +955,14 @@ footer {
 }
 
 .icon-vagon-conditioner[type="checkbox"]:checked {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_conditioner_checked.png) no-repeat;
 }
 
 .icon-vagon-wifi[type="checkbox"] {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_wifi.png) no-repeat;
 	cursor: pointer;
 }
@@ -999,20 +972,14 @@ footer {
 }
 
 .icon-vagon-wifi[type="checkbox"]:checked {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_wifi_checked.png) no-repeat;
 }
 
 .icon-vagon-linens[type="checkbox"] {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_linens.png) no-repeat;
 	cursor: pointer;
 }
@@ -1022,20 +989,14 @@ footer {
 }
 
 .icon-vagon-linens[type="checkbox"]:checked {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_linens_checked.png) no-repeat;
 }
 
 .icon-vagon-cup[type="checkbox"] {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_cup.png) no-repeat;
 	cursor: pointer;
 }
@@ -1045,11 +1006,8 @@ footer {
 }
 
 .icon-vagon-cup[type="checkbox"]:checked {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 	background: url(../images/icon_vagon_cup_checked.png) no-repeat;
 }
 
