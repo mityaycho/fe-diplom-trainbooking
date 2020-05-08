@@ -4,6 +4,7 @@ import iconArrowRightGray from '../../../images/icon_arrow_right_gray.png';
 import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png';
 import iconSearchThere from '../../../images/icon_search_there.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
+import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png'
 import TicketPriceAndSeats from './TicketPriceAndSeats';
 import { withRouter } from 'react-router';
 
@@ -95,7 +96,9 @@ const ResultSearchTickets = (props) => {
 							}
 						</div>
 
-						<div className="row pb-3">
+						<div className="row pb-3 justify-content-center">
+							<img src={iconWifiRocketCup} alt="wifi-rocket-cup"/>
+
 							<button className="btn btn-warning m-3"
 								type="button"
 								onClick={setTrainIdEvent}>Выбрать места
