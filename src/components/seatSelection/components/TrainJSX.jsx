@@ -1,5 +1,7 @@
 import React from 'react';
 import iconRubleSmall from '../../../images/icon_ruble_small.png';
+import { OverlayTrigger } from 'react-bootstrap';
+import { Tooltip } from 'react-bootstrap';
 
 
 const TrainJSX = (props) => {
@@ -41,10 +43,18 @@ const TrainJSX = (props) => {
 				<div className="col-lg-4 justify-content-center w-100 mt-3">
 					<p>Обслуживание ФПК</p>
 					<div className="row justify-content-around w-75 mt-3 ml-1">
-						<div type="checkbox" className="col icon-vagon-conditioner"></div>
-						<div type="checkbox" className="col icon-vagon-wifi"></div>
-						<div type="checkbox" className="col icon-vagon-linens"></div>
-						<div type="checkbox" className="col icon-vagon-cup"></div>
+						<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">кондиционер</Tooltip>}>
+							<div type="checkbox" className="col icon-vagon-conditioner"></div>
+						</OverlayTrigger>
+						<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">WI-FI</Tooltip>}>
+							<div type="checkbox" className="col icon-vagon-wifi"></div>
+						</OverlayTrigger>
+						<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">белье</Tooltip>}>
+							<div type="checkbox" className="col icon-vagon-linens"></div>
+						</OverlayTrigger>
+						<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">питание</Tooltip>}>
+							<div type="checkbox" className="col icon-vagon-cup"></div>
+						</OverlayTrigger>
 					</div>
 				</div>
 			</div>
