@@ -35,7 +35,8 @@ const orderTicketsReducer = (state = initState, action) => {
 		case SET_ROUTE_TRAIN_SEAT:
 			return {
 				...state,
-				departure: { route_direction_id: action.route_direction_id, seats: [...state.departure.seats] }
+				departure: { route_direction_id: action.route_direction_id, 
+					seats: [{...state.departure.seats, coach_id: action.coach_id}] }
 			}
 			default:
 				return state;

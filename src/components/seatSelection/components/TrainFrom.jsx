@@ -29,6 +29,7 @@ class TrainFrom extends React.Component {
 	setFourthClass = () => {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'fourth') {
+				this.props.setCoachId(el.coach._id);
 				this.setState({ fourth: el, fourthClass: true, thirdClass: false, secondClass: false, firstClass: false });
 			}
 		});
@@ -37,6 +38,7 @@ class TrainFrom extends React.Component {
 	setThirdClass = () => {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'third') {
+				this.props.setCoachId(el.coach._id);
 				this.setState({ third: el, fourthClass: false, thirdClass: true, secondClass: false, firstClass: false });
 			}
 		});
@@ -45,6 +47,7 @@ class TrainFrom extends React.Component {
 	setSecondClass = () => {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'second') {
+				this.props.setCoachId(el.coach._id);
 				this.setState({ second: el, fourthClass: false, thirdClass: false, secondClass: true, firstClass: false });
 			}
 		});
@@ -53,6 +56,7 @@ class TrainFrom extends React.Component {
 	setFirstClass = () => {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'first') {
+				this.props.setCoachId(el.coach._id);
 				this.setState({ first: el, fourthClass: false, thirdClass: false, secondClass: false, firstClass: true });
 			}
 		});

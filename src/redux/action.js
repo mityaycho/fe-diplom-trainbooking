@@ -12,7 +12,8 @@ export const filterTicketsAndSeatsAC = (fieldName, fieldValue) => ({type:SET_TIC
 
 export const setRouteTrainSeatAC = (
 	route_direction_id, 
-	coach_id, seat_number, 
+	coach_id, 
+	seat_number, 
 	is_child,
 	include_children_seat
 ) => ({ 
