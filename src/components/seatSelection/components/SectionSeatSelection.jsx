@@ -21,13 +21,13 @@ class SectionSeatSelection extends React.Component {
 		include_children_seat: ''
 	}
 
-	componentDidMount() {
-		this.props.setRouteTrainSeat(this.props.trainId, this.state.coach_id);
-	}
-
 	setCoachId = (id) => {
 		this.setState({coach_id: id});
 		this.props.setRouteTrainSeat(this.props.trainId, id);
+	}
+
+	setSeatNumber = (event) => {
+		this.setState({seat_number: event.currentTarget.innerHTML});
 	}
 
 	render() {
@@ -51,11 +51,13 @@ class SectionSeatSelection extends React.Component {
 						<TrainFrom 
 						ticket={ticketSelected} 
 						places={this.props.choiceSeatsArray} 
-						setCoachId={this.setCoachId} />
+						setCoachId={this.setCoachId}
+						setSeatNumber={this.setSeatNumber} />
 						<TrainTo 
 						ticket={ticketSelected} 
 						places={this.props.choiceSeatsArray}
-						setCoachId={this.setCoachId} />
+						setCoachId={this.setCoachId}
+						setSeatNumber={this.setSeatNumber} />
 						<div className="d-flex justify-content-end">
 							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/passengers" type="button">Далее</NavLink>
 						</div>
