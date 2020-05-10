@@ -5,7 +5,7 @@ import ProgressLineCost from '../../shared/ProgressLineCost';
 import SideBarSearchTicketsAndSeatSelection from '../../shared/SideBarSearchTicketsAndSeatSelection';
 import { connect } from 'react-redux';
 import { setRouteTrainSeatAC } from '../../../redux/action';
-import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import TrainFrom from './TrainFrom';
 import TrainTo from './TrainTo';
 
@@ -16,24 +16,27 @@ class SectionSeatSelection extends React.Component {
 	state = {
 		coach_id: '',
 		seat_number: '',
-		is_child: '',
-		include_children_seat: ''
+		is_child: false,
+		include_children_seat: false
 	}
 
 	setCoachId = (id) => this.setState({coach_id: id});
 
 	setSeatNumber = (event) => this.setState({seat_number: event.currentTarget.innerHTML});
 
-	setChildSeat = (event) => this.setState({is_child: event.currentTarget.value !== 0 ? true : false});
+	setChildSeat = (event) => this.setState({is_child: +event.currentTarget.value !== 0 ? true : false});
 
-	setChildWithoutSeat = (event) => this.setState({include_children_seat: event.currentTarget.value !== 0 ? true : false});
+	setChildWithoutSeat = (event) => this.setState({include_children_seat: +event.currentTarget.value !== 0 ? true : false});
 
-	setRouteTrainSeatReducer = () => this.props.setRouteTrainSeat(
+	setRouteTrainSeatReducer = () => {
+		this.props.history.push('/passengers')
+		this.props.setRouteTrainSeat(
 		this.props.trainId, 
 		this.state.coach_id,
 		this.state.seat_number,
 		this.state.is_child,
 		this.state.include_children_seat);
+	}
 
 	render() {
 
@@ -68,7 +71,7 @@ class SectionSeatSelection extends React.Component {
 						setChildSeat={this.setChildSeat}
 						setChildWithoutSeat={this.setChildWithoutSeat} />
 						<div className="d-flex justify-content-end">
-							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/passengers" type="button">Далее</NavLink>
+							<button className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" type="button" onClick={this.setRouteTrainSeatReducer}>Далее</button>
 						</div>
 					</div>
 				</div>
@@ -88,11 +91,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setRouteTrainSeat: (train, coach_id) => {
-			const action = setRouteTrainSeatAC(train, coach_id);
+		setRouteTrainSeat: (train, coach_id, trainId, seat_number, is_child, include_children_seat) => {
+			const action = setRouteTrainSeatAC(train, coach_id, trainId, seat_number, is_child, include_children_seat);
 			dispatch(action);
 		}
 	}
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionSeatSelection);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SectionSeatSelection));
