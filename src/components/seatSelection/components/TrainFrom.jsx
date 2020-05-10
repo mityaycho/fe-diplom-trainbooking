@@ -127,7 +127,7 @@ class TrainFrom extends React.Component {
 						<p className="mt-3">Можно добавить еще 3 пассажиров</p>
 					</div>
 					<div className="quantity-tickets-check-center col">
-						<select className="custom-select mt-4">
+						<select className="custom-select mt-4" onChange={(e) => this.props.setChildSeat(e)}>
 							<option selected value="0">Детских - 0</option>
 							<option value="1">Детских - 1</option>
 							<option value="2">Детских - 2</option>
@@ -138,7 +138,7 @@ class TrainFrom extends React.Component {
 						<p className="mt-3">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых, но дешевле в среднем на 50-65%</p>
 					</div>
 					<div className="quantity-tickets-check-right col">
-					<select className="custom-select mt-4">
+					<select className="custom-select mt-4" onChange={(e) => this.props.setChildWithoutSeat(e)}>
 							<option selected value="0">Детских «без места» - 0</option>
 							<option value="1">Детских «без места» - 1</option>
 							<option value="2">Детских «без места» - 2</option>
