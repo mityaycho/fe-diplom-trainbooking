@@ -14,23 +14,26 @@ import TrainTo from './TrainTo';
 class SectionSeatSelection extends React.Component {
 
 	state = {
-		route_direction_id: this.props.trainId,
 		coach_id: '',
 		seat_number: '',
 		is_child: '',
 		include_children_seat: ''
 	}
 
-	setCoachId = (id) => {
-		this.setState({coach_id: id});
-		this.props.setRouteTrainSeat(this.props.trainId, id);
-	}
+	setCoachId = (id) => this.setState({coach_id: id});
 
 	setSeatNumber = (event) => this.setState({seat_number: event.currentTarget.innerHTML});
 
 	setChildSeat = (event) => this.setState({is_child: event.currentTarget.value !== 0 ? true : false});
 
 	setChildWithoutSeat = (event) => this.setState({include_children_seat: event.currentTarget.value !== 0 ? true : false});
+
+	setRouteTrainSeatReducer = () => this.props.setRouteTrainSeat(
+		this.props.trainId, 
+		this.state.coach_id,
+		this.state.seat_number,
+		this.state.is_child,
+		this.state.include_children_seat);
 
 	render() {
 
