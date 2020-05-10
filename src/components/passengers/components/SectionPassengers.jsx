@@ -473,7 +473,7 @@ const SectionPassengers = () => {
 					</div>
 
 					<div className="d-flex justify-content-end">
-						<NavLink className="btn btn-secondary text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/pay_selection" type="button">Далее</NavLink>
+						<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/pay_selection" type="button">Далее</NavLink>
 					</div>
 				</div>
 				

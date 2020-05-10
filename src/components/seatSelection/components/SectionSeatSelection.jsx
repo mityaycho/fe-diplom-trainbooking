@@ -20,22 +20,22 @@ class SectionSeatSelection extends React.Component {
 		include_children_seat: false
 	}
 
-	setCoachId = (id) => this.setState({coach_id: id});
+	setCoachId = (id) => this.setState({ coach_id: id });
 
-	setSeatNumber = (event) => this.setState({seat_number: event.currentTarget.innerHTML});
+	setSeatNumber = (event) => this.setState({ seat_number: event.currentTarget.innerHTML });
 
-	setChildSeat = (event) => this.setState({is_child: +event.currentTarget.value !== 0 ? true : false});
+	setChildSeat = (event) => this.setState({ is_child: +event.currentTarget.value !== 0 ? true : false });
 
-	setChildWithoutSeat = (event) => this.setState({include_children_seat: +event.currentTarget.value !== 0 ? true : false});
+	setChildWithoutSeat = (event) => this.setState({ include_children_seat: +event.currentTarget.value !== 0 ? true : false });
 
 	setRouteTrainSeatReducer = () => {
 		this.props.history.push('/passengers')
 		this.props.setRouteTrainSeat(
-		this.props.trainId, 
-		this.state.coach_id,
-		this.state.seat_number,
-		this.state.is_child,
-		this.state.include_children_seat);
+			this.props.trainId,
+			this.state.coach_id,
+			this.state.seat_number,
+			this.state.is_child,
+			this.state.include_children_seat);
 	}
 
 	render() {
@@ -56,20 +56,20 @@ class SectionSeatSelection extends React.Component {
 					<SideBarSearchTicketsAndSeatSelection />
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
-						<TrainFrom 
-						ticket={ticketSelected} 
-						places={this.props.choiceSeatsArray} 
-						setCoachId={this.setCoachId}
-						setSeatNumber={this.setSeatNumber}
-						setChildSeat={this.setChildSeat}
-						setChildWithoutSeat={this.setChildWithoutSeat} />
-						<TrainTo 
-						ticket={ticketSelected} 
-						places={this.props.choiceSeatsArray}
-						setCoachId={this.setCoachId}
-						setSeatNumber={this.setSeatNumber}
-						setChildSeat={this.setChildSeat}
-						setChildWithoutSeat={this.setChildWithoutSeat} />
+						<TrainFrom
+							ticket={ticketSelected}
+							places={this.props.choiceSeatsArray}
+							setCoachId={this.setCoachId}
+							setSeatNumber={this.setSeatNumber}
+							setChildSeat={this.setChildSeat}
+							setChildWithoutSeat={this.setChildWithoutSeat} />
+						<TrainTo
+							ticket={ticketSelected}
+							places={this.props.choiceSeatsArray}
+							setCoachId={this.setCoachId}
+							setSeatNumber={this.setSeatNumber}
+							setChildSeat={this.setChildSeat}
+							setChildWithoutSeat={this.setChildWithoutSeat} />
 						<div className="d-flex justify-content-end">
 							<button className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" type="button" onClick={this.setRouteTrainSeatReducer}>Далее</button>
 						</div>
