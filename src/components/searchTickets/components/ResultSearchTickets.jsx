@@ -10,7 +10,7 @@ import { withRouter } from 'react-router';
 
 
 const ResultSearchTickets = (props) => {
-	
+
 	const setTrainIdEvent = () => {
 		props.setTrainId(props.state.departure._id);
 		props.history.push('/seat_selection')
@@ -97,7 +97,7 @@ const ResultSearchTickets = (props) => {
 						</div>
 
 						<div className="row pb-3 justify-content-center">
-							<img src={iconWifiRocketCup} alt="wifi-rocket-cup"/>
+							<img src={iconWifiRocketCup} alt="wifi-rocket-cup" />
 
 							<button className="btn btn-warning m-3"
 								type="button"
