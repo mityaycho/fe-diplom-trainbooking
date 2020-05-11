@@ -138,7 +138,7 @@ class TrainFrom extends React.Component {
 						<p className="mt-3">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых, но дешевле в среднем на 50-65%</p>
 					</div>
 					<div className="quantity-tickets-check-right col">
-					<select className="custom-select mt-4" onChange={(e) => this.props.setChildWithoutSeat(e)}>
+						<select className="custom-select mt-4" onChange={(e) => this.props.setChildWithoutSeat(e)}>
 							<option selected value="0">Детских «без места» - 0</option>
 							<option value="1">Детских «без места» - 1</option>
 							<option value="2">Детских «без места» - 2</option>
@@ -146,7 +146,7 @@ class TrainFrom extends React.Component {
 							<option value="4">Детских «без места» - 4</option>
 							<option value="5">Детских «без места» - 5</option>
 						</select>
-						</div>
+					</div>
 				</div>
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
@@ -172,14 +172,14 @@ class TrainFrom extends React.Component {
 						<p>Люкс</p>
 					</button>
 				</div>
-				{this.state.fourthClass && <TrainJSX 
-				train={this.state.fourth} image={train_fourth_class} setSeatNumber={this.props.setSeatNumber} />}
-				{this.state.thirdClass && <TrainJSX 
-				train={this.state.third} image={train_third_class} setSeatNumber={this.props.setSeatNumber} />}
-				{this.state.secondClass && <TrainJSX 
-				train={this.state.second} image={train_second_class} setSeatNumber={this.props.setSeatNumber} />}
-				{this.state.firstClass && <TrainJSX 
-				train={this.state.first} image={train_first_class} setSeatNumber={this.props.setSeatNumber} />}
+				{this.state.fourthClass && <TrainJSX
+					train={this.state.fourth} image={train_fourth_class} setSeatNumber={this.props.setSeatNumber} />}
+				{this.state.thirdClass && <TrainJSX
+					train={this.state.third} image={train_third_class} setSeatNumber={this.props.setSeatNumber} />}
+				{this.state.secondClass && <TrainJSX
+					train={this.state.second} image={train_second_class} setSeatNumber={this.props.setSeatNumber} />}
+				{this.state.firstClass && <TrainJSX
+					train={this.state.first} image={train_first_class} setSeatNumber={this.props.setSeatNumber} />}
 			</div>
 		);
 	}
