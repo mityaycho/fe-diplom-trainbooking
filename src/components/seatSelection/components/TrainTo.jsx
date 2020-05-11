@@ -79,7 +79,7 @@ class TrainTo extends React.Component {
 				<div className="choice-other-train-button d-flex justify-content-end mt-4">
 					<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
 					<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
-					to="/search_tickets">Выбрать другой поезд</NavLink>
+						to="/search_tickets">Выбрать другой поезд</NavLink>
 				</div>
 				<div className="choice-ticket-train-back d-flex mt-4 pt-3 justify-content-between">
 					<div className="d-flex">
@@ -137,7 +137,7 @@ class TrainTo extends React.Component {
 						<p className="mt-3">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых, но дешевле в среднем на 50-65%</p>
 					</div>
 					<div className="quantity-tickets-check-right col">
-					<select className="custom-select mt-4" onChange={(e) => this.props.setChildWithoutSeat(e)}>
+						<select className="custom-select mt-4" onChange={(e) => this.props.setChildWithoutSeat(e)}>
 							<option selected value="0">Детских «без места» - 0</option>
 							<option value="1">Детских «без места» - 1</option>
 							<option value="2">Детских «без места» - 2</option>
@@ -145,28 +145,28 @@ class TrainTo extends React.Component {
 							<option value="4">Детских «без места» - 4</option>
 							<option value="5">Детских «без места» - 5</option>
 						</select>
-						</div>
+					</div>
 				</div>
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 				<div className="choice-type-vagon-button d-flex justify-content-between mt-4 mb-2">
-					<button type="button" className="btn btn-outline-light ml-5" 
-					onClick={this.setFourthClass}>
+					<button type="button" className="btn btn-outline-light ml-5"
+						onClick={this.setFourthClass}>
 						<div className="icon-type-vagon-seat align-self-center"></div>
 						<p>Сидячий</p>
 					</button>
-					<button type="button" className="btn btn-outline-light" 
-					onClick={this.setThirdClass}>
+					<button type="button" className="btn btn-outline-light"
+						onClick={this.setThirdClass}>
 						<div className="icon-type-vagon-reserved-seat align-self-center"></div>
 						<p>Плацкарт</p>
 					</button>
-					<button type="button" className="btn btn-outline-light" 
-					onClick={this.setSecondClass}>
+					<button type="button" className="btn btn-outline-light"
+						onClick={this.setSecondClass}>
 						<div className="icon-type-vagon-coupe align-self-center"></div>
 						<p>Купе</p>
 					</button>
-					<button type="button" className="btn btn-outline-light mr-5" 
-					onClick={this.setFirstClass}>
+					<button type="button" className="btn btn-outline-light mr-5"
+						onClick={this.setFirstClass}>
 						<div className="icon-type-vagon-luxury align-self-center"></div>
 						<p>Люкс</p>
 					</button>
@@ -181,13 +181,13 @@ class TrainTo extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
+	return {
 		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
-  };
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {
-  
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrainTo);
