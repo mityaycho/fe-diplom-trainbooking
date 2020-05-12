@@ -24,9 +24,9 @@ class SectionSeatSelection extends React.Component {
 
 	setSeatNumber = (event) => this.setState({ seat_number: event.currentTarget.innerHTML });
 
-	setChildSeat = (event) => this.setState({ is_child: +event.currentTarget.value !== 0 ? true : false });
+	setChildSeat = (value) => this.setState({ is_child: +value !== 0 ? true : false });
 
-	setChildWithoutSeat = (event) => this.setState({ include_children_seat: +event.currentTarget.value !== 0 ? true : false });
+	setChildWithoutSeat = (value) => this.setState({ include_children_seat: +value !== 0 ? true : false });
 
 	setRouteTrainSeatReducer = () => {
 		this.props.history.push('/passengers')
