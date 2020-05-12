@@ -17,16 +17,19 @@ class SectionSeatSelection extends React.Component {
 		coach_id: '',
 		seat_number: '',
 		is_child: false,
-		include_children_seat: false
+		include_children_seat: false,
+		sumSeats: 0
 	}
 
 	setCoachId = (id) => this.setState({ coach_id: id });
 
 	setSeatNumber = (event) => this.setState({ seat_number: event.currentTarget.innerHTML });
 
-	setChildSeat = (value) => this.setState({ is_child: +value !== 0 ? true : false });
+	setSeats = (value) => this.setState({sumSeats: this.state.sumSeats + value});
 
-	setChildWithoutSeat = (value) => this.setState({ include_children_seat: +value !== 0 ? true : false });
+	setChildSeat = (value) => this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 ? true : false });
+
+	setChildWithoutSeat = (value) => this.setState({ sumSeats: this.state.sumSeats + value,include_children_seat: value !== 0 ? true : false });
 
 	setRouteTrainSeatReducer = () => {
 		this.props.history.push('/passengers')
@@ -61,15 +64,19 @@ class SectionSeatSelection extends React.Component {
 							places={this.props.choiceSeatsArray}
 							setCoachId={this.setCoachId}
 							setSeatNumber={this.setSeatNumber}
+							setSeats={this.setSeats}
 							setChildSeat={this.setChildSeat}
-							setChildWithoutSeat={this.setChildWithoutSeat} />
+							setChildWithoutSeat={this.setChildWithoutSeat}
+							sumSeats={this.state.sumSeats} />
 						<TrainTo
 							ticket={ticketSelected}
 							places={this.props.choiceSeatsArray}
 							setCoachId={this.setCoachId}
 							setSeatNumber={this.setSeatNumber}
+							setSeats={this.setSeats}
 							setChildSeat={this.setChildSeat}
-							setChildWithoutSeat={this.setChildWithoutSeat} />
+							setChildWithoutSeat={this.setChildWithoutSeat}
+							sumSeats={this.state.sumSeats} />
 						<div className="d-flex justify-content-end">
 							<button className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" type="button" onClick={this.setRouteTrainSeatReducer}>Далее</button>
 						</div>

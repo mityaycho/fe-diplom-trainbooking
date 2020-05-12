@@ -115,7 +115,8 @@ class TrainTo extends React.Component {
 				<h4 className="font-weight-bold mt-5 ml-3">Количество билетов</h4>
 				<div className="d-flex h-100">
 					<div className="quantity-tickets-check-left col">
-						<select className="custom-select mt-4">
+						<select className="custom-select mt-4"
+						onChange={(e) => this.props.setSeats(+e.currentTarget.value)}>
 							<option selected value="0">Взрослых - 0</option>
 							<option value="1">Взрослых - 1</option>
 							<option value="2">Взрослых - 2</option>
@@ -127,7 +128,7 @@ class TrainTo extends React.Component {
 					</div>
 					<div className="quantity-tickets-check-center col">
 						<select className="custom-select mt-4" 
-						onChange={(e) => this.props.setChildSeat(e.currentTarget.value)}>
+						onChange={(e) => this.props.setChildSeat(+e.currentTarget.value)}>
 							<option selected value="0">Детских - 0</option>
 							<option value="1">Детских - 1</option>
 							<option value="2">Детских - 2</option>
@@ -139,7 +140,7 @@ class TrainTo extends React.Component {
 					</div>
 					<div className="quantity-tickets-check-right col">
 						<select className="custom-select mt-4" 
-						onChange={(e) => this.props.setChildWithoutSeat(e.currentTarget.value)}>
+						onChange={(e) => this.props.setChildWithoutSeat(+e.currentTarget.value)}>
 							<option selected value="0">Детских «без места» - 0</option>
 							<option value="1">Детских «без места» - 1</option>
 							<option value="2">Детских «без места» - 2</option>
