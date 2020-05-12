@@ -3,11 +3,17 @@ import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
 import ProgressLineCost from '../../shared/ProgressLineCost';
 import SideBarSearchTicketsAndSeatSelection from '../../shared/SideBarSearchTicketsAndSeatSelection';
+import choiceOtherTrainButtonThere from '../../../images/choice_other_train_button_there.png';
+import iconSearchThere from '../../../images/icon_search_there.png';
+import choiceOtherTrainButtonBack from '../../../images/choice_other_train_button_back.png';
+import iconSearchBack from '../../../images/icon_search_back.png';
+
 import { connect } from 'react-redux';
 import { setRouteTrainSeatAC } from '../../../redux/action';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import TrainFrom from './TrainFrom';
 import TrainTo from './TrainTo';
+import TrainTicket from './TrainTicket';
 
 
 
@@ -41,10 +47,27 @@ class SectionSeatSelection extends React.Component {
 			this.state.include_children_seat);
 	}
 
+	trainButtonFrom = <div className="choice-other-train-button d-flex mt-4">
+	<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
+	<NavLink type="button"
+		className="btn btn-outline-dark ml-3 pl-5 pr-5 pt-3 font-weight-bold"
+		to="/search_tickets">Выбрать другой поезд</NavLink>
+</div>;
+
+trainButtonTo = <div className="choice-other-train-button d-flex justify-content-end mt-4">
+<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
+<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
+	to="/search_tickets">Выбрать другой поезд</NavLink>
+</div>;
+
 	render() {
 
 		const ticketSelected = this.props.ticketsArray.find(el => el.departure._id === this.props.trainId);
-		console.log(ticketSelected);
+		let fromDateTime = ticketSelected.departure.from.datetime;
+		let toDateTime = ticketSelected.departure.to.datetime;
+		let duration = ticketSelected.departure.duration;
+		let fromArrival = fromDateTime + duration;
+		let toArrival = toDateTime + duration;
 
 		return (
 			<div>
@@ -59,7 +82,7 @@ class SectionSeatSelection extends React.Component {
 					<SideBarSearchTicketsAndSeatSelection />
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
-						<TrainFrom
+						{/* <TrainFrom
 							ticket={ticketSelected}
 							places={this.props.choiceSeatsArray}
 							setCoachId={this.setCoachId}
@@ -71,6 +94,42 @@ class SectionSeatSelection extends React.Component {
 						<TrainTo
 							ticket={ticketSelected}
 							places={this.props.choiceSeatsArray}
+							setCoachId={this.setCoachId}
+							setSeatNumber={this.setSeatNumber}
+							setSeats={this.setSeats}
+							setChildSeat={this.setChildSeat}
+							setChildWithoutSeat={this.setChildWithoutSeat}
+							sumSeats={this.state.sumSeats} /> */}
+							<TrainTicket
+							trainButton={this.trainButtonFrom}
+							trainName={ticketSelected.departure.train.name}
+							cityNameDeparture={ticketSelected.departure.from.city.name}
+							cityNameArrival={ticketSelected.departure.to.city.name}
+							railwayStationDeparture={ticketSelected.departure.from.railway_station_name}
+							railwayStationArrival={ticketSelected.departure.to.railway_station_name}
+							dateTime={fromDateTime}
+							arrivalTime={fromArrival}
+							duration={duration}
+							iconSearch={iconSearchThere}
+							choiceSeatsArray={this.props.choiceSeatsArray}
+							setCoachId={this.setCoachId}
+							setSeatNumber={this.setSeatNumber}
+							setSeats={this.setSeats}
+							setChildSeat={this.setChildSeat}
+							setChildWithoutSeat={this.setChildWithoutSeat}
+							sumSeats={this.state.sumSeats} />
+							<TrainTicket
+							trainButton={this.trainButtonTo}
+							trainName={ticketSelected.departure.train.name}
+							cityNameDeparture={ticketSelected.departure.to.city.name}
+							cityNameArrival={ticketSelected.departure.from.city.name}
+							railwayStationDeparture={ticketSelected.departure.to.railway_station_name}
+							railwayStationArrival={ticketSelected.departure.from.railway_station_name}
+							dateTime={toDateTime}
+							arrivalTime={toArrival}
+							duration={duration}
+							iconSearch={iconSearchBack}
+							choiceSeatsArray={this.props.choiceSeatsArray}
 							setCoachId={this.setCoachId}
 							setSeatNumber={this.setSeatNumber}
 							setSeats={this.setSeats}

@@ -1,18 +1,12 @@
 import React from 'react';
 import choiceTrainIcon from '../../../images/icon_choice_train.png';
 import choiceTimeIcon from '../../../images/icon_choice_time.png';
-import choiceOtherTrainButtonThere from '../../../images/choice_other_train_button_there.png';
-import iconSearchThere from '../../../images/icon_search_there.png';
 import TrainJSX from './TrainJSX';
 import train_fourth_class from '../../../images/train_fourth_class.png';
 import train_third_class from '../../../images/train_third_class.png';
 import train_second_class from '../../../images/train_second_class.png';
 import train_first_class from '../../../images/train_first_class.png';
 import iconRuble from '../../../images/icon_ruble.png';
-
-
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 
 class TrainFrom extends React.Component {
@@ -96,52 +90,41 @@ class TrainFrom extends React.Component {
 
 	render() {
 
-		let fromDateTime = this.props.ticket.departure.from.datetime;
-		// let toDateTime = this.props.ticket.departure.to.datetime;
-		let duration = this.props.ticket.departure.duration;
-		let fromArrival = fromDateTime + duration;
-		// let toArrival = toDateTime + duration;
-
 		const getHours = (msc) => new Date(msc).getHours();
 		const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
 
 
 		return (
 			<div className="choice-of-place-there mb-3">
-				<div className="choice-other-train-button d-flex mt-4">
-					<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
-					<NavLink type="button"
-						className="btn btn-outline-dark ml-3 pl-5 pr-5 pt-3 font-weight-bold"
-						to="/search_tickets">Выбрать другой поезд</NavLink>
-				</div>
+				{this.props.trainButton}
 				<div className="choice-ticket-train-there d-flex mt-4 pt-3 justify-content-between">
 					<div className="d-flex">
 						<img className="align-self-center ml-5 mr-5" src={choiceTrainIcon} alt="..." />
 						<ul className="list-unstyled">
-							<li className="font-weight-bold">{this.props.ticket.departure.train.name}</li>
+							<li className="font-weight-bold">{this.props.trainName}</li>
 							<li>Адлер</li>
-							<li>{this.props.ticket.departure.from.city.name}</li>
-							<li>{this.props.ticket.departure.to.city.name}</li>
+							<li>{this.props.cityNameDeparture}</li>
+							<li>{this.props.cityNameArrival}</li>
 						</ul>
 					</div>
 					<div className="d-flex">
 						<ul className="list-unstyled align-self-center">
-							<li className="font-weight-bold">{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</li>
-							<li className="">{this.props.ticket.departure.from.city.name}</li>
-							<li className="font-weight-light">{this.props.ticket.departure.from.railway_station_name}</li>
+							<li className="font-weight-bold">{getHours(this.props.dateTime)}:{getMinutes(this.props.dateTime)}</li>
+							<li className="">{this.props.cityNameDeparture}</li>
+							<li className="font-weight-light">{this.props.railwayStationDeparture}</li>
 						</ul>
-						<img className="col align-self-center" src={iconSearchThere} alt="иконка стрелки вправо" />
+						<img className="col align-self-center" src={this.props.iconSearch} alt="иконка стрелки вправо" />
 						<ul className="list-unstyled align-self-center">
-							<li className="font-weight-bold">{getHours(fromArrival)}:{getMinutes(fromArrival)}</li>
-							<li className="">{this.props.ticket.departure.to.city.name}</li>
-							<li className="font-weight-light">{this.props.ticket.departure.to.railway_station_name}</li>
+							<li className="font-weight-bold">{getHours(this.props.arrivalTime)}:{getMinutes(this.props.arrivalTime)}</li>
+							<li className="">{this.props.cityNameArrival}</li>
+							<li className="font-weight-light">{this.props.railwayStationArrival}</li>
 						</ul>
 					</div>
 					<div className="d-flex mr-5">
 						<img className="align-self-center" src={choiceTimeIcon} alt="..." />
 						<ul className="list-unstyled align-self-center mt-2 ml-2">
-							<li className="font-weight-bold">{getHours(duration)} часов</li>
-							<li className="font-weight-bold">{getMinutes(duration)} минуты</li>
+							<li className="font-weight-bold">{getHours(this.props.duration)} часов</li>
+							<li className="font-weight-bold">{getMinutes(this.props.duration)} минуты</li>
 						</ul>
 					</div>
 				</div>
@@ -225,14 +208,4 @@ class TrainFrom extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TrainFrom);
+export default (TrainFrom);
