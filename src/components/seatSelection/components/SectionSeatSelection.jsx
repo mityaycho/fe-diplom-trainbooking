@@ -7,13 +7,11 @@ import choiceOtherTrainButtonThere from '../../../images/choice_other_train_butt
 import iconSearchThere from '../../../images/icon_search_there.png';
 import choiceOtherTrainButtonBack from '../../../images/choice_other_train_button_back.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
+import TrainTicket from './TrainTicket';
 
 import { connect } from 'react-redux';
 import { setRouteTrainSeatAC } from '../../../redux/action';
 import { withRouter, NavLink } from 'react-router-dom';
-import TrainFrom from './TrainFrom';
-import TrainTo from './TrainTo';
-import TrainTicket from './TrainTicket';
 
 
 
@@ -82,24 +80,6 @@ trainButtonTo = <div className="choice-other-train-button d-flex justify-content
 					<SideBarSearchTicketsAndSeatSelection />
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
-						{/* <TrainFrom
-							ticket={ticketSelected}
-							places={this.props.choiceSeatsArray}
-							setCoachId={this.setCoachId}
-							setSeatNumber={this.setSeatNumber}
-							setSeats={this.setSeats}
-							setChildSeat={this.setChildSeat}
-							setChildWithoutSeat={this.setChildWithoutSeat}
-							sumSeats={this.state.sumSeats} />
-						<TrainTo
-							ticket={ticketSelected}
-							places={this.props.choiceSeatsArray}
-							setCoachId={this.setCoachId}
-							setSeatNumber={this.setSeatNumber}
-							setSeats={this.setSeats}
-							setChildSeat={this.setChildSeat}
-							setChildWithoutSeat={this.setChildWithoutSeat}
-							sumSeats={this.state.sumSeats} /> */}
 							<TrainTicket
 							trainButton={this.trainButtonFrom}
 							trainName={ticketSelected.departure.train.name}
