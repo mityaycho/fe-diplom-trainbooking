@@ -29,11 +29,11 @@ class SectionSeatSelection extends React.Component {
 
 	setSeatNumber = (event) => this.setState({ seat_number: event.currentTarget.innerHTML });
 
-	setSeats = (value) => this.setState({sumSeats: this.state.sumSeats + value});
+	setSeats = (value) => this.setState({ sumSeats: this.state.sumSeats + value });
 
 	setChildSeat = (value) => this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 ? true : false });
 
-	setChildWithoutSeat = (value) => this.setState({ sumSeats: this.state.sumSeats + value,include_children_seat: value !== 0 ? true : false });
+	setChildWithoutSeat = (value) => this.setState({ sumSeats: this.state.sumSeats + value, include_children_seat: value !== 0 ? true : false });
 
 	setRouteTrainSeatReducer = () => {
 		this.props.history.push('/passengers')
@@ -46,17 +46,17 @@ class SectionSeatSelection extends React.Component {
 	}
 
 	trainButtonFrom = <div className="choice-other-train-button d-flex mt-4">
-	<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
-	<NavLink type="button"
-		className="btn btn-outline-dark ml-3 pl-5 pr-5 pt-3 font-weight-bold"
-		to="/search_tickets">Выбрать другой поезд</NavLink>
-</div>;
+		<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
+		<NavLink type="button"
+			className="btn btn-outline-dark ml-3 pl-5 pr-5 pt-3 font-weight-bold"
+			to="/search_tickets">Выбрать другой поезд</NavLink>
+	</div>;
 
-trainButtonTo = <div className="choice-other-train-button d-flex justify-content-end mt-4">
-<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
-<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
-	to="/search_tickets">Выбрать другой поезд</NavLink>
-</div>;
+	trainButtonTo = <div className="choice-other-train-button d-flex justify-content-end mt-4">
+		<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
+		<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
+			to="/search_tickets">Выбрать другой поезд</NavLink>
+	</div>;
 
 	render() {
 
@@ -80,7 +80,7 @@ trainButtonTo = <div className="choice-other-train-button d-flex justify-content
 					<SideBarSearchTicketsAndSeatSelection />
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
-							<TrainTicket
+						<TrainTicket
 							trainButton={this.trainButtonFrom}
 							trainName={ticketSelected.departure.train.name}
 							cityNameDeparture={ticketSelected.departure.from.city.name}
@@ -98,7 +98,7 @@ trainButtonTo = <div className="choice-other-train-button d-flex justify-content
 							setChildSeat={this.setChildSeat}
 							setChildWithoutSeat={this.setChildWithoutSeat}
 							sumSeats={this.state.sumSeats} />
-							<TrainTicket
+						<TrainTicket
 							trainButton={this.trainButtonTo}
 							trainName={ticketSelected.departure.train.name}
 							cityNameDeparture={ticketSelected.departure.to.city.name}
