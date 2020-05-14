@@ -18,7 +18,7 @@ export const api = {
 		// cityWhereFromId: "5b9a2fa7f83e028786ea5672"
 		// cityWhereToId: "5b9a2fa7f83e028786ea5673"
 		// `routes?from_city_id=${cityWhereFromId}&to_city_id=${cityWhereToId}` (line 28) old
-		// `routes?from_city_id=${sectionSearch.cityWhereFromId}&to_city_id=${sectionSearch.cityWhereToId}` (line 28)
+		// `routes?from_city_id=${sectionSearch.cityWhereFromId}&to_city_id=${sectionSearch.cityWhereToId}` (line 24)
 
 		return instance.get(
 			`routes?from_city_id=${'5b9a2fa7f83e028786ea5672'}&to_city_id=${'5b9a2fa7f83e028786ea5673'}` +
