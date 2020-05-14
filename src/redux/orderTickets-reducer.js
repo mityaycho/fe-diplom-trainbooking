@@ -1,4 +1,6 @@
-import { SET_ROUTE_TRAIN_SEAT } from './action';
+import {
+	SET_ROUTE_TRAIN_SEAT
+} from './action';
 
 const initState = {
 	user: {
@@ -35,12 +37,16 @@ const orderTicketsReducer = (state = initState, action) => {
 		case SET_ROUTE_TRAIN_SEAT:
 			return {
 				...state,
-				departure: { route_direction_id: action.route_direction_id, 
-					seats: [{...state.departure.seats, 
-						coach_id: action.coach_id, 
-						seat_number: action.seat_number, 
+				departure: {
+					route_direction_id: action.route_direction_id,
+					seats: [{
+						...state.departure.seats,
+						coach_id: action.coach_id,
+						seat_number: action.seat_number,
 						is_child: action.is_child,
-						include_children_seat: action.include_children_seat}] }
+						include_children_seat: action.include_children_seat
+					}]
+				}
 			}
 			default:
 				return state;
