@@ -13,7 +13,7 @@ const ResultSearchTickets = (props) => {
 
 	const setTrainIdEvent = () => {
 		props.setTrainId(props.state.departure._id);
-		props.history.push('/seat_selection')
+		props.history.push('/seat_selection');
 	}
 
 	let fromDateTime = props.state.departure.from.datetime;
