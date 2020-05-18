@@ -735,6 +735,10 @@ footer {
 	background-color: rgb(167, 167, 167);
 }
 
+.seats-index.false:active {
+	border: solid 1px rgb(218, 185, 0);
+}
+
 .train-fourth-container {
 	position: relative;
 	padding-top: 26px;
