@@ -10,7 +10,7 @@ import iconPassanger from '../../images/icon_passanger.png';
 import { connect } from 'react-redux';
 
 
-class SideBarPassangersSection extends React.Component {
+class SideBarPassangersAndPaySection extends React.Component {
 
 	render() {
 		const ticketSelected = this.props.ticketsArray.find(el => el.departure._id === this.props.trainId);
@@ -125,18 +125,19 @@ class SideBarPassangersSection extends React.Component {
 					</div>
 					<div className="d-flex justify-content-between">
 						<div className="ml-3 mt-3">
-							<p>2 Взрослых</p>
-							<p>1 Ребенок</p>
+							<p>{this.props.ticketsAdult} Взрослых</p>
+							{this.props.ticketsChild !== 0 && <p>{this.props.ticketsChild} Ребенок</p>}
+							{this.props.ticketsChildWithoutPlace !== 0 && <p>{this.props.ticketsChildWithoutPlace} Ребенок без места</p>}
 						</div>
 						<div className="mr-3 mt-3">
-							<h6>5 840<img className="ml-1" src={iconRubleSmall} alt="..." /></h6>
-							<h6>1 920<img className="ml-1" src={iconRubleSmall} alt="..." /></h6>
+							<h6>{this.props.ticketsAdult * this.props.payAdult}<img className="ml-1" src={iconRubleSmall} alt="..." /></h6>
+							{this.props.ticketsChild !== 0 && <h6 className="mt-3">{this.props.ticketsChild * this.props.payChild}<img className="ml-1" src={iconRubleSmall} alt="..." /></h6>}
 						</div>
 					</div>
 					<hr className="bg-light" />
 					<div className="d-flex justify-content-between mt-4">
 						<h3 className="ml-3">Итог</h3>
-						<h3 className="mr-3 text-warning">7 760<img className="ml-2" src={iconRuble} alt="..." /></h3>
+						<h3 className="mr-3 text-warning">{(this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild)}<img className="ml-2" src={iconRuble} alt="..." /></h3>
 					</div>
 				</div>
 			</div>
@@ -149,8 +150,13 @@ const mapStateToProps = (state) => {
 		form: state.sectionSearch.form,
 		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
 		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
-		trainId: state.filterChoiceTicketsAndSeatsPages.trainId
+		trainId: state.filterChoiceTicketsAndSeatsPages.trainId,
+		ticketsAdult: state.passengersAndPay.ticketsAdult,
+		payAdult: state.passengersAndPay.payAdult,
+		ticketsChild: state.passengersAndPay.ticketsChild,
+		payChild: state.passengersAndPay.payChild,
+		ticketsChildWithoutPlace: state.passengersAndPay.ticketsChildWithoutPlace,
 	};
 };
 
-export default connect(mapStateToProps, null)(SideBarPassangersSection);
+export default connect(mapStateToProps, null)(SideBarPassangersAndPaySection);

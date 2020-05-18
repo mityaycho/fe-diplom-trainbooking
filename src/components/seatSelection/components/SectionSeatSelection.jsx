@@ -10,7 +10,7 @@ import iconSearchBack from '../../../images/icon_search_back.png';
 import TrainTicket from './TrainTicket';
 
 import { connect } from 'react-redux';
-import { setRouteTrainSeatAC } from '../../../redux/action';
+import { setRouteTrainSeatAC, passengersAndPayAC } from '../../../redux/action';
 import { withRouter, NavLink } from 'react-router-dom';
 
 
@@ -29,11 +29,20 @@ class SectionSeatSelection extends React.Component {
 
 	setSeatNumber = (event) => this.setState({ seat_number: event.currentTarget.innerHTML });
 
-	setSeats = (value) => this.setState({ sumSeats: this.state.sumSeats + value });
+	setAdultSeats = (value) => {
+		this.setState({ sumSeats: this.state.sumSeats + value });
+		this.props.setPassengersAndPay('ticketsAdult', value);
+	}
 
-	setChildSeat = (value) => this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 ? true : false });
+	setChildSeat = (value) => {
+		this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 ? true : false });
+		this.props.setPassengersAndPay('ticketsChild', value);
+	}
 
-	setChildWithoutSeat = (value) => this.setState({ sumSeats: this.state.sumSeats + value, include_children_seat: value !== 0 ? true : false });
+	setChildWithoutSeat = (value) => {
+		this.props.setPassengersAndPay('ticketsChildWithoutPlace', value);
+		this.setState({ include_children_seat: value !== 0 ? true : false });
+	}
 
 	setRouteTrainSeatReducer = () => {
 		this.props.history.push('/passengers')
@@ -94,7 +103,7 @@ class SectionSeatSelection extends React.Component {
 							choiceSeatsArray={this.props.choiceSeatsArray}
 							setCoachId={this.setCoachId}
 							setSeatNumber={this.setSeatNumber}
-							setSeats={this.setSeats}
+							setAdultSeats={this.setAdultSeats}
 							setChildSeat={this.setChildSeat}
 							setChildWithoutSeat={this.setChildWithoutSeat}
 							sumSeats={this.state.sumSeats} />
@@ -112,7 +121,7 @@ class SectionSeatSelection extends React.Component {
 							choiceSeatsArray={this.props.choiceSeatsArray}
 							setCoachId={this.setCoachId}
 							setSeatNumber={this.setSeatNumber}
-							setSeats={this.setSeats}
+							setAdultSeats={this.setAdultSeats}
 							setChildSeat={this.setChildSeat}
 							setChildWithoutSeat={this.setChildWithoutSeat}
 							sumSeats={this.state.sumSeats} />
@@ -140,7 +149,8 @@ const mapDispatchToProps = (dispatch) => {
 		setRouteTrainSeat: (train, coach_id, trainId, seat_number, is_child, include_children_seat) => {
 			const action = setRouteTrainSeatAC(train, coach_id, trainId, seat_number, is_child, include_children_seat);
 			dispatch(action);
-		}
+		},
+		setPassengersAndPay: (fieldName, fieldValue) => dispatch(passengersAndPayAC(fieldName, fieldValue))
 	}
 };
 

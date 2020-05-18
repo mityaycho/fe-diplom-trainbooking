@@ -2,6 +2,7 @@ export const SET_FORM = 'searchMainReducer/SET_FORM';
 export const SET_LAST_ROUTES = 'searchMainReducer/SET_LAST_ROUTES';
 export const SET_TICKETS_AND_SEATS = 'ticketsPayReducer/SET_TICKETS_AND_SEATS';
 export const SET_ROUTE_TRAIN_SEAT = 'orderTicketsReducer/SET_ROUTE_TRAIN_SEAT';
+export const SET_PASSENGER_AND_PAY = 'passengersAndPayReducer/SET_PASSENGER_AND_PAY';
 
 
 export const setDataFormAC = (form) => ({
@@ -16,6 +17,12 @@ export const setLastRoutes = (lastRoutes) => ({
 
 export const filterTicketsAndSeatsAC = (fieldName, fieldValue) => ({
 	type: SET_TICKETS_AND_SEATS,
+	fieldName,
+	fieldValue
+});
+
+export const passengersAndPayAC = (fieldName, fieldValue) => ({
+	type: SET_PASSENGER_AND_PAY,
 	fieldName,
 	fieldValue
 });
