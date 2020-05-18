@@ -1,0 +1,144 @@
+import React from 'react';
+import iconThere from '../../images/icon_there.png';
+import iconBack from '../../images/icon_back.png';
+import iconMinus from '../../images/icon_minus.png';
+import iconRuble from '../../images/icon_ruble.png';
+import iconSearchThere from '../../images/icon_search_there.png';
+import iconRubleSmall from '../../images/icon_ruble_small.png';
+import iconPassanger from '../../images/icon_passanger.png';
+
+import { connect } from 'react-redux';
+
+
+class SideBarPassangersSection extends React.Component {
+
+	render() {
+
+		return (
+			<div className="trip-details-tickets col-lg-3 mt-5 mb-5">
+				<div className="trip-details bg-dark pt-4 pb-4">
+					<h5 className="text-center text-uppercase">Детали поездки</h5>
+					<hr className="bg-light mt-4" />
+					<div className="d-flex align-items-center">
+						<img className="ml-3" src={iconThere} alt="иконка туда" />
+						<h5 className="ml-2">Туда</h5>
+						<h6 className="ml-2 font-weight-light">30.08.2018</h6>
+						<img className="ml-auto mr-3" src={iconMinus} alt="..." />
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="ml-3">
+							<p className="mt-3">№ Поезда</p>
+							<p className="mt-3">Название</p>
+						</div>
+						<div className="mr-3 text-right">
+							<h6 className="mt-3">116С</h6>
+							<p className="mt-3">Адлер</p>
+							<p className="mt-n3">Санкт-Петербург</p>
+						</div>
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="ml-3 mt-3">
+							<h6>00:10</h6>
+							<p className="text-white-50">30.08.2018</p>
+						</div>
+						<div>
+							<p>9:42</p>
+							<img className="mt-n4" src={iconSearchThere} alt="иконка стрелки вправо" />
+						</div>
+						<div className="mr-3 mt-3 text-right">
+							<h6>9:52</h6>
+							<p className="text-white-50">31.08.2018</p>
+						</div>
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="ml-3">
+							<h6>Москва</h6>
+							<p className="text-white-50">Курский </p>
+							<p className="mt-n3 text-white-50">вокзал</p>
+						</div>
+						<div className="mr-3 text-right">
+							<h6>Санкт-Петербург</h6>
+							<p className="text-white-50">Ладожский</p>
+							<p className="mt-n3 text-white-50">вокзал</p>
+						</div>
+					</div>
+					<hr className="bg-light" />
+
+					<div className="d-flex align-items-center">
+						<img className="ml-3" src={iconBack} alt="иконка туда" />
+						<h5 className="ml-2">Обратно</h5>
+						<h6 className="ml-2 font-weight-light">09.09.2018</h6>
+						<img className="ml-auto mr-3" src={iconMinus} alt="..." />
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="ml-3">
+							<p className="mt-3">№ Поезда</p>
+							<p className="mt-3">Название</p>
+						</div>
+						<div className="mr-3 text-right">
+							<h6 className="mt-3">116С</h6>
+							<p className="mt-3">Адлер</p>
+							<p className="mt-n3">Санкт-Петербург</p>
+						</div>
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="ml-3 mt-3">
+							<h6>00:10</h6>
+							<p className="text-white-50">09.09.2018</p>
+						</div>
+						<div>
+							<p>9:42</p>
+							<img className="mt-n4" src={iconSearchThere} alt="иконка стрелки вправо" />
+						</div>
+						<div className="mr-3 mt-3 text-right">
+							<h6>9:52</h6>
+							<p className="text-white-50">08.09.2018</p>
+						</div>
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="ml-3">
+							<h6>Москва</h6>
+							<p className="text-white-50">Курский </p>
+							<p className="mt-n3 text-white-50">вокзал</p>
+						</div>
+						<div className="mr-3 text-right">
+							<h6>Санкт-Петербург</h6>
+							<p className="text-white-50">Ладожский</p>
+							<p className="mt-n3 text-white-50">вокзал</p>
+						</div>
+					</div>
+					<hr className="bg-light" />
+
+					<div className="d-flex align-items-center">
+						<img className="ml-3" src={iconPassanger} alt="иконка пасссажир" />
+						<h5 className="ml-2">Пассажиры</h5>
+						<img className="ml-auto mr-3" src={iconMinus} alt="..." />
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="ml-3 mt-3">
+							<p>2 Взрослых</p>
+							<p>1 Ребенок</p>
+						</div>
+						<div className="mr-3 mt-3">
+							<h6>5 840<img className="ml-1" src={iconRubleSmall} alt="..." /></h6>
+							<h6>1 920<img className="ml-1" src={iconRubleSmall} alt="..." /></h6>
+						</div>
+					</div>
+					<hr className="bg-light" />
+					<div className="d-flex justify-content-between mt-4">
+						<h3 className="ml-3">Итог</h3>
+						<h3 className="mr-3 text-warning">7 760<img className="ml-2" src={iconRuble} alt="..." /></h3>
+					</div>
+				</div>
+			</div>
+		);
+	};
+}
+
+const mapStateToProps = (state) => {
+	return {
+		
+	};
+};
+
+export default connect(mapStateToProps, null)(SideBarPassangersSection);
