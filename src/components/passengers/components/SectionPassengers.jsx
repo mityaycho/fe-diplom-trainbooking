@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
@@ -11,6 +10,9 @@ import iconPlusSmallYellow from '../../../images/icon_plus_small_yellow.png';
 import iconDawSircle from '../../../images/icon_daw_sircle.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
+
+import { NavLink } from "react-router-dom";
+
 
 const SectionPassengers = () => {
 	return (
