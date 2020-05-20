@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
@@ -16,11 +16,11 @@ const SectionPassengers = () => {
 	return (
 		<div>
 			<ProgressLineCost tickets={progressStateSelected}
-												passengers={progressStateSelect}
-												passengersClass="completed"
-												payment={progressStateDefault}
-												paymentClass=""
-												checkClass=""/>
+				passengers={progressStateSelect}
+				passengersClass="completed"
+				payment={progressStateDefault}
+				paymentClass=""
+				checkClass="" />
 
 			<div className="container d-flex">
 				<SideBarPassangersSection />
@@ -29,9 +29,9 @@ const SectionPassengers = () => {
 					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 						<div className="passengers-form-filling col">
 							<div className="passengers-form-number border-bottom row pt-4 pb-4">
-								<img className="pl-4" src={iconMinusSircle} alt="..."/>
+								<img className="pl-4" src={iconMinusSircle} alt="..." />
 								<h5 className="ml-3">Пассажир 1</h5>
-								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
+								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
 							</div>
 
 							<select className="form-control w-25 ml-4 mt-4">
@@ -42,19 +42,19 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Фамилия</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Мартынюк"/>
+										<input className="col-sm form-control" type="text" placeholder="Мартынюк" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Имя</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Ирина"/>
+										<input className="col-sm form-control" type="text" placeholder="Ирина" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Отчество</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Эдуардовна"/>
+										<input className="col-sm form-control" type="text" placeholder="Эдуардовна" />
 									</div>
 								</form>
 							</div>
@@ -62,20 +62,20 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Пол</p>
 									<label className="switch">
-										<input type="checkbox"/>
+										<input type="checkbox" />
 										<span className="slider"></span>
 									</label>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Дата рождения</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг"/>
+										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
 									</div>
 								</form>
 							</div>
 							<div className="row border-bottom">
 								<div className="form-group ml-5">
-									<input type="checkbox"/>
+									<input type="checkbox" />
 								</div>
 								<p className="ml-2">ограниченная подвижность</p>
 							</div>
@@ -90,13 +90,13 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Серия</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="_ _ _ _"/>
+										<input className="col-sm form-control" type="text" placeholder="_ _ _ _" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Номер</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="_ _ _ _ _ _"/>
+										<input className="col-sm form-control" type="text" placeholder="_ _ _ _ _ _" />
 									</div>
 								</form>
 							</div>
@@ -110,9 +110,9 @@ const SectionPassengers = () => {
 					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 						<div className="passengers-form-filling col">
 							<div className="passengers-form-number row border-bottom pt-4 pb-4">
-								<img className="pl-4" src={iconMinusSircle} alt="..."/>
+								<img className="pl-4" src={iconMinusSircle} alt="..." />
 								<h5 className="ml-3">Пассажир 2</h5>
-								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
+								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
 							</div>
 
 							<select className="form-control w-25 ml-4 mt-4">
@@ -123,19 +123,19 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Фамилия</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Мартынюк"/>
+										<input className="col-sm form-control" type="text" placeholder="Мартынюк" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Имя</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Ирина"/>
+										<input className="col-sm form-control" type="text" placeholder="Ирина" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Отчество</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Эдуардовна"/>
+										<input className="col-sm form-control" type="text" placeholder="Эдуардовна" />
 									</div>
 								</form>
 							</div>
@@ -143,20 +143,20 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Пол</p>
 									<label className="switch">
-										<input type="checkbox"/>
+										<input type="checkbox" />
 										<span className="slider"></span>
 									</label>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Дата рождения</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг"/>
+										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
 									</div>
 								</form>
 							</div>
 							<div className="row border-bottom">
 								<div className="form-group ml-5">
-									<input type="checkbox"/>
+									<input type="checkbox" />
 								</div>
 								<p className="ml-2">ограниченная подвижность</p>
 							</div>
@@ -172,7 +172,7 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Номер</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="12 символов _ _ _ _"/>
+										<input className="col-sm form-control" type="text" placeholder="12 символов _ _ _ _" />
 									</div>
 								</form>
 							</div>
@@ -185,9 +185,9 @@ const SectionPassengers = () => {
 					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 						<div className="passengers-form-filling col">
 							<div className="passengers-form-number row border-bottom pt-4 pb-4">
-								<img className="pl-4" src={iconMinusSircle} alt="..."/>
+								<img className="pl-4" src={iconMinusSircle} alt="..." />
 								<h5 className="ml-3">Пассажир 2</h5>
-								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
+								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
 							</div>
 							<select className="form-control w-25 ml-4 mt-4">
 								<option>Десткий</option>
@@ -197,19 +197,19 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Фамилия</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Мартынюк"/>
+										<input className="col-sm form-control" type="text" placeholder="Мартынюк" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Имя</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Ирина"/>
+										<input className="col-sm form-control" type="text" placeholder="Ирина" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Отчество</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Эдуардовна"/>
+										<input className="col-sm form-control" type="text" placeholder="Эдуардовна" />
 									</div>
 								</form>
 							</div>
@@ -217,20 +217,20 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Пол</p>
 									<label className="switch">
-										<input type="checkbox"/>
+										<input type="checkbox" />
 										<span className="slider"></span>
 									</label>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Дата рождения</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг"/>
+										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
 									</div>
 								</form>
 							</div>
 							<div className="row border-bottom">
 								<div className="form-group ml-5">
-									<input type="checkbox"/>
+									<input type="checkbox" />
 								</div>
 								<p className="ml-2">ограниченная подвижность</p>
 							</div>
@@ -245,12 +245,12 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Номер</p>
 									<div className="form-group">
-										<input className="form-control" type="text" placeholder="12 символов _ _ _ _"/>
+										<input className="form-control" type="text" placeholder="12 символов _ _ _ _" />
 									</div>
 								</form>
 							</div>
 							<div className="form-passport-danger row mt-4">
-								<img className="pl-4 align-self-center" src={iconCloseXSircle} alt="..."/>
+								<img className="pl-4 align-self-center" src={iconCloseXSircle} alt="..." />
 								<div className="col align-self-center mb-n3 pt-3">Номер свидетельства о рожденни указан некорректно <div className="d-flex">Пример:<p className="font-weight-bold pl-1">VIII-ЫП-123456</p></div></div>
 							</div>
 						</div>
@@ -259,9 +259,9 @@ const SectionPassengers = () => {
 					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 						<div className="passengers-form-filling col">
 							<div className="passengers-form-number row border-bottom pt-4 pb-4">
-								<img className="pl-4" src={iconMinusSircle} alt="..."/>
+								<img className="pl-4" src={iconMinusSircle} alt="..." />
 								<h5 className="ml-3">Пассажир 2</h5>
-								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..."/>
+								<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
 							</div>
 							<select className="form-control w-25 ml-4 mt-4">
 								<option>Десткий</option>
@@ -271,19 +271,19 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Фамилия</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Мартынюк"/>
+										<input className="col-sm form-control" type="text" placeholder="Мартынюк" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Имя</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Ирина"/>
+										<input className="col-sm form-control" type="text" placeholder="Ирина" />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Отчество</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Эдуардовна"/>
+										<input className="col-sm form-control" type="text" placeholder="Эдуардовна" />
 									</div>
 								</form>
 							</div>
@@ -291,20 +291,20 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Пол</p>
 									<label className="switch">
-										<input type="checkbox"/>
+										<input type="checkbox" />
 										<span className="slider"></span>
 									</label>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Дата рождения</p>
 									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг"/>
+										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
 									</div>
 								</form>
 							</div>
 							<div className="row  border-bottom">
 								<div className="form-group ml-5">
-									<input type="checkbox"/>
+									<input type="checkbox" />
 								</div>
 								<p className="ml-2">ограниченная подвижность</p>
 							</div>
@@ -319,12 +319,12 @@ const SectionPassengers = () => {
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
 									<p>Номер</p>
 									<div className="form-group">
-										<input className="form-control" type="text" placeholder="12 символов _ _ _ _"/>
+										<input className="form-control" type="text" placeholder="12 символов _ _ _ _" />
 									</div>
 								</form>
 							</div>
 							<div className="form-passport-ready row mt-4">
-								<img className="pl-4 align-self-center" src={iconDawSircle} alt="..."/>
+								<img className="pl-4 align-self-center" src={iconDawSircle} alt="..." />
 								<p className="col align-self-center text-light mt-3">Готово</p>
 								<div className="d-flex justify-content-end mt-4">
 									<button type="button" className="btn btn-outline-dark m-3 mt-n2 pl-3 pr-3 font-weight-bold">Следующий пасссажир</button>
@@ -336,7 +336,7 @@ const SectionPassengers = () => {
 					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 						<div className="passengers-form-filling col">
 							<div className="passengers-form-number row pt-4 pb-4">
-								<img className="pl-4" src={iconPlusSircle} alt="..."/>
+								<img className="pl-4" src={iconPlusSircle} alt="..." />
 								<h5 className="ml-3">Пассажир 3</h5>
 							</div>
 						</div>
@@ -346,7 +346,7 @@ const SectionPassengers = () => {
 						<div className="passengers-form-filling col">
 							<div className="passengers-form-number row pt-4 pb-4">
 								<h5 className="ml-3">Добавить пассажира</h5>
-								<img className="ml-auto mr-5 mt-auto" src={iconPlusSmallYellow} alt="..."/>
+								<img className="ml-auto mr-5 mt-auto" src={iconPlusSmallYellow} alt="..." />
 							</div>
 						</div>
 					</div>
@@ -355,7 +355,7 @@ const SectionPassengers = () => {
 						<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/pay_selection" type="button">Далее</NavLink>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	);
