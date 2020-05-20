@@ -97,7 +97,7 @@ const ResultSearchTickets = (props) => {
 						</div>
 
 						<div className="row pb-3 justify-content-center">
-							<img src={iconWifiRocketCup} alt="wifi-rocket-cup" />
+							<img className="ml-5" src={iconWifiRocketCup} alt="wifi-rocket-cup" />
 
 							<button className="btn btn-warning m-3"
 								type="button"
