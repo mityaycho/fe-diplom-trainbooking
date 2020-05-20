@@ -37,15 +37,25 @@ const orderTicketsReducer = (state = initState, action) => {
 		case SET_ROUTE_TRAIN_SEAT:
 			return {
 				...state,
-				departure: {
+				departure: {...state.departure,
 					route_direction_id: action.route_direction_id,
-					seats: [{
-						...state.departure.seats,
+					// seats: [{
+					// 	...state.departure.seats,
+					// 	coach_id: action.coach_id,
+					// 	seat_number: action.seat_number,
+					// 	is_child: action.is_child,
+					// 	include_children_seat: action.include_children_seat
+					// }]
+					seats: state.departure.seats.map( (s)=> {
+								return {
+											...state.departure.seats,
 						coach_id: action.coach_id,
 						seat_number: action.seat_number,
 						is_child: action.is_child,
 						include_children_seat: action.include_children_seat
-					}]
+								}
+					} )
+
 				}
 			}
 			default:
