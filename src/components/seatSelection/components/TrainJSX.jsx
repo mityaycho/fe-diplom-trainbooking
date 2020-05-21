@@ -8,14 +8,26 @@ const TrainJSX = (props) => {
 
 	const seatsMath = Math.ceil(props.train.coach.available_seats / 2);
 
-	const seatFirstRowJSX = props.train.seats.map(el => el.index <= 32 ?
-		<button className={`seats-index ${el.available}`}
-			key={el.index} disabled={el.available} onClick={props.setSeatNumber}>{el.index}</button> : '');
+	const seatFirstRowJSX = props.train.seats.map(el => {
+		let active = '';
+		props.seatNumber.map(find => find === el.index ? active = 'active' : '');
+		console.log(active)
+		return el.index <= 32 ?
+			<button className={`seats-index ${el.available} ${active}`}
+				key={el.index} disabled={el.available} onClick={props.setSeatNumber}>{el.index}</button> : ''
+	}
+	);
 
-	const seatTwoRowJSX = props.train.seats.map(el => el.index <= 32 ?
-		'' :
-		<button className={`seats-index two-row ${el.available}`}
-			key={el.index} disabled={el.available} onClick={props.setSeatNumber}>{el.index}</button>);
+
+	const seatTwoRowJSX = props.train.seats.map(el => {
+		let active = '';
+		props.seatNumber.map(find => find === el.index ? active = 'active' : '');
+		return el.index <= 32 ?
+			'' :
+			<button className={`seats-index two-row ${el.available} ${active}`}
+				key={el.index} disabled={el.available} onClick={props.setSeatNumber}>{el.index}</button>
+	}
+	);
 
 	return (
 		<div>

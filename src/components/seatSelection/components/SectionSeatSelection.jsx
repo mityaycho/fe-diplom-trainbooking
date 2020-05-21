@@ -114,7 +114,8 @@ class SectionSeatSelection extends React.Component {
 							setChildSeat={this.setChildSeat}
 							setChildWithoutSeat={this.setChildWithoutSeat}
 							sumSeats={this.state.sumSeats} 
-							sumTicketsPay={this.state.sumTicketsPay} />
+							sumTicketsPay={this.state.sumTicketsPay}
+							seatNumber={this.state.seat_number} />
 						<TrainTicket
 							trainButton={this.trainButtonTo}
 							trainName={ticketSelected.departure.train.name}
@@ -133,7 +134,8 @@ class SectionSeatSelection extends React.Component {
 							setChildSeat={this.setChildSeat}
 							setChildWithoutSeat={this.setChildWithoutSeat}
 							sumSeats={this.state.sumSeats}
-							sumTicketsPay={this.state.sumTicketsPay} />
+							sumTicketsPay={this.state.sumTicketsPay}
+							seatNumber={this.state.seat_number} />
 						<div className="d-flex justify-content-end">
 							<button className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" type="button" onClick={this.setRouteTrainSeatReducer}>Далее</button>
 						</div>
