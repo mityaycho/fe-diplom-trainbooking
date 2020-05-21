@@ -29,7 +29,7 @@ class SectionSeatSelection extends React.Component {
 
 	setSeatNumber = (event) => {
 		if (this.state.seat_number.length < this.state.sumSeats) {
-		this.setState({ seat_number: [...this.state.seat_number, event.currentTarget.innerHTML] });
+			this.setState({ seat_number: [...this.state.seat_number, event.currentTarget.innerHTML] });
 		}
 	}
 
