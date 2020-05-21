@@ -5,7 +5,8 @@ const initState = {
 	ticketsChild: 0,
 	ticketsChildWithoutPlace: 0,
 	payAdult: 0,
-	payChild: 0
+	payChild: 0,
+	seatsNumbers: []
 };
 
 const passengersAndPayReducer = (state = initState, action) => {

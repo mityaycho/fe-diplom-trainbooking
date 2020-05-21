@@ -19,7 +19,7 @@ class SectionSeatSelection extends React.Component {
 
 	state = {
 		coach_id: '',
-		seat_number: '',
+		seat_number: [],
 		is_child: false,
 		include_children_seat: false,
 		sumSeats: 0
@@ -27,7 +27,11 @@ class SectionSeatSelection extends React.Component {
 
 	setCoachId = (id) => this.setState({ coach_id: id });
 
-	setSeatNumber = (event) => this.setState({ seat_number: event.currentTarget.innerHTML });
+	setSeatNumber = (event) => {
+		if (this.state.seat_number.length < this.state.sumSeats) {
+		this.setState({ seat_number: [...this.state.seat_number, event.currentTarget.innerHTML] });
+		}
+	}
 
 	setAdultSeats = (value) => {
 		this.setState({ sumSeats: this.state.sumSeats + value });
@@ -45,11 +49,12 @@ class SectionSeatSelection extends React.Component {
 	}
 
 	setRouteTrainSeatReducer = () => {
-		this.props.history.push('/passengers')
+		this.props.history.push('/passengers');
+		this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
 		this.props.setRouteTrainSeat(
 			this.props.trainId,
 			this.state.coach_id,
-			this.state.seat_number,
+			this.state.seat_number[0],
 			this.state.is_child,
 			this.state.include_children_seat);
 	}
