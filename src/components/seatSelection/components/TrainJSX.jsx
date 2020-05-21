@@ -10,7 +10,7 @@ const TrainJSX = (props) => {
 
 	const seatFirstRowJSX = props.train.seats.map(el => {
 		let active = '';
-		props.seatNumber.map(find => find === el.index ? active = 'active' : '');
+		props.seatNumber.map(find => find == el.index ? active = 'active' : '');
 		console.log(active)
 		return el.index <= 32 ?
 			<button className={`seats-index ${el.available} ${active}`}

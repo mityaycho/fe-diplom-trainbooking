@@ -727,7 +727,8 @@ footer {
 }
 
 .seats-index.active {
-	border: 2px solid rgb(218, 185, 0);
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(245, 211, 18);
 }
 
 .seats-index.true {
