@@ -22,14 +22,16 @@ class SectionSeatSelection extends React.Component {
 		seat_number: [],
 		is_child: false,
 		include_children_seat: false,
-		sumSeats: 0
+		sumSeats: 0,
+		sumTicketsPay: 0
 	}
 
 	setCoachId = (id) => this.setState({ coach_id: id });
 
 	setSeatNumber = (event) => {
 		if (this.state.seat_number.length < this.state.sumSeats) {
-			this.setState({ seat_number: [...this.state.seat_number, event.currentTarget.innerHTML] });
+			this.setState({ seat_number: [...this.state.seat_number, event.currentTarget.innerHTML],
+			sumTicketsPay: (this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild) });
 		}
 	}
 
@@ -111,7 +113,8 @@ class SectionSeatSelection extends React.Component {
 							setAdultSeats={this.setAdultSeats}
 							setChildSeat={this.setChildSeat}
 							setChildWithoutSeat={this.setChildWithoutSeat}
-							sumSeats={this.state.sumSeats} />
+							sumSeats={this.state.sumSeats} 
+							sumTicketsPay={this.state.sumTicketsPay} />
 						<TrainTicket
 							trainButton={this.trainButtonTo}
 							trainName={ticketSelected.departure.train.name}
@@ -129,7 +132,8 @@ class SectionSeatSelection extends React.Component {
 							setAdultSeats={this.setAdultSeats}
 							setChildSeat={this.setChildSeat}
 							setChildWithoutSeat={this.setChildWithoutSeat}
-							sumSeats={this.state.sumSeats} />
+							sumSeats={this.state.sumSeats}
+							sumTicketsPay={this.state.sumTicketsPay} />
 						<div className="d-flex justify-content-end">
 							<button className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" type="button" onClick={this.setRouteTrainSeatReducer}>Далее</button>
 						</div>
@@ -145,7 +149,11 @@ const mapStateToProps = (state) => {
 		form: state.sectionSearch.form,
 		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
 		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
-		trainId: state.filterChoiceTicketsAndSeatsPages.trainId
+		trainId: state.filterChoiceTicketsAndSeatsPages.trainId,
+		ticketsAdult: state.passengersAndPay.ticketsAdult,
+		payAdult: state.passengersAndPay.payAdult,
+		ticketsChild: state.passengersAndPay.ticketsChild,
+		payChild: state.passengersAndPay.payChild
 	};
 };
 
