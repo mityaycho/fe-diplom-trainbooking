@@ -12,7 +12,7 @@ const TrainJSX = (props) => {
 	const seatFirstRowJSX = props.train.seats.map(el => {
 		let active = '';
 		props.seatNumber.map(find => +find === el.index ? active = 'active' : '');
-		
+
 		return el.index <= 32 ?
 			<button className={`seats-index ${el.available} ${active}`}
 				key={el.index} disabled={el.available} onClick={props.setSeatNumber}>{el.index}</button> : ''
@@ -86,10 +86,10 @@ const TrainJSX = (props) => {
 				</div>
 			</div>
 			{props.sumTicketsPay !== 0 &&
-					<div className="row justify-content-end mr-3 mb-3">
-						<p className="last-ticket-price ml-1">{props.sumTicketsPay}</p>
-						<img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль" />
-					</div>}
+				<div className="row justify-content-end mr-3 mb-3">
+					<p className="last-ticket-price ml-1">{props.sumTicketsPay}</p>
+					<img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль" />
+				</div>}
 		</div>
 	);
 }
