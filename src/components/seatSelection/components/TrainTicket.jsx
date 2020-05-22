@@ -6,7 +6,6 @@ import train_fourth_class from '../../../images/train_fourth_class.png';
 import train_third_class from '../../../images/train_third_class.png';
 import train_second_class from '../../../images/train_second_class.png';
 import train_first_class from '../../../images/train_first_class.png';
-import iconRuble from '../../../images/icon_ruble.png';
 
 import { connect } from 'react-redux';
 import { passengersAndPayAC } from './../../../redux/action';
@@ -196,18 +195,13 @@ class TrainFrom extends React.Component {
 					</button>
 				</div>
 				{this.state.fourthClass && <TrainJSX
-					train={this.state.fourth} image={train_fourth_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} />}
+					train={this.state.fourth} image={train_fourth_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
 				{this.state.thirdClass && <TrainJSX
-					train={this.state.third} image={train_third_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} />}
+					train={this.state.third} image={train_third_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
 				{this.state.secondClass && <TrainJSX
-					train={this.state.second} image={train_second_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} />}
+					train={this.state.second} image={train_second_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
 				{this.state.firstClass && <TrainJSX
-					train={this.state.first} image={train_first_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} />}
-				{this.props.sumTicketsPay !== 0 &&
-					<div className="row justify-content-end mr-3 mb-3">
-						<p className="last-ticket-price ml-1">{this.props.sumTicketsPay}</p>
-						<img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль" />
-					</div>}
+					train={this.state.first} image={train_first_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
 			</div>
 		);
 	}

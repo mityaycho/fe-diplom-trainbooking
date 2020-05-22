@@ -2,6 +2,7 @@ import React from 'react';
 import iconRubleSmall from '../../../images/icon_ruble_small.png';
 import { OverlayTrigger } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
+import iconRuble from '../../../images/icon_ruble.png';
 
 
 const TrainJSX = (props) => {
@@ -84,6 +85,11 @@ const TrainJSX = (props) => {
 					{seatTwoRowJSX}
 				</div>
 			</div>
+			{props.sumTicketsPay !== 0 &&
+					<div className="row justify-content-end mr-3 mb-3">
+						<p className="last-ticket-price ml-1">{props.sumTicketsPay}</p>
+						<img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль" />
+					</div>}
 		</div>
 	);
 }
