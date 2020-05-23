@@ -4,7 +4,7 @@ import iconCloseX from '../../../images/icon_close_x.png';
 import iconPlusSircle from '../../../images/icon_plus_sircle.png';
 
 
-class PassengerForm extends React.Component {
+class PassengerFormTest extends React.Component {
 
 	state = {
 		active: false
@@ -21,7 +21,8 @@ class PassengerForm extends React.Component {
 			<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 				<div className="passengers-form-filling col">
 					<div className="passengers-form-number border-bottom row pt-4 pb-4">
-						<img className="passengers-form-button pl-4" src={iconMinusSircle} alt="..." onClick={this.setActiveFalse} />
+						<img className="passengers-form-button pl-4" src={iconMinusSircle} alt="..." 
+						onClick={this.setActiveFalse} />
 						<h5 className="ml-3">Пассажир {this.props.passengerNumber}</h5>
 						<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
 					</div>
@@ -102,7 +103,8 @@ class PassengerForm extends React.Component {
 				<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 					<div className="passengers-form-filling col">
 						<div className="passengers-form-number row pt-4 pb-4">
-							<img className="passengers-form-button pl-4" src={iconPlusSircle} alt="..." onClick={this.setActiveTrue} />
+							<img className="passengers-form-button pl-4" src={iconPlusSircle} alt="..." 
+							onClick={this.setActiveTrue} />
 							<h5 className="ml-3">Пассажир {this.props.passengerNumber}</h5>
 						</div>
 					</div>
@@ -114,4 +116,4 @@ class PassengerForm extends React.Component {
 	}
 };
 
-export default PassengerForm;
+export default PassengerFormTest;

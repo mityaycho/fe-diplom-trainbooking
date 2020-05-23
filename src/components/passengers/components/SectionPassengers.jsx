@@ -190,14 +190,14 @@ class SectionPassengers extends React.Component {
 							</div>
 						</div> */}
 
-						<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
+						{/* <div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 							<div className="passengers-form-filling col">
 								<div className="passengers-form-number row pt-4 pb-4">
 									<img className="pl-4" src={iconPlusSircle} alt="..." />
 									<h5 className="ml-3">Пассажир 3</h5>
 								</div>
 							</div>
-						</div>
+						</div> */}
 
 						<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 							<div className="passengers-form-filling col">
