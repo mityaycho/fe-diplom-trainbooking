@@ -2,18 +2,13 @@ import React from 'react';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
-import iconMinusSircle from '../../../images/icon_minus_sircle.png';
 import iconPlusSircle from '../../../images/icon_plus_sircle.png';
-import iconCloseX from '../../../images/icon_close_x.png';
-import iconCloseXSircle from '../../../images/icon_close_x_sircle.png';
 import iconPlusSmallYellow from '../../../images/icon_plus_small_yellow.png';
-import iconDawSircle from '../../../images/icon_daw_sircle.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
 
 import { NavLink } from "react-router-dom";
 import PassengerForm from './PassengerForm';
-import PassengerFormTest from './PassengerForm';
 import { connect } from 'react-redux';
 
 
