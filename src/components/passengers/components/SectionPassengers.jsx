@@ -2,7 +2,6 @@ import React from 'react';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import progressStateDefault from '../../../images/progress_state_default.png';
-import iconPlusSircle from '../../../images/icon_plus_sircle.png';
 import iconPlusSmallYellow from '../../../images/icon_plus_small_yellow.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
