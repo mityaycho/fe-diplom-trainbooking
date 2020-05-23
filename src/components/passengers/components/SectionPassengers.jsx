@@ -13,16 +13,20 @@ import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
 
 import { NavLink } from "react-router-dom";
 import PassengerForm from './PassengerForm';
+import PassengerFormTest from './PassengerForm';
+import { connect } from 'react-redux';
 
 
 class SectionPassengers extends React.Component {
 
-	state = {
-		passengerNumber: 1
-	}
-
 
 	render() {
+		let passengerNumber = 0;
+
+		const passengersFormJSX = this.props.seatsNumbers.map(el => {
+			passengerNumber += 1
+			return <PassengerForm key={el} passengerNumber={passengerNumber} />
+		})
 
 		return (
 			<div>
@@ -38,9 +42,7 @@ class SectionPassengers extends React.Component {
 
 					<div className="col-lg-9 mb-5">
 
-						<PassengerForm passengerNumber={this.state.passengerNumber} />
-
-						<PassengerForm passengerNumber={this.state.passengerNumber + 1} />
+						{passengersFormJSX}
 
 						{/* <div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 							<div className="passengers-form-filling col">
@@ -222,4 +224,12 @@ class SectionPassengers extends React.Component {
 	}
 };
 
-export default SectionPassengers;
+const mapStateToProps = (state) => {
+	return {
+		seatsNumbers: state.passengersAndPay.seatsNumbers
+	}
+}
+
+const mapDispatchToProps = (dispatch) => { }
+
+export default connect(mapStateToProps, mapDispatchToProps)(SectionPassengers);
