@@ -56,7 +56,7 @@ class PassengerFormTest extends React.Component {
 									<p>Пол</p>
 									<label className="switch">
 										<input type="checkbox" />
-										<span className="slider-checkbox">&nbsp; &nbsp; &nbsp; М &nbsp; &nbsp; &nbsp; Ж</span>
+										<span className="slider-checkbox">&nbsp; &nbsp; М &nbsp; &nbsp; &nbsp; &nbsp; Ж</span>
 									</label>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
