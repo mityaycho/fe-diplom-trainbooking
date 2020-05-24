@@ -1059,6 +1059,12 @@ footer {
 	cursor: pointer;
 }
 
+.box-add-passenger {
+	
+	color: black;
+	cursor: pointer;
+}
+
 .switch {
 	position: relative;
 	display: inline-block;
