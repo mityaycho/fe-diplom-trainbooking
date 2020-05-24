@@ -1060,7 +1060,7 @@ footer {
 }
 
 .box-add-passenger {
-	
+	display: flex;
 	color: black;
 	cursor: pointer;
 }
