@@ -1066,7 +1066,19 @@ footer {
 	height: 30px;
 }
 
-.slider {
+.slider-checkbox:before {
+	border-radius: 5px;
+	position: absolute;
+	content: "";
+	height: 28px;
+	width: 50px;
+	background-color: rgba(255, 168, 0, 1);
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider-checkbox {
+	font-weight: bold;
 	border: 1px solid #928F94;
 	border-radius: 5px;
 	position: absolute;
@@ -1080,18 +1092,7 @@ footer {
 	transition: .4s;
 }
 
-.slider:before {
-	border-radius: 5px;
-	position: absolute;
-	content: "";
-	height: 28px;
-	width: 50px;
-	background-color: rgba(255, 168, 0, 1);
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-input:checked+.slider:before {
+input:checked+.slider-checkbox:before {
 	-webkit-transform: translateX(52px);
 	-ms-transform: translateX(52px);
 	transform: translateX(52px);
