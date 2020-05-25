@@ -41,9 +41,9 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			prevProps.end_arrival_hour_arr !== this.props.end_arrival_hour_arr ||
 			prevProps.customRangeCostFrom !== this.props.customRangeCostFrom ||
 			prevProps.customRangeCostTo !== this.props.customRangeCostTo
-			) {
-				this.props.setSeatsAndTickets('actualPage', this.props.match.url);
-			};
+		) {
+			this.props.setSeatsAndTickets('actualPage', this.props.match.url);
+		};
 	};
 
 	setWhereFromDate = (event) => this.setState({ whereFromDate: event.currentTarget.value });
@@ -69,11 +69,11 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 	setPrice = (array) => this.props.setSeatsAndTickets('price_arr', array);
 
 	startDeparture = (array) => this.props.setSeatsAndTickets('start_departure_hour_arr', array)
-	
+
 	startArrival = (array) => this.props.setSeatsAndTickets('start_arrival_hour_arr', array);
-	
+
 	endDeparture = (array) => this.props.setSeatsAndTickets('end_departure_hour_arr', array);
-	
+
 	endArrival = (array) => this.props.setSeatsAndTickets('end_arrival_hour_arr', array);
 
 	render() {
@@ -216,7 +216,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 							</div>
 							<form className="form pl-4 pr-4 mt-2 pb-2 w-100">
 								<label htmlFor="customRange3">Время отбытия</label>
-								<ReactCompoundSliderSmall setHoursFilter={this.endDeparture}/>
+								<ReactCompoundSliderSmall setHoursFilter={this.endDeparture} />
 							</form>
 							<form className="form pl-4 pr-4 pt-3 pb-5 w-100">
 								<div className="d-flex mt-4 justify-content-end">
