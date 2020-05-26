@@ -5,9 +5,9 @@ import progressStateDefault from '../../../images/progress_state_default.png';
 import iconPlusSmallYellow from '../../../images/icon_plus_small_yellow.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
+import PassengerForm from './PassengerForm';
 
 import { NavLink, Link } from "react-router-dom";
-import PassengerForm from './PassengerForm';
 import { connect } from 'react-redux';
 
 
