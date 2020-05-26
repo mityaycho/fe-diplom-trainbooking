@@ -8,7 +8,7 @@ class PassengerFormTest extends React.Component {
 
 	state = {
 		active: false
-	}
+	};
 
 	setActiveTrue = () => this.setState({ active: true });
 
