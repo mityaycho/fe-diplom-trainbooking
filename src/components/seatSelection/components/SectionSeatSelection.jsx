@@ -63,14 +63,16 @@ class SectionSeatSelection extends React.Component {
 			this.state.include_children_seat);
 	}
 
-	trainButtonFrom = <div className="choice-other-train-button d-flex mt-4">
+	trainButtonFrom = 
+	<div className="choice-other-train-button d-flex mt-4">
 		<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
 		<NavLink type="button"
 			className="btn btn-outline-dark ml-3 pl-5 pr-5 pt-3 font-weight-bold"
 			to="/search_tickets">Выбрать другой поезд</NavLink>
 	</div>;
 
-	trainButtonTo = <div className="choice-other-train-button d-flex justify-content-end mt-4">
+	trainButtonTo = 
+	<div className="choice-other-train-button d-flex justify-content-end mt-4">
 		<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
 		<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
 			to="/search_tickets">Выбрать другой поезд</NavLink>
