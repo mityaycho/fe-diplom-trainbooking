@@ -1,8 +1,9 @@
 import React from 'react';
 import iconRubleSmall from '../../../images/icon_ruble_small.png';
+import iconRuble from '../../../images/icon_ruble.png';
+
 import { OverlayTrigger } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
-import iconRuble from '../../../images/icon_ruble.png';
 
 
 const TrainJSX = (props) => {
