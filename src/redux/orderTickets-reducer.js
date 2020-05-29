@@ -44,10 +44,7 @@ const orderTicketsReducer = (state = initState, action) => {
 					route_direction_id: action.route_direction_id,
 					seats: state.departure.seats.map((s) => {
 						return {
-							...state.departure.seats,
-							person_info: {
-								...state.departure.seats[0].person_info
-							},
+							...s,
 							coach_id: action.coach_id,
 							seat_number: action.seat_number,
 							is_child: action.is_child,
@@ -63,11 +60,11 @@ const orderTicketsReducer = (state = initState, action) => {
 				user: { ...state.user },
 				departure: {
 					...state.departure,
-					route_direction_id: action.route_direction_id,
+					route_direction_id: state.departure.route_direction_id,
 					seats: state.departure.seats.map((s) => {
 						return {
-							...state.departure.seats,
-							person_info: action.data
+							...s,
+							person_info: action.data,
 						}
 					})
 				}
