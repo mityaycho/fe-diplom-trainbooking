@@ -7,7 +7,7 @@ import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
 import PassengerForm from './PassengerForm';
 
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 
 
@@ -198,14 +198,14 @@ class SectionPassengers extends React.Component {
 							</div>
 						</div> */}
 
-						<Link className="box-add-passenger mt-5 mb-5 ml-5" to="/seat_selection">
+						<NavLink className="box-add-passenger mt-5 mb-5 ml-5" to="/seat_selection">
 							<div className="passengers-form-filling col">
 								<div className="passengers-form-number row pt-4 pb-4">
-									<h5 className="ml-3">Добавить пассажира</h5>
+									<h5 className="ml-3 mt-1">Добавить пассажира</h5>
 									<img className="ml-auto mr-5 mt-auto" src={iconPlusSmallYellow} alt="..." />
 								</div>
 							</div>
-						</Link>
+						</NavLink>
 
 						<div className="d-flex justify-content-end">
 							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/pay_selection" type="button">Далее</NavLink>
