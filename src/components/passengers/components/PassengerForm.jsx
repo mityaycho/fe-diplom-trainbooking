@@ -4,7 +4,7 @@ import iconCloseX from '../../../images/icon_close_x.png';
 import iconPlusSircle from '../../../images/icon_plus_sircle.png';
 
 
-class PassengerFormTest extends React.Component {
+class PassengerForm extends React.Component {
 
 	state = {
 		active: false
@@ -19,7 +19,7 @@ class PassengerFormTest extends React.Component {
 			<>
 				{this.state.active ?
 					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
-						<div className="passengers-form-filling col">
+						<form className="passengers-form-filling col">
 							<div className="passengers-form-number border-bottom row pt-4 pb-4">
 								<img className="passengers-form-button pl-4" src={iconMinusSircle} alt="..."
 									onClick={this.setActiveFalse} />
@@ -32,39 +32,39 @@ class PassengerFormTest extends React.Component {
 								<option>Десткий</option>
 							</select>
 							<div className="d-flex">
-								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+								<div className="form pt-3 pl-4 pr-4 w-100">
 									<p>Фамилия</p>
 									<div className="form-group">
 										<input className="col-sm form-control" type="text" placeholder="Мартынюк" />
 									</div>
-								</form>
-								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+								</div>
+								<div className="form pt-3 pl-4 pr-4 w-100">
 									<p>Имя</p>
 									<div className="form-group">
 										<input className="col-sm form-control" type="text" placeholder="Ирина" />
 									</div>
-								</form>
-								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+								</div>
+								<div className="form pt-3 pl-4 pr-4 w-100">
 									<p>Отчество</p>
 									<div className="form-group">
 										<input className="col-sm form-control" type="text" placeholder="Эдуардовна" />
 									</div>
-								</form>
+								</div>
 							</div>
 							<div className="d-flex">
-								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
+								<div className="form pt-3 pl-4 pr-4 w-25">
 									<p>Пол</p>
 									<label className="switch">
 										<input type="checkbox" />
 										<span className="slider-checkbox">&nbsp; &nbsp; М &nbsp; &nbsp; &nbsp; &nbsp; Ж</span>
 									</label>
-								</form>
-								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
+								</div>
+								<div className="form pt-3 pl-4 pr-4 w-25">
 									<p>Дата рождения</p>
 									<div className="form-group">
 										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
 									</div>
-								</form>
+								</div>
 							</div>
 							<div className="row border-bottom">
 								<div className="form-group ml-5">
@@ -73,31 +73,31 @@ class PassengerFormTest extends React.Component {
 								<p className="ml-2">ограниченная подвижность</p>
 							</div>
 							<div className="row border-bottom">
-								<form className="form ml-4 pt-3 pl-4 pr-4 w-25" action="input">
+								<div className="form ml-4 pt-3 pl-4 pr-4 w-25">
 									<p>Тип докумета</p>
 									<select className="form-control">
 										<option>Паспорт РФ</option>
 										<option>Свидетельство о рождении</option>
 									</select>
-								</form>
-								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
+								</div>
+								<div className="form pt-3 pl-4 pr-4 w-25">
 									<p>Серия</p>
 									<div className="form-group">
 										<input className="col-sm form-control" type="text" placeholder="_ _ _ _" />
 									</div>
-								</form>
-								<form className="form pt-3 pl-4 pr-4 w-25" action="input">
+								</div>
+								<div className="form pt-3 pl-4 pr-4 w-25">
 									<p>Номер</p>
 									<div className="form-group">
 										<input className="col-sm form-control" type="text" placeholder="_ _ _ _ _ _" />
 									</div>
-								</form>
+								</div>
 							</div>
 
 							<div className="d-flex justify-content-end mt-4">
 								<button type="button" className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold" onClick={() => window.scrollTo(0, 1000)}>Следующий пасссажир</button>
 							</div>
-						</div>
+						</form>
 					</div>
 					:
 					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
@@ -116,4 +116,4 @@ class PassengerFormTest extends React.Component {
 	}
 };
 
-export default PassengerFormTest;
+export default PassengerForm;
