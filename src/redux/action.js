@@ -2,6 +2,7 @@ export const SET_FORM = 'searchMainReducer/SET_FORM';
 export const SET_LAST_ROUTES = 'searchMainReducer/SET_LAST_ROUTES';
 export const SET_TICKETS_AND_SEATS = 'ticketsPayReducer/SET_TICKETS_AND_SEATS';
 export const SET_ROUTE_TRAIN_SEAT = 'orderTicketsReducer/SET_ROUTE_TRAIN_SEAT';
+export const SET_PERSON_INFO = 'orderTicketsReducer/SET_PERSON_INFO';
 export const SET_PASSENGER_AND_PAY = 'passengersAndPayReducer/SET_PASSENGER_AND_PAY';
 
 
@@ -41,3 +42,5 @@ export const setRouteTrainSeatAC = (
 	is_child,
 	include_children_seat
 });
+
+export const setPersonInfoAC = (data) => ({ type: SET_PERSON_INFO, data })

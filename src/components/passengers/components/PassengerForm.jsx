@@ -5,11 +5,22 @@ import iconPlusSircle from '../../../images/icon_plus_sircle.png';
 import { useForm } from 'react-hook-form';
 
 
-const PassengerForm = (props) => {
+const Form = (props) => {
 
 	const { register, handleSubmit } = useForm();
 
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = (data) => {
+		props.setData(data);
+		console.log(data);
+	}
+
+	const documents = (value) => {
+		if (value === "Паспорт") {
+			props.setDocumentTrue();
+		} else {
+			props.setDocumentFalse();
+		}
+	}
 
 	return (
 		<>
@@ -17,7 +28,7 @@ const PassengerForm = (props) => {
 				<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 					<form className="passengers-form-filling col" onSubmit={handleSubmit(onSubmit)}>
 						<div className="passengers-form-number border-bottom row pt-4 pb-4">
-							<img className="passengers-form-button pl-4" src={iconMinusSircle} alt="..."
+							<img className="passengers-form-button pl-4 mt-auto" src={iconMinusSircle} alt="..."
 								onClick={props.setActiveFalse} />
 							<h5 className="ml-3">Пассажир {props.passengerNumber}</h5>
 							<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
@@ -30,15 +41,30 @@ const PassengerForm = (props) => {
 						<div className="d-flex">
 							<div className="pt-3 pl-4 pr-4 w-100">
 								<p>Фамилия</p>
-								<input className="col-sm form-control" type="text" placeholder="Мартынюк" name="last_name" ref={register} />
+								<input 
+								className="col-sm form-control" 
+								type="text" 
+								placeholder="Мартынюк" 
+								name="last_name" 
+								ref={register} />
 							</div>
 							<div className="pt-3 pl-4 pr-4 w-100">
 								<p>Имя</p>
-								<input className="col-sm form-control" type="text" placeholder="Ирина" name="first_name" ref={register} />
+								<input 
+								className="col-sm form-control" 
+								type="text" 
+								placeholder="Ирина" 
+								name="first_name" 
+								ref={register} />
 							</div>
 							<div className="pt-3 pl-4 pr-4 w-100">
 								<p>Отчество</p>
-								<input className="col-sm form-control" type="text" placeholder="Эдуардовна" name="patronymic" ref={register} />
+								<input 
+								className="col-sm form-control" 
+								type="text" 
+								placeholder="Эдуардовна" 
+								name="patronymic" 
+								ref={register} />
 							</div>
 						</div>
 						<div className="d-flex">
@@ -64,23 +90,47 @@ const PassengerForm = (props) => {
 							<p className="ml-2">ограниченная подвижность</p>
 						</div>
 						<div className="row border-bottom">
-							<div className="ml-4 pt-3 pl-4 pr-4 w-25">
+							<div className="ml-4 pt-3 pl-4 pr-4">
 								<p>Тип докумета</p>
-								<select className="form-control" name="document_type" ref={register}>
+								<select 
+								className="form-control" 
+								name="document_type" 
+								ref={register} 
+								onChange={e => documents(e.currentTarget.value)}>
 									<option value="Паспорт">Паспорт РФ</option>
 									<option value="Свидетельство">Свидетельство о рождении</option>
 								</select>
 							</div>
-							<div>
+							{props.documents ?
+							<>
 								<div className="pt-3 pl-4 pr-4 w-25">
 									<p>Серия</p>
-									<input className="col-sm form-control" type="text" placeholder="_ _ _ _" />
+									<input 
+									className="col-sm form-control" 
+									type="text" 
+									placeholder="_ _ _ _"
+									name="document_data"
+									ref={register} />
 								</div>
-								<div className="pt-3 pl-4 pr-4 pb-3 w-25">
+								<div className="pt-3 pl-4 pb-4 w-25">
 									<p>Номер</p>
-									<input className="col-sm form-control" type="text" placeholder="_ _ _ _ _ _" />
+									<input className="col-sm form-control" 
+									type="text" 
+									placeholder="_ _ _ _ _ _"
+									name="document_data"
+									ref={register} />
 								</div>
-							</div>
+							</>
+							:
+							<div className="pt-3 pl-4 pb-4 w-25">
+									<p>Серия</p>
+									<input 
+									className="col-sm form-control" 
+									type="text" 
+									placeholder="_ _ _  _ _  _ _ _ _ _"
+									name="document_data"
+									ref={register} />
+								</div>}
 						</div>
 
 						<div className="d-flex justify-content-end">
@@ -92,18 +142,19 @@ const PassengerForm = (props) => {
 				<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
 					<div className="passengers-form-filling col">
 						<div className="passengers-form-number row pt-4 pb-4">
-							<img className="passengers-form-button pl-4" src={iconPlusSircle} alt="..."
+							<img className="passengers-form-button pl-4 mt-auto" src={iconPlusSircle} alt="..."
 								onClick={props.setActiveTrue} />
 							<h5 className="ml-3 pt-1">Пассажир {props.passengerNumber}</h5>
 						</div>
 					</div>
+					
 				</div>
 			}
 		</>
 	);
 };
 
-class PassengerFormComponent extends React.Component {
+class PassengerForm extends React.Component {
 
 	state = {
 		active: false,
@@ -114,15 +165,24 @@ class PassengerFormComponent extends React.Component {
 
 	setActiveFalse = () => this.setState({ active: false });
 
+	setDocumentTrue = () => this.setState({ documents: true });
+
+	setDocumentFalse = () => this.setState({ documents: false });
+
+	setData = (data) => this.props.setPersonInfo(data);
+
 	render() {
 		return (
-			<PassengerForm
+			<Form
+				setData={this.setData}
 				active={this.state.active}
 				documents={this.state.documents}
 				setActiveTrue={this.setActiveTrue}
-				setActiveFalse={this.setActiveFalse} />
+				setActiveFalse={this.setActiveFalse}
+				setDocumentTrue={this.setDocumentTrue}
+				setDocumentFalse={this.setDocumentFalse} />
 		)
 	}
 }
 
-export default PassengerFormComponent;
+export default PassengerForm;

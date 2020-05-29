@@ -1,5 +1,6 @@
 import {
-	SET_ROUTE_TRAIN_SEAT
+	SET_ROUTE_TRAIN_SEAT,
+	SET_PERSON_INFO
 } from './action';
 
 const initState = {
@@ -37,29 +38,42 @@ const orderTicketsReducer = (state = initState, action) => {
 		case SET_ROUTE_TRAIN_SEAT:
 			return {
 				...state,
-				user: {
-						...state.user
-					},
-					departure: {
-						...state.departure,
-						route_direction_id: action.route_direction_id,
-						seats: state.departure.seats.map((s) => {
-							return {
-								...state.departure.seats,
-								person_info: {
-									...state.departure.seats[0].person_info
-								},
-								coach_id: action.coach_id,
-								seat_number: action.seat_number,
-								is_child: action.is_child,
-								include_children_seat: action.include_children_seat
-							}
-						})
-
-					}
+				user: { ...state.user },
+				departure: {
+					...state.departure,
+					route_direction_id: action.route_direction_id,
+					seats: state.departure.seats.map((s) => {
+						return {
+							...state.departure.seats,
+							person_info: {
+								...state.departure.seats[0].person_info
+							},
+							coach_id: action.coach_id,
+							seat_number: action.seat_number,
+							is_child: action.is_child,
+							include_children_seat: action.include_children_seat
+						}
+					})
+				}
 			}
-			default:
-				return state;
+		
+		case SET_PERSON_INFO:
+			return {
+				...state,
+				user: { ...state.user },
+				departure: {
+					...state.departure,
+					route_direction_id: action.route_direction_id,
+					seats: state.departure.seats.map((s) => {
+						return {
+							...state.departure.seats,
+							person_info: action.data
+						}
+					})
+				}
+			}
+		default:
+			return state;
 	}
 }
 

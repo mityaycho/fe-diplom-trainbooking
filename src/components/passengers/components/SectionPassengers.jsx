@@ -9,6 +9,7 @@ import PassengerForm from './PassengerForm';
 
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
+import { setPersonInfoAC } from '../../../redux/action';
 
 
 class SectionPassengers extends React.Component {
@@ -19,7 +20,10 @@ class SectionPassengers extends React.Component {
 
 		const passengersFormJSX = this.props.seatsNumbers.map(el => {
 			passengerNumber += 1
-			return <PassengerForm key={el} passengerNumber={passengerNumber} />
+			return <PassengerForm 
+			key={el} 
+			passengerNumber={passengerNumber} 
+			setPersonInfo={this.props.setPersonInfo} />
 		})
 
 		return (
@@ -224,6 +228,10 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => { }
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setPersonInfo: (data) => dispatch(setPersonInfoAC(data))
+	}
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SectionPassengers);
