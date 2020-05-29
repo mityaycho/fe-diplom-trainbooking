@@ -32,69 +32,55 @@ class PassengerForm extends React.Component {
 								<option>Десткий</option>
 							</select>
 							<div className="d-flex">
-								<div className="form pt-3 pl-4 pr-4 w-100">
+								<div className="pt-3 pl-4 pr-4 w-100">
 									<p>Фамилия</p>
-									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Мартынюк" />
-									</div>
+									<input className="col-sm form-control" type="text" placeholder="Мартынюк" />
 								</div>
-								<div className="form pt-3 pl-4 pr-4 w-100">
+								<div className="pt-3 pl-4 pr-4 w-100">
 									<p>Имя</p>
-									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Ирина" />
-									</div>
+									<input className="col-sm form-control" type="text" placeholder="Ирина" />
 								</div>
-								<div className="form pt-3 pl-4 pr-4 w-100">
+								<div className="pt-3 pl-4 pr-4 w-100">
 									<p>Отчество</p>
-									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="Эдуардовна" />
-									</div>
+									<input className="col-sm form-control" type="text" placeholder="Эдуардовна" />
 								</div>
 							</div>
 							<div className="d-flex">
-								<div className="form pt-3 pl-4 pr-4 w-25">
+								<div className="pt-3 pl-4 pr-4 w-25">
 									<p>Пол</p>
 									<label className="switch">
 										<input type="checkbox" />
 										<span className="slider-checkbox">&nbsp; &nbsp; М &nbsp; &nbsp; &nbsp; &nbsp; Ж</span>
 									</label>
 								</div>
-								<div className="form pt-3 pl-4 pr-4 w-25">
+								<div className="pt-3 pl-4 pr-4 w-25">
 									<p>Дата рождения</p>
-									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
-									</div>
+									<input className="col-sm form-control" type="text" placeholder="дд/мм/гг" />
 								</div>
 							</div>
-							<div className="row border-bottom">
-								<div className="form-group ml-5">
-									<input type="checkbox" />
-								</div>
+							<div className="row mt-3 border-bottom">
+								<input className="ml-5 mt-1" type="checkbox" />
 								<p className="ml-2">ограниченная подвижность</p>
 							</div>
 							<div className="row border-bottom">
-								<div className="form ml-4 pt-3 pl-4 pr-4 w-25">
+								<div className="ml-4 pt-3 pl-4 pr-4 w-25">
 									<p>Тип докумета</p>
 									<select className="form-control">
 										<option>Паспорт РФ</option>
 										<option>Свидетельство о рождении</option>
 									</select>
 								</div>
-								<div className="form pt-3 pl-4 pr-4 w-25">
+								<div className="pt-3 pl-4 pr-4 w-25">
 									<p>Серия</p>
-									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="_ _ _ _" />
-									</div>
+									<input className="col-sm form-control" type="text" placeholder="_ _ _ _" />
 								</div>
-								<div className="form pt-3 pl-4 pr-4 w-25">
+								<div className="pt-3 pl-4 pr-4 pb-3 w-25">
 									<p>Номер</p>
-									<div className="form-group">
-										<input className="col-sm form-control" type="text" placeholder="_ _ _ _ _ _" />
-									</div>
+									<input className="col-sm form-control" type="text" placeholder="_ _ _ _ _ _" />
 								</div>
 							</div>
 
-							<div className="d-flex justify-content-end mt-4">
+							<div className="d-flex justify-content-end">
 								<button type="button" className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold" onClick={() => window.scrollTo(0, 1000)}>Следующий пасссажир</button>
 							</div>
 						</form>
