@@ -7,7 +7,7 @@ import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
 import PassengerForm from './PassengerForm';
 
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setPersonInfoAC } from '../../../redux/action';
 
@@ -15,10 +15,21 @@ import { setPersonInfoAC } from '../../../redux/action';
 class SectionPassengers extends React.Component {
 
 	state = {
+		activeButton: true,
 		personInfo: {}
 	}
 
-	setPersonInfo = (value) => this.props.setPersonInfo(value);
+	setActiveButton = () => this.setState({ activeButton: false })
+
+	setPersonInfo = (value) => {
+		this.setState({ personInfo: value });
+		this.props.setPersonInfo(value);
+	}
+
+	setPersonData = () => {
+		this.props.history.push("/pay_selection");
+		this.props.setPersonInfo(this.state.personInfo);
+	}
 
 
 	render() {
@@ -29,7 +40,8 @@ class SectionPassengers extends React.Component {
 			return <PassengerForm 
 			key={el} 
 			passengerNumber={passengerNumber} 
-			setPersonInfo={this.setPersonInfo} />
+			setPersonInfo={this.setPersonInfo}
+			setActiveButton={this.setActiveButton} />
 		})
 
 		return (
@@ -218,7 +230,11 @@ class SectionPassengers extends React.Component {
 						</NavLink>
 
 						<div className="d-flex justify-content-end">
-							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" to="/pay_selection" type="button">Далее</NavLink>
+							<button 
+							className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5"
+							 type="button"
+							 onClick={this.setPersonData}
+							 disabled={this.state.activeButton}>Далее</button>
 						</div>
 					</div>
 
@@ -240,4 +256,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionPassengers);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SectionPassengers));

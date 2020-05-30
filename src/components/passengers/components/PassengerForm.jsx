@@ -11,6 +11,7 @@ const Form = (props) => {
 
 	const onSubmit = (data) => {
 		props.setData(data);
+		props.setActiveButton();
 	}
 
 	const documents = (value) => {
@@ -173,6 +174,7 @@ class PassengerForm extends React.Component {
 	render() {
 		return (
 			<Form
+				setActiveButton={this.props.setActiveButton}
 				setData={this.setData}
 				active={this.state.active}
 				documents={this.state.documents}
