@@ -11,7 +11,6 @@ const Form = (props) => {
 
 	const onSubmit = (data) => {
 		props.setData(data);
-		console.log(data);
 	}
 
 	const documents = (value) => {
@@ -123,7 +122,7 @@ const Form = (props) => {
 							</>
 							:
 							<div className="pt-3 pl-4 pb-4 w-25">
-									<p>Серия</p>
+									<p>Номер</p>
 									<input 
 									className="col-sm form-control" 
 									type="text" 
