@@ -4,8 +4,9 @@ import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
+import { connect } from 'react-redux';
 
-const PaySectionSearch = () => {
+const PaySectionSearch = (props) => {
 	return (
 		<div>
 			<ProgressLineCost tickets={progressStateSelected}
@@ -29,19 +30,19 @@ const PaySectionSearch = () => {
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Фамилия</p>
 									<div className="d-flex form-group">
-										<input className="col-sm form-control" type="text" placeholder="Мартынюк"/>
+										<input className="col-sm form-control" type="text" placeholder={props.last_name} />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Имя</p>
 									<div className="d-flex form-group">
-										<input className="col-sm form-control" type="text" placeholder="Ирина"/>
+										<input className="col-sm form-control" type="text" placeholder={props.first_name} />
 									</div>
 								</form>
 								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
 									<p>Отчество</p>
 									<div className="d-flex form-group">
-										<input className="col-sm form-control" type="text" placeholder="Эдуардовна"/>
+										<input className="col-sm form-control" type="text" placeholder={props.patronymic} />
 									</div>
 								</form>
 							</div>
@@ -90,4 +91,16 @@ const PaySectionSearch = () => {
 	);
 };
 
-export default PaySectionSearch;
+const mapStateToProps = (state) => {
+	return {
+		first_name: state.orderTicketsSeats.departure.seats[0].person_info.first_name,
+		last_name: state.orderTicketsSeats.departure.seats[0].person_info.last_name,
+		patronymic: state.orderTicketsSeats.departure.seats[0].person_info.patronymic
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PaySectionSearch);
