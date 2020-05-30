@@ -14,6 +14,12 @@ import { setPersonInfoAC } from '../../../redux/action';
 
 class SectionPassengers extends React.Component {
 
+	state = {
+		personInfo: {}
+	}
+
+	setPersonInfo = (value) => this.props.setPersonInfo(value);
+
 
 	render() {
 		let passengerNumber = 0;
@@ -23,7 +29,7 @@ class SectionPassengers extends React.Component {
 			return <PassengerForm 
 			key={el} 
 			passengerNumber={passengerNumber} 
-			setPersonInfo={this.props.setPersonInfo} />
+			setPersonInfo={this.setPersonInfo} />
 		})
 
 		return (

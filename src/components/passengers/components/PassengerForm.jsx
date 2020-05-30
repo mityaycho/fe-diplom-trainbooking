@@ -34,8 +34,8 @@ const Form = (props) => {
 						</div>
 
 						<select className="form-control w-25 ml-4 mt-4" name="is_adult" ref={register}>
-							<option value="true">Взрослый</option>
-							<option value="false">Десткий</option>
+							<option value={true}>Взрослый</option>
+							<option value={false}>Десткий</option>
 						</select>
 						<div className="d-flex">
 							<div className="pt-3 pl-4 pr-4 w-100">
