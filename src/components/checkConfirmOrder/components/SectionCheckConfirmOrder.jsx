@@ -27,7 +27,7 @@ const SectionCheckConfirmOrder = (props) => {
 	const getHours = (msc) => new Date(msc).getHours();
 	const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
 
-	const passengersJSX = props.seats.map(el => <PassengerJSX />);
+	const passengersJSX = props.seats.map((el, i) => <PassengerJSX key={i} personInfo={el.person_info} />);
 
 	return (
 		<div>
@@ -150,9 +150,12 @@ const SectionCheckConfirmOrder = (props) => {
 					</div>
 					<div className="result-search-of-tickets col mt-5">
 						<h5 className="row p-4 border-bottom mb-0">Способ оплаты</h5>
-						<h6 className="row pl-4 pt-4">Наличными</h6>
+						<h6 className="row pl-4 pt-4">{props.paymentMethod === "cash" ? "Наличными" : "Онлайн"}</h6>
 						<div className="row justify-content-end">
-							<button className="btn btn-outline-dark font-weight-bold btn-sm m-4 pl-5 pr-5" type="button">Изменить</button>
+							<NavLink 
+							className="btn btn-outline-dark font-weight-bold btn-sm m-4 pl-5 pr-5" 
+							to="/pay_selection"
+							type="button">Изменить</NavLink>
 						</div>
 					</div>
 					<div className="d-flex justify-content-end mt-5">
@@ -170,16 +173,14 @@ const SectionCheckConfirmOrder = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		form: state.sectionSearch.form,
 		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
-		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
 		trainId: state.filterChoiceTicketsAndSeatsPages.trainId,
 		ticketsAdult: state.passengersAndPay.ticketsAdult,
 		payAdult: state.passengersAndPay.payAdult,
 		ticketsChild: state.passengersAndPay.ticketsChild,
 		payChild: state.passengersAndPay.payChild,
-		ticketsChildWithoutPlace: state.passengersAndPay.ticketsChildWithoutPlace,
-		seats: state.orderTicketsSeats.departure.seats
+		seats: state.orderTicketsSeats.departure.seats,
+		paymentMethod: state.orderTicketsSeats.user.payment_method
 	};
 };
 

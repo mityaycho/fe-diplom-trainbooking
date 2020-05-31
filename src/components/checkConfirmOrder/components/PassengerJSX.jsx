@@ -4,17 +4,23 @@ import iconPassangerSircle from '../../../images/icon_passanger_sircle.png';
 
 const PassengerJSX = (props) => {
 
+	const isAdult = props.personInfo.is_adult == "true" ? "Взрослый" : "Детский";
+
+	const gender = !props.personInfo.gender ? "мужской" : "женский";
+
+	const documentType = props.personInfo.document_type === "Паспорт" ? "Паспорт РФ" : "Свидетельство о рождении";
+
 	return (
 		<div className="row pl-4 pt-3 border-bottom border-right">
 			<div className="col-lg-2">
 				<img src={iconPassangerSircle} alt="..." />
-				<h6 className="mt-3">Взрослый</h6>
+				<h6 className="mt-3">{isAdult}</h6>
 			</div>
 			<div className="col ml-3">
-				<h6>Мартынюк Ирина Эдуардовна</h6>
-				<p className="text-black-50 mt-3">Пол женский</p>
-				<p className="text-black-50 mt-4">Дата рождения 17.02.1985</p>
-				<p className="text-black-50 mt-4">Паспорт РФ 4204 380694</p>
+				<h6>{props.personInfo.last_name} {props.personInfo.first_name} {props.personInfo.patronymic}</h6>
+				<p className="text-black-50 mt-3">Пол {gender}</p>
+				<p className="text-black-50 mt-4">Дата рождения {props.personInfo.birthday}</p>
+				<p className="text-black-50 mt-4">{documentType} {props.personInfo.document_data}</p>
 			</div>
 		</div>
 	);
