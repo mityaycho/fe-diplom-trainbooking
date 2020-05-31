@@ -38,6 +38,8 @@ class PaySectionSearch extends React.Component {
 		this.props.history.push("/check_confirm_order");
 	}
 
+	disabledButton = this.state.phone === "" && this.state.email === "" && this.state.payment_method === "";
+
 	render() {
 		return (
 			<div>
@@ -107,7 +109,10 @@ class PaySectionSearch extends React.Component {
 
 								<div className="row pl-5 mt-4">
 									<div className="form-group">
-										<input type="checkbox" onChange={this.setPaymentOnline} />
+										<input 
+										type="checkbox" 
+										onChange={this.setPaymentOnline} 
+										checked={this.state.payment_method !== "cash" && this.state.payment_method === "online"} />
 									</div>
 									<p className="ml-2 text-black-50">Онлайн</p>
 								</div>
@@ -118,7 +123,10 @@ class PaySectionSearch extends React.Component {
 								</ul>
 								<div className="row p-5 border-top">
 									<div className="form-group">
-										<input type="checkbox" onChange={this.setPaymentOffline} />
+										<input 
+										type="checkbox" 
+										onChange={this.setPaymentOffline}
+										checked={this.state.payment_method !== "online" && this.state.payment_method === "cash"}/>
 									</div>
 									<p className="ml-2 text-black-50">Наличными</p>
 								</div>
@@ -127,6 +135,7 @@ class PaySectionSearch extends React.Component {
 								<button 
 								className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-3"  
 								type="button"
+								disabled={this.state.phone === "" || this.state.email === "" || this.state.payment_method === ""}
 								onClick={this.setDataPayment}
 								>купить билеты</button>
 							</div>

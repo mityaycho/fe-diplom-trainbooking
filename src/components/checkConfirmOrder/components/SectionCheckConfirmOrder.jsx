@@ -7,14 +7,13 @@ import iconArrowRightGray from '../../../images/icon_arrow_right_gray.png'
 import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png'
 import iconSearchBack from '../../../images/icon_search_back.png';
 import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
-import iconPassangerSircle from '../../../images/icon_passanger_sircle.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
+import TicketPriceAndSeats from '../../searchTickets/components/TicketPriceAndSeats';
+import PassengerJSX from './PassengerJSX';
 
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import TicketPriceAndSeats from '../../searchTickets/components/TicketPriceAndSeats';
-import PassengerJSX from './PassengerJSX';
 
 const SectionCheckConfirmOrder = (props) => {
 
@@ -27,6 +26,8 @@ const SectionCheckConfirmOrder = (props) => {
 
 	const getHours = (msc) => new Date(msc).getHours();
 	const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+
+	const passengersJSX = props.seats.map(el => <PassengerJSX />);
 
 	return (
 		<div>
@@ -131,9 +132,7 @@ const SectionCheckConfirmOrder = (props) => {
 						<h5 className="row p-4 border-bottom mb-0">Пассажиры</h5>
 						<div className="row">
 							<div className="col-lg-8">
-								<PassengerJSX />
-								<PassengerJSX />
-								<PassengerJSX />
+								{passengersJSX}
 							</div>
 							<div className="col-lg-4 pb-3 align-self-end">
 								<div className="row justify-content-end mt-4 mb-2">
@@ -141,7 +140,10 @@ const SectionCheckConfirmOrder = (props) => {
 									<h4 className="mr-3">{(props.ticketsAdult * props.payAdult) + (props.ticketsChild * props.payChild)}<img className="ml-2" src={iconRuble} alt="..." /></h4>
 								</div>
 								<div className="row justify-content-end">
-									<button className="btn btn-outline-dark font-weight-bold btn-sm mr-4 pl-5 pr-5" type="button">Изменить</button>
+									<NavLink 
+									className="btn btn-outline-dark font-weight-bold btn-sm mr-4 pl-5 pr-5" 
+									to="/passengers"
+									type="button">Изменить</NavLink>
 								</div>
 							</div>
 						</div>
@@ -177,6 +179,7 @@ const mapStateToProps = (state) => {
 		ticketsChild: state.passengersAndPay.ticketsChild,
 		payChild: state.passengersAndPay.payChild,
 		ticketsChildWithoutPlace: state.passengersAndPay.ticketsChildWithoutPlace,
+		seats: state.orderTicketsSeats.departure.seats
 	};
 };
 

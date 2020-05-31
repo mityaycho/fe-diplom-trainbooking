@@ -141,7 +141,11 @@ class SectionSeatSelection extends React.Component {
 							sumTicketsPay={this.state.sumTicketsPay}
 							seatNumber={this.state.seat_number} />
 						<div className="d-flex justify-content-end">
-							<button className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" type="button" onClick={this.setRouteTrainSeatReducer}>Далее</button>
+							<button 
+							className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" 
+							type="button" 
+							disabled={!this.state.seat_number.length}
+							onClick={this.setRouteTrainSeatReducer}>Далее</button>
 						</div>
 					</div>
 				</div>
