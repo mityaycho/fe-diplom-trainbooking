@@ -6,6 +6,7 @@ import iconSearchThere from '../../../images/icon_search_there.png';
 import iconSearchBack from '../../../images/icon_search_back.png';
 import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png'
 import TicketPriceAndSeats from './TicketPriceAndSeats';
+
 import { withRouter } from 'react-router';
 
 
@@ -57,7 +58,7 @@ const ResultSearchTickets = (props) => {
 						<div className="row pl-4 pr-4 pt-5 justify-content-between">
 							<div>
 								<h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
-								<p>Москва</p>
+								<p>{props.state.departure.from.city.name}</p>
 								<p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
 							</div>
 							<div className="pl-4">
@@ -66,7 +67,7 @@ const ResultSearchTickets = (props) => {
 							</div>
 							<div className="pl-4">
 								<h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
-								<p>Санкт-Петербург</p>
+								<p>{props.state.departure.to.city.name}</p>
 								<p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
 							</div>
 						</div>

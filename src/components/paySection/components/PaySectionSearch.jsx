@@ -34,8 +34,8 @@ class PaySectionSearch extends React.Component {
 	setPaymentOffline = (e) => this.setState({ payment_method: e.currentTarget.checked ? "cash" : "" });
 
 	setDataPayment = () => {
-		this.props.history.push("/check_confirm_order");
 		this.props.setUserData(this.state);
+		this.props.history.push("/check_confirm_order");
 	}
 
 	render() {

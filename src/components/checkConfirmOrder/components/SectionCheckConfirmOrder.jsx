@@ -1,13 +1,7 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import iconThere from '../../../images/icon_there.png';
-import iconBack from '../../../images/icon_back.png';
-import iconMinus from '../../../images/icon_minus.png';
 import iconRuble from '../../../images/icon_ruble.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import iconSearchThere from '../../../images/icon_search_there.png';
-import iconRubleSmall from '../../../images/icon_ruble_small.png';
-import iconPassanger from '../../../images/icon_passanger.png';
 import iconTicketTrain from '../../../images/icon_ticket_train.png';
 import iconArrowRightGray from '../../../images/icon_arrow_right_gray.png'
 import iconArrowRightBlack from '../../../images/icon_arrow_right_black.png'
@@ -15,216 +9,119 @@ import iconSearchBack from '../../../images/icon_search_back.png';
 import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png';
 import iconPassangerSircle from '../../../images/icon_passanger_sircle.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
+import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
 
-const SectionCheckConfirmOrder = () => {
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import TicketPriceAndSeats from '../../searchTickets/components/TicketPriceAndSeats';
+import PassengerJSX from './PassengerJSX';
+
+const SectionCheckConfirmOrder = (props) => {
+
+	const ticketSelected = props.ticketsArray.find(el => el.departure._id === props.trainId);
+	let fromDateTime = ticketSelected.departure.from.datetime;
+	let toDateTime = ticketSelected.departure.to.datetime;
+	let duration = ticketSelected.departure.duration;
+	let fromArrival = fromDateTime + duration;
+	let toArrival = toDateTime + duration;
+
+	const getHours = (msc) => new Date(msc).getHours();
+	const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+
 	return (
 		<div>
 			<ProgressLineCost tickets={progressStateSelected}
-												passengers={progressStateSelected}
-												passengersClass="completed"
-												payment={progressStateSelected}
-												paymentClass="completed"
-												checkClass="completed"/>
+				passengers={progressStateSelected}
+				passengersClass="completed"
+				payment={progressStateSelected}
+				paymentClass="completed"
+				checkClass="completed" />
 
 			<div className="container d-flex">
-				<div className="trip-details-tickets col-lg-3 mt-5 mb-5">
-					<div className="trip-details bg-dark pt-4 pb-4">
-						<h5 className="text-center text-uppercase">Детали поездки</h5>
-						<hr className="bg-light mt-4"/>
-						<div className="d-flex align-items-center">
-							<img className="ml-3" src={iconThere} alt="иконка туда"/>
-							<h5 className="ml-2">Туда</h5>
-							<h6 className="ml-2 text-white-50">30.08.2018</h6>
-							<img className="ml-auto mr-3" src={iconMinus} alt="..."/>
-						</div>
-						<div className="d-flex justify-content-between">
-							<div className="ml-3">
-								<p className="mt-3">№ Поезда</p>
-								<p className="mt-3">Название</p>
-							</div>
-							<div className="mr-3 text-right">
-								<h6 className="mt-3">116С</h6>
-								<p className="mt-3">Адлер</p>
-								<p className="mt-n3">Санкт-Петербург</p>
-							</div>
-						</div>
-						<div className="d-flex justify-content-between">
-							<div className="ml-3 mt-3">
-								<h6>00:10</h6>
-								<p className="text-white-50">30.08.2018</p>
-							</div>
-							<div>
-								<p>9:42</p>
-								<img className="mt-n4" src={iconSearchThere} alt="иконка стрелки вправо"/>
-							</div>
-							<div className="mr-3 mt-3 text-right">
-								<h6>9:52</h6>
-								<p className="text-white-50">31.08.2018</p>
-							</div>
-						</div>
-						<div className="d-flex justify-content-between">
-							<div className="ml-3">
-								<h6>Москва</h6>
-								<p className="text-white-50">Курский </p>
-								<p className="mt-n3 text-white-50">вокзал</p>
-							</div>
-							<div className="mr-3 text-right">
-								<h6>Санкт-Петербург</h6>
-								<p className="text-white-50">Ладожский</p>
-								<p className="mt-n3 text-white-50">вокзал</p>
-							</div>
-						</div>
-						<hr className="bg-light"/>
-
-						<div className="d-flex align-items-center">
-							<img className="ml-3" src={iconBack} alt="иконка туда"/>
-							<h5 className="ml-2">Обратно</h5>
-							<h6 className="ml-2 text-white-50">09.09.2018</h6>
-							<img className="ml-auto mr-3" src={iconMinus} alt="..."/>
-						</div>
-						<div className="d-flex justify-content-between">
-							<div className="ml-3">
-								<p className="mt-3">№ Поезда</p>
-								<p className="mt-3">Название</p>
-							</div>
-							<div className="mr-3 text-right">
-								<h6 className="mt-3">116С</h6>
-								<p className="mt-3">Адлер</p>
-								<p className="mt-n3">Санкт-Петербург</p>
-							</div>
-						</div>
-						<div className="d-flex justify-content-between">
-							<div className="ml-3 mt-3">
-								<h6>00:10</h6>
-								<p className="text-white-50">09.09.2018</p>
-							</div>
-							<div>
-								<p>9:42</p>
-								<img className="mt-n4" src={iconSearchThere} alt="иконка стрелки вправо"/>
-							</div>
-							<div className="mr-3 mt-3 text-right">
-								<h6>9:52</h6>
-								<p className="text-white-50">08.09.2018</p>
-							</div>
-						</div>
-						<div className="d-flex justify-content-between">
-							<div className="ml-3">
-								<h6>Москва</h6>
-								<p className="text-white-50">Курский </p>
-								<p className="mt-n3 text-white-50">вокзал</p>
-							</div>
-							<div className="mr-3 text-right">
-								<h6>Санкт-Петербург</h6>
-								<p className="text-white-50">Ладожский</p>
-								<p className="mt-n3 text-white-50">вокзал</p>
-							</div>
-						</div>
-						<hr className="bg-light"/>
-
-						<div className="d-flex align-items-center">
-							<img className="ml-3" src={iconPassanger} alt="иконка пасссажир"/>
-							<h5 className="ml-2">Пассажиры</h5>
-							<img className="ml-auto mr-3" src={iconMinus} alt="..."/>
-						</div>
-						<div className="d-flex justify-content-between">
-							<div className="ml-3 mt-3">
-								<p>2 Взрослых</p>
-								<p>1 Ребенок</p>
-							</div>
-							<div className="mr-3 mt-3">
-								<h6>5 840<img className="ml-1" src={iconRubleSmall} alt="..."/></h6>
-								<h6>1 920<img className="ml-1" src={iconRubleSmall} alt="..."/></h6>
-							</div>
-						</div>
-						<hr className="bg-light"/>
-						<div className="d-flex justify-content-between mt-4">
-							<h3 className="ml-3">Итог</h3>
-							<h3 className="mr-3 text-warning">7 760<img className="ml-2" src={iconRuble} alt="..."/></h3>
-						</div>
-					</div>
-				</div>
+				<SideBarPassangersSection />
 
 				<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
 					<div className="result-search-of-tickets col">
 						<h5 className="row p-4 border-bottom mb-0">Поезд</h5>
 						<div className="row">
 							<div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
-								<img className="pl-5" src={iconTicketTrain} alt="иконка поезда"/>
-								<h5 className="text-center">116C</h5>
-								<p className="pl-3 pt-5 text-black-50">Адлер<img className="pl-2" src={iconArrowRightGray} alt="..."/></p>
-								<p className="pl-3">Москва<img className="pl-2" src={iconArrowRightBlack} alt="..."/></p>
-								<p className="pl-3">Санкт-Петербург</p>
+								<img className="pl-5" src={iconTicketTrain} alt="иконка поезда" />
+								<h5 className="text-center">{ticketSelected.departure.train.name}</h5>
+								<p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
+									alt="..." /></p>
+								<p className="pl-3">{ticketSelected.departure.from.city.name}<img className="pl-2" src={iconArrowRightBlack} alt="..." /></p>
+								<p className="pl-3">{ticketSelected.departure.to.city.name}</p>
 							</div>
 							<div className="col-lg-9">
-								<div className="row pl-4 mr-4 pt-5 justify-content-between">
-									<div>
-										<h5>00:10</h5>
-										<p>Москва</p>
-										<p className="text-black-50">Курский вокзал</p>
-									</div>
-									<div className="pl-4">
-										<p className="text-black-50">9:42</p>
-										<img src={iconSearchThere} alt="иконка стрелки вправо"/>
-									</div>
-									<div className="pl-4">
-										<h5>9:52</h5>
-										<p>Санкт-Петербург</p>
-										<p className="text-black-50">Ладожский вокзал</p>
-									</div>
-									<div className="pl-5">
-										<div className="row">
-											<p className="pr-1">Сидячий</p>
-											<p className="quantity-places-orange ml-auto">88</p>
-											<p className="ml-2">от</p>
-											<h5 className="mt-n2 ml-2">1 920</h5>
-											<img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+								<div className="row h-100">
+									<div className="col-lg-8">
+										<div className="row pl-4 pr-4 pt-5 justify-content-between">
+											<div>
+												<h5>{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</h5>
+												<p>{ticketSelected.departure.from.city.name}</p>
+												<p className="font-weight-light">{ticketSelected.departure.from.railway_station_name}</p>
+											</div>
+											<div className="pl-4">
+												<p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
+												<img src={iconSearchThere} alt="иконка стрелки вправо" />
+											</div>
+											<div className="pl-4">
+												<h5>{getHours(fromArrival)}:{getMinutes(fromArrival)}</h5>
+												<p>{ticketSelected.departure.to.city.name}</p>
+												<p className="font-weight-light">{ticketSelected.departure.to.railway_station_name}</p>
+											</div>
 										</div>
-										<div className="row mt-3">
-											<p className="pr-1">Плацкарт</p>
-											<p className="quantity-places-orange ml-auto">52</p>
-											<p className="ml-2">от</p>
-											<h5 className="mt-n2 ml-2">2 530</h5>
-											<img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
-										</div>
-										<div className="row mt-3">
-											<p className="pr-1">Купе</p>
-											<p className="quantity-places-orange ml-auto">24</p>
-											<p className="ml-2">от</p>
-											<h5 className="mt-n2 ml-2">3 820</h5>
-											<img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+										<div className="row pl-4 pr-4 pt-5 justify-content-between">
+											<div>
+												<h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
+												<p>{ticketSelected.departure.from.city.name}</p>
+												<p className="font-weight-light">{ticketSelected.departure.from.railway_station_name}</p>
+											</div>
+											<div className="pl-4">
+												<p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
+												<img src={iconSearchBack} alt="иконка стрелки влево" />
+											</div>
+											<div className="pl-4">
+												<h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
+												<p>{ticketSelected.departure.to.city.name}</p>
+												<p className="font-weight-light">{ticketSelected.departure.to.railway_station_name}</p>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div className="row pl-4 mr-4 pt-3 justify-content-between">
-									<div>
-										<h5>00:10</h5>
-										<p>Москва</p>
-										<p className="text-black-50">Курский вокзал</p>
-									</div>
-									<div className="ml-4">
-										<p className="text-black-50">9:42</p>
-										<img src={iconSearchBack} alt="иконка стрелки вправо"/>
-									</div>
-									<div className="ml-4">
-										<h5>9:52</h5>
-										<p>Санкт-Петербург</p>
-										<p className="text-black-50">Ладожский вокзал</p>
-									</div>
-									<div className="pl-5">
-										<div className="row">
-											<p className="pr-4">Люкс</p>
-											<p className="quantity-places-orange pl-2 ml-auto">15</p>
-											<p className="ml-2">от</p>
-											<h5 className="mt-n2 ml-2">4 920</h5>
-											<img className="align-self-senter mt-n1 pl-1 h-100" src={iconRubleSmall} alt="..."/>
+
+									<div className="ticketPriceAndSeats col h-100 pl-4 pt-5 pr-4">
+										<div>
+											{ticketSelected.departure.have_fourth_class &&
+												<TicketPriceAndSeats name="Сидячий"
+													seats={ticketSelected.available_seats_info.fourth}
+													price={ticketSelected.departure.price_info.fourth.top_price} />
+											}
+											{ticketSelected.departure.have_third_class &&
+												<TicketPriceAndSeats name="Плацкарт"
+													seats={ticketSelected.available_seats_info.third}
+													price={ticketSelected.departure.price_info.third.top_price} />
+											}
+											{ticketSelected.departure.have_second_class &&
+												<TicketPriceAndSeats name="Купе"
+													seats={ticketSelected.available_seats_info.second}
+													price={ticketSelected.departure.price_info.second.top_price} />
+											}
+											{ticketSelected.departure.have_first_class &&
+												<TicketPriceAndSeats name="Люкс"
+													seats={ticketSelected.available_seats_info.first}
+													price={ticketSelected.departure.price_info.first.top_price} />
+											}
+										</div>
+
+										<div className="row pb-3 justify-content-end">
+											<img className="pb-3" src={iconWifiRocketCup} alt="wifi-rocket-cup" />
+
+											<NavLink
+												className="btn btn-outline-dark font-weight-bold btn-sm pl-5 pr-5"
+												to="/search_tickets"
+												type="button">Изменить</NavLink>
 										</div>
 									</div>
-								</div>
-								<div className="row justify-content-end pr-4">
-									<img className="align-self-senter mt-n1 pl-1 h-100" src={iconWifiRocketCup} alt="..."/>
-								</div>
-								<div className="row justify-content-end">
-									<button className="btn btn-outline-dark font-weight-bold btn-sm m-4 col-lg-3" type="button">Изменить</button>
 								</div>
 							</div>
 						</div>
@@ -234,47 +131,14 @@ const SectionCheckConfirmOrder = () => {
 						<h5 className="row p-4 border-bottom mb-0">Пассажиры</h5>
 						<div className="row">
 							<div className="col-lg-8">
-								<div className="row pl-4 pt-3 border-bottom border-right">
-									<div className="col-lg-2">
-										<img src={iconPassangerSircle} alt="..."/>
-										<h6 className="mt-3">Взрослый</h6>
-									</div>
-									<div className="col ml-3">
-										<h6>Мартынюк Ирина Эдуардовна</h6>
-										<p className="text-black-50 mt-3">Пол женский</p>
-										<p className="text-black-50 mt-4">Дата рождения 17.02.1985</p>
-										<p className="text-black-50 mt-4">Паспорт РФ 4204 380694</p>
-									</div>
-								</div>
-								<div className="row pl-4 pt-3 border-bottom border-right">
-									<div className="col-lg-2">
-										<img src={iconPassangerSircle} alt="..."/>
-										<h6 className="mt-3">Детский</h6>
-									</div>
-									<div className="col ml-3">
-										<h6>Мартынюк Кирилл Сергеевич</h6>
-										<p className="text-black-50 mt-3">Пол мужской</p>
-										<p className="text-black-50 mt-4">Дата рождения 25.01.2006</p>
-										<p className="text-black-50 mt-4">Свидетельство о рождении VIII УН 256319</p>
-									</div>
-								</div>
-								<div className="row pl-4 pt-3 pb-3 border-right">
-									<div className="col-lg-2">
-										<img src={iconPassangerSircle} alt="..."/>
-										<h6 className="mt-3">Взрослый</h6>
-									</div>
-									<div className="col ml-3">
-										<h6>Мартынюк Сергей Петрович</h6>
-										<p className="text-black-50 mt-3">Пол мужской</p>
-										<p className="text-black-50 mt-4">Дата рождения 19.06.1982</p>
-										<p className="text-black-50 mt-4">Паспорт РФ 4204 380694</p>
-									</div>
-								</div>
+								<PassengerJSX />
+								<PassengerJSX />
+								<PassengerJSX />
 							</div>
 							<div className="col-lg-4 pb-3 align-self-end">
 								<div className="row justify-content-end mt-4 mb-2">
 									<h4 className="mr-3">Всего</h4>
-									<h4 className="mr-3">7 760<img className="ml-2" src={iconRuble} alt="..."/></h4>
+									<h4 className="mr-3">{(props.ticketsAdult * props.payAdult) + (props.ticketsChild * props.payChild)}<img className="ml-2" src={iconRuble} alt="..." /></h4>
 								</div>
 								<div className="row justify-content-end">
 									<button className="btn btn-outline-dark font-weight-bold btn-sm mr-4 pl-5 pr-5" type="button">Изменить</button>
@@ -290,14 +154,30 @@ const SectionCheckConfirmOrder = () => {
 						</div>
 					</div>
 					<div className="d-flex justify-content-end mt-5">
-						<NavLink className="btn btn-warning text-white text-uppercase pl-5 pr-5 mt-5 mb-3" to="/order_confirmed" type="button">подтвердить</NavLink>
+						<NavLink 
+						className="btn btn-warning text-white text-uppercase pl-5 pr-5 mt-5 mb-3" 
+						to="/order_confirmed" 
+						type="button">подтвердить</NavLink>
 					</div>
 				</div>
 
-				
 			</div>
 		</div>
 	);
 };
 
-export default SectionCheckConfirmOrder;
+const mapStateToProps = (state) => {
+	return {
+		form: state.sectionSearch.form,
+		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
+		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
+		trainId: state.filterChoiceTicketsAndSeatsPages.trainId,
+		ticketsAdult: state.passengersAndPay.ticketsAdult,
+		payAdult: state.passengersAndPay.payAdult,
+		ticketsChild: state.passengersAndPay.ticketsChild,
+		payChild: state.passengersAndPay.payChild,
+		ticketsChildWithoutPlace: state.passengersAndPay.ticketsChildWithoutPlace,
+	};
+};
+
+export default connect(mapStateToProps, null)(SectionCheckConfirmOrder);
