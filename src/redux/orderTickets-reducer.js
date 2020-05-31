@@ -1,6 +1,7 @@
 import {
 	SET_ROUTE_TRAIN_SEAT,
-	SET_PERSON_INFO
+	SET_PERSON_INFO,
+	SET_USER_DATA
 } from './action';
 
 const initState = {
@@ -60,7 +61,6 @@ const orderTicketsReducer = (state = initState, action) => {
 				user: { ...state.user },
 				departure: {
 					...state.departure,
-					route_direction_id: state.departure.route_direction_id,
 					seats: state.departure.seats.map((s) => {
 						return {
 							...s,
@@ -69,6 +69,21 @@ const orderTicketsReducer = (state = initState, action) => {
 					})
 				}
 			}
+
+		case SET_USER_DATA:
+			return {
+				...state,
+				user: action.data,
+				departure: {
+					...state.departure,
+					seats: state.departure.seats.map((s) => {
+						return {
+							...s
+						}
+					})
+				}
+			}
+
 		default:
 			return state;
 	}

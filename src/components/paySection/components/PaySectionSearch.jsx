@@ -1,10 +1,12 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
+
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setUserDataAC } from '../../../redux/action';
 
 class PaySectionSearch extends React.Component {
 
@@ -33,7 +35,7 @@ class PaySectionSearch extends React.Component {
 
 	setDataPayment = () => {
 		this.props.history.push("/check_confirm_order");
-		console.log(this.state)
+		this.props.setUserData(this.state);
 	}
 
 	render() {
@@ -51,63 +53,53 @@ class PaySectionSearch extends React.Component {
 
 					<div className="col-lg-9 mb-5">
 						<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
-							<div className="passengers-form-filling col">
+							<form className="passengers-form-filling col">
 								<div className="passengers-form-number border-bottom row pt-4 pb-4">
 									<h5 className="ml-5">Персональные данные</h5>
 								</div>
 
 								<div className="d-flex">
-									<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+									<div className="pt-3 pl-4 pr-4 w-100">
 										<p>Фамилия</p>
-										<div className="d-flex form-group">
 											<input 
 											className="col-sm form-control" 
 											type="text" 
 											value={this.state.last_name}
 											onChange={this.setLastName} />
-										</div>
-									</form>
-									<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+									</div>
+									<div className="pt-3 pl-4 pr-4 w-100">
 										<p>Имя</p>
-										<div className="d-flex form-group">
 											<input 
 											className="col-sm form-control" 
 											type="text" 
 											value={this.state.first_name}
 											onChange={this.setFirstName} />
-										</div>
-									</form>
-									<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+									</div>
+									<div className="pt-3 pl-4 pr-4 w-100">
 										<p>Отчество</p>
-										<div className="d-flex form-group">
 											<input 
 											className="col-sm form-control" 
 											type="text" 
 											value={this.state.patronymic}
 											onChange={this.setPatronymic} />
-										</div>
-									</form>
+									</div>
 								</div>
-								<form className="form pt-3 pl-4 pr-4 w-50" action="input">
+								<div className="pt-3 pl-4 pr-4 w-50">
 									<p>Контактный телефон</p>
-									<div className="d-flex form-group">
 										<input 
 										className="col-sm form-control" 
 										type="text" 
 										placeholder="+7 ___ ___ __ __"
 										onChange={this.setPhone} />
-									</div>
-								</form>
-								<form className="form pt-3 pl-4 pr-4 w-50" action="input">
+								</div>
+								<div className="pt-3 pb-4 pl-4 pr-4 w-50">
 									<p>E-mail</p>
-									<div className="d-flex form-group">
 										<input 
 										className="col-sm form-control" 
 										type="text" 
 										placeholder="inbox@gmail.ru"
 										onChange={this.setEmail} />
-									</div>
-								</form>
+								</div>
 
 								<div className="passengers-form-number border-top border-bottom row pt-4 pb-4">
 									<h5 className="ml-5">Способ оплаты</h5>
@@ -130,7 +122,7 @@ class PaySectionSearch extends React.Component {
 									</div>
 									<p className="ml-2 text-black-50">Наличными</p>
 								</div>
-							</div>
+							</form>
 							<div className="d-flex justify-content-end mt-5">
 								<button 
 								className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-3"  
@@ -155,7 +147,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
+	return {
+		setUserData: (data) => dispatch(setUserDataAC(data))
+	}
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PaySectionSearch));
