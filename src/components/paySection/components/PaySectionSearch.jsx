@@ -1,94 +1,149 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import progressStateSelect from '../../../images/progress_state_select.png';
 import progressStateSelected from '../../../images/progress_state_selected.png';
 import ProgressLineCost from "../../shared/ProgressLineCost";
 import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
 import { connect } from 'react-redux';
 
-const PaySectionSearch = (props) => {
-	return (
-		<div>
-			<ProgressLineCost tickets={progressStateSelected}
-												passengers={progressStateSelected}
-												passengersClass="completed"
-												payment={progressStateSelect}
-												paymentClass="completed"
-												checkClass=""/>
+class PaySectionSearch extends React.Component {
 
-			<div className="container d-flex">
-				<SideBarPassangersSection />
+	state = {
+		first_name: this.props.first_name,
+		last_name: this.props.last_name,
+		patronymic: this.props.patronymic,
+		phone: "",
+		email: "",
+		payment_method: ""
+	}
 
-				<div className="col-lg-9 mb-5">
-					<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
-						<div className="passengers-form-filling col">
-							<div className="passengers-form-number border-bottom row pt-4 pb-4">
-								<h5 className="ml-5">Персональные данные</h5>
-							</div>
+	setFirstName = (e) => this.setState({ first_name: e.currentTarget.value });
 
-							<div className="d-flex">
-								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
-									<p>Фамилия</p>
+	setLastName = (e) => this.setState({ last_name: e.currentTarget.value });
+
+	setPatronymic = (e) => this.setState({ patronymic: e.currentTarget.value });
+
+	setPhone = (e) => this.setState({ phone: e.currentTarget.value });
+
+	setEmail = (e) => this.setState({ email: e.currentTarget.value });
+
+	setPaymentOnline = (e) => this.setState({ payment_method: e.currentTarget.checked ? "online" : "" });
+
+	setPaymentOffline = (e) => this.setState({ payment_method: e.currentTarget.checked ? "cash" : "" });
+
+	setDataPayment = () => {
+		this.props.history.push("/check_confirm_order");
+		console.log(this.state)
+	}
+
+	render() {
+		return (
+			<div>
+				<ProgressLineCost tickets={progressStateSelected}
+					passengers={progressStateSelected}
+					passengersClass="completed"
+					payment={progressStateSelect}
+					paymentClass="completed"
+					checkClass="" />
+
+				<div className="container d-flex">
+					<SideBarPassangersSection />
+
+					<div className="col-lg-9 mb-5">
+						<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
+							<div className="passengers-form-filling col">
+								<div className="passengers-form-number border-bottom row pt-4 pb-4">
+									<h5 className="ml-5">Персональные данные</h5>
+								</div>
+
+								<div className="d-flex">
+									<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+										<p>Фамилия</p>
+										<div className="d-flex form-group">
+											<input 
+											className="col-sm form-control" 
+											type="text" 
+											value={this.state.last_name}
+											onChange={this.setLastName} />
+										</div>
+									</form>
+									<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+										<p>Имя</p>
+										<div className="d-flex form-group">
+											<input 
+											className="col-sm form-control" 
+											type="text" 
+											value={this.state.first_name}
+											onChange={this.setFirstName} />
+										</div>
+									</form>
+									<form className="form pt-3 pl-4 pr-4 w-100" action="input">
+										<p>Отчество</p>
+										<div className="d-flex form-group">
+											<input 
+											className="col-sm form-control" 
+											type="text" 
+											value={this.state.patronymic}
+											onChange={this.setPatronymic} />
+										</div>
+									</form>
+								</div>
+								<form className="form pt-3 pl-4 pr-4 w-50" action="input">
+									<p>Контактный телефон</p>
 									<div className="d-flex form-group">
-										<input className="col-sm form-control" type="text" placeholder={props.last_name} />
+										<input 
+										className="col-sm form-control" 
+										type="text" 
+										placeholder="+7 ___ ___ __ __"
+										onChange={this.setPhone} />
 									</div>
 								</form>
-								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
-									<p>Имя</p>
+								<form className="form pt-3 pl-4 pr-4 w-50" action="input">
+									<p>E-mail</p>
 									<div className="d-flex form-group">
-										<input className="col-sm form-control" type="text" placeholder={props.first_name} />
+										<input 
+										className="col-sm form-control" 
+										type="text" 
+										placeholder="inbox@gmail.ru"
+										onChange={this.setEmail} />
 									</div>
 								</form>
-								<form className="form pt-3 pl-4 pr-4 w-100" action="input">
-									<p>Отчество</p>
-									<div className="d-flex form-group">
-										<input className="col-sm form-control" type="text" placeholder={props.patronymic} />
+
+								<div className="passengers-form-number border-top border-bottom row pt-4 pb-4">
+									<h5 className="ml-5">Способ оплаты</h5>
+								</div>
+
+								<div className="row pl-5 mt-4">
+									<div className="form-group">
+										<input type="checkbox" onChange={this.setPaymentOnline} />
 									</div>
-								</form>
-							</div>
-							<form className="form pt-3 pl-4 pr-4 w-50" action="input">
-								<p>Контактный телефон</p>
-								<div className="d-flex form-group">
-									<input className="col-sm form-control" type="text" placeholder="+7 ___ ___ __ __"/>
+									<p className="ml-2 text-black-50">Онлайн</p>
 								</div>
-							</form>
-							<form className="form pt-3 pl-4 pr-4 w-50" action="input">
-								<p>E-mail</p>
-								<div className="d-flex form-group">
-									<input className="col-sm form-control" type="text" placeholder="+inbox@gmail.ru"/>
+								<ul className="list-group list-group-horizontal justify-content-between w-75 ml-3">
+									<li className="list-group-item w-50 border-0 font-weight-bold">Банковской картой</li>
+									<li className="list-group-item w-50 border-0 font-weight-bold">PayPal</li>
+									<li className="list-group-item w-50 border-0 font-weight-bold">Visa QIWI Wallet</li>
+								</ul>
+								<div className="row p-5 border-top">
+									<div className="form-group">
+										<input type="checkbox" onChange={this.setPaymentOffline} />
+									</div>
+									<p className="ml-2 text-black-50">Наличными</p>
 								</div>
-							</form>
-
-							<div className="passengers-form-number border-top border-bottom row pt-4 pb-4">
-								<h5 className="ml-5">Способ оплаты</h5>
 							</div>
-
-							<div className="row pl-5 mt-4">
-								<div className="form-group">
-									<input type="checkbox"/>
-								</div>
-								<p className="ml-2 text-black-50">Онлайн</p>
+							<div className="d-flex justify-content-end mt-5">
+								<button 
+								className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-3"  
+								type="button"
+								onClick={this.setDataPayment}
+								>купить билеты</button>
 							</div>
-							<ul className="list-group list-group-horizontal justify-content-between w-75 ml-3">
-								<li className="list-group-item w-50 border-0 font-weight-bold">Банковской картой</li>
-								<li className="list-group-item w-50 border-0 font-weight-bold">PayPal</li>
-								<li className="list-group-item w-50 border-0 font-weight-bold">Visa QIWI Wallet</li>
-							</ul>
-							<div className="row p-5 border-top">
-								<div className="form-group">
-									<input type="checkbox"/>
-								</div>
-								<p className="ml-2 text-black-50">Наличными</p>
-							</div>
-						</div>
-						<div className="d-flex justify-content-end mt-5">
-							<NavLink className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-3" to="/check_confirm_order" type="button">купить билеты</NavLink>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 };
 
 const mapStateToProps = (state) => {
@@ -103,4 +158,4 @@ const mapDispatchToProps = (dispatch) => {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PaySectionSearch);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PaySectionSearch));
