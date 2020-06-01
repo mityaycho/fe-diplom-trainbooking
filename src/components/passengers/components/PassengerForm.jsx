@@ -10,7 +10,17 @@ const Form = (props) => {
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
-		props.setData(data);
+		let newData = {...data}
+if(data.document_type === "Паспорт"){
+		newData =  {
+			...data,
+				document_data: data.serial +' '+ data.number
+		}
+		delete newData.serial
+		delete newData.number
+}
+debugger
+		props.setData(newData);
 		props.setActiveButton();
 	}
 
@@ -109,7 +119,7 @@ const Form = (props) => {
 									className="col-sm form-control" 
 									type="text" 
 									placeholder="_ _ _ _"
-									name="document_data"
+									name="serial"
 									ref={register} />
 								</div>
 								<div className="pt-3 pl-4 pb-4 w-25">
@@ -117,7 +127,7 @@ const Form = (props) => {
 									<input className="col-sm form-control" 
 									type="text" 
 									placeholder="_ _ _ _ _ _"
-									name="document_data"
+									name="number"
 									ref={register} />
 								</div>
 							</>

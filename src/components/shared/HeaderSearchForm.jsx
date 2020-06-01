@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {setDataFormAC} from '../../redux/action';
 import {Typeahead} from 'react-bootstrap-typeahead';
 import { searchMainAPI } from '../../redux/searchMain-reducer';
+import { withRouter } from 'react-router';
 
 class HeaderSearchForm extends React.Component {
   state = {
@@ -66,7 +67,9 @@ class HeaderSearchForm extends React.Component {
     const {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId} = this.state;
     const setForm = {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId};
     
-    this.props.setDataForm(setForm);
+		this.props.setDataForm(setForm);
+		
+		this.props.history.push('/search_tickets');
   };
 
   render() {
@@ -150,4 +153,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderSearchForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HeaderSearchForm));
