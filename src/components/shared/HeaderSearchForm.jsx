@@ -5,6 +5,7 @@ import {setDataFormAC} from '../../redux/action';
 import {Typeahead} from 'react-bootstrap-typeahead';
 import { searchMainAPI } from '../../redux/searchMain-reducer';
 import { withRouter } from 'react-router';
+import { filterTicketsAndSeatsReducerTC } from '../../redux/filterTicketsAndSeats-reducer';
 
 class HeaderSearchForm extends React.Component {
   state = {
@@ -68,9 +69,21 @@ class HeaderSearchForm extends React.Component {
     const setForm = {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId};
     
 		this.props.setDataForm(setForm);
+
+		window.scrollTo(0, 700);
+
+		this.props.setSeatsAndTicketsEvent('actualPage', this.props.match.url);
 		
 		this.props.history.push('/search_tickets');
-  };
+	};
+	
+	disabledButton = () =>
+	this.state.whereFromCity === '' || 
+	this.state.whereToCity === '' || 
+	this.state.whereFromDate === '' || 
+	this.state.whereToDate === '' || 
+	this.state.cityWhereFromId === '' || 
+	this.state.cityWhereToId === '';
 
   render() {
     const options = this.state.dataCities.map(el => el.name);
@@ -125,7 +138,8 @@ class HeaderSearchForm extends React.Component {
                 <div className="text-right">
 									<button 
 									className="btn btn-warning btn-sm m-3 col-lg-3"
-                  type="button"
+									type="button"
+									disabled={this.disabledButton()}
                   onClick={this.saveMainState}>найти билеты</button>
                 </div>
               </div>
@@ -149,7 +163,8 @@ const mapDispatchToProps = (dispatch) => {
     setDataForm: (form) => {
       const action = setDataFormAC(form);
       dispatch(action);
-    }
+		},
+		setSeatsAndTicketsEvent: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
   };
 };
 

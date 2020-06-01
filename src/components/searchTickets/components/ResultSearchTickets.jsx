@@ -14,6 +14,7 @@ const ResultSearchTickets = (props) => {
 
 	const setTrainIdEvent = () => {
 		props.setTrainId(props.state.departure._id);
+		window.scrollTo(0, 700);
 		props.history.push('/seat_selection');
 	}
 

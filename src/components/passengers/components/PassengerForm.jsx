@@ -2,6 +2,7 @@ import React from 'react';
 import iconMinusSircle from '../../../images/icon_minus_sircle.png';
 import iconCloseX from '../../../images/icon_close_x.png';
 import iconPlusSircle from '../../../images/icon_plus_sircle.png';
+
 import { useForm } from 'react-hook-form';
 
 
@@ -10,16 +11,17 @@ const Form = (props) => {
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
-		let newData = {...data}
-if(data.document_type === "Паспорт"){
-		newData =  {
-			...data,
-				document_data: data.serial +' '+ data.number
+		let newData = { ...data };
+
+		if (data.document_type === "Паспорт") {
+			newData = {
+				...data,
+				document_data: data.serial + ' ' + data.number
+			}
+			delete newData.serial
+			delete newData.number
 		}
-		delete newData.serial
-		delete newData.number
-}
-debugger
+
 		props.setData(newData);
 		props.setActiveButton();
 	}
@@ -51,30 +53,30 @@ debugger
 						<div className="d-flex">
 							<div className="pt-3 pl-4 pr-4 w-100">
 								<p>Фамилия</p>
-								<input 
-								className="col-sm form-control" 
-								type="text" 
-								placeholder="Мартынюк" 
-								name="last_name" 
-								ref={register} />
+								<input
+									className="col-sm form-control"
+									type="text"
+									placeholder="Мартынюк"
+									name="last_name"
+									ref={register} />
 							</div>
 							<div className="pt-3 pl-4 pr-4 w-100">
 								<p>Имя</p>
-								<input 
-								className="col-sm form-control" 
-								type="text" 
-								placeholder="Ирина" 
-								name="first_name" 
-								ref={register} />
+								<input
+									className="col-sm form-control"
+									type="text"
+									placeholder="Ирина"
+									name="first_name"
+									ref={register} />
 							</div>
 							<div className="pt-3 pl-4 pr-4 w-100">
 								<p>Отчество</p>
-								<input 
-								className="col-sm form-control" 
-								type="text" 
-								placeholder="Эдуардовна" 
-								name="patronymic" 
-								ref={register} />
+								<input
+									className="col-sm form-control"
+									type="text"
+									placeholder="Эдуардовна"
+									name="patronymic"
+									ref={register} />
 							</div>
 						</div>
 						<div className="d-flex">
@@ -102,44 +104,44 @@ debugger
 						<div className="row border-bottom">
 							<div className="ml-4 pt-3 pl-4 pr-4">
 								<p>Тип докумета</p>
-								<select 
-								className="form-control" 
-								name="document_type" 
-								ref={register} 
-								onChange={e => documents(e.currentTarget.value)}>
+								<select
+									className="form-control"
+									name="document_type"
+									ref={register}
+									onChange={e => documents(e.currentTarget.value)}>
 									<option value="Паспорт">Паспорт РФ</option>
 									<option value="Свидетельство">Свидетельство о рождении</option>
 								</select>
 							</div>
 							{props.documents ?
-							<>
-								<div className="pt-3 pl-4 pr-4 w-25">
-									<p>Серия</p>
-									<input 
-									className="col-sm form-control" 
-									type="text" 
-									placeholder="_ _ _ _"
-									name="serial"
-									ref={register} />
-								</div>
+								<>
+									<div className="pt-3 pl-4 pr-4 w-25">
+										<p>Серия</p>
+										<input
+											className="col-sm form-control"
+											type="text"
+											placeholder="_ _ _ _"
+											name="serial"
+											ref={register} />
+									</div>
+									<div className="pt-3 pl-4 pb-4 w-25">
+										<p>Номер</p>
+										<input className="col-sm form-control"
+											type="text"
+											placeholder="_ _ _ _ _ _"
+											name="number"
+											ref={register} />
+									</div>
+								</>
+								:
 								<div className="pt-3 pl-4 pb-4 w-25">
 									<p>Номер</p>
-									<input className="col-sm form-control" 
-									type="text" 
-									placeholder="_ _ _ _ _ _"
-									name="number"
-									ref={register} />
-								</div>
-							</>
-							:
-							<div className="pt-3 pl-4 pb-4 w-25">
-									<p>Номер</p>
-									<input 
-									className="col-sm form-control" 
-									type="text" 
-									placeholder="_ _ _  _ _  _ _ _ _ _"
-									name="document_data"
-									ref={register} />
+									<input
+										className="col-sm form-control"
+										type="text"
+										placeholder="_ _ _  _ _  _ _ _ _ _"
+										name="document_data"
+										ref={register} />
 								</div>}
 						</div>
 
@@ -157,7 +159,7 @@ debugger
 							<h5 className="ml-3 pt-1">Пассажир {props.passengerNumber}</h5>
 						</div>
 					</div>
-					
+
 				</div>
 			}
 		</>

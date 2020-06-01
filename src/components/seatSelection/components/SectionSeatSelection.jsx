@@ -53,14 +53,19 @@ class SectionSeatSelection extends React.Component {
 	}
 
 	setRouteTrainSeatReducer = () => {
-		this.props.history.push('/passengers');
 		this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
+
 		this.props.setRouteTrainSeat(
 			this.props.trainId,
 			this.state.coach_id,
 			this.state.seat_number[0],
 			this.state.is_child,
-			this.state.include_children_seat);
+			this.state.include_children_seat
+		);
+
+		window.scrollTo(0, 700);
+
+		this.props.history.push('/passengers');
 	}
 
 	trainButtonFrom = 

@@ -47,7 +47,7 @@ const Footer = () => {
 				<div className="container h-100">
 					<div className="row h-100 justify-content-between align-items-center">
 						<h1 className="logo">Лого</h1>
-						<a className="icon-bottom" href="#header_logo"><img src={iconScrollTop} alt=""/></a>
+						<div className="icon-bottom" onClick={() => window.scrollTo(0, 0)}><img src={iconScrollTop} alt=""/></div>
 						<p className="license">2018 WEB</p>
 					</div>
 				</div>
