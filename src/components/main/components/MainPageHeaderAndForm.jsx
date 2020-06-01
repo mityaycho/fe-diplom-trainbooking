@@ -48,15 +48,19 @@ class MainPageHeaderAndForm extends React.Component {
   };
 
 	setWhereFromCity = (event) => {
-		const city = this.state.dataCities.find(el => el.name === event[0]);
+		if (event.length !== 0) {
+			const city = this.state.dataCities.find(el => el.name === event[0]);
 
-		this.setState({ whereFromCity: event[0], cityWhereFromId: city._id, dataCities: [] });
+			this.setState({ whereFromCity: event[0], cityWhereFromId: city._id, dataCities: [] });
+		}
 	};
 
 	setWhereToCity = (event) => {
-		const city = this.state.dataCities.find(el => el.name === event[0]);
+		if (event.length !== 0) {
+			const city = this.state.dataCities.find(el => el.name === event[0]);
 
-		this.setState({ whereToCity: event[0], cityWhereToId: city._id, dataCities: [] });
+			this.setState({ whereToCity: event[0], cityWhereToId: city._id, dataCities: [] });
+		}
 	};
 
 	setWhereFromDate = (event) => {
