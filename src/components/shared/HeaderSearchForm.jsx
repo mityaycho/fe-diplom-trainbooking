@@ -1,62 +1,53 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+
 import {connect} from 'react-redux';
 import {setDataFormAC} from '../../redux/action';
 import {Typeahead} from 'react-bootstrap-typeahead';
+import { searchMainAPI } from '../../redux/searchMain-reducer';
 
 class HeaderSearchForm extends React.Component {
   state = {
-    valueFromCity: '',
-    valueToCity: '',
     dataCities: [],
-    whereFromCity: '',
-    whereFromDate: undefined,
-    whereToCity: '',
-    whereToDate: undefined,
-    cityWhereFromId: '',
-    cityWhereToId: ''
-  };
-
-  componentDidMount() {
-    fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=`)
-      .then(response => response.json())
-      .then(data => this.setState(data.error ? {dataCities: []} : {dataCities: data}));
-    this.setState({
-      whereFromCity: this.props.form.whereFromCity,
-      whereToCity: this.props.form.whereToCity,
-      valueFromCity: this.props.form.whereFromCity,
-      valueToCity: this.props.form.whereToCity,
-      whereFromDate: this.props.form.whereFromDate,
-      whereToDate: this.props.form.whereToDate
-    })
+		valueFromCity: this.props.form.whereFromCity,
+		valueToCity: this.props.form.whereToCity,
+    whereFromCity: this.props.form.whereFromCity,
+		whereToCity: this.props.form.whereToCity,
+		whereFromDate: this.props.form.whereFromDate,
+		whereToDate: this.props.form.whereToDate,
+    cityWhereFromId: this.props.form.cityWhereFromId,
+    cityWhereToId: this.props.form.cityWhereToId
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.value !== this.state.value) {
-      fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.state.valueFromCity}`)
-        .then(response => response.json())
-        .then(data => this.setState(data.error ? {dataCities: [], valueFromCity: data.error} : {dataCities: data}));
-    }
-    if (prevState.value !== this.state.value) {
-      fetch(`https://netology-trainbooking.herokuapp.com/routes/cities?name=${this.state.valueToCity}`)
-        .then(response => response.json())
-        .then(data => this.setState(data.error ? {dataCities: [], valueToCity: data.error} : {dataCities: data}));
-    }
+    if (prevState.valueFromCity !== this.state.valueFromCity) {
+			this.props.searchRoutes(this.state.valueFromCity)
+			.then(data => this.setState(data.data.error ? { dataCities: [], valueFromCity: data.data.error } : { dataCities: data.data }));
+		}
+
+		if (prevState.valueToCity !== this.state.valueToCity) {
+			this.props.searchRoutes(this.state.valueToCity)
+			.then(data => this.setState(data.data.error ? { dataCities: [], valueToCity: data.data.error } : { dataCities: data.data }));
+		}
   };
 
-  setEvent = (event) => {
-    this.setState({value: event});
+  setFromValue = (event) => {
+    this.setState({valueFromCity: event});
+	};
+	
+	setToValue = (event) => {
+    this.setState({valueToCity: event});
   };
 
   setWhereFromCity = (event) => {
     const city = this.state.dataCities.find(el => el.name === event[0]);
 
-    this.setState({whereFromCity: event[0], cityWhereFromId: city._id, dataCities: [], value: ''});
+    this.setState({whereFromCity: event[0], cityWhereFromId: city._id, dataCities: []});
   };
 
   setWhereToCity = (event) => {
-    const city = this.state.dataCities.find(el => el.name === event[0]);
-    this.setState({whereToCity: event[0], cityWhereToId: city._id, dataCities: [], value: ''});
+		const city = this.state.dataCities.find(el => el.name === event[0]);
+		
+    this.setState({whereToCity: event[0], cityWhereToId: city._id, dataCities: []});
   };
 
   setWhereFromDate = (event) => {
@@ -70,7 +61,7 @@ class HeaderSearchForm extends React.Component {
   saveMainState = () => {
     const {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId} = this.state;
     const setForm = {whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId};
-    console.log(setForm);
+    
     this.props.setDataForm(setForm);
   };
 
@@ -91,7 +82,7 @@ class HeaderSearchForm extends React.Component {
                                  placeholder={this.state.valueFromCity ? this.state.valueFromCity : "откуда"}
                                  id="whereFromCity"
                                  options={options}
-                                 onInputChange={this.setEvent}
+                                 onInputChange={this.setFromValue}
                                  onChange={this.setWhereFromCity}
                                  className="col-sm"
                       />
@@ -100,7 +91,7 @@ class HeaderSearchForm extends React.Component {
                                  placeholder={this.state.valueToCity ? this.state.valueToCity : "куда"}
                                  id="whereToCity"
                                  options={options}
-                                 onInputChange={this.setEvent}
+                                 onInputChange={this.setToValue}
                                  onChange={this.setWhereToCity}
                                  className="col-sm"
                       />
@@ -125,12 +116,10 @@ class HeaderSearchForm extends React.Component {
                   </form>
                 </div>
                 <div className="text-right">
-                  <NavLink className="btn btn-warning btn-sm m-3 col-lg-3"
-                           to="/"
-                           type="button"
-                           onClick={this.saveMainState}
-                  >найти
-                    билеты</NavLink>
+									<button 
+									className="btn btn-warning btn-sm m-3 col-lg-3"
+                  type="button"
+                  onClick={this.saveMainState}>найти билеты</button>
                 </div>
               </div>
             </div>
@@ -149,6 +138,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+		searchRoutes: (value) => searchMainAPI(value),
     setDataForm: (form) => {
       const action = setDataFormAC(form);
       dispatch(action);

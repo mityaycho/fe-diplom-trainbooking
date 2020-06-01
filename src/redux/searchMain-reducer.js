@@ -3,7 +3,14 @@ import { api } from '../api/api';
 
 
 const initState = {
-	form: {},
+	form: {
+		whereFromCity: '',
+		whereFromDate: '',
+		whereToCity: '',
+		whereToDate: '',
+		cityWhereFromId: '',
+		cityWhereToId: ''
+	},
 	lastRoutes: []
 };
 
@@ -15,19 +22,21 @@ const searchMainReducer = (state = initState, action) => {
 				...state,
 				form: action.form
 			};
+
 		case SET_LAST_ROUTES:
 			return {
 				...state,
 				lastRoutes: action.lastRoutes
 			}
-			default:
-				return state;
+
+		default:
+			return state;
 	};
 };
 
 export const searchMainAPI = (value) => {
 	return api.searchRoutes(value)
-	.then(res => res)
+	.then(res => res);
 }
 
 export const getLastRoutesTC = () => (dispatch) => {

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import iconCachedWhite from '../../../images/icon_cached_white.png';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
+
 import { connect } from 'react-redux';
 import { setDataFormAC } from '../../../redux/action';
 import { Typeahead } from 'react-bootstrap-typeahead';
@@ -10,14 +11,15 @@ import { searchMainAPI } from '../../../redux/searchMain-reducer';
 class MainPageHeaderAndForm extends React.Component {
 
 	state = {
-		value: '',
 		dataCities: [],
-		whereFromCity: '',
-		whereFromDate: '',
-		whereToCity: '',
-		whereToDate: '',
-		cityWhereFromId: '',
-		cityWhereToId: ''
+		valueFromCity: this.props.form.whereFromCity,
+		valueToCity: this.props.form.whereToCity,
+		whereFromCity: this.props.form.whereFromCity,
+		whereFromDate: this.props.form.whereFromDate,
+		whereToCity: this.props.form.whereToCity,
+		whereToDate: this.props.form.whereToDate,
+		cityWhereFromId: this.props.form.cityWhereFromId,
+		cityWhereToId: this.props.form.cityWhereToId
 	};
 
 	componentDidMount() {
@@ -26,25 +28,35 @@ class MainPageHeaderAndForm extends React.Component {
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevState.value !== this.state.value) {
-			this.props.searchRoutes(this.state.value)
-			.then(data => this.setState(data.data.error ? { dataCities: [], value: data.data.error } : { dataCities: data.data }));
+		if (prevState.valueFromCity !== this.state.valueFromCity) {
+			this.props.searchRoutes(this.state.valueFromCity)
+			.then(data => this.setState(data.data.error ? { dataCities: [], valueFromCity: data.data.error } : { dataCities: data.data }));
+		}
+
+		if (prevState.valueToCity !== this.state.valueToCity) {
+			this.props.searchRoutes(this.state.valueToCity)
+			.then(data => this.setState(data.data.error ? { dataCities: [], valueToCity: data.data.error } : { dataCities: data.data }));
 		}
 	};
 
-	setEvent = (event) => {
-		this.setState({ value: event });
+	setFromValue = (event) => {
+    this.setState({valueFromCity: event});
 	};
+	
+	setToValue = (event) => {
+    this.setState({valueToCity: event});
+  };
 
 	setWhereFromCity = (event) => {
 		const city = this.state.dataCities.find(el => el.name === event[0]);
 
-		this.setState({ whereFromCity: event[0], cityWhereFromId: city._id, dataCities: [], value: '' });
+		this.setState({ whereFromCity: event[0], cityWhereFromId: city._id, dataCities: [] });
 	};
 
 	setWhereToCity = (event) => {
 		const city = this.state.dataCities.find(el => el.name === event[0]);
-		this.setState({ whereToCity: event[0], cityWhereToId: city._id, dataCities: [], value: '' });
+
+		this.setState({ whereToCity: event[0], cityWhereToId: city._id, dataCities: [] });
 	};
 
 	setWhereFromDate = (event) => {
@@ -58,10 +70,19 @@ class MainPageHeaderAndForm extends React.Component {
 	saveMainState = () => {
 		const { whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId } = this.state;
 		const setForm = { whereFromCity, whereToCity, whereFromDate, whereToDate, cityWhereFromId, cityWhereToId };
+		
 		this.props.setDataForm(setForm);
 
 		this.props.history.push('/search_tickets');
 	};
+
+	disabledButton = () =>
+	this.state.whereFromCity === '' || 
+	this.state.whereToCity === '' || 
+	this.state.whereFromDate === '' || 
+	this.state.whereToDate === '' || 
+	this.state.cityWhereFromId === '' || 
+	this.state.cityWhereToId === '';
 
 	render() {
 
@@ -81,11 +102,12 @@ class MainPageHeaderAndForm extends React.Component {
 									<p className="ml-3">Направление</p>
 									<div className="d-flex form-group m-3 justify-content-center">
 										<Fragment>
-											<Typeahead value={this.value}
+											<Typeahead 
+												value={this.state.setWhereFromCity}
 												placeholder={this.state.dataCities.error ? this.state.dataCities.error : "откуда"}
 												id="whereFromCity"
 												options={options}
-												onInputChange={this.setEvent}
+												onInputChange={this.setFromValue}
 												onChange={this.setWhereFromCity}
 												className="input-typeahead"
 											/>
@@ -93,11 +115,11 @@ class MainPageHeaderAndForm extends React.Component {
 										<img className="mt-auto mb-2" src={iconCachedWhite} alt="..." />
 
 										<Typeahead
-											value={this.searchItem}
+											value={this.state.setWhereToCity}
 											placeholder={this.state.dataCities.error ? this.state.dataCities.error : "куда"}
 											id="whereToCity"
 											options={options}
-											onInputChange={this.setEvent}
+											onInputChange={this.setToValue}
 											onChange={this.setWhereToCity}
 											className="input-typeahead"
 										/>
@@ -118,8 +140,10 @@ class MainPageHeaderAndForm extends React.Component {
 								</form>
 							</div>
 							<div className="text-right ml-4">
-								<button className="btn btn-warning mt-5 col-lg-6"
+								<button 
+									className="btn btn-warning mt-5 col-lg-6"
 									type="button"
+									disabled={this.disabledButton()}
 									onClick={this.saveMainState}>найти билеты</button>
 							</div>
 						</div>
