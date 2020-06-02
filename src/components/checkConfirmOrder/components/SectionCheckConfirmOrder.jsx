@@ -14,6 +14,7 @@ import PassengerJSX from './PassengerJSX';
 
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { ucFL } from '../../..';
 
 const SectionCheckConfirmOrder = (props) => {
 
@@ -50,8 +51,8 @@ const SectionCheckConfirmOrder = (props) => {
 								<h5 className="text-center">{ticketSelected.departure.train.name}</h5>
 								<p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
 									alt="..." /></p>
-								<p className="pl-3">{ticketSelected.departure.from.city.name}<img className="pl-2" src={iconArrowRightBlack} alt="..." /></p>
-								<p className="pl-3">{ticketSelected.departure.to.city.name}</p>
+								<p className="pl-3">{ucFL(ticketSelected.departure.from.city.name)}<img className="pl-2" src={iconArrowRightBlack} alt="..." /></p>
+								<p className="pl-3">{ucFL(ticketSelected.departure.to.city.name)}</p>
 							</div>
 							<div className="col-lg-9">
 								<div className="row h-100">
@@ -59,7 +60,7 @@ const SectionCheckConfirmOrder = (props) => {
 										<div className="row pl-4 pr-4 pt-5 justify-content-between">
 											<div>
 												<h5>{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</h5>
-												<p>{ticketSelected.departure.from.city.name}</p>
+												<p>{ucFL(ticketSelected.departure.from.city.name)}</p>
 												<p className="font-weight-light">{ticketSelected.departure.from.railway_station_name}</p>
 											</div>
 											<div className="pl-4">
@@ -68,14 +69,14 @@ const SectionCheckConfirmOrder = (props) => {
 											</div>
 											<div className="pl-4">
 												<h5>{getHours(fromArrival)}:{getMinutes(fromArrival)}</h5>
-												<p>{ticketSelected.departure.to.city.name}</p>
+												<p>{ucFL(ticketSelected.departure.to.city.name)}</p>
 												<p className="font-weight-light">{ticketSelected.departure.to.railway_station_name}</p>
 											</div>
 										</div>
 										<div className="row pl-4 pr-4 pt-5 justify-content-between">
 											<div>
 												<h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
-												<p>{ticketSelected.departure.from.city.name}</p>
+												<p>{ucFL(ticketSelected.departure.from.city.name)}</p>
 												<p className="font-weight-light">{ticketSelected.departure.from.railway_station_name}</p>
 											</div>
 											<div className="pl-4">
@@ -84,7 +85,7 @@ const SectionCheckConfirmOrder = (props) => {
 											</div>
 											<div className="pl-4">
 												<h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
-												<p>{ticketSelected.departure.to.city.name}</p>
+												<p>{ucFL(ticketSelected.departure.to.city.name)}</p>
 												<p className="font-weight-light">{ticketSelected.departure.to.railway_station_name}</p>
 											</div>
 										</div>

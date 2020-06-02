@@ -8,6 +8,7 @@ import iconWifiRocketCup from '../../../images/icons_wifiRocketCup.png'
 import TicketPriceAndSeats from './TicketPriceAndSeats';
 
 import { withRouter } from 'react-router';
+import { ucFL } from '../../..';
 
 
 const ResultSearchTickets = (props) => {
@@ -34,8 +35,8 @@ const ResultSearchTickets = (props) => {
 				<h5 className="text-center">{props.state.departure.train.name}</h5>
 				<p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
 					alt="..." /></p>
-				<p className="pl-3">{props.state.departure.from.city.name}<img className="pl-2" src={iconArrowRightBlack} alt="..." /></p>
-				<p className="pl-3">{props.state.departure.to.city.name}</p>
+				<p className="pl-3">{ucFL(props.state.departure.from.city.name)}<img className="pl-2" src={iconArrowRightBlack} alt="..." /></p>
+				<p className="pl-3">{ucFL(props.state.departure.to.city.name)}</p>
 			</div>
 			<div className="col-lg-9">
 				<div className="row h-100">
@@ -43,7 +44,7 @@ const ResultSearchTickets = (props) => {
 						<div className="row pl-4 pr-4 pt-5 justify-content-between">
 							<div>
 								<h5>{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</h5>
-								<p>{props.state.departure.from.city.name}</p>
+								<p>{ucFL(props.state.departure.from.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
 							</div>
 							<div className="pl-4">
@@ -52,14 +53,14 @@ const ResultSearchTickets = (props) => {
 							</div>
 							<div className="pl-4">
 								<h5>{getHours(fromArrival)}:{getMinutes(fromArrival)}</h5>
-								<p>{props.state.departure.to.city.name}</p>
+								<p>{ucFL(props.state.departure.to.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
 							</div>
 						</div>
 						<div className="row pl-4 pr-4 pt-5 justify-content-between">
 							<div>
 								<h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
-								<p>{props.state.departure.from.city.name}</p>
+								<p>{ucFL(props.state.departure.from.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
 							</div>
 							<div className="pl-4">
@@ -68,7 +69,7 @@ const ResultSearchTickets = (props) => {
 							</div>
 							<div className="pl-4">
 								<h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
-								<p>{props.state.departure.to.city.name}</p>
+								<p>{ucFL(props.state.departure.to.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
 							</div>
 						</div>

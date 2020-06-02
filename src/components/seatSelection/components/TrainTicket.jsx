@@ -9,6 +9,7 @@ import train_first_class from '../../../images/train_first_class.png';
 
 import { connect } from 'react-redux';
 import { passengersAndPayAC } from './../../../redux/action';
+import { ucFL } from '../../..';
 
 
 class TrainTicket extends React.Component {
@@ -111,28 +112,28 @@ class TrainTicket extends React.Component {
 						<ul className="list-unstyled">
 							<li className="font-weight-bold">{this.props.trainName}</li>
 							<li>Адлер</li>
-							<li>{this.props.cityNameDeparture}</li>
-							<li>{this.props.cityNameArrival}</li>
+							<li>{ucFL(this.props.cityNameDeparture)}</li>
+							<li>{ucFL(this.props.cityNameArrival)}</li>
 						</ul>
 					</div>
 					<div className="d-flex">
 						<ul className="list-unstyled align-self-center">
 							<li className="font-weight-bold">{getHours(this.props.dateTime)}:{getMinutes(this.props.dateTime)}</li>
-							<li className="">{this.props.cityNameDeparture}</li>
+							<li className="">{ucFL(this.props.cityNameDeparture)}</li>
 							<li className="font-weight-light">{this.props.railwayStationDeparture}</li>
 						</ul>
 						<img className="col align-self-center" src={this.props.iconSearch} alt="иконка стрелки вправо" />
 						<ul className="list-unstyled align-self-center">
 							<li className="font-weight-bold">{getHours(this.props.arrivalTime)}:{getMinutes(this.props.arrivalTime)}</li>
-							<li className="">{this.props.cityNameArrival}</li>
+							<li className="">{ucFL(this.props.cityNameArrival)}</li>
 							<li className="font-weight-light">{this.props.railwayStationArrival}</li>
 						</ul>
 					</div>
 					<div className="d-flex mr-5">
 						<img className="align-self-center" src={choiceTimeIcon} alt="..." />
 						<ul className="list-unstyled align-self-center mt-2 ml-2">
-							<li className="font-weight-bold">{getHours(this.props.duration)} часов</li>
-							<li className="font-weight-bold">{getMinutes(this.props.duration)} минуты</li>
+							<li className="font-weight-bold">{getHours(this.props.duration)} часа</li>
+							<li className="font-weight-bold">{getMinutes(this.props.duration)} минут</li>
 						</ul>
 					</div>
 				</div>

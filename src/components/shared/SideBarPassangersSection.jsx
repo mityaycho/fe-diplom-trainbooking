@@ -8,6 +8,7 @@ import iconRubleSmall from '../../images/icon_ruble_small.png';
 import iconPassanger from '../../images/icon_passanger.png';
 
 import { connect } from 'react-redux';
+import { ucFL } from '../..';
 
 
 class SideBarPassangersAndPaySection extends React.Component {
@@ -42,7 +43,7 @@ class SideBarPassangersAndPaySection extends React.Component {
 						<div className="mr-3 text-right">
 							<h6 className="mt-3">{ticketSelected.departure.train.name}</h6>
 							<p className="mt-3">Адлер</p>
-							<p className="mt-n3">{ticketSelected.departure.from.city.name}</p>
+							<p className="mt-n3">{ucFL(ticketSelected.departure.from.city.name)}</p>
 						</div>
 					</div>
 					<div className="d-flex justify-content-between">
@@ -61,12 +62,12 @@ class SideBarPassangersAndPaySection extends React.Component {
 					</div>
 					<div className="d-flex justify-content-between">
 						<div className="ml-3">
-							<h6>{ticketSelected.departure.from.city.name}</h6>
+							<h6>{ucFL(ticketSelected.departure.from.city.name)}</h6>
 							<p className="text-white-50">{ticketSelected.departure.from.railway_station_name}</p>
 							<p className="mt-n3 text-white-50">вокзал</p>
 						</div>
 						<div className="mr-3 text-right">
-							<h6>{ticketSelected.departure.to.city.name}</h6>
+							<h6>{ucFL(ticketSelected.departure.to.city.name)}</h6>
 							<p className="text-white-50">{ticketSelected.departure.to.railway_station_name}</p>
 							<p className="mt-n3 text-white-50">вокзал</p>
 						</div>
@@ -87,7 +88,7 @@ class SideBarPassangersAndPaySection extends React.Component {
 						<div className="mr-3 text-right">
 							<h6 className="mt-3">{ticketSelected.departure.train.name}</h6>
 							<p className="mt-3">Адлер</p>
-							<p className="mt-n3">{ticketSelected.departure.to.city.name}</p>
+							<p className="mt-n3">{ucFL(ticketSelected.departure.to.city.name)}</p>
 						</div>
 					</div>
 					<div className="d-flex justify-content-between">
@@ -106,12 +107,12 @@ class SideBarPassangersAndPaySection extends React.Component {
 					</div>
 					<div className="d-flex justify-content-between">
 						<div className="ml-3">
-							<h6>{ticketSelected.departure.to.city.name}</h6>
+							<h6>{ucFL(ticketSelected.departure.to.city.name)}</h6>
 							<p className="text-white-50">{ticketSelected.departure.to.railway_station_name}</p>
 							<p className="mt-n3 text-white-50">вокзал</p>
 						</div>
 						<div className="mr-3 text-right">
-							<h6>{ticketSelected.departure.from.city.name}</h6>
+							<h6>{ucFL(ticketSelected.departure.from.city.name)}</h6>
 							<p className="text-white-50">{ticketSelected.departure.from.railway_station_name}</p>
 							<p className="mt-n3 text-white-50">вокзал</p>
 						</div>

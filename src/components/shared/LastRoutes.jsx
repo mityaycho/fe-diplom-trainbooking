@@ -2,6 +2,8 @@ import React from 'react';
 import iconRuble from '../../images/icon_ruble.png';
 import iconWifiRocketCup from '../../images/icons_wifiRocketCup.png';
 
+import { ucFL } from '../..';
+
 
 const LastRoutes = (props) => {
 
@@ -9,11 +11,11 @@ const LastRoutes = (props) => {
 			<div className="last-ticket-result row ml-1 mt-2 p-2">
 				<div className="d-flex justify-content-between w-100">
 					<div className="">
-						<p className="last-ticket-direction font-weight-bold">{props.state.departure.from.city.name}</p>
+						<p className="last-ticket-direction font-weight-bold">{ucFL(props.state.departure.from.city.name)}</p>
 						<p className="last-ticket-station font-weight-light mt-n3">{props.state.departure.from.railway_station_name}</p>
 					</div>
 					<div className="text-right">
-						<p className="last-ticket-direction font-weight-bold">{props.state.departure.to.city.name}</p>
+						<p className="last-ticket-direction font-weight-bold">{ucFL(props.state.departure.to.city.name)}</p>
 						<p className="last-ticket-station font-weight-light mt-n3">{props.state.departure.to.railway_station_name}</p>
 					</div>
 				</div>

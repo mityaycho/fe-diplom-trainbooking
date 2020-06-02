@@ -4,7 +4,7 @@ import iconPassangerSircle from '../../../images/icon_passanger_sircle.png';
 
 const PassengerJSX = (props) => {
 
-	const isAdult = props.personInfo.is_adult == "true" ? "Взрослый" : "Детский";
+	const isAdult = props.personInfo.is_adult === "true" ? "Взрослый" : "Детский";
 
 	const gender = !props.personInfo.gender ? "мужской" : "женский";
 
