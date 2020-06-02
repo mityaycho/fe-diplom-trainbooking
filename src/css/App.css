@@ -74,7 +74,15 @@ a:hover {
 }
 
 .nav__item {
+	text-decoration: none;
+	color: white;
 	margin-right: 70px;
+}
+
+.nav__item:hover {
+	cursor: pointer;
+	text-decoration: none;
+	color: grey;
 }
 
 /* -------------------------------------------------------------------section-header */

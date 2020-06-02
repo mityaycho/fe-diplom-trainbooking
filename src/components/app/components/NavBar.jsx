@@ -1,7 +1,9 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
+	
 	return (
 		<header>
 			<div className="header-logo pt-2 w-100">
@@ -12,10 +14,10 @@ const NavBar = () => {
 			<div className="nav-bar bg-dark w-100">
 				<div className="container">
 					<nav className="nav pt-3 pb-3 d-flex animated fadeInRight">
-						<a className="nav__item" href="#about">О нас</a>
-						<a className="nav__item" href="#howitworks">Как это работает</a>
-						<a className="nav__item" href="#reviews">Отзывы</a>
-						<a className="nav__item" href="#contacts">Контакты</a>
+						<NavLink className="nav__item" to="/" onClick={() => window.scroll(0, 800)}>О нас</NavLink>
+						<NavLink className="nav__item" to="/" onClick={() => window.scroll(0, 1400)}>Как это работает</NavLink>
+						<NavLink className="nav__item" to="/" onClick={() => window.scroll(0, 2000)}>Отзывы</NavLink>
+						<div className="nav__item" onClick={() => window.scroll(0, 2500)}>Контакты</div>
 					</nav>
 				</div>
 			</div>
