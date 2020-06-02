@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { passengersAndPayAC } from './../../../redux/action';
 
 
-class TrainFrom extends React.Component {
+class TrainTicket extends React.Component {
 
 	state = {
 		fourthClass: false,
@@ -38,6 +38,7 @@ class TrainFrom extends React.Component {
 					firstClass: false
 				});
 			}
+			return null;
 		});
 	}
 
@@ -55,6 +56,7 @@ class TrainFrom extends React.Component {
 					firstClass: false
 				});
 			}
+			return null;
 		});
 	}
 
@@ -72,6 +74,7 @@ class TrainFrom extends React.Component {
 					firstClass: false
 				});
 			}
+			return null;
 		});
 	}
 
@@ -89,6 +92,7 @@ class TrainFrom extends React.Component {
 					firstClass: true
 				});
 			}
+			return null;
 		});
 	}
 
@@ -213,4 +217,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(null, mapDispatchToProps)(TrainFrom);
+export default connect(null, mapDispatchToProps)(TrainTicket);

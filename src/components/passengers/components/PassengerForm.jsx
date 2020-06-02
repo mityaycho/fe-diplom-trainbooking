@@ -186,6 +186,7 @@ class PassengerForm extends React.Component {
 	render() {
 		return (
 			<Form
+				passengerNumber={this.props.passengerNumber}
 				setActiveButton={this.props.setActiveButton}
 				setData={this.setData}
 				active={this.state.active}

@@ -2,6 +2,7 @@ import React from 'react';
 import ResultSearchTickets from './ResultSearchTickets';
 import iconSearchLeft from '../../../images/icon_page_search_left.png';
 import iconSearchRight from '../../../images/icon_page_search_right.png';
+
 import { connect } from 'react-redux';
 import { filterTicketsAndSeatsReducerTC } from '../../../redux/filterTicketsAndSeats-reducer';
 import { withRouter } from 'react-router';

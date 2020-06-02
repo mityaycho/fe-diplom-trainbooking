@@ -18,3 +18,16 @@ ReactDOM.render(
 	);
 
 serviceWorker.unregister();
+
+export const ucFL = (value) => {
+  let letterUpper = '';
+  const findIndexDash = value.indexOf('-');
+  
+  if (findIndexDash === -1) {
+    letterUpper = value.split('').shift().toUpperCase().concat(value.slice(1, value.length));
+  } else {
+    const sliceFirstLettersOfDash = value.slice(findIndexDash + 1);
+    letterUpper = value.split('').shift().toUpperCase().concat(value.slice(1, findIndexDash)) + '-' + sliceFirstLettersOfDash.split('').shift().toUpperCase().concat(sliceFirstLettersOfDash.slice(1, sliceFirstLettersOfDash.length))
+  } 
+  return letterUpper;
+}

@@ -24,7 +24,7 @@ export const api = {
 		// `routes?from_city_id=${'5b9a2fa7f83e028786ea5672'}&to_city_id=${'5b9a2fa7f83e028786ea5673'}`
 
 		return instance.get(
-			`routes?from_city_id=${sectionSearch.cityWhereFromId}&to_city_id=${sectionSearch.cityWhereToId}` +
+			`routes?from_city_id=${'5b9a2fa7f83e028786ea5672'}&to_city_id=${'5b9a2fa7f83e028786ea5673'}` +
 			(`${sortTickets.sort}` ? `&sort=${sortTickets.sort}` : '') +
 			(`${sortTickets.limit}` ? `&limit=${sortTickets.limit}` : '') +
 			(`${sortTickets.offset}` ? `&offset=${sortTickets.offset}` : '') +
