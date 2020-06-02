@@ -4,26 +4,33 @@ import iconScrollTop from '../../../images/icon_footer_bottom.png';
 const Footer = () => {
 	return (
 		<footer>
-			<div className="container footer-information h-100" id="contacts">
-				<div className="row">
-					<div className="col-lg-6">
+			<div className="container footer-information h-100 align-items-center justify-content-around" id="contacts">
+				<div className="d-flex">
+					<div className="col">
 						<p className="text pl-4 pt-5">Свяжитесь с нами</p>
 						<div className="row pt-2">
-							<div className="icon col-lg-1 pl-4">
-								<div className="icon__phone"></div>
-								<div className="icon__message mt-3"></div>
-								<div className="icon__skype mt-3"></div>
-								<div className="icon__location mt-4"></div>
-							</div>
-							<div className="text col-lg-4 ml-3">
-								<p className="text__phone">8 (800) 000 00 00</p>
-								<p className="text__message pt-1">inbox@mail.ru</p>
-								<p className="text__skype pt-2">tu.train.tickets</p>
-								<p className="text__location pt-2">г. Москва ул. Московская 27-35 555 555</p>
+							<div className="icon pl-4">
+								<div className="row">
+									<div className="icon__phone mr-2"></div>
+									<p className="text__phone">8 (800) 000 00 00</p>
+								</div>
+								<div className="row">
+									<div className="icon__message mt-3 mr-2"></div>
+									<p className="text__message pt-3">inbox@mail.ru</p>
+								</div>
+								<div className="row">
+									<div className="icon__skype mt-3 mr-2"></div>
+									<p className="text__skype pt-3">tu.train.tickets</p>
+								</div>
+								<div className="row">
+									<div className="icon__location mt-4 mr-2"></div>
+									<p className="text__location pt-4">г. Москва ул. Московская &nbsp;</p>
+									<p className="text__location pt-4">27-35 555 555</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div className="col-lg-6 mt-3">
+					<div className="col mt-3">
 						<p className="text mt-5">Подписка</p>
 						<p className="pt-3">Будьте в курсе событий</p>
 						<form className="d-flex w-100" action="input">
@@ -47,7 +54,7 @@ const Footer = () => {
 				<div className="container h-100">
 					<div className="row h-100 justify-content-between align-items-center">
 						<h1 className="logo">Лого</h1>
-						<div className="icon-bottom" onClick={() => window.scrollTo(0, 0)}><img src={iconScrollTop} alt=""/></div>
+						<div className="icon-bottom" onClick={() => window.scrollTo(0, 0)}><img src={iconScrollTop} alt="" /></div>
 						<p className="license">2018 WEB</p>
 					</div>
 				</div>
