@@ -450,6 +450,17 @@ footer {
 	background-color: rgb(251, 249, 249);
 }
 
+.preloader {
+	position: relative;
+	height: 400px;
+	background-color: rgba(62, 60, 65, 1);
+}
+
+.preloader-text {
+	position: absolute;
+	margin-top: 150px;
+}
+
 .icon-coupe {
 	width: 17px;
 	height: 17px;

@@ -22,7 +22,8 @@ const initState = {
 	customRangeCostFrom: false,
 	customRangeCostTo: false,
 	trainId: '',
-	actualPage: ''
+	actualPage: '',
+	preloader: true
 };
 
 const filterTicketsAndSeatsReducer = (state = initState, action) => {
@@ -47,6 +48,7 @@ export const filterTicketsAndSeatsReducerTC = (fieldName, fieldValue) => (dispat
 				.then(res => {
 					dispatch(filterTicketsAndSeatsAC('ticketsArray', res.data.items));
 					dispatch(filterTicketsAndSeatsAC('totalCountTickets', res.data.total_count));
+					dispatch(filterTicketsAndSeatsAC('preloader', false));
 				});
 		} else if (getState().filterChoiceTicketsAndSeatsPages.actualPage === '/seat_selection') {
 			api.setSeatSelection(getState().filterChoiceTicketsAndSeatsPages)

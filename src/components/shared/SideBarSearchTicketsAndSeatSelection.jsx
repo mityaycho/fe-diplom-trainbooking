@@ -12,6 +12,7 @@ import iconMinus from '../../images/icon_minus.png';
 import LastRoutes from './LastRoutes';
 import ReactCompoundSlider from './reactCompoundSlider/ReactCompoundSlider';
 import ReactCompoundSliderSmall from './reactCompoundSlider/ReactCompoundSliderSmall';
+
 import { connect } from 'react-redux';
 import { setDataFormAC } from '../../redux/action';
 import { getLastRoutesTC } from '../../redux/searchMain-reducer';
@@ -283,4 +284,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SideBarSearchTicketsAndSeatSelection))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SideBarSearchTicketsAndSeatSelection));
