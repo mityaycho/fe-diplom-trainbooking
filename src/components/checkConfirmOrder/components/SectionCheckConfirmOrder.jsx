@@ -14,7 +14,7 @@ import PassengerJSX from './PassengerJSX';
 
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { ucFL } from '../../..';
+import { ucFL, numSpc } from '../../..';
 
 const SectionCheckConfirmOrder = (props) => {
 
@@ -96,22 +96,22 @@ const SectionCheckConfirmOrder = (props) => {
 											{ticketSelected.departure.have_fourth_class &&
 												<TicketPriceAndSeats name="Сидячий"
 													seats={ticketSelected.available_seats_info.fourth}
-													price={ticketSelected.departure.price_info.fourth.top_price} />
+													price={numSpc(ticketSelected.departure.price_info.fourth.top_price)} />
 											}
 											{ticketSelected.departure.have_third_class &&
 												<TicketPriceAndSeats name="Плацкарт"
 													seats={ticketSelected.available_seats_info.third}
-													price={ticketSelected.departure.price_info.third.top_price} />
+													price={numSpc(ticketSelected.departure.price_info.third.top_price)} />
 											}
 											{ticketSelected.departure.have_second_class &&
 												<TicketPriceAndSeats name="Купе"
 													seats={ticketSelected.available_seats_info.second}
-													price={ticketSelected.departure.price_info.second.top_price} />
+													price={numSpc(ticketSelected.departure.price_info.second.top_price)} />
 											}
 											{ticketSelected.departure.have_first_class &&
 												<TicketPriceAndSeats name="Люкс"
 													seats={ticketSelected.available_seats_info.first}
-													price={ticketSelected.departure.price_info.first.top_price} />
+													price={numSpc(ticketSelected.departure.price_info.first.top_price)} />
 											}
 										</div>
 
@@ -138,7 +138,7 @@ const SectionCheckConfirmOrder = (props) => {
 							<div className="col-lg-4 pb-3 align-self-end">
 								<div className="row justify-content-end mt-4 mb-2">
 									<h4 className="mr-3">Всего</h4>
-									<h4 className="mr-3">{(props.ticketsAdult * props.payAdult) + (props.ticketsChild * props.payChild)}<img className="ml-2" src={iconRuble} alt="..." /></h4>
+									<h4 className="mr-3">{numSpc((props.ticketsAdult * props.payAdult) + (props.ticketsChild * props.payChild))}<img className="ml-2" src={iconRuble} alt="..." /></h4>
 								</div>
 								<div className="row justify-content-end">
 									<NavLink 

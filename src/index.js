@@ -31,3 +31,14 @@ export const ucFL = (value) => {
   } 
   return letterUpper;
 }
+
+export const numSpc = (value) => {
+	let toSpace;
+	const strVal = value.toString();
+	if (strVal.length > 3) {
+		toSpace = strVal.split('').slice(0, strVal.length - 3).join('') + ' ' + strVal.split('').splice(-3, 3).join('');
+	} else {
+		toSpace = value;
+	}
+	return toSpace;
+}

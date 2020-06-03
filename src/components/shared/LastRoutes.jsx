@@ -2,7 +2,7 @@ import React from 'react';
 import iconRuble from '../../images/icon_ruble.png';
 import iconWifiRocketCup from '../../images/icons_wifiRocketCup.png';
 
-import { ucFL } from '../..';
+import { ucFL, numSpc } from '../..';
 
 
 const LastRoutes = (props) => {
@@ -25,7 +25,7 @@ const LastRoutes = (props) => {
 					</div>
 					<div className="row justify-content-end">
 						<p>от</p>
-						<p className="last-ticket-price ml-1">{props.state.min_price}</p>
+						<p className="last-ticket-price ml-1">{numSpc(props.state.min_price)}</p>
 						<img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль" />
 					</div>
 				</div>

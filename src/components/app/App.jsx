@@ -4,7 +4,7 @@ import '../../css/animate.css';
 
 import Main from '../main/Main';
 import SearchTickets from '../searchTickets/SearchTickets';
-import SeatSelection from '../seatSelection/SeatSelection';
+import SeatSelection from '../seatSelection/SeatSelectionContainer';
 import Passengers from '../passengers/Passengers';
 import PaySelection from '../paySection/PaySelection';
 import CheckConfirmOrder from '../checkConfirmOrder/CheckConfirmOrder';

@@ -4,6 +4,7 @@ import iconRuble from '../../../images/icon_ruble.png';
 
 import { OverlayTrigger } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
+import { numSpc } from '../../..';
 
 
 const TrainJSX = (props) => {
@@ -51,8 +52,8 @@ const TrainJSX = (props) => {
 				</div>
 				<div className="col ml-5 mt-3">
 					<p>Стоимость</p>
-					<p>{props.train.coach.top_price}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
-					<p>{props.train.coach.bottom_price}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
+					<p>{numSpc(props.train.coach.top_price)}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
+					<p>{numSpc(props.train.coach.bottom_price)}<img className="align-self-center ml-1" src={iconRubleSmall} alt="..." /></p>
 				</div>
 				<div className="col-lg-4 justify-content-center w-100 mt-3">
 					<p>Обслуживание ФПК</p>
@@ -86,7 +87,7 @@ const TrainJSX = (props) => {
 			</div>
 			{props.sumTicketsPay !== 0 &&
 				<div className="row justify-content-end mr-3 mb-3">
-					<p className="last-ticket-price ml-1">{props.sumTicketsPay}</p>
+					<p className="last-ticket-price ml-1">{numSpc(props.sumTicketsPay)}</p>
 					<img className="icon-coupe ml-1" src={iconRuble} alt="иконка рубль" />
 				</div>}
 		</div>

@@ -8,6 +8,7 @@ import iconRateService from "../../images/icon_rate_service.png";
 
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
+import { numSpc } from '../..';
 
 const OrderConfirmed = (props) => {
 
@@ -22,7 +23,7 @@ const OrderConfirmed = (props) => {
 								<h5 className="col ml-5">№Заказа 285АА</h5>
 								<div className="row mr-5">
 									<h4 className="mr-3">сумма</h4>
-									<h4 className="mr-3">{(props.ticketsAdult * props.payAdult) + (props.ticketsChild * props.payChild)}<img className="ml-2" src={iconRuble} alt="..." /></h4>
+									<h3 className="mr-3">{numSpc((props.ticketsAdult * props.payAdult) + (props.ticketsChild * props.payChild))}<img className="ml-2" src={iconRuble} alt="..." /></h3>
 								</div>
 							</div>
 							<div className="container tickets-icons-window h-100">

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SectionSearchTicketsHeader from '../shared/HeaderSearchForm';
 import SectionSeatSelection from './components/SectionSeatSelection';
 
-class SeatSelection extends Component {
+class SeatSelectionContainer extends Component {
 	render() {
 		return (
 			<div>
@@ -14,4 +14,4 @@ class SeatSelection extends Component {
 	};
 };
 
-export default SeatSelection;
+export default SeatSelectionContainer;
