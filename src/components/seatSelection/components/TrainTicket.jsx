@@ -29,7 +29,7 @@ class TrainTicket extends React.Component {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'fourth' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
-				this.props.setPassengersAndPay('payChild', el.coach.top_price / 2);
+				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.props.setCoachId(el.coach._id);
 				this.setState({
 					fourth: el,
@@ -47,7 +47,7 @@ class TrainTicket extends React.Component {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'third' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
-				this.props.setPassengersAndPay('payChild', el.coach.top_price / 2);
+				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.props.setCoachId(el.coach._id);
 				this.setState({
 					third: el,
@@ -65,7 +65,7 @@ class TrainTicket extends React.Component {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'second' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
-				this.props.setPassengersAndPay('payChild', el.coach.top_price / 2);
+				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.props.setCoachId(el.coach._id);
 				this.setState({
 					second: el,
@@ -83,7 +83,7 @@ class TrainTicket extends React.Component {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'first' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
-				this.props.setPassengersAndPay('payChild', el.coach.top_price / 2);
+				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.props.setCoachId(el.coach._id);
 				this.setState({
 					first: el,
