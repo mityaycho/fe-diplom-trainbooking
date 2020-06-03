@@ -13,10 +13,10 @@ const NavBar = () => {
 			</div>
 			<div className="nav-bar bg-dark w-100">
 				<div className="container">
-					<nav className="nav pt-3 pb-3 d-flex animated fadeInRight">
-						<NavLink className="nav__item" to="/" onClick={() => window.scroll(0, 800)}>О нас</NavLink>
-						<NavLink className="nav__item" to="/" onClick={() => window.scroll(0, 1400)}>Как это работает</NavLink>
-						<NavLink className="nav__item" to="/" onClick={() => window.scroll(0, 2000)}>Отзывы</NavLink>
+					<nav className="nav pt-3 pb-3 d-flex flex-wrap justify-content-start animated fadeInRight">
+						<NavLink className="nav__item mr-4" to="/" onClick={() => window.scroll(0, 800)}>О нас</NavLink>
+						<NavLink className="nav__item mr-4" to="/" onClick={() => window.scroll(0, 1400)}>Как это работает</NavLink>
+						<NavLink className="nav__item mr-4" to="/" onClick={() => window.scroll(0, 2000)}>Отзывы</NavLink>
 						<div className="nav__item" onClick={() => window.scroll(0, 2500)}>Контакты</div>
 					</nav>
 				</div>

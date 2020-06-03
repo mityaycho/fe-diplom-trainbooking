@@ -29,45 +29,47 @@ const ResultSearchTickets = (props) => {
 	const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
 
 	return (
-		<div className="result-search-of-tickets row mt-4">
+		<div className="result-search-of-tickets d-flex flex-wrap mt-4">
 			<div className="select-tickets-search-number-train col-lg-3 pt-5 pb-5">
-				<img className="pl-5" src={iconTicketTrain} alt="иконка поезда" />
+				<div className="text-center">
+					<img src={iconTicketTrain} alt="иконка поезда" />
+				</div>
 				<h5 className="text-center">{props.state.departure.train.name}</h5>
-				<p className="pl-3 pt-5 font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
+				<p className="pt-3 text-center font-weight-light">Адлер<img className="pl-2" src={iconArrowRightGray}
 					alt="..." /></p>
-				<p className="pl-3">{ucFL(props.state.departure.from.city.name)}<img className="pl-2" src={iconArrowRightBlack} alt="..." /></p>
-				<p className="pl-3">{ucFL(props.state.departure.to.city.name)}</p>
+				<p className="text-center">{ucFL(props.state.departure.from.city.name)}<img className="pl-2" src={iconArrowRightBlack} alt="..." /></p>
+				<p className="text-center">{ucFL(props.state.departure.to.city.name)}</p>
 			</div>
 			<div className="col-lg-9">
 				<div className="row h-100">
 					<div className="col-lg-8">
-						<div className="row pl-4 pr-4 pt-5 justify-content-between">
+						<div className="row pt-5 justify-content-around">
 							<div>
 								<h5>{getHours(fromDateTime)}:{getMinutes(fromDateTime)}</h5>
 								<p>{ucFL(props.state.departure.from.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
 							</div>
-							<div className="pl-4">
+							<div>
 								<p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
 								<img src={iconSearchThere} alt="иконка стрелки вправо" />
 							</div>
-							<div className="pl-4">
+							<div>
 								<h5>{getHours(fromArrival)}:{getMinutes(fromArrival)}</h5>
 								<p>{ucFL(props.state.departure.to.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
 							</div>
 						</div>
-						<div className="row pl-4 pr-4 pt-5 justify-content-between">
+						<div className="row pt-5 justify-content-around">
 							<div>
 								<h5>{getHours(toArrival)}:{getMinutes(toArrival)}</h5>
 								<p>{ucFL(props.state.departure.from.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.from.railway_station_name}</p>
 							</div>
-							<div className="pl-4">
+							<div>
 								<p className="font-weight-light">{getHours(duration)}:{getMinutes(duration)}</p>
 								<img src={iconSearchBack} alt="иконка стрелки влево" />
 							</div>
-							<div className="pl-4">
+							<div>
 								<h5>{getHours(toDateTime)}:{getMinutes(toDateTime)}</h5>
 								<p>{ucFL(props.state.departure.to.city.name)}</p>
 								<p className="font-weight-light">{props.state.departure.to.railway_station_name}</p>
@@ -75,7 +77,7 @@ const ResultSearchTickets = (props) => {
 						</div>
 					</div>
 
-					<div className="ticketPriceAndSeats col h-100 pl-4 pt-5 pr-4">
+					<div className="ticketPriceAndSeats col pt-5 pl-4 pr-4">
 						<div>
 							{props.state.departure.have_fourth_class &&
 								<TicketPriceAndSeats name="Сидячий"
@@ -100,9 +102,9 @@ const ResultSearchTickets = (props) => {
 						</div>
 
 						<div className="row pb-3 justify-content-center">
-							<img className="ml-5" src={iconWifiRocketCup} alt="wifi-rocket-cup" />
+							<img className="m-auto" src={iconWifiRocketCup} alt="wifi-rocket-cup" />
 
-							<button className="btn btn-warning m-3"
+							<button className="btn btn-sm btn-warning m-3"
 								type="button"
 								onClick={setTrainIdEvent}>Выбрать места
               </button>

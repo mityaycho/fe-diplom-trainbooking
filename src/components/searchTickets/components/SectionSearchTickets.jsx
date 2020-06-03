@@ -15,7 +15,7 @@ import { withRouter } from 'react-router';
 class SectionSearchTickets extends React.Component {
 
 	state = {
-		preloader: true
+		preloader: this.props.preloader
 	}
 
 	componentDidMount() {
@@ -39,14 +39,16 @@ class SectionSearchTickets extends React.Component {
 					paymentClass=""
 					checkClass="" />
 
-				{this.state.preloader &&
-					<div className="preloader d-flex justify-content-center"><p className="preloader-text">ИДЕТ ПОИСК</p><img src={preloderAnimation} alt="" /></div>
-				}
-					{!this.state.preloader && <div className="container d-flex">
+				{this.state.preloader ?
+					<div className="preloader d-flex justify-content-center"><p className="preloader-text">ИДЕТ ПОИСК</p><img src={preloderAnimation} alt="" />
+					</div>
+					:
+					<div className="container d-flex flex-wrap">
 						<SideBarSearchTicketsAndSeatSelection />
 
 						<SearchTicketsJSX />}
-      </div>}
+					</div>
+				}
 			</div>
 		);
 	}
@@ -64,7 +66,8 @@ const mapDispatchToProps = (dispatch) => {
 			const action = setDataFormAC(form);
 			dispatch(action);
 		},
-		setSeatsAndTickets: (fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
+		setSeatsAndTickets: 
+		(fieldName, fieldValue) => dispatch(filterTicketsAndSeatsReducerTC(fieldName, fieldValue))
 	};
 };
 

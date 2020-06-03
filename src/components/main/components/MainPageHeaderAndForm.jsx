@@ -131,12 +131,13 @@ class MainPageHeaderAndForm extends React.Component {
 								</form>
 								<form className="form mt-5 w-100">
 									<p className="ml-3">Дата</p>
-									<div className="d-flex form-group m-3">
-										<input className="col-sm form-control mr-4"
+									<div className="d-flex flex-wrap form-group m-3">
+										<input className="col-sm form-control m-1"
 											type="date"
 											value={this.state.whereFromDate}
 											onChange={this.setWhereFromDate} />
-										<input className="col-sm form-control"
+											<div className="m-2"></div>
+										<input className="col-sm form-control m-1"
 											type="date"
 											value={this.state.whereToDate}
 											onChange={this.setWhereToDate} />

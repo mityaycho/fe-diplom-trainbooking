@@ -76,7 +76,6 @@ a:hover {
 .nav__item {
 	text-decoration: none;
 	color: white;
-	margin-right: 70px;
 }
 
 .nav__item:hover {
@@ -137,10 +136,6 @@ a:hover {
 
 /* ------------------------------------------------------------------section-about-us */
 
-.about-us {
-	height: 564px;
-}
-
 .about-us p.col-lg-2 {
 	margin-top: 144px;
 	font-family: Roboto;
@@ -162,7 +157,6 @@ a:hover {
 .how-it-works {
 	background-image: url(../images/mask_group.png);
 	background-size: cover;
-	height: 575px;
 	color: #FFFFFF;
 }
 
@@ -235,10 +229,6 @@ a:hover {
 }
 
 /* --------------------------------------------------------------section-reviews */
-
-.reviews {
-	height: 519px;
-}
 
 .review-head {
 	margin-top: 152px;
@@ -333,7 +323,6 @@ button.filter-choice-tickets-active:active {
 
 footer {
 	background-color: rgba(45, 43, 47, 1);
-	height: 423px;
 	color: white;
 }
 
