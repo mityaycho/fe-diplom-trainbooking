@@ -8,13 +8,20 @@ import train_second_class from '../../../images/train_second_class.png';
 import train_first_class from '../../../images/train_first_class.png';
 
 import { connect } from 'react-redux';
-import { passengersAndPayAC } from './../../../redux/action';
+import { passengersAndPayAC, setRouteTrainSeatAC } from './../../../redux/action';
 import { ucFL } from '../../..';
+import { withRouter } from 'react-router';
 
 
 class TrainTicket extends React.Component {
 
 	state = {
+		coach_id: '',
+		seat_number: [],
+		is_child: false,
+		include_children_seat: false,
+		sumSeats: 0,
+		sumTicketsPay: 0,
 		fourthClass: false,
 		thirdClass: false,
 		secondClass: false,
@@ -25,12 +32,54 @@ class TrainTicket extends React.Component {
 		first: []
 	}
 
+	setCoachId = (id) => this.setState({ coach_id: id });
+
+	setSeatNumber = (event) => {
+		if (this.state.seat_number.length < this.state.sumSeats) {
+			this.setState({
+				seat_number: [...this.state.seat_number, event.currentTarget.innerHTML],
+				sumTicketsPay: (this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild)
+			});
+		}
+	}
+
+	setAdultSeats = (value) => {
+		this.setState({ sumSeats: this.state.sumSeats + value });
+		this.props.setPassengersAndPay('ticketsAdult', value);
+	}
+
+	setChildSeat = (value) => {
+		this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 ? true : false });
+		this.props.setPassengersAndPay('ticketsChild', value);
+	}
+
+	setChildWithoutSeat = (value) => {
+		this.props.setPassengersAndPay('ticketsChildWithoutPlace', value);
+		this.setState({ include_children_seat: value !== 0 ? true : false });
+	}
+
+	setRouteTrainSeatReducer = () => {
+		this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
+
+		this.props.setRouteTrainSeat(
+			this.props.trainId,
+			this.state.coach_id,
+			this.state.seat_number[0],
+			this.state.is_child,
+			this.state.include_children_seat
+		);
+
+		window.scrollTo(0, 700);
+
+		this.props.history.push('/passengers');
+	}
+
 	setFourthClass = () => {
 		this.props.choiceSeatsArray.map(el => {
 			if (el.coach.class_type === 'fourth' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
-				this.props.setCoachId(el.coach._id);
+				this.setCoachId(el.coach._id);
 				this.setState({
 					fourth: el,
 					fourthClass: true,
@@ -48,7 +97,7 @@ class TrainTicket extends React.Component {
 			if (el.coach.class_type === 'third' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
-				this.props.setCoachId(el.coach._id);
+				this.setCoachId(el.coach._id);
 				this.setState({
 					third: el,
 					fourthClass: false,
@@ -66,7 +115,7 @@ class TrainTicket extends React.Component {
 			if (el.coach.class_type === 'second' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
-				this.props.setCoachId(el.coach._id);
+				this.setCoachId(el.coach._id);
 				this.setState({
 					second: el,
 					fourthClass: false,
@@ -84,7 +133,7 @@ class TrainTicket extends React.Component {
 			if (el.coach.class_type === 'first' && this.props.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
-				this.props.setCoachId(el.coach._id);
+				this.setCoachId(el.coach._id);
 				this.setState({
 					first: el,
 					fourthClass: false,
@@ -141,7 +190,7 @@ class TrainTicket extends React.Component {
 				<div className="d-flex">
 					<div className="quantity-tickets-check-left col">
 						<select className="custom-select mt-4"
-							onChange={(e) => this.props.setAdultSeats(+e.currentTarget.value)}>
+							onChange={(e) => this.setAdultSeats(+e.currentTarget.value)}>
 							<option selected value="0">Взрослых - 0</option>
 							<option value="1">Взрослых - 1</option>
 							<option value="2">Взрослых - 2</option>
@@ -153,7 +202,7 @@ class TrainTicket extends React.Component {
 					</div>
 					<div className="quantity-tickets-check-center col">
 						<select className="custom-select mt-4"
-							onChange={(e) => this.props.setChildSeat(+e.currentTarget.value)}>
+							onChange={(e) => this.setChildSeat(+e.currentTarget.value)}>
 							<option selected value="0">Детских - 0</option>
 							<option value="1">Детских - 1</option>
 							<option value="2">Детских - 2</option>
@@ -165,7 +214,7 @@ class TrainTicket extends React.Component {
 					</div>
 					<div className="quantity-tickets-check-right col">
 						<select className="custom-select mt-4"
-							onChange={(e) => this.props.setChildWithoutSeat(+e.currentTarget.value)}>
+							onChange={(e) => this.setChildWithoutSeat(+e.currentTarget.value)}>
 							<option selected value="0">Детских «без места» - 0</option>
 							<option value="1">Детских «без места» - 1</option>
 							<option value="2">Детских «без места» - 2</option>
@@ -200,22 +249,39 @@ class TrainTicket extends React.Component {
 					</button>
 				</div>
 				{this.state.fourthClass && <TrainJSX
-					train={this.state.fourth} image={train_fourth_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
+					train={this.state.fourth} image={train_fourth_class} seatNumber={this.state.seat_number} setSeatNumber={this.setSeatNumber} sumTicketsPay={this.state.sumTicketsPay} />}
 				{this.state.thirdClass && <TrainJSX
-					train={this.state.third} image={train_third_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
+					train={this.state.third} image={train_third_class} seatNumber={this.state.seat_number} setSeatNumber={this.setSeatNumber} sumTicketsPay={this.state.sumTicketsPay} />}
 				{this.state.secondClass && <TrainJSX
-					train={this.state.second} image={train_second_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
+					train={this.state.second} image={train_second_class} seatNumber={this.state.seat_number} setSeatNumber={this.setSeatNumber} sumTicketsPay={this.state.sumTicketsPay} />}
 				{this.state.firstClass && <TrainJSX
-					train={this.state.first} image={train_first_class} seatNumber={this.props.seatNumber} setSeatNumber={this.props.setSeatNumber} sumTicketsPay={this.props.sumTicketsPay} />}
+					train={this.state.first} image={train_first_class} seatNumber={this.state.seat_number} setSeatNumber={this.setSeatNumber} sumTicketsPay={this.state.sumTicketsPay} />}
 			</div>
 		);
 	}
 }
 
+const mapStateToProps = (state) => {
+	return {
+		form: state.sectionSearch.form,
+		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
+		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
+		trainId: state.filterChoiceTicketsAndSeatsPages.trainId,
+		ticketsAdult: state.passengersAndPay.ticketsAdult,
+		payAdult: state.passengersAndPay.payAdult,
+		ticketsChild: state.passengersAndPay.ticketsChild,
+		payChild: state.passengersAndPay.payChild
+	};
+};
+
 const mapDispatchToProps = (dispatch) => {
 	return {
+		setRouteTrainSeat: (train, coach_id, trainId, seat_number, is_child, include_children_seat) => {
+			const action = setRouteTrainSeatAC(train, coach_id, trainId, seat_number, is_child, include_children_seat);
+			dispatch(action);
+		},
 		setPassengersAndPay: (fieldName, fieldValue) => dispatch(passengersAndPayAC(fieldName, fieldValue))
 	}
-}
+};
 
-export default connect(null, mapDispatchToProps)(TrainTicket);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrainTicket));

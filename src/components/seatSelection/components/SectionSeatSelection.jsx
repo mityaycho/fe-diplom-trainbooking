@@ -9,64 +9,14 @@ import choiceOtherTrainButtonBack from '../../../images/choice_other_train_butto
 import iconSearchBack from '../../../images/icon_search_back.png';
 import TrainTicket from './TrainTicket';
 
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setRouteTrainSeatAC, passengersAndPayAC } from '../../../redux/action';
-import { withRouter, NavLink } from 'react-router-dom';
 
 
 
 class SectionSeatSelection extends React.Component {
 
-	state = {
-		coach_id: '',
-		seat_number: [],
-		is_child: false,
-		include_children_seat: false,
-		sumSeats: 0,
-		sumTicketsPay: 0
-	}
-
-	setCoachId = (id) => this.setState({ coach_id: id });
-
-	setSeatNumber = (event) => {
-		if (this.state.seat_number.length < this.state.sumSeats) {
-			this.setState({
-				seat_number: [...this.state.seat_number, event.currentTarget.innerHTML],
-				sumTicketsPay: (this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild)
-			});
-		}
-	}
-
-	setAdultSeats = (value) => {
-		this.setState({ sumSeats: this.state.sumSeats + value });
-		this.props.setPassengersAndPay('ticketsAdult', value);
-	}
-
-	setChildSeat = (value) => {
-		this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 ? true : false });
-		this.props.setPassengersAndPay('ticketsChild', value);
-	}
-
-	setChildWithoutSeat = (value) => {
-		this.props.setPassengersAndPay('ticketsChildWithoutPlace', value);
-		this.setState({ include_children_seat: value !== 0 ? true : false });
-	}
-
-	setRouteTrainSeatReducer = () => {
-		this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
-
-		this.props.setRouteTrainSeat(
-			this.props.trainId,
-			this.state.coach_id,
-			this.state.seat_number[0],
-			this.state.is_child,
-			this.state.include_children_seat
-		);
-
-		window.scrollTo(0, 700);
-
-		this.props.history.push('/passengers');
-	}
+	
 
 	trainButtonFrom = 
 	<div className="choice-other-train-button d-flex mt-4">
@@ -105,6 +55,7 @@ class SectionSeatSelection extends React.Component {
 					<SideBarSearchTicketsAndSeatSelection />
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
+						
 						<TrainTicket
 							trainButton={this.trainButtonFrom}
 							trainName={ticketSelected.departure.train.name}
@@ -115,16 +66,8 @@ class SectionSeatSelection extends React.Component {
 							dateTime={fromDateTime}
 							arrivalTime={fromArrival}
 							duration={duration}
-							iconSearch={iconSearchThere}
-							choiceSeatsArray={this.props.choiceSeatsArray}
-							setCoachId={this.setCoachId}
-							setSeatNumber={this.setSeatNumber}
-							setAdultSeats={this.setAdultSeats}
-							setChildSeat={this.setChildSeat}
-							setChildWithoutSeat={this.setChildWithoutSeat}
-							sumSeats={this.state.sumSeats}
-							sumTicketsPay={this.state.sumTicketsPay}
-							seatNumber={this.state.seat_number} />
+							iconSearch={iconSearchThere} />
+
 						<TrainTicket
 							trainButton={this.trainButtonTo}
 							trainName={ticketSelected.departure.train.name}
@@ -135,22 +78,15 @@ class SectionSeatSelection extends React.Component {
 							dateTime={toDateTime}
 							arrivalTime={toArrival}
 							duration={duration}
-							iconSearch={iconSearchBack}
-							choiceSeatsArray={this.props.choiceSeatsArray}
-							setCoachId={this.setCoachId}
-							setSeatNumber={this.setSeatNumber}
-							setAdultSeats={this.setAdultSeats}
-							setChildSeat={this.setChildSeat}
-							setChildWithoutSeat={this.setChildWithoutSeat}
-							sumSeats={this.state.sumSeats}
-							sumTicketsPay={this.state.sumTicketsPay}
-							seatNumber={this.state.seat_number} />
+							iconSearch={iconSearchBack} />
+
 						<div className="d-flex justify-content-end">
 							<button 
 							className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" 
 							type="button" 
-							disabled={!this.state.seat_number.length}
-							onClick={this.setRouteTrainSeatReducer}>Далее</button>
+							// disabled={!this.state.seat_number.length}
+							// onClick={this.setRouteTrainSeatReducer}
+							>Далее</button>
 						</div>
 					</div>
 				</div>
@@ -161,25 +97,9 @@ class SectionSeatSelection extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		form: state.sectionSearch.form,
 		ticketsArray: state.filterChoiceTicketsAndSeatsPages.ticketsArray,
-		choiceSeatsArray: state.filterChoiceTicketsAndSeatsPages.choiceSeatsArray,
-		trainId: state.filterChoiceTicketsAndSeatsPages.trainId,
-		ticketsAdult: state.passengersAndPay.ticketsAdult,
-		payAdult: state.passengersAndPay.payAdult,
-		ticketsChild: state.passengersAndPay.ticketsChild,
-		payChild: state.passengersAndPay.payChild
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		setRouteTrainSeat: (train, coach_id, trainId, seat_number, is_child, include_children_seat) => {
-			const action = setRouteTrainSeatAC(train, coach_id, trainId, seat_number, is_child, include_children_seat);
-			dispatch(action);
-		},
-		setPassengersAndPay: (fieldName, fieldValue) => dispatch(passengersAndPayAC(fieldName, fieldValue))
+		trainId: state.filterChoiceTicketsAndSeatsPages.trainId
 	}
-};
+}
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SectionSeatSelection));
+export default connect(mapStateToProps, null)(SectionSeatSelection);
