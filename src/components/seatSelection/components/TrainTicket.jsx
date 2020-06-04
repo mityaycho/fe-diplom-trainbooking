@@ -74,9 +74,32 @@ class TrainTicket extends React.Component {
 		this.props.history.push('/passengers');
 	}
 
+	resetParamsIfChangeClassTrain = () => {
+
+		this.props.setPassengersAndPay('payAdult', 0);
+		this.props.setPassengersAndPay('payChild', 0);
+		this.props.setPassengersAndPay('ticketsAdult', 0);
+		this.props.setPassengersAndPay('ticketsChild', 0);
+		this.props.setPassengersAndPay('ticketsChildWithoutPlace', 0);
+		this.setCoachId('');
+		this.setState({
+			seat_number: [],
+			is_child: false,
+			include_children_seat: false,
+			sumSeats: 0,
+			sumTicketsPay: 0,
+			first: [],
+			fourthClass: false,
+			thirdClass: false,
+			secondClass: false,
+			firstClass: false
+		});
+
+	}
+
 	setFourthClass = () => {
 		this.props.choiceSeatsArray.map(el => {
-			if (el.coach.class_type === 'fourth' && this.props.sumSeats !== 0) {
+			if (el.coach.class_type === 'fourth' && this.state.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.setCoachId(el.coach._id);
@@ -88,13 +111,17 @@ class TrainTicket extends React.Component {
 					firstClass: false
 				});
 			}
+
+			if (this.state.fourthClass || this.state.thirdClass || this.state.secondClass || this.state.firstClass) {
+				this.resetParamsIfChangeClassTrain();
+			}
 			return null;
 		});
 	}
 
 	setThirdClass = () => {
 		this.props.choiceSeatsArray.map(el => {
-			if (el.coach.class_type === 'third' && this.props.sumSeats !== 0) {
+			if (el.coach.class_type === 'third' && this.state.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.setCoachId(el.coach._id);
@@ -106,13 +133,17 @@ class TrainTicket extends React.Component {
 					firstClass: false
 				});
 			}
+
+			if (this.state.fourthClass || this.state.thirdClass || this.state.secondClass || this.state.firstClass) {
+				this.resetParamsIfChangeClassTrain();
+			}
 			return null;
 		});
 	}
 
 	setSecondClass = () => {
 		this.props.choiceSeatsArray.map(el => {
-			if (el.coach.class_type === 'second' && this.props.sumSeats !== 0) {
+			if (el.coach.class_type === 'second' && this.state.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.setCoachId(el.coach._id);
@@ -124,13 +155,17 @@ class TrainTicket extends React.Component {
 					firstClass: false
 				});
 			}
+
+			if (this.state.fourthClass || this.state.thirdClass || this.state.secondClass || this.state.firstClass) {
+				this.resetParamsIfChangeClassTrain();
+			}
 			return null;
 		});
 	}
 
 	setFirstClass = () => {
 		this.props.choiceSeatsArray.map(el => {
-			if (el.coach.class_type === 'first' && this.props.sumSeats !== 0) {
+			if (el.coach.class_type === 'first' && this.state.sumSeats !== 0) {
 				this.props.setPassengersAndPay('payAdult', el.coach.top_price);
 				this.props.setPassengersAndPay('payChild', Math.ceil(el.coach.top_price / 2));
 				this.setCoachId(el.coach._id);
@@ -141,6 +176,10 @@ class TrainTicket extends React.Component {
 					secondClass: false,
 					firstClass: true
 				});
+			}
+
+			if (this.state.fourthClass || this.state.thirdClass || this.state.secondClass || this.state.firstClass) {
+				this.resetParamsIfChangeClassTrain();
 			}
 			return null;
 		});
