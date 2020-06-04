@@ -1127,18 +1127,19 @@ input:checked+.slider-checkbox:before {
 
 /* ---------------------------------------------------- eight-page */
 
-.final-order-window-white-block {
-	height: 900px;
+.header-section-final-page {
+	background: url(../images/image_logo_final_order.png) no-repeat;
+	background-size: 100% auto;
 }
 
-.header-section-eight-page {
-	background-image: url(../images/image_logo_final_order.png);
-	background-size: cover;
-	height: 596px;
+@media screen and (max-width: 1400px) {
+	.header-section-final-page {
+		background-size: cover;
+	}
 }
 
 .header-text-final-order {
-	padding-top: 300px;
+	padding-top: 40%;
 	font-weight: bold;
 	font-size: 60px;
 	line-height: 84px;
