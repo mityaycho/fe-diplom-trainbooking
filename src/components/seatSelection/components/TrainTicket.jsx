@@ -40,6 +40,8 @@ class TrainTicket extends React.Component {
 				seat_number: [...this.state.seat_number, event.currentTarget.innerHTML],
 				sumTicketsPay: (this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild)
 			});
+		} else if (this.state.seat_number.length > 0) {
+				this.setState({ seat_number: this.state.seat_number.filter(el =>el != event.currentTarget.innerHTML) })
 		}
 	}
 
@@ -94,7 +96,6 @@ class TrainTicket extends React.Component {
 			secondClass: false,
 			firstClass: false
 		});
-
 	}
 
 	setFourthClass = () => {
