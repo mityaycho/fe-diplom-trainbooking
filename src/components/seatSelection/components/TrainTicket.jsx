@@ -267,25 +267,25 @@ class TrainTicket extends React.Component {
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
 				<div className="choice-type-vagon-button d-flex justify-content-around mt-4 mb-2">
-					<div className="col"
+					<div className="d-flex flex-column justify-content-center"
 						onClick={this.setFourthClass}>
 						<div className="icon-type-vagon-seat align-self-center"></div>
-						<p>Сидячий</p>
+						<p className="text-center">Сидячий</p>
 					</div>
-					<div className="col justify-content-center"
+					<div className="d-flex flex-column justify-content-center"
 						onClick={this.setThirdClass}>
 						<div className="icon-type-vagon-reserved-seat align-self-center"></div>
-						<p>Плацкарт</p>
+						<p className="text-center">Плацкарт</p>
 					</div>
-					<div className="col"
+					<div className="d-flex flex-column justify-content-center"
 						onClick={this.setSecondClass}>
 						<div className="icon-type-vagon-coupe align-self-center"></div>
-						<p>Купе</p>
+						<p className="text-center">Купе</p>
 					</div>
-					<div className="col"
+					<div className="d-flex flex-column justify-content-center"
 						onClick={this.setFirstClass}>
 						<div className="icon-type-vagon-luxury align-self-center"></div>
-						<p>Люкс</p>
+						<p className="text-center">Люкс</p>
 					</div>
 				</div>
 				{this.state.fourthClass && <TrainJSX

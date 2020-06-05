@@ -632,6 +632,12 @@ footer {
 	color: rgba(255, 168, 0, 1);
 }
 
+@media screen and (max-width: 700px) {
+	.choice-type-vagon-button p {
+		font-size: 10px;
+	}
+}
+
 .icon-type-vagon-seat {
 	display: inline-block;
 	background: url(../images/icon_type_vagon_seat.png);
@@ -683,7 +689,6 @@ footer {
 	width: 56.45px;
 	height: 50px;
 }
-
 
 .number-of-vagon {
 	font-size: 12px;
