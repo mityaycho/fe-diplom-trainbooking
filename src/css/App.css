@@ -619,10 +619,14 @@ footer {
 .choice-type-vagon-button p {
 	font-weight: bold;
 	margin-top: 10px;
-	color: rgba(146, 143, 148, 1);
+	color: rgb(177, 177, 177);
 }
 
-.choice-type-vagon-button button:hover p {
+.choice-type-vagon-button div:hover {
+	cursor: pointer;
+}
+
+.choice-type-vagon-button div:hover p {
 	background-color: rgba(255, 255, 255, 1);
 	font-weight: bold;
 	color: rgba(255, 168, 0, 1);
@@ -635,7 +639,7 @@ footer {
 	height: 50px;
 }
 
-.icon-type-vagon-seat:hover {
+.choice-type-vagon-button div:hover .icon-type-vagon-seat {
 	background: url(../images/icon_type_vagon_seat_checked.png);
 	width: 31px;
 	height: 50px;
@@ -648,7 +652,7 @@ footer {
 	height: 50px;
 }
 
-.icon-type-vagon-reserved-seat:hover {
+.choice-type-vagon-button div:hover .icon-type-vagon-reserved-seat {
 	background: url(../images/icon_type_vagon_reserved_seat_checked.png);
 	width: 50px;
 	height: 50px;
@@ -661,7 +665,7 @@ footer {
 	height: 50px;
 }
 
-.icon-type-vagon-coupe:hover {
+.choice-type-vagon-button div:hover .icon-type-vagon-coupe {
 	background: url(../images/icon_type_vagon_coupe_checked.png);
 	width: 50px;
 	height: 50px;
@@ -674,15 +678,12 @@ footer {
 	height: 50px;
 }
 
-.icon-type-vagon-luxury:hover {
+.choice-type-vagon-button div:hover .icon-type-vagon-luxury {
 	background: url(../images/icon_type_vagon_luxury_checked.png);
 	width: 56.45px;
 	height: 50px;
 }
 
-.choice-type-vagon-button button:hover {
-	background-color: rgba(255, 255, 255, 1);
-}
 
 .number-of-vagon {
 	font-size: 12px;

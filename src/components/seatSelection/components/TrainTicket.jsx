@@ -41,7 +41,7 @@ class TrainTicket extends React.Component {
 				sumTicketsPay: (this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild)
 			});
 		} else if (this.state.seat_number.length > 0) {
-				this.setState({ seat_number: this.state.seat_number.filter(el =>el != event.currentTarget.innerHTML) })
+			this.setState({ seat_number: this.state.seat_number.filter(el => el != event.currentTarget.innerHTML) })
 		}
 	}
 
@@ -195,7 +195,7 @@ class TrainTicket extends React.Component {
 		return (
 			<div className="choice-of-place-there mb-3">
 				{this.props.trainButton}
-				<div className="choice-ticket-train-there d-flex mt-4 pt-3 justify-content-between">
+				<div className="choice-ticket-train-there d-flex flex-wrap mt-4 pt-3 justify-content-between">
 					<div className="d-flex">
 						<img className="align-self-center ml-5 mr-5" src={choiceTrainIcon} alt="..." />
 						<ul className="list-unstyled">
@@ -211,7 +211,7 @@ class TrainTicket extends React.Component {
 							<li className="">{ucFL(this.props.cityNameDeparture)}</li>
 							<li className="font-weight-light">{this.props.railwayStationDeparture}</li>
 						</ul>
-						<img className="col align-self-center" src={this.props.iconSearch} alt="иконка стрелки вправо" />
+						<img className="col align-self-center" src={this.props.iconSearch} alt="иконка стрелки" />
 						<ul className="list-unstyled align-self-center">
 							<li className="font-weight-bold">{getHours(this.props.arrivalTime)}:{getMinutes(this.props.arrivalTime)}</li>
 							<li className="">{ucFL(this.props.cityNameArrival)}</li>
@@ -227,8 +227,8 @@ class TrainTicket extends React.Component {
 					</div>
 				</div>
 				<h4 className="font-weight-bold mt-5 ml-3">Количество билетов</h4>
-				<div className="d-flex">
-					<div className="quantity-tickets-check-left col">
+				<div className="d-flex flex-wrap">
+					<div className="quantity-tickets-check-left col-lg-4">
 						<select className="custom-select mt-4"
 							onChange={(e) => this.setAdultSeats(+e.currentTarget.value)}>
 							<option selected value="0">Взрослых - 0</option>
@@ -240,7 +240,7 @@ class TrainTicket extends React.Component {
 						</select>
 						<p className="mt-3">Можно добавить еще 3 пассажиров</p>
 					</div>
-					<div className="quantity-tickets-check-center col">
+					<div className="quantity-tickets-check-center col-lg-4">
 						<select className="custom-select mt-4"
 							onChange={(e) => this.setChildSeat(+e.currentTarget.value)}>
 							<option selected value="0">Детских - 0</option>
@@ -252,7 +252,7 @@ class TrainTicket extends React.Component {
 						</select>
 						<p className="mt-3">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых, но дешевле в среднем на 50-65%</p>
 					</div>
-					<div className="quantity-tickets-check-right col">
+					<div className="quantity-tickets-check-right col-lg-4">
 						<select className="custom-select mt-4"
 							onChange={(e) => this.setChildWithoutSeat(+e.currentTarget.value)}>
 							<option selected value="0">Детских «без места» - 0</option>
@@ -266,27 +266,27 @@ class TrainTicket extends React.Component {
 				</div>
 				<div className="horizontal-line-gray mt-5 mb-5"></div>
 				<h5 className="font-weight-bold ml-3">Тип вагона</h5>
-				<div className="choice-type-vagon-button d-flex justify-content-between mt-4 mb-2">
-					<button type="button" className="btn btn-outline-light ml-5"
+				<div className="choice-type-vagon-button d-flex justify-content-around mt-4 mb-2">
+					<div className="col"
 						onClick={this.setFourthClass}>
 						<div className="icon-type-vagon-seat align-self-center"></div>
 						<p>Сидячий</p>
-					</button>
-					<button type="button" className="btn btn-outline-light"
+					</div>
+					<div className="col justify-content-center"
 						onClick={this.setThirdClass}>
 						<div className="icon-type-vagon-reserved-seat align-self-center"></div>
 						<p>Плацкарт</p>
-					</button>
-					<button type="button" className="btn btn-outline-light"
+					</div>
+					<div className="col"
 						onClick={this.setSecondClass}>
 						<div className="icon-type-vagon-coupe align-self-center"></div>
 						<p>Купе</p>
-					</button>
-					<button type="button" className="btn btn-outline-light mr-5"
+					</div>
+					<div className="col"
 						onClick={this.setFirstClass}>
 						<div className="icon-type-vagon-luxury align-self-center"></div>
 						<p>Люкс</p>
-					</button>
+					</div>
 				</div>
 				{this.state.fourthClass && <TrainJSX
 					train={this.state.fourth} image={train_fourth_class} seatNumber={this.state.seat_number} setSeatNumber={this.setSeatNumber} sumTicketsPay={this.state.sumTicketsPay} />}
