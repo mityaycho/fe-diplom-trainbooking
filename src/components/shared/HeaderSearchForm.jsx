@@ -91,20 +91,18 @@ class HeaderSearchForm extends React.Component {
     return (
       <div className="header-section-three-page">
         <div className="text-white animated zoomInDown">
-          <div className="container section-header-order">
-            <div className="row">
-              <div className="section-header-form-order col-lg-12">
+          <div className="container section-header-order pb-3">
                 <div className="d-flex">
                   <form className="form mt-3 w-100" action="input">
                     <p className="ml-3">Направление</p>
-                    <div className="d-flex form-group">
+                    <div className="d-flex flex-wrap form-group">
                       <Typeahead value={this.state.valueFromCity}
                                  placeholder={this.state.valueFromCity ? this.state.valueFromCity : "откуда"}
                                  id="whereFromCity"
                                  options={options}
                                  onInputChange={this.setFromValue}
                                  onChange={this.setWhereFromCity}
-                                 className="col-sm"
+                                 className="col-sm mt-3 mb-3"
                       />
                       <i className="glyphicon glyphicon-user"/>
                       <Typeahead value={this.state.valueToCity}
@@ -113,20 +111,20 @@ class HeaderSearchForm extends React.Component {
                                  options={options}
                                  onInputChange={this.setToValue}
                                  onChange={this.setWhereToCity}
-                                 className="col-sm"
+                                 className="col-sm mt-3"
                       />
                     </div>
                   </form>
                   <form className="form mt-3 w-100" action="input">
                     <p className="ml-3">Дата</p>
-                    <div className="d-flex form-group m-3">
-                      <input className="col-sm form-control mr-4"
+                    <div className="d-flex flex-wrap form-group">
+                      <input className="col-sm form-control m-3"
                              key="dateFrom"
                              type="date"
                              onChange={this.setWhereFromDate}
                              value={this.state.whereFromDate}
                       />
-                      <input className="col-sm form-control"
+                      <input className="col-sm form-control m-3"
                              key="dateTo"
                              type="date"
                              onChange={this.setWhereToDate}
@@ -137,14 +135,12 @@ class HeaderSearchForm extends React.Component {
                 </div>
                 <div className="text-right">
 									<button 
-									className="btn btn-warning btn-sm m-3 col-lg-3"
+									className="btn btn-outline-warning col-lg-3"
 									type="button"
 									disabled={this.disabledButton()}
                   onClick={this.saveMainState}>найти билеты</button>
                 </div>
               </div>
-            </div>
-          </div>
         </div>
       </div>
     );

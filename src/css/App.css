@@ -52,7 +52,6 @@ button:focus {
 
 .section-header-order {
 	background-color: rgba(41, 41, 41, 0.69);
-	height: 215px;
 }
 
 logo {
@@ -503,7 +502,7 @@ footer {
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 32px;
+	font-size: 2em;
 	line-height: 12px;
 	color: #FFA800;
 }
