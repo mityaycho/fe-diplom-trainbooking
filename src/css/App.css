@@ -272,9 +272,6 @@ a:hover {
 
 .ticketPriceAndSeats {
 	border-left: solid #ececec 2px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
 
 .filter-choice-tickets {

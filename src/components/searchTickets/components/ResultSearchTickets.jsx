@@ -77,7 +77,7 @@ const ResultSearchTickets = (props) => {
 						</div>
 					</div>
 
-					<div className="ticketPriceAndSeats col pt-5 pl-4 pr-4">
+					<div className="ticketPriceAndSeats col d-flex flex-wrap pt-5 justify-content-center">
 						<div>
 							{props.state.departure.have_fourth_class &&
 								<TicketPriceAndSeats name="Сидячий"
@@ -101,10 +101,9 @@ const ResultSearchTickets = (props) => {
 							}
 						</div>
 
-						<div className="row pb-3 justify-content-center">
-							<img className="m-auto" src={iconWifiRocketCup} alt="wifi-rocket-cup" />
-
-							<button className="btn btn-sm btn-warning m-3"
+						<div className="d-flex flex-wrap pb-3 w-100 align-self-end">
+							<img className="ml-auto mb-3" src={iconWifiRocketCup} alt="wifi-rocket-cup" />
+							<button className="btn btn-sm btn-warning w-100"
 								type="button"
 								onClick={setTrainIdEvent}>Выбрать места
               </button>
