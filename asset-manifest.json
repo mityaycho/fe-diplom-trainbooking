@@ -1,17 +1,17 @@
 {
-  "main.css": "/fe-diplom-trainbooking/static/css/main.94b2a863.chunk.css",
-  "main.js": "/fe-diplom-trainbooking/static/js/main.a67d8fdb.chunk.js",
-  "main.js.map": "/fe-diplom-trainbooking/static/js/main.a67d8fdb.chunk.js.map",
+  "main.css": "/fe-diplom-trainbooking/static/css/main.b119d2d8.chunk.css",
+  "main.js": "/fe-diplom-trainbooking/static/js/main.a86cb16c.chunk.js",
+  "main.js.map": "/fe-diplom-trainbooking/static/js/main.a86cb16c.chunk.js.map",
   "runtime~main.js": "/fe-diplom-trainbooking/static/js/runtime~main.1e9ecbb8.js",
   "runtime~main.js.map": "/fe-diplom-trainbooking/static/js/runtime~main.1e9ecbb8.js.map",
   "static/css/2.1b6116bd.chunk.css": "/fe-diplom-trainbooking/static/css/2.1b6116bd.chunk.css",
   "static/js/2.a9d15a16.chunk.js": "/fe-diplom-trainbooking/static/js/2.a9d15a16.chunk.js",
   "static/js/2.a9d15a16.chunk.js.map": "/fe-diplom-trainbooking/static/js/2.a9d15a16.chunk.js.map",
   "index.html": "/fe-diplom-trainbooking/index.html",
-  "precache-manifest.869d9a1fdb349561990a174b6660f0ad.js": "/fe-diplom-trainbooking/precache-manifest.869d9a1fdb349561990a174b6660f0ad.js",
+  "precache-manifest.3b540dab68fcb47174438ff182bdc341.js": "/fe-diplom-trainbooking/precache-manifest.3b540dab68fcb47174438ff182bdc341.js",
   "service-worker.js": "/fe-diplom-trainbooking/service-worker.js",
   "static/css/2.1b6116bd.chunk.css.map": "/fe-diplom-trainbooking/static/css/2.1b6116bd.chunk.css.map",
-  "static/css/main.94b2a863.chunk.css.map": "/fe-diplom-trainbooking/static/css/main.94b2a863.chunk.css.map",
+  "static/css/main.b119d2d8.chunk.css.map": "/fe-diplom-trainbooking/static/css/main.b119d2d8.chunk.css.map",
   "static/media/App.css": "/fe-diplom-trainbooking/static/media/review_icon2.2f0f923c.png",
   "static/media/preloader_animation.gif": "/fe-diplom-trainbooking/static/media/preloader_animation.6c4f0b1d.gif"
 }
