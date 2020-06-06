@@ -227,38 +227,7 @@ a:hover {
 	font-size: 25px;
 }
 
-@media screen and (max-width: 1199px) {
-	.progress-line-cost-text {
-		margin-left: 2%;
-		margin-top: 40px;
-		font-size: 15px;
-	}
-}
 
-@media screen and (max-width: 600px) {
-	.progress-line-cost-button {
-		height: 50px;
-	}
-
-	.progress-line-cost img {
-		height: 50px;
-	}
-
-	.progress-line-cost-number {
-		border: 1px solid #FFFFFF;
-		border-radius: 15px;
-		padding-left: 5px;
-		padding-right: 5px;
-		margin-top: 18px;
-		margin-bottom: 16px;
-		font-size: 10px;
-	}
-	
-	.progress-line-cost-text {
-		margin-top: 20px;
-		font-size: 10px;
-	}
-}
 
 /* --------------------------------------------------------------section-reviews */
 
@@ -544,6 +513,7 @@ footer {
 	background: #FFFFFF;
 	border: 2px solid #C4C4C4;
 	border-radius: 5px;
+	margin-left: 15px;
 }
 
 .page-search-select-number:hover {
@@ -659,12 +629,6 @@ footer {
 	background-color: rgba(255, 255, 255, 1);
 	font-weight: bold;
 	color: rgba(255, 168, 0, 1);
-}
-
-@media screen and (max-width: 700px) {
-	.choice-type-vagon-button p {
-		font-size: 10px;
-	}
 }
 
 .icon-type-vagon-seat {
@@ -1167,12 +1131,6 @@ input:checked+.slider-checkbox:before {
 	background-size: 100% auto;
 }
 
-@media screen and (max-width: 1400px) {
-	.header-section-final-page {
-		background-size: cover;
-	}
-}
-
 .header-text-final-order {
 	padding-top: 40%;
 	font-weight: bold;
@@ -1193,4 +1151,106 @@ input:checked+.slider-checkbox:before {
 
 .rate-service-back-main-page {
 	background-color: rgba(255, 168, 0, 0.88);
+}
+
+
+/* ------------------------------------------------------- @media */
+
+
+@media screen and (max-width: 1400px) {
+	.header-section-final-page {
+		background-size: cover;
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	.progress-line-cost-text {
+		margin-left: 2%;
+		margin-top: 40px;
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.page-search-select-number {
+		width: 40px;
+		height: 40px;
+		border: 2px solid #C4C4C4;
+		border-radius: 4px;
+		margin-left: 10px;
+		font-size: 15px;
+	}
+
+	.page-search-select-number img {
+		height: 20px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.choice-type-vagon-button p {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.progress-line-cost-button {
+		height: 50px;
+	}
+
+	.progress-line-cost img {
+		height: 50px;
+	}
+
+	.progress-line-cost-number {
+		border: 1px solid #FFFFFF;
+		border-radius: 15px;
+		padding-left: 4px;
+		padding-right: 5px;
+		margin-top: 18px;
+		margin-bottom: 16px;
+		font-size: 10px;
+	}
+	
+	.progress-line-cost-text {
+		margin-top: 20px;
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.progress-line-cost-button {
+		height: 40px;
+	}
+
+	.progress-line-cost img {
+		height: 40px;
+	}
+
+	.progress-line-cost-number {
+		border: 1px solid #FFFFFF;
+		border-radius: 15px;
+		padding-left: 4px;
+		padding-right: 4px;
+		margin-top: 13px;
+		margin-bottom: 12px;
+		font-size: 8px;
+	}
+	
+	.progress-line-cost-text {
+		margin-top: 14px;
+		font-size: 8px;
+	}
+
+	.page-search-select-number {
+		width: 20px;
+		height: 20px;
+		border: 1px solid #C4C4C4;
+		border-radius: 3px;
+		margin-left: 10px;
+		font-size: 10px;
+	}
+
+	.page-search-select-number img {
+		height: 15px;
+	}
 }

@@ -93,7 +93,7 @@ class SearchTicketsJSX extends React.Component {
 		let buttonsPages = [];
 
 		for (let i = 1; i <= pages; i++) {
-			const cls = ['page-search-select-number', 'ml-3'];
+			const cls = ['page-search-select-number'];
 			if ((this.props.offset / Number(this.props.limit)) + 1 === i) {
 				cls.push('active');
 			}
@@ -136,8 +136,8 @@ class SearchTicketsJSX extends React.Component {
 
 				{resultSearchTicketsJSX}
 
-				<div className="row justify-content-end mt-5">
-					<button className="page-search-select-number ml-3"
+				<div className="d-flex justify-content-end mt-5">
+					<button className="page-search-select-number"
 						type="button"
 						onClick={this.setPrevPageOffset}
 						disabled={this.state.prevPageDisabled}>
@@ -146,7 +146,7 @@ class SearchTicketsJSX extends React.Component {
 
 					{buttonsPages}
 
-					<button className="page-search-select-number ml-3"
+					<button className="page-search-select-number"
 						type="button"
 						onClick={this.setNextPageOffset}
 						disabled={this.state.nextPageDisabled}>
