@@ -102,7 +102,7 @@ class HeaderSearchForm extends React.Component {
                                  options={options}
                                  onInputChange={this.setFromValue}
                                  onChange={this.setWhereFromCity}
-                                 className="col-sm mt-3 mb-3"
+                                 className="flex-grow-1 m-2"
                       />
                       <i className="glyphicon glyphicon-user"/>
                       <Typeahead value={this.state.valueToCity}
@@ -111,20 +111,20 @@ class HeaderSearchForm extends React.Component {
                                  options={options}
                                  onInputChange={this.setToValue}
                                  onChange={this.setWhereToCity}
-                                 className="col-sm mt-3"
+                                 className="flex-grow-1 m-2"
                       />
                     </div>
                   </form>
                   <form className="form mt-3 w-100" action="input">
                     <p className="ml-3">Дата</p>
                     <div className="d-flex flex-wrap form-group">
-                      <input className="col-sm form-control m-3"
+                      <input className="col form-control m-2"
                              key="dateFrom"
                              type="date"
                              onChange={this.setWhereFromDate}
                              value={this.state.whereFromDate}
                       />
-                      <input className="col-sm form-control m-3"
+                      <input className="col form-control m-2"
                              key="dateTo"
                              type="date"
                              onChange={this.setWhereToDate}
@@ -135,7 +135,7 @@ class HeaderSearchForm extends React.Component {
                 </div>
                 <div className="text-right">
 									<button 
-									className="btn btn-outline-warning col-lg-3"
+									className="btn btn-outline-warning col-lg-3 m-1"
 									type="button"
 									disabled={this.disabledButton()}
                   onClick={this.saveMainState}>найти билеты</button>
