@@ -36,17 +36,19 @@ class TrainTicket extends React.Component {
 
 	setSeatNumber = (event) => {
 		const currentNumber = event.currentTarget.innerHTML;
-		
+
 		if (this.state.seat_number.indexOf(currentNumber) > -1) {
 			this.setState({
-				seat_number: this.state.seat_number.filter(el => el !== currentNumber)
+				seat_number: this.state.seat_number.filter(el => el !== currentNumber),
+				sumTicketsPay: this.state.sumTicketsPay - this.props.payAdult
 			});
 		} else if (this.state.seat_number.length !== this.state.sumSeats) {
 			this.setState({
-				seat_number: [...this.state.seat_number, event.currentTarget.innerHTML],
-				sumTicketsPay: (this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild)
+				seat_number: [...this.state.seat_number, currentNumber],
+				sumTicketsPay: (this.state.seat_number.length + 1) * this.props.payAdult
 			});
 		}
+		this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
 	}
 
 	setAdultSeats = (value) => {
@@ -64,22 +66,6 @@ class TrainTicket extends React.Component {
 		this.setState({ include_children_seat: value !== 0 ? true : false });
 	}
 
-	setRouteTrainSeatReducer = () => {
-		this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
-
-		this.props.setRouteTrainSeat(
-			this.props.trainId,
-			this.state.coach_id,
-			this.state.seat_number[0],
-			this.state.is_child,
-			this.state.include_children_seat
-		);
-
-		window.scrollTo(0, 700);
-
-		this.props.history.push('/passengers');
-	}
-
 	resetParamsIfChangeClassTrain = () => {
 
 		this.props.setPassengersAndPay('payAdult', 0);
@@ -87,6 +73,7 @@ class TrainTicket extends React.Component {
 		this.props.setPassengersAndPay('ticketsAdult', 0);
 		this.props.setPassengersAndPay('ticketsChild', 0);
 		this.props.setPassengersAndPay('ticketsChildWithoutPlace', 0);
+		this.props.setPassengersAndPay('seatsNumbers', []);
 		this.setCoachId('');
 		this.setState({
 			seat_number: [],
@@ -194,6 +181,22 @@ class TrainTicket extends React.Component {
 
 		const getHours = (msc) => new Date(msc).getHours();
 		const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
+
+		if (this.state.seat_number.length === this.state.sumSeats) {
+			this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
+
+			this.props.setRouteTrainSeat(
+				this.props.trainId,
+				this.state.coach_id,
+				this.state.seat_number[0],
+				this.state.is_child,
+				this.state.include_children_seat
+			);
+
+			this.props.setActiveButton(false);
+		} else {
+			this.props.setActiveButton(true);
+		}
 
 
 		return (

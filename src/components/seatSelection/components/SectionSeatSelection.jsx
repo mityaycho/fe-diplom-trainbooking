@@ -9,14 +9,26 @@ import choiceOtherTrainButtonBack from '../../../images/choice_other_train_butto
 import iconSearchBack from '../../../images/icon_search_back.png';
 import TrainTicket from './TrainTicket';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
 
 class SectionSeatSelection extends React.Component {
 
-	
+	state = {
+		disabledButton: true
+	}
+
+	setActiveButton = (value) => {
+		this.setState({ disabledButton: value });
+	}
+
+	setRouteTrainSeatReducer = () => {
+		window.scrollTo(0, 700);
+
+		this.props.history.push('/passengers');
+	}
 
 	trainButtonFrom = 
 	<div className="choice-other-train-button d-flex flex-wrap mt-4">
@@ -66,7 +78,8 @@ class SectionSeatSelection extends React.Component {
 							dateTime={fromDateTime}
 							arrivalTime={fromArrival}
 							duration={duration}
-							iconSearch={iconSearchThere} />
+							iconSearch={iconSearchThere}
+							setActiveButton={this.setActiveButton} />
 
 						<TrainTicket
 							trainButton={this.trainButtonTo}
@@ -78,14 +91,15 @@ class SectionSeatSelection extends React.Component {
 							dateTime={toDateTime}
 							arrivalTime={toArrival}
 							duration={duration}
-							iconSearch={iconSearchBack} />
+							iconSearch={iconSearchBack}
+							setActiveButton={this.setActiveButton} />
 
 						<div className="d-flex justify-content-end">
 							<button 
 							className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" 
 							type="button" 
-							// disabled={!this.state.seat_number.length}
-							// onClick={this.setRouteTrainSeatReducer}
+							disabled={this.state.disabledButton}
+							onClick={this.setRouteTrainSeatReducer}
 							>Далее</button>
 						</div>
 					</div>
@@ -102,4 +116,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, null)(SectionSeatSelection);
+export default withRouter(connect(mapStateToProps, null)(SectionSeatSelection));
