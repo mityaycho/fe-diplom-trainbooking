@@ -35,13 +35,17 @@ class TrainTicket extends React.Component {
 	setCoachId = (id) => this.setState({ coach_id: id });
 
 	setSeatNumber = (event) => {
-		if (this.state.seat_number.length < this.state.sumSeats) {
+		const currentNumber = event.currentTarget.innerHTML;
+		
+		if (this.state.seat_number.indexOf(currentNumber) > -1) {
+			this.setState({
+				seat_number: this.state.seat_number.filter(el => el !== currentNumber)
+			});
+		} else if (this.state.seat_number.length !== this.state.sumSeats) {
 			this.setState({
 				seat_number: [...this.state.seat_number, event.currentTarget.innerHTML],
 				sumTicketsPay: (this.props.ticketsAdult * this.props.payAdult) + (this.props.ticketsChild * this.props.payChild)
 			});
-		} else if (this.state.seat_number.length > 0) {
-			this.setState({ seat_number: this.state.seat_number.filter(el => el != event.currentTarget.innerHTML) })
 		}
 	}
 

@@ -5,8 +5,8 @@ const Footer = () => {
 	return (
 		<footer>
 			<div className="container footer-information " id="contacts">
-				<div className="d-flex flex-wrap pb-5">
-					<div className="col-lg-6">
+				<div className="d-flex flex-wrap pb-5 justify-content-center">
+					<div className="col-lg-4 mx-auto">
 						<p className="text pl-4 pt-5">Свяжитесь с нами</p>
 						<div className="d-flex pt-2">
 							<div className="icon ">
@@ -30,11 +30,11 @@ const Footer = () => {
 							</div>
 						</div>
 					</div>
-					<div className="col-lg-6 mt-3">
+					<div className="col-lg-5 mt-3 ml-auto">
 						<p className="text mt-5">Подписка</p>
 						<p className="pt-3">Будьте в курсе событий</p>
-						<form className="d-flex w-100" action="input">
-							<div className="form-gorup list-group w-50">
+						<form className="d-flex flex-wrap" action="input">
+							<div className="form-gorup list-group">
 								<input className="form-control" type="text" placeholder="e-mail" />
 							</div>
 							<button className="footer-button btn btn-sm btn-primary-outline border-white text-uppercase ml-4">отправить</button>
