@@ -37,11 +37,11 @@ class SectionPassengers extends React.Component {
 
 		const passengersFormJSX = this.props.seatsNumbers.map(el => {
 			passengerNumber += 1
-			return <PassengerForm 
-			key={el} 
-			passengerNumber={passengerNumber} 
-			setPersonInfo={this.setPersonInfo}
-			setActiveButton={this.setActiveButton} />
+			return <PassengerForm
+				key={el}
+				passengerNumber={passengerNumber}
+				setPersonInfo={this.setPersonInfo}
+				setActiveButton={this.setActiveButton} />
 		})
 
 		return (
@@ -53,7 +53,7 @@ class SectionPassengers extends React.Component {
 					paymentClass=""
 					checkClass="" />
 
-				<div className="container d-flex">
+				<div className="container d-flex flex-wrap">
 					<SideBarPassangersSection />
 
 					<div className="col-lg-9 mb-5">
@@ -230,11 +230,11 @@ class SectionPassengers extends React.Component {
 						</NavLink>
 
 						<div className="d-flex justify-content-end">
-							<button 
-							className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5"
-							 type="button"
-							 onClick={this.setPersonData}
-							 disabled={this.state.activeButton}>Далее</button>
+							<button
+								className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5"
+								type="button"
+								onClick={this.setPersonData}
+								disabled={this.state.activeButton}>Далее</button>
 						</div>
 					</div>
 

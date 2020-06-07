@@ -50,8 +50,8 @@ const Form = (props) => {
 							<option value={true}>Взрослый</option>
 							<option value={false}>Десткий</option>
 						</select>
-						<div className="d-flex">
-							<div className="pt-3 pl-4 pr-4 w-100">
+						<div className="d-flex flex-wrap">
+							<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
 								<p>Фамилия</p>
 								<input
 									className="col-sm form-control"
@@ -60,7 +60,7 @@ const Form = (props) => {
 									name="last_name"
 									ref={register} />
 							</div>
-							<div className="pt-3 pl-4 pr-4 w-100">
+							<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
 								<p>Имя</p>
 								<input
 									className="col-sm form-control"
@@ -69,7 +69,7 @@ const Form = (props) => {
 									name="first_name"
 									ref={register} />
 							</div>
-							<div className="pt-3 pl-4 pr-4 w-100">
+							<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
 								<p>Отчество</p>
 								<input
 									className="col-sm form-control"
@@ -79,15 +79,15 @@ const Form = (props) => {
 									ref={register} />
 							</div>
 						</div>
-						<div className="d-flex">
-							<div className="pt-3 pl-4 pr-4 w-25">
+						<div className="d-flex flex-wrap">
+							<div className="col-lg-2 pt-3 pl-4 pr-4 mr-5">
 								<p>Пол</p>
 								<label className="switch">
 									<input type="checkbox" name="gender" ref={register} />
 									<span className="slider-checkbox">&nbsp; &nbsp; М &nbsp; &nbsp; &nbsp; &nbsp; Ж</span>
 								</label>
 							</div>
-							<div className="pt-3 pl-4 pr-4 w-25">
+							<div className="col-lg-4 pt-3 pl-4 pr-4">
 								<p>Дата рождения</p>
 								<input
 									className="col-sm form-control"
@@ -101,8 +101,8 @@ const Form = (props) => {
 							<input className="ml-5 mt-1" type="checkbox" />
 							<p className="ml-2">ограниченная подвижность</p>
 						</div>
-						<div className="row border-bottom">
-							<div className="ml-4 pt-3 pl-4 pr-4">
+						<div className="d-flex flex-wrap">
+							<div className="col-lg-4 ml-2 pt-3 pr-4">
 								<p>Тип докумета</p>
 								<select
 									className="form-control"
@@ -115,7 +115,7 @@ const Form = (props) => {
 							</div>
 							{props.documents ?
 								<>
-									<div className="pt-3 pl-4 pr-4 w-25">
+									<div className="col-lg-3 pt-3 pl-4 pr-4">
 										<p>Серия</p>
 										<input
 											className="col-sm form-control"
@@ -124,7 +124,7 @@ const Form = (props) => {
 											name="serial"
 											ref={register} />
 									</div>
-									<div className="pt-3 pl-4 pb-4 w-25">
+									<div className="col-lg-3 pt-3 pl-4 pb-4">
 										<p>Номер</p>
 										<input className="col-sm form-control"
 											type="text"
@@ -134,7 +134,7 @@ const Form = (props) => {
 									</div>
 								</>
 								:
-								<div className="pt-3 pl-4 pb-4 w-25">
+								<div className="col-lg-4 pt-3 pl-4 pb-4">
 									<p>Номер</p>
 									<input
 										className="col-sm form-control"
@@ -144,6 +144,7 @@ const Form = (props) => {
 										ref={register} />
 								</div>}
 						</div>
+						<div className="row border-bottom"></div>
 
 						<div className="d-flex justify-content-end">
 							<button type="submit" className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold" onClick={() => window.scrollTo(0, 1000)}>Следующий пасссажир</button>

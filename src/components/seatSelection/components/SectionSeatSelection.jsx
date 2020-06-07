@@ -63,8 +63,9 @@ class SectionSeatSelection extends React.Component {
 					paymentClass=""
 					checkClass="" />
 
-				<div className="container d-flex">
+				<div className="container d-flex flex-wrap">
 					<SideBarSearchTicketsAndSeatSelection />
+					
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
 						

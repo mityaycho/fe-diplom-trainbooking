@@ -50,7 +50,7 @@ class PaySectionSearch extends React.Component {
 					paymentClass="completed"
 					checkClass="" />
 
-				<div className="container d-flex">
+				<div className="container d-flex flex-wrap">
 					<SideBarPassangersSection />
 
 					<div className="col-lg-9 mb-5">
@@ -60,8 +60,8 @@ class PaySectionSearch extends React.Component {
 									<h5 className="ml-5">Персональные данные</h5>
 								</div>
 
-								<div className="d-flex">
-									<div className="pt-3 pl-4 pr-4 w-100">
+								<div className="d-flex flex-wrap">
+									<div className="col-lg-4 pt-3 pl-4 pr-4">
 										<p>Фамилия</p>
 											<input 
 											className="col-sm form-control" 
@@ -69,7 +69,7 @@ class PaySectionSearch extends React.Component {
 											value={this.state.last_name}
 											onChange={this.setLastName} />
 									</div>
-									<div className="pt-3 pl-4 pr-4 w-100">
+									<div className="col-lg-4 pt-3 pl-4 pr-4">
 										<p>Имя</p>
 											<input 
 											className="col-sm form-control" 
@@ -77,7 +77,7 @@ class PaySectionSearch extends React.Component {
 											value={this.state.first_name}
 											onChange={this.setFirstName} />
 									</div>
-									<div className="pt-3 pl-4 pr-4 w-100">
+									<div className="col-lg-4 pt-3 pl-4 pr-4">
 										<p>Отчество</p>
 											<input 
 											className="col-sm form-control" 
@@ -86,7 +86,7 @@ class PaySectionSearch extends React.Component {
 											onChange={this.setPatronymic} />
 									</div>
 								</div>
-								<div className="pt-3 pl-4 pr-4 w-50">
+								<div className="col-lg-6 pt-3 pl-4 pr-4">
 									<p>Контактный телефон</p>
 										<input 
 										className="col-sm form-control" 
@@ -94,7 +94,7 @@ class PaySectionSearch extends React.Component {
 										placeholder="+7 ___ ___ __ __"
 										onChange={this.setPhone} />
 								</div>
-								<div className="pt-3 pb-4 pl-4 pr-4 w-50">
+								<div className="col-lg-6 pt-3 pb-4 pl-4 pr-4">
 									<p>E-mail</p>
 										<input 
 										className="col-sm form-control" 
@@ -116,10 +116,10 @@ class PaySectionSearch extends React.Component {
 									</div>
 									<p className="ml-2 text-black-50">Онлайн</p>
 								</div>
-								<ul className="list-group list-group-horizontal justify-content-between w-75 ml-3">
-									<li className="list-group-item w-50 border-0 font-weight-bold">Банковской картой</li>
-									<li className="list-group-item w-50 border-0 font-weight-bold">PayPal</li>
-									<li className="list-group-item w-50 border-0 font-weight-bold">Visa QIWI Wallet</li>
+								<ul className="col-lg-7 flex-wrap list-group list-group-horizontal justify-content-between ml-3">
+									<li className="col-lg-4 list-group-item border-0 font-weight-bold">Банковской картой</li>
+									<li className="list-group-item border-0 font-weight-bold">PayPal</li>
+									<li className="list-group-item border-0 font-weight-bold">Visa QIWI Wallet</li>
 								</ul>
 								<div className="row p-5 border-top">
 									<div className="form-group">
