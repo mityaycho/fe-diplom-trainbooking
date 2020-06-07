@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/fe-diplom-trainbooking/precache-manifest.3b540dab68fcb47174438ff182bdc341.js"
+  "/fe-diplom-trainbooking/precache-manifest.984266ce41903cf73b0c9953dcf8f111.js"
 );
 
 workbox.clientsClaim();
