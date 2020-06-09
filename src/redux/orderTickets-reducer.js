@@ -43,11 +43,20 @@ const orderTicketsReducer = (state = initState, action) => {
 				departure: {
 					...state.departure,
 					route_direction_id: action.route_direction_id,
-					seats: state.departure.seats.map((s) => {
+					seats: action.seat_number.map((s) => {
 						return {
-							...s,
+							person_info: {
+								is_adult: true,
+								first_name: "Ivan",
+								last_name: "Popov",
+								patronymic: "Popovich",
+								gender: true,
+								birthday: "1980-01-01",
+								document_type: "паспорт",
+								document_data: "45 6790195"
+							},
 							coach_id: action.coach_id,
-							seat_number: action.seat_number,
+							seat_number: s,
 							is_child: action.is_child,
 							include_children_seat: action.include_children_seat
 						}

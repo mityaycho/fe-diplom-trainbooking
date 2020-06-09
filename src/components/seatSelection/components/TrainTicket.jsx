@@ -188,7 +188,7 @@ class TrainTicket extends React.Component {
 			this.props.setRouteTrainSeat(
 				this.props.trainId,
 				this.state.coach_id,
-				this.state.seat_number[0],
+				this.state.seat_number,
 				this.state.is_child,
 				this.state.include_children_seat
 			);
