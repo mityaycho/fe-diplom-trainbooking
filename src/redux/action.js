@@ -44,6 +44,6 @@ export const setRouteTrainSeatAC = (
 	include_children_seat
 });
 
-export const setPersonInfoAC = (data) => ({ type: SET_PERSON_INFO, data });
+export const setPersonInfoAC = (data, number) => ({ type: SET_PERSON_INFO, data, number });
 
 export const setUserDataAC = (data) => ({ type: SET_USER_DATA, data});

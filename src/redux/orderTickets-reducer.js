@@ -70,10 +70,17 @@ const orderTicketsReducer = (state = initState, action) => {
 				user: { ...state.user },
 				departure: {
 					...state.departure,
-					seats: state.departure.seats.map((s) => {
-						return {
-							...s,
-							person_info: action.data,
+					seats: state.departure.seats.map((s, i) => {
+						if (i === action.number - 1) {
+							return {
+								...s,
+								person_info: action.data,
+							}
+						} else {
+								return {
+									...s, 
+									person_info: {...s.person_info}
+								}
 						}
 					})
 				}

@@ -21,9 +21,9 @@ class SectionPassengers extends React.Component {
 
 	setActiveButton = () => this.setState({ activeButton: false })
 
-	setPersonInfo = (value) => {
-		this.setState({ personInfo: value });
-		this.props.setPersonInfo(value);
+	setPersonInfo = (data, number) => {
+		this.setState({ personInfo: data });
+		this.props.setPersonInfo(data, number);
 	}
 
 	setPersonData = () => {
@@ -252,7 +252,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setPersonInfo: (data) => dispatch(setPersonInfoAC(data))
+		setPersonInfo: (data, number) => dispatch(setPersonInfoAC(data, number))
 	}
 }
 

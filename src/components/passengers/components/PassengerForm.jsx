@@ -22,7 +22,7 @@ const Form = (props) => {
 			delete newData.number
 		}
 
-		props.setData(newData);
+		props.setData(newData, props.passengerNumber);
 		props.setActiveButton();
 	}
 
@@ -182,7 +182,7 @@ class PassengerForm extends React.Component {
 
 	setDocumentFalse = () => this.setState({ documents: false });
 
-	setData = (data) => this.props.setPersonInfo(data);
+	setData = (data , number) => this.props.setPersonInfo(data, number);
 
 	render() {
 		return (
