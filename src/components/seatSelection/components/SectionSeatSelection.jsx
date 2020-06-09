@@ -30,20 +30,20 @@ class SectionSeatSelection extends React.Component {
 		this.props.history.push('/passengers');
 	}
 
-	trainButtonFrom = 
-	<div className="choice-other-train-button d-flex flex-wrap mt-4">
-		<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
-		<NavLink type="button"
-			className="btn btn-outline-dark ml-3 pl-5 pr-5 pt-3 font-weight-bold"
-			to="/search_tickets">Выбрать другой поезд</NavLink>
-	</div>;
+	trainButtonFrom =
+		<div className="choice-other-train-button d-flex flex-wrap mt-4">
+			<button type="button" className="btn btn-outline-light p-0 ml-3"><img src={choiceOtherTrainButtonThere} alt="..." /></button>
+			<NavLink type="button"
+				className="btn btn-outline-dark ml-3 pl-5 pr-5 pt-3 font-weight-bold"
+				to="/search_tickets">Выбрать другой поезд</NavLink>
+		</div>;
 
-	trainButtonTo = 
-	<div className="choice-other-train-button d-flex flex-wrap justify-content-end mt-4">
-		<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
-		<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
-			to="/search_tickets">Выбрать другой поезд</NavLink>
-	</div>;
+	trainButtonTo =
+		<div className="choice-other-train-button d-flex flex-wrap justify-content-end mt-4">
+			<button type="button" className="btn btn-outline-light p-0"><img src={choiceOtherTrainButtonBack} alt="..." /></button>
+			<NavLink type="button" className="btn btn-outline-dark ml-3 mr-3 pl-5 pr-5 pt-3 font-weight-bold"
+				to="/search_tickets">Выбрать другой поезд</NavLink>
+		</div>;
 
 	render() {
 
@@ -65,10 +65,10 @@ class SectionSeatSelection extends React.Component {
 
 				<div className="container d-flex flex-wrap">
 					<SideBarSearchTicketsAndSeatSelection />
-					
+
 					<div className="choice-of-place col-lg-9 pt-5 pb-5 pl-5">
 						<h3 className="text-uppercase">выбор мест</h3>
-						
+
 						<TrainTicket
 							trainButton={this.trainButtonFrom}
 							trainName={ticketSelected.departure.train.name}
@@ -96,11 +96,11 @@ class SectionSeatSelection extends React.Component {
 							setActiveButton={this.setActiveButton} />
 
 						<div className="d-flex justify-content-end">
-							<button 
-							className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5" 
-							type="button" 
-							disabled={this.state.disabledButton}
-							onClick={this.setRouteTrainSeatReducer}
+							<button
+								className="btn btn-warning text-white font-weight-bold pl-5 pr-5 mt-5 mb-5"
+								type="button"
+								disabled={this.state.disabledButton}
+								onClick={this.setRouteTrainSeatReducer}
 							>Далее</button>
 						</div>
 					</div>
