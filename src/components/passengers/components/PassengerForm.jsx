@@ -147,7 +147,7 @@ const Form = (props) => {
 						<div className="row border-bottom"></div>
 
 						<div className="d-flex justify-content-end">
-							<button type="submit" className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold" onClick={() => window.scrollTo(0, 1000)}>Следующий пасссажир</button>
+							<button type="submit" className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold">Следующий пасссажир</button>
 						</div>
 					</form>
 				</div>
@@ -170,7 +170,7 @@ const Form = (props) => {
 class PassengerForm extends React.Component {
 
 	state = {
-		active: false,
+		active: this.props.activeForm,
 		documents: true
 	};
 
@@ -185,6 +185,7 @@ class PassengerForm extends React.Component {
 	setData = (data , number) => this.props.setPersonInfo(data, number);
 
 	render() {
+		console.log(this.props.activeForm)
 		return (
 			<Form
 				passengerNumber={this.props.passengerNumber}
