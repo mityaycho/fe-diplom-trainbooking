@@ -106,56 +106,56 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 						</div>
 					</form>
 					<hr className="bg-light" />
-					<div className="row ml-1">
-						<div className="container coupe ml-3 d-flex">
+					<div className="row pl-4 pr-4">
+						<div className="container coupe d-flex">
 							<img className="icon-coupe" src={iconCoupe} alt="иконка купе" />
 							<p className="container">Купе</p>
-							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
+							<div className="custom-control custom-switch d-flex">
 								<input type="checkbox" className="custom-control-input" id="customSwitch1"
 									checked={this.props.have_second_class} onChange={this.checkSecondClass} />
 								<label className="custom-control-label" htmlFor="customSwitch1"></label>
 							</div>
 						</div>
-						<div className="container economclass ml-3 d-flex">
+						<div className="container economclass d-flex">
 							<img className="icon-coupe" src={iconEconomclass} alt="иконка Плацкарт" />
 							<p className="container">Плацкарт</p>
-							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
+							<div className="custom-control custom-switch d-flex">
 								<input type="checkbox" className="custom-control-input" id="customSwitch2"
 									checked={this.props.have_third_class} onChange={this.checkThirdClass} />
 								<label className="custom-control-label" htmlFor="customSwitch2"></label>
 							</div>
 						</div>
-						<div className="container coupe ml-3 d-flex">
+						<div className="container coupe d-flex">
 							<img className="icon-coupe" src={iconSedentary} alt="иконка Сидячий" />
 							<p className="container">Сидячий</p>
-							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
+							<div className="custom-control custom-switch d-flex">
 								<input type="checkbox" className="custom-control-input" id="customSwitch3"
 									checked={this.props.have_fourth_class} onChange={this.checkFourthClass} />
 								<label className="custom-control-label" htmlFor="customSwitch3"></label>
 							</div>
 						</div>
-						<div className="container coupe ml-3 d-flex">
+						<div className="container coupe d-flex">
 							<img className="icon-coupe" src={iconLuxury} alt="иконка Люкс" />
 							<p className="container">Люкс</p>
-							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
+							<div className="custom-control custom-switch d-flex">
 								<input type="checkbox" className="custom-control-input" id="customSwitch4"
 									checked={this.props.have_first_class} onChange={this.checkFirstClass} />
 								<label className="custom-control-label" htmlFor="customSwitch4"></label>
 							</div>
 						</div>
-						<div className="container coupe ml-3 d-flex">
+						<div className="container coupe d-flex">
 							<img className="icon-coupe" src={iconWifi} alt="иконка Wi-Fi" />
 							<p className="container">Wi-Fi</p>
-							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
+							<div className="custom-control custom-switch d-flex">
 								<input type="checkbox" className="custom-control-input" id="customSwitch5"
 									checked={this.props.have_wifi} onChange={this.checkWiFi} />
 								<label className="custom-control-label" htmlFor="customSwitch5"></label>
 							</div>
 						</div>
-						<div className="container coupe ml-3 d-flex">
+						<div className="container coupe d-flex">
 							<img className="icon-coupe" src={iconExpress} alt="иконка Экспресс" />
 							<p className="container">Экспресс</p>
-							<div className="custom-control custom-switch d-flex justify-content-end mr-4">
+							<div className="custom-control custom-switch d-flex">
 								<input type="checkbox" className="custom-control-input" id="customSwitch6"
 									checked={this.props.have_express} onChange={this.checkExpress} />
 								<label className="custom-control-label" htmlFor="customSwitch6"></label>

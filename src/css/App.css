@@ -551,7 +551,21 @@ footer {
 }
 
 .custom-control-label::before {
-	width: 40px;
+	width: 30px !important;
+	left: calc(-2.25rem + .5px)!important;
+}
+
+.custom-control-label::after {
+	top: calc(.17rem + .25px)!important;
+	left: calc(-2.25rem + .5px)!important;
+	width: calc(1.2rem - 0.5px)!important;
+	height: calc(1.2rem - 0.5px)!important;
+	border-radius: .5rem!important;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+	border-color: #FCDC9D!important;
+    background-color: #FFA800!important;
 }
 
 .choice-of-place {
@@ -1229,7 +1243,7 @@ input:checked+.slider-checkbox:before {
 		margin-bottom: 16px;
 		font-size: 10px;
 	}
-	
+
 	.progress-line-cost-text {
 		margin-top: 20px;
 		font-size: 10px;
@@ -1302,7 +1316,7 @@ input:checked+.slider-checkbox:before {
 		margin-bottom: 12px;
 		font-size: 8px;
 	}
-	
+
 	.progress-line-cost-text {
 		margin-top: 14px;
 		font-size: 8px;
