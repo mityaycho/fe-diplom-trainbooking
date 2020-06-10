@@ -76,7 +76,7 @@ const TrainJSX = (props) => {
 			<div className="d-flex justify-content-end">
 				<p className="number-of-people-online mr-4">11 человек выбирают места в этом поезде</p>
 			</div>
-			<div className="mb-5">
+			<div className="vagon-places-container mb-5">
 				<img className="image-vagon-places" src={props.image} alt="..." />
 				<div className={`train-${props.train.coach.class_type}-container`}>
 					{seatFirstRowJSX}
