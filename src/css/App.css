@@ -551,7 +551,7 @@ footer {
 }
 
 .custom-control-label::before {
-	width: 30px;
+	width: 40px;
 }
 
 .choice-of-place {
@@ -881,6 +881,8 @@ footer {
 	padding-bottom: 1px;
 	font-size: 13px;
 	font-weight: bold;
+	display: grid;
+	grid-auto-flow: column dense;
 }
 
 .train-third-container-two .seats-index.two-row {

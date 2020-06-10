@@ -40,7 +40,7 @@ const TrainJSX = (props) => {
 				</div>
 				<p>Нумерация вагонов начинается с головы поезда</p>
 			</div>
-			<div className="number-of-vagon-checked d-flex">
+			<div className="number-of-vagon-checked d-flex flex-wrap">
 				<div className="number-of-vagon-checked-yellow">
 					<p className="number-of-vagon-checked-yellow-number">07</p>
 					<p className="number-of-vagon-checked-yellow-text">вагон</p>
