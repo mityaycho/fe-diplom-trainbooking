@@ -64,7 +64,7 @@ class SectionPassengers extends React.Component {
 				<div className="container d-flex flex-wrap">
 					<SideBarPassangersSection />
 
-					<div className="col-lg-9 mb-5">
+					<div className="col mb-5">
 
 						{passengersFormJSX}
 
@@ -228,7 +228,7 @@ class SectionPassengers extends React.Component {
 							</div>
 						</div> */}
 
-						<NavLink className="box-add-passenger mt-5 mb-5 ml-5" to="/seat_selection">
+						<NavLink className="box-add-passenger mt-5 mb-5" to="/seat_selection">
 							<div className="passengers-form-filling col">
 								<div className="passengers-form-number row pt-4 pb-4">
 									<h5 className="ml-3 mt-1">Добавить пассажира</h5>

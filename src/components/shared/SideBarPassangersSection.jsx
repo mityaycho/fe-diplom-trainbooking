@@ -25,7 +25,7 @@ class SideBarPassangersAndPaySection extends React.Component {
 		const getMinutes = (msc) => (new Date(msc).getMinutes() < 10 ? '0' : '') + new Date(msc).getMinutes();
 
 		return (
-			<div className="trip-details-tickets col-lg-3 mt-5 mb-5">
+			<div className="trip-details-tickets col-lg-3 mt-5 mb-5 mr-4">
 				<div className="trip-details bg-dark pt-4 pb-4">
 					<h5 className="text-center text-uppercase">Детали поездки</h5>
 					<hr className="bg-light mt-4" />

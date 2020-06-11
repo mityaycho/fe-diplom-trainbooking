@@ -53,8 +53,8 @@ class PaySectionSearch extends React.Component {
 				<div className="container d-flex flex-wrap">
 					<SideBarPassangersSection />
 
-					<div className="col-lg-9 mb-5">
-						<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
+					<div className="col mb-5">
+						<div className="passengers-form-filling-box mt-5 mb-5">
 							<form className="passengers-form-filling col">
 								<div className="passengers-form-number border-bottom row pt-4 pb-4">
 									<h5 className="ml-5">Персональные данные</h5>

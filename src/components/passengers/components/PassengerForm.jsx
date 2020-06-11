@@ -37,7 +37,7 @@ const Form = (props) => {
 	return (
 		<>
 			{props.active ?
-				<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
+				<div className="passengers-form-filling-box mt-5 mb-5">
 					<form className="passengers-form-filling col" onSubmit={handleSubmit(onSubmit)}>
 						<div className="passengers-form-number border-bottom row pt-4 pb-4">
 							<img className="passengers-form-button pl-4 mt-auto" src={iconMinusSircle} alt="..."
@@ -154,7 +154,7 @@ const Form = (props) => {
 					</form>
 				</div>
 				:
-				<div className="passengers-form-filling-box mt-5 mb-5 ml-5">
+				<div className="passengers-form-filling-box mt-5 mb-5">
 					<div className="passengers-form-filling col">
 						<div className="passengers-form-number row pt-4 pb-4">
 							<img className="passengers-form-button pl-4 mt-auto" src={iconPlusSircle} alt="..."

@@ -42,7 +42,7 @@ const SectionCheckConfirmOrder = (props) => {
 			<div className="container d-flex flex-wrap">
 				<SideBarPassangersSection />
 
-				<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
+				<div className="tickets-search-result col pt-5 pb-5">
 					<div className="result-search-of-tickets col">
 						<h5 className="row p-4 border-bottom mb-0">Поезд</h5>
 						<div className="row">
