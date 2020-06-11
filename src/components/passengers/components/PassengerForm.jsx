@@ -46,10 +46,12 @@ const Form = (props) => {
 							<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
 						</div>
 
-						<select className="form-control w-25 ml-4 mt-4" name="is_adult" ref={register}>
-							<option value={true}>Взрослый</option>
-							<option value={false}>Десткий</option>
-						</select>
+						<div className="col-lg-4 pl-4 pt-4 pr-4">
+							<select className="form-control" name="is_adult" ref={register}>
+								<option value={true}>Взрослый</option>
+								<option value={false}>Десткий</option>
+							</select>
+						</div>
 						<div className="d-flex flex-wrap">
 							<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
 								<p>Фамилия</p>
@@ -182,7 +184,7 @@ class PassengerForm extends React.Component {
 
 	setDocumentFalse = () => this.setState({ documents: false });
 
-	setData = (data , number) => this.props.setPersonInfo(data, number);
+	setData = (data, number) => this.props.setPersonInfo(data, number);
 
 	render() {
 		console.log(this.props.activeForm)

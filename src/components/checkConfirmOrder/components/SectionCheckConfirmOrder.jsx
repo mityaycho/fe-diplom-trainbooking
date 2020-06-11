@@ -39,7 +39,7 @@ const SectionCheckConfirmOrder = (props) => {
 				paymentClass="completed"
 				checkClass="completed" />
 
-			<div className="container d-flex">
+			<div className="container d-flex flex-wrap">
 				<SideBarPassangersSection />
 
 				<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">

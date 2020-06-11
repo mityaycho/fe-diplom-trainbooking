@@ -107,11 +107,13 @@ class SearchTicketsJSX extends React.Component {
 			<ResultSearchTickets key={idx} state={el} setTrainId={this.setTrainId} />) : [];
 
 		return (
-			<div className="tickets-search-result col-lg-9 pt-5 pb-5 pl-5">
-				<div className="row">
-					<div className="col">найдено {this.props.total_count}</div>
-					<div className="row text-right">сортировать по:&nbsp;
-					<select className="custom-sort-train"
+			<div className="tickets-search-result col pt-5 pb-5">
+				<div className="d-flex flex-wrap">
+					<div className="d-flex">найдено {this.props.total_count}</div>
+					<div className="d-flex ml-5 mr-5 pl-5 pr-5"></div>
+
+					<div className="d-flex ml-auto">сортировать по:&nbsp;
+						<select className="custom-sort-train"
 							name="sortTrain"
 							id="sort"
 							onChange={this.sortSearch}
@@ -121,7 +123,7 @@ class SearchTicketsJSX extends React.Component {
 							<option value="duration">длительности</option>
 						</select>
 					</div>
-					<div className="row text-right ml-5 mr-3">показывать по:&nbsp;
+					<div className="d-flex ml-auto">показывать по:&nbsp;
                 <button className={classFilterChoiceFive}
 							onClick={this.filterChoiceTickets}>5
                 </button>

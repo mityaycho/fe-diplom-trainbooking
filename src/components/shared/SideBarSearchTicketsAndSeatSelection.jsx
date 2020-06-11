@@ -83,7 +83,7 @@ class SideBarSearchTicketsAndSeatSelection extends React.Component {
 			<LastRoutes key={idx} state={el} />) : [];
 
 		return (
-			<div className="tickets-search-param col-lg-3 mt-5 mb-5">
+			<div className="tickets-search-param col-lg-3 mt-5 mb-5 mr-4">
 				<div className="tickets-search-menu bg-dark">
 					<form className="form pt-5 pl-4 pr-4 w-100" action="input">
 						<p>Дата поездки</p>

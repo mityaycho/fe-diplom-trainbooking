@@ -6,7 +6,7 @@ const NavBarTemporary = () => {
     <header>
       <div className="nav-bar-temporary">
         <div className="container">
-          <nav className="nav d-flex">
+          <nav className="nav d-flex flex-wrap">
             <NavLink className="itemTemporary" to="/">главная</NavLink>
             <NavLink className="itemTemporary" to="/search_tickets">поиск билетов</NavLink>
             <NavLink className="itemTemporary" to="/seat_selection">выбор мест</NavLink>
