@@ -18,27 +18,27 @@ class SectionPassengers extends React.Component {
 		activeForms: [],
 		activeButton: true,
 		personInfo: {}
-	}
+	};
 
 	componentDidMount() {
 		if (this.props.seatsNumbers.length !== 0) {
 			this.props.seatsNumbers.map((el, i) => {
 				this.setState({ activeForms: i !== 0 ? this.state.activeForms.push(false) : this.state.activeForms.push(true) });
-			})
+			});
 		}
-	}
+	};
 
-	setActiveButton = () => this.setState({ activeButton: false })
+	setActiveButton = () => this.setState({ activeButton: false });
 
 	setPersonInfo = (data, number) => {
 		this.setState({ personInfo: data });
 		this.props.setPersonInfo(data, number);
-	}
+	};
 
 	setPersonData = () => {
 		this.props.history.push("/pay_selection");
 		this.props.setPersonInfo(this.state.personInfo);
-	}
+	};
 
 
 	render() {
@@ -50,7 +50,7 @@ class SectionPassengers extends React.Component {
 				setPersonInfo={this.setPersonInfo}
 				setActiveButton={this.setActiveButton}
 				activeForm={this.state.activeForms[i]} />
-		})
+		});
 
 		return (
 			<div>
