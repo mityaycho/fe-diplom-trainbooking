@@ -40,7 +40,7 @@ const Form = (props) => {
 				<div className="passengers-form-filling-box mt-5 mb-5">
 					<form className="passengers-form-filling col" onSubmit={handleSubmit(onSubmit)}>
 						<div className="passengers-form-number border-bottom row pt-4 pb-4">
-							<img className="passengers-form-button pl-4 mt-auto" src={iconMinusSircle} alt="..."
+							<img className="passengers-form-img pl-4 mt-auto" src={iconMinusSircle} alt="..."
 								onClick={props.setActiveFalse} />
 							<h5 className="ml-3">Пассажир {props.passengerNumber}</h5>
 							<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
@@ -149,20 +149,22 @@ const Form = (props) => {
 						<div className="row border-bottom"></div>
 
 						<div className="d-flex justify-content-end">
-							<button type="submit" className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold">Следующий пасссажир</button>
+							<button 
+							type="submit" 
+							className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold"
+							>Следующий пасссажир</button>
 						</div>
 					</form>
 				</div>
 				:
-				<div className="passengers-form-filling-box mt-5 mb-5">
-					<div className="passengers-form-filling col">
-						<div className="passengers-form-number row pt-4 pb-4">
-							<img className="passengers-form-button pl-4 mt-auto" src={iconPlusSircle} alt="..."
-								onClick={props.setActiveTrue} />
-							<h5 className="ml-3 pt-1">Пассажир {props.passengerNumber}</h5>
-						</div>
-					</div>
-
+				<div className="passengers-form-filling mt-5 mb-5">
+					<button
+						className="passengers-form-button d-flex pt-4 pb-4"
+						onClick={props.setActiveTrue}
+						disabled={props.disableForm}>
+						<img className="passengers-form-img pl-4 mt-auto" src={iconPlusSircle} alt="..." />
+						<h5 className="ml-3 pt-1">Пассажир {props.passengerNumber}</h5>
+					</button>
 				</div>
 			}
 		</>
@@ -176,7 +178,10 @@ class PassengerForm extends React.Component {
 		documents: true
 	};
 
-	setActiveTrue = () => this.setState({ active: true });
+	setActiveTrue = () => {
+		this.setState({ active: true });
+		this.props.setDisableForm();
+	}
 
 	setActiveFalse = () => this.setState({ active: false });
 
@@ -190,6 +195,7 @@ class PassengerForm extends React.Component {
 		console.log(this.props.activeForm)
 		return (
 			<Form
+				disableForm={this.props.disableForm}
 				passengerNumber={this.props.passengerNumber}
 				setActiveButton={this.props.setActiveButton}
 				setData={this.setData}

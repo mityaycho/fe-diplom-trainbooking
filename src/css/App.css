@@ -1088,7 +1088,12 @@ footer {
 	background: #F9F9F9;
 }
 
-.passengers-form-button:hover {
+.passengers-form-button {
+	border: none;
+	width: 100%;
+}
+
+.passengers-form-img:hover {
 	cursor: pointer;
 }
 

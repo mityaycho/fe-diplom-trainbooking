@@ -15,11 +15,14 @@ import { setPersonInfoAC } from '../../../redux/action';
 class SectionPassengers extends React.Component {
 
 	state = {
+		disableForm: true,
 		activeButton: true,
 		personInfo: {}
 	};
 
-	setActiveButton = () => this.setState({ activeButton: false });
+	setDisableForm = () => this.setState({ disableForm: true })
+
+	setActiveButton = () => this.setState({ activeButton: false, disableForm: false });
 
 	setPersonInfo = (data, number) => {
 		this.setState({ personInfo: data });
@@ -40,7 +43,9 @@ class SectionPassengers extends React.Component {
 				passengerNumber={i + 1}
 				setPersonInfo={this.setPersonInfo}
 				setActiveButton={this.setActiveButton}
-				activeForm={i === 0} />
+				activeForm={i === 0}
+				disableForm={this.state.disableForm}
+				setDisableForm={this.setDisableForm} />
 		});
 
 		return (
