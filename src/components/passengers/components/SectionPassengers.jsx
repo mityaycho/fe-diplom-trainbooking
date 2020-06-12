@@ -15,17 +15,8 @@ import { setPersonInfoAC } from '../../../redux/action';
 class SectionPassengers extends React.Component {
 
 	state = {
-		activeForms: [],
 		activeButton: true,
 		personInfo: {}
-	};
-
-	componentDidMount() {
-		if (this.props.seatsNumbers.length !== 0) {
-			this.props.seatsNumbers.map((el, i) => {
-				this.setState({ activeForms: i !== 0 ? this.state.activeForms.push(false) : this.state.activeForms.push(true) });
-			});
-		}
 	};
 
 	setActiveButton = () => this.setState({ activeButton: false });
@@ -46,10 +37,10 @@ class SectionPassengers extends React.Component {
 		const passengersFormJSX = this.props.seatsNumbers.map((el, i) => {
 			return <PassengerForm
 				key={el}
-				passengerNumber={++i}
+				passengerNumber={i + 1}
 				setPersonInfo={this.setPersonInfo}
 				setActiveButton={this.setActiveButton}
-				activeForm={this.state.activeForms[i]} />
+				activeForm={i === 0} />
 		});
 
 		return (
