@@ -20,7 +20,7 @@ class SectionPassengers extends React.Component {
 		personInfo: {}
 	};
 
-	setDisableForm = () => this.setState({ disableForm: true })
+	setDisableForm = () => this.setState({ disableForm: true });
 
 	setActiveButton = () => this.setState({ activeButton: false, disableForm: false });
 

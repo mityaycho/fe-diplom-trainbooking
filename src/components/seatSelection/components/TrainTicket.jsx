@@ -57,13 +57,13 @@ class TrainTicket extends React.Component {
 	}
 
 	setChildSeat = (value) => {
-		this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 ? true : false });
+		this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 });
 		this.props.setPassengersAndPay('ticketsChild', value);
 	}
 
 	setChildWithoutSeat = (value) => {
 		this.props.setPassengersAndPay('ticketsChildWithoutPlace', value);
-		this.setState({ include_children_seat: value !== 0 ? true : false });
+		this.setState({ include_children_seat: value !== 0 });
 	}
 
 	resetParamsIfChangeClassTrain = () => {

@@ -181,7 +181,7 @@ class PassengerForm extends React.Component {
 	setActiveTrue = () => {
 		this.setState({ active: true });
 		this.props.setDisableForm();
-	}
+	};
 
 	setActiveFalse = () => this.setState({ active: false });
 
