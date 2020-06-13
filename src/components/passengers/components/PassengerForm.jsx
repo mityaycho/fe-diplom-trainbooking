@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 
 const Form = (props) => {
 
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, errors } = useForm();
 
 	const onSubmit = (data) => {
 		let newData = { ...data };
@@ -37,125 +37,137 @@ const Form = (props) => {
 	return (
 		<>
 			{props.active ?
-				<div className="passengers-form-filling-box mt-5 mb-5">
-					<form className="passengers-form-filling col" onSubmit={handleSubmit(onSubmit)}>
-						<div className="passengers-form-number border-bottom row pt-4 pb-4">
-							<img className="passengers-form-img pl-4 mt-auto" src={iconMinusSircle} alt="..."
-								onClick={props.setActiveFalse} />
-							<h5 className="ml-3">Пассажир {props.passengerNumber}</h5>
-							<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
-						</div>
+				<form className="passengers-form-filling col mt-5 mb-5" onSubmit={handleSubmit(onSubmit)}>
+					<div className="passengers-form-number border-bottom row pt-4 pb-4">
+						<img className="passengers-form-img pl-4 mt-auto" src={iconMinusSircle} alt="..."
+							onClick={props.setActiveFalse} />
+						<h5 className="ml-3">Пассажир {props.passengerNumber}</h5>
+						<img className="ml-auto mr-5 mt-auto" src={iconCloseX} alt="..." />
+					</div>
 
-						<div className="col-lg-4 pl-4 pt-4 pr-4">
-							<select className="form-control" name="is_adult" ref={register}>
-								<option value={true}>Взрослый</option>
-								<option value={false}>Десткий</option>
+					<div className="col-lg-4 pl-4 pt-4 pr-4">
+						<select className="form-control" name="is_adult" ref={register}>
+							<option value={true}>Взрослый</option>
+							<option value={false}>Десткий</option>
+						</select>
+					</div>
+					<div className="d-flex flex-wrap">
+						<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
+							<p>Фамилия</p>
+							<input
+								className="col-sm form-control"
+								type="text"
+								placeholder="Мартынюк"
+								name="last_name"
+								ref={register({ required: true, maxLength: 30 })} />
+							{errors.last_name && errors.last_name.type === "required" && <span>*укажите фамилию</span>}
+							{errors.last_name && errors.last_name.type === "maxLength" && <span>*длина превышена</span>}
+						</div>
+						<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
+							<p>Имя</p>
+							<input
+								className="col-sm form-control"
+								type="text"
+								placeholder="Ирина"
+								name="first_name"
+								ref={register({ required: true, maxLength: 30 })} />
+							{errors.first_name && errors.first_name.type === "required" && <span>*укажите имя</span>}
+							{errors.first_name && errors.first_name.type === "maxLength" && <span>*длина превышена</span>}
+						</div>
+						<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
+							<p>Отчество</p>
+							<input
+								className="col-sm form-control"
+								type="text"
+								placeholder="Эдуардовна"
+								name="patronymic"
+								ref={register({ required: true, maxLength: 30 })} />
+							{errors.patronymic && errors.patronymic.type === "required" && <span>*укажите отчество</span>}
+							{errors.patronymic && errors.patronymic.type === "maxLength" && <span>*длина превышена</span>}
+						</div>
+					</div>
+					<div className="d-flex flex-wrap">
+						<div className="col-lg-2 pt-3 pl-4 pr-4 mr-5">
+							<p>Пол</p>
+							<label className="switch">
+								<input type="checkbox" name="gender" ref={register} />
+								<span className="slider-checkbox">&nbsp; &nbsp; М &nbsp; &nbsp; &nbsp; &nbsp; Ж</span>
+							</label>
+						</div>
+						<div className="col-lg-4 pt-3 pl-4 pr-4">
+							<p>Дата рождения</p>
+							<input
+								className="col-sm form-control"
+								type="text"
+								placeholder="дд/мм/гг"
+								name="birthday"
+								ref={register({ required: true, maxLength: 30 })} />
+							{errors.birthday && errors.birthday.type === "required" && <span>*укажите дату</span>}
+							{errors.birthday && errors.birthday.type === "maxLength" && <span>*длина превышена</span>}
+						</div>
+					</div>
+					<div className="row mt-3 border-bottom">
+						<input className="ml-5 mt-1" type="checkbox" />
+						<p className="ml-2">ограниченная подвижность</p>
+					</div>
+					<div className="d-flex flex-wrap">
+						<div className="col-lg-4 ml-2 pt-3 pr-4">
+							<p>Тип докумета</p>
+							<select
+								className="form-control"
+								name="document_type"
+								ref={register}
+								onChange={e => documents(e.currentTarget.value)}>
+								<option value="Паспорт">Паспорт РФ</option>
+								<option value="Свидетельство">Свидетельство о рождении</option>
 							</select>
 						</div>
-						<div className="d-flex flex-wrap">
-							<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
-								<p>Фамилия</p>
-								<input
-									className="col-sm form-control"
-									type="text"
-									placeholder="Мартынюк"
-									name="last_name"
-									ref={register} />
-							</div>
-							<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
-								<p>Имя</p>
-								<input
-									className="col-sm form-control"
-									type="text"
-									placeholder="Ирина"
-									name="first_name"
-									ref={register} />
-							</div>
-							<div className="col-lg-4 pt-3 pl-4 pr-4 w-100">
-								<p>Отчество</p>
-								<input
-									className="col-sm form-control"
-									type="text"
-									placeholder="Эдуардовна"
-									name="patronymic"
-									ref={register} />
-							</div>
-						</div>
-						<div className="d-flex flex-wrap">
-							<div className="col-lg-2 pt-3 pl-4 pr-4 mr-5">
-								<p>Пол</p>
-								<label className="switch">
-									<input type="checkbox" name="gender" ref={register} />
-									<span className="slider-checkbox">&nbsp; &nbsp; М &nbsp; &nbsp; &nbsp; &nbsp; Ж</span>
-								</label>
-							</div>
-							<div className="col-lg-4 pt-3 pl-4 pr-4">
-								<p>Дата рождения</p>
-								<input
-									className="col-sm form-control"
-									type="text"
-									placeholder="дд/мм/гг"
-									name="birthday"
-									ref={register} />
-							</div>
-						</div>
-						<div className="row mt-3 border-bottom">
-							<input className="ml-5 mt-1" type="checkbox" />
-							<p className="ml-2">ограниченная подвижность</p>
-						</div>
-						<div className="d-flex flex-wrap">
-							<div className="col-lg-4 ml-2 pt-3 pr-4">
-								<p>Тип докумета</p>
-								<select
-									className="form-control"
-									name="document_type"
-									ref={register}
-									onChange={e => documents(e.currentTarget.value)}>
-									<option value="Паспорт">Паспорт РФ</option>
-									<option value="Свидетельство">Свидетельство о рождении</option>
-								</select>
-							</div>
-							{props.documents ?
-								<>
-									<div className="col-lg-3 pt-3 pl-4 pr-4">
-										<p>Серия</p>
-										<input
-											className="col-sm form-control"
-											type="text"
-											placeholder="_ _ _ _"
-											name="serial"
-											ref={register} />
-									</div>
-									<div className="col-lg-3 pt-3 pl-4 pb-4">
-										<p>Номер</p>
-										<input className="col-sm form-control"
-											type="text"
-											placeholder="_ _ _ _ _ _"
-											name="number"
-											ref={register} />
-									</div>
-								</>
-								:
-								<div className="col-lg-4 pt-3 pl-4 pb-4">
-									<p>Номер</p>
+						{props.documents ?
+							<>
+								<div className="col-lg-3 pt-3 pl-4 pr-4">
+									<p>Серия</p>
 									<input
 										className="col-sm form-control"
 										type="text"
-										placeholder="_ _ _  _ _  _ _ _ _ _"
-										name="document_data"
-										ref={register} />
-								</div>}
-						</div>
-						<div className="row border-bottom"></div>
+										placeholder="_ _ _ _"
+										name="serial"
+										ref={register({ required: true, maxLength: 30 })} />
+									{errors.serial && errors.serial.type === "required" && <span>*укажите серию</span>}
+									{errors.serial && errors.serial.type === "maxLength" && <span>*длина превышена</span>}
+								</div>
+								<div className="col-lg-3 pt-3 pl-4 pb-4">
+									<p>Номер</p>
+									<input className="col-sm form-control"
+										type="text"
+										placeholder="_ _ _ _ _ _"
+										name="number"
+										ref={register({ required: true, maxLength: 30 })} />
+									{errors.number && errors.number.type === "required" && <span>*укажите номер</span>}
+									{errors.number && errors.number.type === "maxLength" && <span>*длина превышена</span>}
+								</div>
+							</>
+							:
+							<div className="col-lg-4 pt-3 pl-4 pb-4">
+								<p>Номер</p>
+								<input
+									className="col-sm form-control"
+									type="text"
+									placeholder="_ _ _  _ _  _ _ _ _ _"
+									name="document_data"
+									ref={register({ required: true, maxLength: 30 })} />
+								{errors.document_data && errors.document_data.type === "required" && <span>*укажите номер</span>}
+								{errors.document_data && errors.document_data.type === "maxLength" && <span>*длина превышена</span>}
+							</div>}
+					</div>
+					<div className="row border-bottom"></div>
 
-						<div className="d-flex justify-content-end">
-							<button 
-							type="submit" 
+					<div className="d-flex justify-content-end">
+						<button
+							type="submit"
 							className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold"
-							>Следующий пасссажир</button>
-						</div>
-					</form>
-				</div>
+						>Следующий пасссажир</button>
+					</div>
+				</form>
 				:
 				<div className="passengers-form-filling mt-5 mb-5">
 					<button
