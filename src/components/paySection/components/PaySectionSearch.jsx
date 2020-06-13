@@ -7,6 +7,9 @@ import SideBarPassangersSection from '../../shared/SideBarPassangersSection';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUserDataAC } from '../../../redux/action';
+import { Checkbox } from 'pretty-checkbox-react';
+ 
+import 'pretty-checkbox';
 
 class PaySectionSearch extends React.Component {
 
@@ -109,7 +112,8 @@ class PaySectionSearch extends React.Component {
 
 								<div className="row pl-5 mt-4">
 									<div className="form-group">
-										<input 
+										<Checkbox
+										animation="tada" shape="curve" color="warning" icon={<i className="mdi mdi-check" />} 
 										type="checkbox" 
 										onChange={this.setPaymentOnline} 
 										checked={this.state.payment_method !== "cash" && this.state.payment_method === "online"} />
@@ -123,7 +127,8 @@ class PaySectionSearch extends React.Component {
 								</ul>
 								<div className="row p-5 border-top">
 									<div className="form-group">
-										<input 
+										<Checkbox
+										animation="tada" shape="curve" color="warning" icon={<i className="mdi mdi-check" />} 
 										type="checkbox" 
 										onChange={this.setPaymentOffline}
 										checked={this.state.payment_method !== "online" && this.state.payment_method === "cash"}/>

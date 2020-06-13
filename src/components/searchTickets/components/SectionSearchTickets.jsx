@@ -46,7 +46,7 @@ class SectionSearchTickets extends React.Component {
 					<div className="container d-flex flex-wrap">
 						<SideBarSearchTicketsAndSeatSelection />
 
-						<SearchTicketsJSX />}
+						<SearchTicketsJSX />
 					</div>
 				}
 			</div>
