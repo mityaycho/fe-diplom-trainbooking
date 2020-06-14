@@ -32,7 +32,7 @@ const OrderConfirmed = (props) => {
 										<div className="text-center">
 											<img src={iconOrderTicketSend} alt="..." />
 										</div>
-										<p className=" text-center">билеты будут отправлены на ваш e-mail</p>
+										<p className=" text-center">билеты будут<br/>отправлены<br/>на ваш e-mail</p>
 									</div>
 									<div className="col-lg-4">
 										<div className="text-center">
