@@ -161,7 +161,7 @@ const Form = (props) => {
 					</div>
 					<div className="row border-bottom"></div>
 
-					<div className="d-flex justify-content-end">
+					<div className="row justify-content-end ">
 						<button
 							type="submit"
 							className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold"
@@ -204,7 +204,6 @@ class PassengerForm extends React.Component {
 	setData = (data, number) => this.props.setPersonInfo(data, number);
 
 	render() {
-		console.log(this.props.activeForm)
 		return (
 			<Form
 				disableForm={this.props.disableForm}
