@@ -49,22 +49,22 @@ class TrainTicket extends React.Component {
 			});
 		}
 		this.props.setPassengersAndPay('seatsNumbers', this.state.seat_number);
-	}
+	};
 
 	setAdultSeats = (value) => {
 		this.setState({ sumSeats: this.state.sumSeats + value });
 		this.props.setPassengersAndPay('ticketsAdult', value);
-	}
+	};
 
 	setChildSeat = (value) => {
 		this.setState({ sumSeats: this.state.sumSeats + value, is_child: value !== 0 });
 		this.props.setPassengersAndPay('ticketsChild', value);
-	}
+	};
 
 	setChildWithoutSeat = (value) => {
 		this.props.setPassengersAndPay('ticketsChildWithoutPlace', value);
 		this.setState({ include_children_seat: value !== 0 });
-	}
+	};
 
 	resetParamsIfChangeClassTrain = () => {
 
@@ -87,7 +87,7 @@ class TrainTicket extends React.Component {
 			secondClass: false,
 			firstClass: false
 		});
-	}
+	};
 
 	setFourthClass = () => {
 		this.props.choiceSeatsArray.map(el => {
@@ -109,7 +109,7 @@ class TrainTicket extends React.Component {
 			}
 			return null;
 		});
-	}
+	};
 
 	setThirdClass = () => {
 		this.props.choiceSeatsArray.map(el => {
@@ -131,7 +131,7 @@ class TrainTicket extends React.Component {
 			}
 			return null;
 		});
-	}
+	};
 
 	setSecondClass = () => {
 		this.props.choiceSeatsArray.map(el => {
@@ -153,7 +153,7 @@ class TrainTicket extends React.Component {
 			}
 			return null;
 		});
-	}
+	};
 
 	setFirstClass = () => {
 		this.props.choiceSeatsArray.map(el => {
@@ -175,7 +175,7 @@ class TrainTicket extends React.Component {
 			}
 			return null;
 		});
-	}
+	};
 
 	render() {
 

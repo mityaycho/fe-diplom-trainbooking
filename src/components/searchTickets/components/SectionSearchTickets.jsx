@@ -26,7 +26,7 @@ class SectionSearchTickets extends React.Component {
 		if (prevProps.preloader !== this.props.preloader) {
 			this.setState({ preloader: this.props.preloader });
 		}
-	}
+	};
 
 	render() {
 		return (
