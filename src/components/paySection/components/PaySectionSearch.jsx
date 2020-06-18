@@ -39,7 +39,7 @@ class PaySectionSearch extends React.Component {
 	setDataPayment = () => {
 		this.props.setUserData(this.state);
 		this.props.history.push("/check_confirm_order");
-	}
+	};
 
 	disabledButton = this.state.phone === "" && this.state.email === "" && this.state.payment_method === "";
 
@@ -157,13 +157,13 @@ const mapStateToProps = (state) => {
 		first_name: state.orderTicketsSeats.departure.seats[0].person_info.first_name,
 		last_name: state.orderTicketsSeats.departure.seats[0].person_info.last_name,
 		patronymic: state.orderTicketsSeats.departure.seats[0].person_info.patronymic
-	}
-}
+	};
+};
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		setUserData: (data) => dispatch(setUserDataAC(data))
-	}
-}
+	};
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PaySectionSearch));

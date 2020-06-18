@@ -24,7 +24,7 @@ const Form = (props) => {
 
 		props.setData(newData, props.passengerNumber);
 		props.setActiveButton();
-	}
+	};
 
 	const documents = (value) => {
 		if (value === "Паспорт") {
@@ -32,7 +32,7 @@ const Form = (props) => {
 		} else {
 			props.setDocumentFalse();
 		}
-	}
+	};
 
 	return (
 		<>
@@ -216,7 +216,7 @@ class PassengerForm extends React.Component {
 				setActiveFalse={this.setActiveFalse}
 				setDocumentTrue={this.setDocumentTrue}
 				setDocumentFalse={this.setDocumentFalse} />
-		)
+		);
 	}
 }
 

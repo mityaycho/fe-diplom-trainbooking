@@ -251,13 +251,13 @@ class SectionPassengers extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		seatsNumbers: state.passengersAndPay.seatsNumbers
-	}
-}
+	};
+};
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		setPersonInfo: (data, number) => dispatch(setPersonInfoAC(data, number))
-	}
-}
+	};
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SectionPassengers));
