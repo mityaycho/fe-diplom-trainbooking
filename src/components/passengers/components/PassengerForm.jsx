@@ -161,7 +161,7 @@ const Form = (props) => {
 					</div>
 					<div className="row border-bottom"></div>
 
-					<div className="row justify-content-end ">
+					<div className="row justify-content-end">
 						<button
 							type="submit"
 							className="btn btn-outline-dark m-3 pl-3 pr-3 font-weight-bold"
