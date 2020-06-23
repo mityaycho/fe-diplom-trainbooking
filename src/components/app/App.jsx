@@ -11,7 +11,7 @@ import CheckConfirmOrder from '../checkConfirmOrder/CheckConfirmOrder';
 import OrderConfirmed from '../orderConfirmed/OrderConfirmed';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
-import NavBarTemporary from './components/NavBarTemporary';
+// import NavBarTemporary from './components/NavBarTemporary';
 
 import { Route } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ export const App = () => {
 	return (
 		<div className="App">
 			<NavBar />
-			<NavBarTemporary />
+			{/* <NavBarTemporary /> */}
 
 			<Route exact path="/" render={() => <Main />} />
 			<Route path="/search_tickets" render={() => <SearchTickets />} />
