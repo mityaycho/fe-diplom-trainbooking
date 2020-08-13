@@ -5,11 +5,6 @@ const Reviews = () => {
 		<section className="container reviews mb-5 pb-5" id="reviews">
 			<div className="review-head ml-5">отзывы</div>
 			<div className="carousel slide mb-5" data-ride="carousel" id="carouselExampleIndicators">
-				<ol className="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				</ol>
 				<div className="carousel-inner">
 					<div className="carousel-item active">
 						<div className="container d-flex flex-wrap col-lg-12 mt-5">
