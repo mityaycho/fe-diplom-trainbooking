@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://mityaycho.github.io/fe-diplom-trainbooking/",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "lodash": "^4.17.15",
     "pretty-checkbox": "^3.0.3",
